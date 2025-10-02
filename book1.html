@@ -330,6 +330,23 @@
             const app = initializeApp(firebaseConfig);
             auth = getAuth(app);
             db = getFirestore(app);
+            
+            // **** MAJOR FIX: Moved onAuthStateChanged listener inside the init function ****
+            // This ensures 'auth' object is ready before we use it.
+            onAuthStateChanged(auth, user => {
+                if (user) {
+                    userId = user.uid;
+                    fetchScores();
+                    fetchBadges();
+                } else {
+                    userId = null;
+                    localScores = [];
+                    earnedBadges = {};
+                    renderBadgeHall(); 
+                    updateBonusButtonVisibility();
+                }
+            });
+
             await signIn();
 
             // 4. Setup UI and event listeners
@@ -345,20 +362,6 @@
             dom.loadingIndicator.textContent = '資料載入失敗，請檢查 book1-data.json 檔案是否存在，或重新整理頁面。';
         }
     }
-
-    onAuthStateChanged(auth, user => {
-        if (user) {
-            userId = user.uid;
-            fetchScores();
-            fetchBadges();
-        } else {
-            userId = null;
-            localScores = [];
-            earnedBadges = {};
-            renderBadgeHall(); 
-            updateBonusButtonVisibility();
-        }
-    });
 
     async function signIn() {
         if (!auth) return;
