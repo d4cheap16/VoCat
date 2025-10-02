@@ -130,5 +130,75 @@
                 ]
             }
         }
+    },
+    "wordDetails": {
+        "test1": {
+            "conscience": { "pos": "n.", "translation": "良心", "definition": "The part of you that judges how moral your own actions are and makes you feel guilty about bad things.", "example": "My conscience would really bother me if I didn't tell you the truth.", "example_tw": "如果我不告訴你真相，我的良心會很不安。" },
+            "curiosity": { "pos": "n.", "translation": "好奇心", "definition": "A strong desire to know or learn something.", "example": "His curiosity led him to explore the old, abandoned house.", "example_tw": "他的好奇心驅使他去探索那棟古老的廢棄房屋。" },
+            "discreet": { "pos": "adj.", "translation": "謹慎的", "definition": "Careful and circumspect in one's speech or actions, especially in order to avoid causing offense or to gain an advantage.", "example": "She was very discreet, and I knew I could trust her with my secret.", "example_tw": "她非常謹慎，我知道我可以信任她保守我的秘密。" },
+            "accompanied": { "pos": "v.", "translation": "陪伴", "definition": "To go somewhere with (someone) as a companion or escort.", "example": "The students were accompanied by their teacher on the museum trip.", "example_tw": "學生們在老師的陪同下參觀了博物館。" },
+            "creative": { "pos": "adj.", "translation": "有創意的", "definition": "Relating to or involving the imagination or original ideas.", "example": "The advertising agency is looking for creative people.", "example_tw": "這家廣告公司正在尋找有創意的人才。" },
+            "deliberated": { "pos": "v.", "translation": "仔細考慮", "definition": "To engage in long and careful consideration.", "example": "The jury deliberated for two days before reaching a verdict.", "example_tw": "陪審團經過兩天的仔細考慮才做出裁決。" },
+            "feature": { "pos": "n.", "translation": "特色", "definition": "A distinctive attribute or aspect of something.", "example": "The car's main feature is its advanced safety system.", "example_tw": "這輛車的主要特色是其先進的安全系統。" },
+            "expert": { "pos": "n.", "translation": "專家", "definition": "A person who has a comprehensive and authoritative knowledge of or skill in a particular area.", "example": "He is a world-renowned expert in robotics.", "example_tw": "他是世界知名的機器人學專家。" },
+            "flocks": { "pos": "n.", "translation": "群體", "definition": "A number of birds of one kind feeding, resting, or traveling together.", "example": "Large flocks of geese flew south for the winter.", "example_tw": "大群的鵝向南飛去過冬。" },
+            "biography": { "pos": "n.", "translation": "傳記", "definition": "An account of someone's life written by someone else.", "example": "She wrote a biography of the famous scientist Marie Curie.", "example_tw": "她寫了一本關於著名科學家瑪麗·居禮的傳記。" },
+            "acquaintance": { "pos": "n.", "translation": "相識的人", "definition": "A person one knows slightly, but who is not a close friend.", "example": "He's not a close friend, just a business acquaintance.", "example_tw": "他不是一個親密的朋友，只是一個生意上認識的人。" },
+            "behalf": { "pos": "n.", "translation": "代表", "definition": "In the interests of a person, group, or principle.", "example": "She made a speech on behalf of all the employees.", "example_tw": "她代表所有員工發表演說。" },
+            "competitive": { "pos": "adj.", "translation": "有競爭力的", "definition": "Relating to or characterized by competition.", "example": "The company has to be competitive in the global market.", "example_tw": "這家公司必須在全球市場上具有競爭力。" },
+            "companion": { "pos": "n.", "translation": "同伴", "definition": "A person or animal with whom one spends a lot of time or with whom one travels.", "example": "His dog has been his faithful companion for years.", "example_tw": "多年來，他的狗一直是他忠實的伴侶。" },
+            "activate": { "pos": "v.", "translation": "啟動", "definition": "To make (something) active or operative.", "example": "You need a password to activate the new software.", "example_tw": "你需要密碼來啟動這個新軟體。" }
+        },
+        "test2": {
+            "fussy": { "pos": "adj.", "translation": "挑剔的", "definition": "Hard to please and picky, especially about food, clothes, or cleanliness.", "example": "He is a very fussy eater and will only eat certain things.", "example_tw": "他是個非常挑剔的食客，只吃特定的食物。" },
+            "cunning": { "pos": "adj.", "translation": "狡猾的", "definition": "Having or showing skill in achieving one's ends by deceit or evasion.", "example": "The cunning fox was able to steal the cheese from the crow.", "example_tw": "狡猾的狐狸成功地從烏鴉那裡偷走了乳酪。" },
+            "obstinate": { "pos": "adj.", "translation": "固執的", "definition": "Stubbornly refusing to change one's opinion or chosen course of action, despite attempts to persuade one to do so.", "example": "He is obstinate and will not listen to anyone's advice.", "example_tw": "他很固執，不聽任何人的建議。" },
+            "optimistic": { "pos": "adj.", "translation": "樂觀的", "definition": "Hopeful and confident about the future.", "example": "She remains optimistic about the team's chances of winning.", "example_tw": "她對團隊獲勝的機會保持樂觀。" },
+            "intelligent": { "pos": "adj.", "translation": "聰明的", "definition": "Having or showing intelligence, especially of a high level.", "example": "Dolphins are highly intelligent animals.", "example_tw": "海豚是高度聰明的動物。" },
+            "gorgeous": { "pos": "adj.", "translation": "華麗的; 美麗的", "definition": "Beautiful; very attractive.", "example": "The bride looked gorgeous in her white dress.", "example_tw": "新娘穿著白色禮服看起來美極了。" },
+            "indifferent": { "pos": "adj.", "translation": "漠不關心的", "definition": "Having no particular interest or sympathy; unconcerned.", "example": "He was indifferent to the suffering of others.", "example_tw": "他對他人的痛苦漠不關心。" },
+            "nuisance": { "pos": "n.", "translation": "討厭的人事物", "definition": "A person, thing, or circumstance causing inconvenience or annoyance.", "example": "The constant noise from the construction site is a real nuisance.", "example_tw": "建築工地的持續噪音真是一種滋擾。" },
+            "modesty": { "pos": "n.", "translation": "謙虛", "definition": "The quality of having a moderate or humble view of one's importance.", "example": "He accepted the award with great modesty.", "example_tw": "他非常謙虛地接受了這個獎項。" },
+            "intimate": { "pos": "adj.", "translation": "親密的", "definition": "Closely acquainted; familiar.", "example": "They have an intimate relationship and share all their secrets.", "example_tw": "他們關係親密，分享所有秘密。" },
+            "nonsense": { "pos": "n.", "translation": "胡說", "definition": "Spoken or written words that have no meaning or make no sense.", "example": "Stop talking nonsense and tell me what really happened.", "example_tw": "別胡說了，告訴我到底發生了什麼。" },
+            "alienation": { "pos": "n.", "translation": "疏遠", "definition": "The state or experience of being isolated from a group or an activity to which one should belong or in which one should be involved.", "example": "Many immigrants suffer from a sense of alienation and loneliness.", "example_tw": "許多移民都感到疏遠和孤獨。" },
+            "ignorant": { "pos": "adj.", "translation": "無知的", "definition": "Lacking knowledge or awareness in general; uneducated or unsophisticated.", "example": "He was ignorant of the new company policy.", "example_tw": "他對公司的新政策一無所知。" },
+            "freak": { "pos": "adj.", "translation": "異常的", "definition": "Very unusual or unexpected, especially in an unwelcome or strange way.", "example": "A freak storm caused massive damage to the town.", "example_tw": "一場異常的風暴對該鎮造成了巨大破壞。" },
+            "innocence": { "pos": "n.", "translation": "無辜", "definition": "The state, quality, or fact of being innocent of a crime or offense.", "example": "The lawyer's job is to prove her client's innocence.", "example_tw": "律師的工作是證明她客戶的無辜。" }
+        },
+        "test3": {
+            "dismay": { "pos": "n.", "translation": "沮喪", "definition": "Concern and distress caused by something unexpected.", "example": "To my dismay, the store was closed when I arrived.", "example_tw": "令我沮喪的是，我到達時商店已經關門了。" },
+            "halt": { "pos": "n.", "translation": "停止", "definition": "A stop in movement or progress.", "example": "The project came to a halt due to a lack of funding.", "example_tw": "由於缺乏資金，該項目陷入停頓。" },
+            "dismissed": { "pos": "v.", "translation": "解雇", "definition": "To order or allow to leave; send away.", "example": "He was dismissed from his job for being late too often.", "example_tw": "他因經常遲到而被解雇。" },
+            "interview": { "pos": "n.", "translation": "面試", "definition": "A formal meeting in which one or more persons question, consult, or evaluate another person.", "example": "She has an interview for a new job tomorrow.", "example_tw": "她明天有一個新工作的面試。" },
+            "bound": { "pos": "adj.", "translation": "必然的", "definition": "Certain to do or have something.", "example": "With all this traffic, we are bound to be late.", "example_tw": "交通這麼擁擠，我們肯定會遲到。" },
+            "commutes": { "pos": "v.", "translation": "通勤", "definition": "To travel some distance between one's home and place of work on a regular basis.", "example": "He commutes to the city every day by train.", "example_tw": "他每天搭火車到城市通勤。" },
+            "conducted": { "pos": "v.", "translation": "進行", "definition": "To organize and carry out.", "example": "The scientist conducted an experiment to test her theory.", "example_tw": "這位科學家進行了一項實驗來檢驗她的理論。" },
+            "adhere": { "pos": "v.", "translation": "遵守", "definition": "To stick fast to (a surface or substance); to believe in and follow the practices of.", "example": "All members must adhere to the rules of the club.", "example_tw": "所有會員都必須遵守俱樂部的規則。" },
+            "overwhelming": { "pos": "adj.", "translation": "壓倒性的", "definition": "Very great in amount or effect.", "example": "She felt an overwhelming sense of relief after the exam.", "example_tw": "考完試後，她感到一種無比的解脫。" },
+            "ambition": { "pos": "n.", "translation": "抱負", "definition": "A strong desire to do or to achieve something, typically requiring determination and hard work.", "example": "His ambition is to become a successful entrepreneur.", "example_tw": "他的抱負是成為一名成功的企業家。" },
+            "mounted": { "pos": "v.", "translation": "增加", "definition": "To grow larger or more intense.", "example": "As the deadline approached, the pressure mounted.", "example_tw": "隨著截止日期的臨近，壓力越來越大。" },
+            "defeat": { "pos": "n.", "translation": "失敗", "definition": "An instance of losing a contest or struggle.", "example": "The team suffered a heavy defeat in the final match.", "example_tw": "該隊在決賽中慘敗。" },
+            "committed": { "pos": "v.", "translation": "犯(錯)", "definition": "To perpetrate or carry out (a mistake, crime, or immoral act).", "example": "He committed a serious error in his calculations.", "example_tw": "他在計算中犯了一個嚴重的錯誤。" },
+            "exhausted": { "pos": "adj.", "translation": "筋疲力盡的", "definition": "Extremely tired.", "example": "After working for 12 hours, he was completely exhausted.", "example_tw": "工作了12個小時後，他完全筋疲力盡了。" },
+            "abandoned": { "pos": "adj.", "translation": "被遺棄的", "definition": "Having been deserted or left.", "example": "They found an abandoned puppy on the side of the road.", "example_tw": "他們在路邊發現了一隻被遺棄的小狗。" }
+        },
+        "test4": {
+            "unemployment": { "pos": "n.", "translation": "失業", "definition": "The state of being unemployed.", "example": "The unemployment rate has increased in the last quarter.", "example_tw": "上一季的失業率有所上升。" },
+            "patrol": { "pos": "n.", "translation": "巡邏", "definition": "A group of people or vehicles that go through an area to make sure it is safe.", "example": "The security guard makes a patrol of the building every hour.", "example_tw": "保全人員每小時對大樓進行一次巡邏。" },
+            "routine": { "pos": "n.", "translation": "例行公事", "definition": "A sequence of actions regularly followed; a fixed program.", "example": "My morning routine includes jogging and having a healthy breakfast.", "example_tw": "我的早晨例行公事包括慢跑和吃一頓健康的早餐。" },
+            "selected": { "pos": "v.", "translation": "挑選", "definition": "To carefully choose as being the best or most suitable.", "example": "She was selected to represent the country in the competition.", "example_tw": "她被選中代表國家參加比賽。" },
+            "tough": { "pos": "adj.", "translation": "困難的", "definition": "Difficult and needing a lot of effort or determination to deal with.", "example": "It was a tough decision to make, but it was the right one.", "example_tw": "這是一個艱難的決定，但卻是正確的。" },
+            "perspectives": { "pos": "n.", "translation": "觀點", "definition": "A particular attitude toward or way of regarding something; a point of view.", "example": "It is important to listen to different perspectives before making a decision.", "example_tw": "在做決定之前聽取不同的觀點很重要。" },
+            "embraces": { "pos": "v.", "translation": "欣然接受", "definition": "To accept (a belief, theory, or change) willingly and enthusiastically.", "example": "The company embraces new technology to improve its products.", "example_tw": "該公司欣然接受新技術以改進其產品。" },
+            "task": { "pos": "n.", "translation": "任務", "definition": "A piece of work to be done or undertaken.", "example": "My first task of the day is to answer all my emails.", "example_tw": "我今天的第一個任務是回覆所有電子郵件。" },
+            "resume": { "pos": "v.", "translation": "繼續", "definition": "To begin again or continue after a pause or interruption.", "example": "We will resume the meeting after a short break.", "example_tw": "短暫休息後我們將繼續會議。" },
+            "presume": { "pos": "v.", "translation": "假設", "definition": "To suppose that something is the case on the basis of probability.", "example": "I presume you have already heard the news.", "example_tw": "我猜想你已經聽說這個消息了。" },
+            "vacancies": { "pos": "n.", "translation": "職缺", "definition": "An unoccupied position or job.", "example": "There are several vacancies for software engineers at the company.", "example_tw": "該公司有幾個軟體工程師的職缺。" },
+            "strike": { "pos": "n.", "translation": "罷工", "definition": "A refusal to work organized by a body of employees as a form of protest.", "example": "The workers are on strike for better pay and working conditions.", "example_tw": "工人們正在為爭取更好的薪酬和工作條件而罷工。" },
+            "deprive": { "pos": "v.", "translation": "剝奪", "definition": "To deny (a person or place) the possession or use of something.", "example": "Lack of sleep can deprive you of the energy you need.", "example_tw": "睡眠不足會剝奪你所需的精力。" },
+            "retrieve": { "pos": "v.", "translation": "取回", "definition": "To get or bring (something) back; regain possession of.", "example": "He had to go back to the house to retrieve his forgotten keys.", "example_tw": "他不得不回到房子裡取回他忘記的鑰匙。" },
+            "consigned": { "pos": "v.", "translation": "交付", "definition": "To deliver (something) to a person's keeping.", "example": "The goods were consigned to a shipping company for delivery.", "example_tw": "貨物已交付給一家船運公司進行運送。" }
+        }
     }
 }

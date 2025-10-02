@@ -247,7 +247,7 @@
     let wordDetails = {};
 
     // --- Firebase and App Config ---
-    const pageIdentifier = 'high_freq'; // <-- IMPORTANT: Changed to 'high_freq'
+    const pageIdentifier = 'high_freq'; 
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
     
     const firebaseConfig = {
@@ -317,14 +317,14 @@
     async function initializeAppWrapper() { 
         try {
             // 1. Fetch data from JSON file
-            const response = await fetch('high_freq-data.json'); // <-- IMPORTANT: Changed to 'high_freq-data.json'
+            const response = await fetch('high_freq-data.json'); 
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const data = await response.json();
 
             // 2. Populate data variables
             allBadges = data.allBadges;
             vocabulary = data.vocabulary;
-            wordDetails = data.wordDetails;
+            wordDetails = data.wordDetails; // This now correctly gets data from the updated JSON
 
             // 3. Initialize Firebase
             const app = initializeApp(firebaseConfig);
@@ -717,10 +717,11 @@
 
         if (!wordData) {
             console.error(`Word data for "${word}" in unit "${state.currentUnit}" not found.`);
+            dom.modalContent.innerHTML = `<p class="text-red-500">找不到單字 "${word}" 的詳細資料。</p>`;
+            dom.hintModal.style.display = 'block';
             return;
         }
         
-        // ** FIX for high_freq: Removed the 'family' and 'note' logic **
         dom.modalContent.innerHTML = `
             <div class="flex justify-between items-start">
                 <div class="text-left">
