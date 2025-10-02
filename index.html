@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>單字練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: #f3f4f6; /* bg-gray-100 */
+        }
+        .control-btn {
+            transition: all 0.2s ease;
+        }
+        .control-btn.active {
+            transform: scale(1.05);
+            box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+        }
+        .group-btn.active {
+            background-color: #4f46e5; /* bg-indigo-600 */
+            color: white;
+        }
+        .difficulty-btn-wrapper {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 0.25rem; /* p-1 */
+        }
+        .difficulty-btn.active {
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* shadow-md */
+        }
+        .answer-btn {
+            transition: transform 0.1s ease-in-out;
+        }
+        .answer-btn:hover {
+            transform: translateY(-2px);
+        }
+        .answer-btn.correct {
+            background-color: #10b981; /* bg-emerald-500 */
+            color: white;
+            border-color: #059669; /* border-emerald-700 */
+        }
+        .answer-btn.incorrect {
+            background-color: #ef4444; /* bg-red-500 */
+            color: white;
+            border-color: #dc2626; /* border-red-700 */
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <div id="app-container" class="max-w-4xl mx-auto p-4 md:p-6 lg:p-8 min-h-screen flex flex-col hidden">
+        
+        <header class="text-center mb-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-indigo-600">單字達人挑戰</h1>
+            <p id="book-title" class="text-gray-500 mt-2">Book 1</p>
+        </header>
+
+        <main id="main-content" class="flex-grow flex flex-col bg-white rounded-2xl shadow-lg p-6">
+            
+            <!-- 設定畫面 -->
+            <div id="settings-screen">
+                <div class="mb-6">
+                    <h2 class="text-lg font-semibold text-gray-700 mb-3">1. 選擇單元</h2>
+                    <div id="group-buttons" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+                        <!-- Group buttons will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 class="text-lg font-semibold text-gray-700 mb-3">2. 選擇難度</h2>
+                    <div id="difficulty-buttons" class="flex items-center justify-center space-x-2 md:space-x-4 difficulty-btn-wrapper max-w-sm mx-auto">
+                        <!-- Difficulty buttons will be inserted here -->
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button id="start-btn" class="w-full sm:w-auto bg-indigo-600 text-white font-bold py-3 px-12 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-transform transform hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+                        開始挑戰
+                    </button>
+                </div>
+            </div>
+
+            <!-- 遊戲畫面 -->
+            <div id="game-screen" class="hidden flex-grow flex flex-col items-center justify-between">
+                <div class="w-full flex justify-between items-center mb-4">
+                    <div class="text-sm text-gray-500">
+                        <span id="current-word-index">1</span> / <span id="total-words-count">10</span>
+                    </div>
+                    <div id="score" class="text-lg font-bold text-indigo-500">分數: 0</div>
+                </div>
+                
+                <div class="flex-grow flex flex-col items-center justify-center w-full">
+                    <p id="question-word" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-12"></p>
+                    <div id="answer-options" class="grid grid-cols-2 gap-4 w-full max-w-md">
+                        <!-- Answer options will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="w-full text-center mt-6">
+                    <button id="next-btn" class="w-full sm:w-auto bg-gray-200 text-gray-700 font-bold py-2 px-10 rounded-lg hover:bg-gray-300 hidden">下一題</button>
+                </div>
+            </div>
+
+            <!-- 結果畫面 -->
+            <div id="result-screen" class="hidden text-center">
+                 <h2 class="text-2xl font-bold mb-4">挑戰完成！</h2>
+                 <p class="text-5xl font-bold text-indigo-600 mb-2" id="final-score">100</p>
+                 <p class="text-gray-600 mb-6" id="score-feedback">太棒了！你是單字大師！</p>
+                 <div class="space-x-4">
+                    <button id="restart-btn" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-indigo-700">再次挑戰</button>
+                    <button id="back-to-settings-btn" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded-lg hover:bg-gray-300">返回主選單</button>
+                 </div>
+            </div>
+
+        </main>
+        
+        <footer class="text-center text-gray-400 text-sm mt-6">
+            <p>Vocabulary Challenge App</p>
+        </footer>
+    </div>
+    
+    <div id="loading-indicator" class="flex items-center justify-center min-h-screen">
+        <p class="text-gray-500 text-lg">正在載入單字資料...</p>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // =================================================================
+            // 初始狀態和設定
+            // =================================================================
+            const state = {
+                wordGroups: {},
+                currentGroup: null,
+                currentDifficulty: null,
+                currentWords: [],
+                currentWordIndex: 0,
+                score: 0,
+                correctStreak: 0,
+                questionType: 'en_to_zh', // 'en_to_zh' or 'zh_to_en'
+            };
+
+            const difficultyLevels = {
+                A1: { name: '初級', questionCount: 10, options: 2 },
+                B1: { name: '中級', questionCount: 15, options: 4 },
+                C1: { name: '高級', questionCount: 20, options: 4 },
+                C2: { name: '專家', questionCount: 25, options: 4, reverseChance: 0.5 }
+            };
+
+            // =================================================================
+            // DOM 元素快取
+            // =================================================================
+            const DOMElements = {
+                appContainer: document.getElementById('app-container'),
+                loadingIndicator: document.getElementById('loading-indicator'),
+                screens: {
+                    settings: document.getElementById('settings-screen'),
+                    game: document.getElementById('game-screen'),
+                    result: document.getElementById('result-screen'),
+                },
+                buttons: {
+                    start: document.getElementById('start-btn'),
+                    next: document.getElementById('next-btn'),
+                    restart: document.getElementById('restart-btn'),
+                    backToSettings: document.getElementById('back-to-settings-btn'),
+                    groups: document.getElementById('group-buttons'),
+                    difficulties: document.getElementById('difficulty-buttons'),
+                },
+                gameElements: {
+                    question: document.getElementById('question-word'),
+                    options: document.getElementById('answer-options'),
+                    score: document.getElementById('score'),
+                    currentIndex: document.getElementById('current-word-index'),
+                    totalCount: document.getElementById('total-words-count'),
+                },
+                resultElements: {
+                    finalScore: document.getElementById('final-score'),
+                    feedback: document.getElementById('score-feedback'),
+                }
+            };
+            
+            // =================================================================
+            // 主要初始化函式
+            // =================================================================
+            async function initializeApp() {
+                try {
+                    const response = await fetch('vocabulary.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    state.wordGroups = await response.json();
+                    
+                    // 資料載入成功後，才設定介面和事件
+                    setupGroupButtons();
+                    setupDifficultyButtons();
+                    setupEventListeners();
+                    
+                    DOMElements.loadingIndicator.classList.add('hidden');
+                    DOMElements.appContainer.classList.remove('hidden');
+
+                } catch (error) {
+                    console.error("無法載入單字資料:", error);
+                    DOMElements.loadingIndicator.textContent = '單字資料載入失敗，請重新整理頁面。';
+                }
+            }
+
+            // =================================================================
+            // 介面設定 (Setup UI)
+            // =================================================================
+            function setupGroupButtons() {
+                DOMElements.buttons.groups.innerHTML = '';
+                for (const key in state.wordGroups) {
+                    const group = state.wordGroups[key];
+                    const button = document.createElement('button');
+                    button.textContent = group.name;
+                    button.dataset.groupKey = key;
+                    button.className = 'group-btn control-btn p-3 border rounded-lg transition-colors';
+                    DOMElements.buttons.groups.appendChild(button);
+                }
+            }
+
+            function setupDifficultyButtons() {
+                DOMElements.buttons.difficulties.innerHTML = '';
+                for (const key in difficultyLevels) {
+                    const level = difficultyLevels[key];
+                    const button = document.createElement('button');
+                    button.textContent = level.name;
+                    button.dataset.difficultyKey = key;
+                    button.className = 'difficulty-btn control-btn flex-1 py-2 px-4 rounded-lg text-sm md:text-base font-semibold';
+                    DOMElements.buttons.difficulties.appendChild(button);
+                }
+            }
+
+            // =================================================================
+            // 事件監聽 (Event Listeners)
+            // =================================================================
+            function setupEventListeners() {
+                DOMElements.buttons.groups.addEventListener('click', handleGroupSelection);
+                DOMElements.buttons.difficulties.addEventListener('click', handleDifficultySelection);
+                DOMElements.buttons.start.addEventListener('click', startGame);
+                DOMElements.buttons.next.addEventListener('click', nextQuestion);
+                DOMElements.gameElements.options.addEventListener('click', handleAnswer);
+                DOMElements.buttons.restart.addEventListener('click', startGame);
+                DOMElements.buttons.backToSettings.addEventListener('click', () => showScreen('settings'));
+            }
+
+            function handleGroupSelection(e) {
+                if (e.target.matches('.group-btn')) {
+                    state.currentGroup = e.target.dataset.groupKey;
+                    updateActiveButton(DOMElements.buttons.groups, e.target);
+                    checkStartButton();
+                }
+            }
+
+            function handleDifficultySelection(e) {
+                if (e.target.matches('.difficulty-btn')) {
+                    state.currentDifficulty = e.target.dataset.difficultyKey;
+                    updateActiveButton(DOMElements.buttons.difficulties, e.target);
+                    checkStartButton();
+                }
+            }
+
+            function handleAnswer(e) {
+                if (e.target.matches('.answer-btn') && !e.target.disabled) {
+                    const selectedAnswer = e.target.dataset.answer;
+                    const correctAnswer = state.currentWords[state.currentWordIndex].answer;
+                    const buttons = DOMElements.gameElements.options.querySelectorAll('.answer-btn');
+
+                    buttons.forEach(btn => {
+                        btn.disabled = true;
+                        if (btn.dataset.answer === correctAnswer) {
+                            btn.classList.add('correct');
+                        }
+                    });
+
+                    if (selectedAnswer === correctAnswer) {
+                        e.target.classList.add('correct');
+                        state.correctStreak++;
+                        state.score += 10 + (state.correctStreak * 2); // 連續答對有加分
+                        updateScore();
+                    } else {
+                        e.target.classList.add('incorrect');
+                        state.correctStreak = 0;
+                    }
+                    DOMElements.buttons.next.classList.remove('hidden');
+                }
+            }
+
+            // =================================================================
+            // 遊戲邏輯 (Game Logic)
+            // =================================================================
+            function startGame() {
+                if (!state.currentGroup || !state.currentDifficulty) return;
+                
+                // 1. 重設狀態
+                state.score = 0;
+                state.currentWordIndex = 0;
+                state.correctStreak = 0;
+                updateScore();
+                
+                // 2. 準備單字
+                prepareWords();
+                
+                // 3. 顯示遊戲畫面並開始第一-題
+                showScreen('game');
+                displayQuestion();
+            }
+            
+            function prepareWords() {
+                const groupWords = state.wordGroups[state.currentGroup].words;
+                const allWords = Object.entries(groupWords).map(([en, zh]) => ({ en, zh }));
+                
+                // Shuffle and slice words
+                const shuffled = allWords.sort(() => 0.5 - Math.random());
+                const questionCount = difficultyLevels[state.currentDifficulty].questionCount;
+                state.currentWords = shuffled.slice(0, Math.min(questionCount, shuffled.length));
+
+                DOMElements.gameElements.totalCount.textContent = state.currentWords.length;
+            }
+
+            function displayQuestion() {
+                DOMElements.buttons.next.classList.add('hidden');
+                
+                if (state.currentWordIndex >= state.currentWords.length) {
+                    endGame();
+                    return;
+                }
+
+                DOMElements.gameElements.currentIndex.textContent = state.currentWordIndex + 1;
+
+                const word = state.currentWords[state.currentWordIndex];
+                const difficulty = difficultyLevels[state.currentDifficulty];
+
+                // 決定是中翻英還是英翻中
+                const reverseChance = difficulty.reverseChance || 0;
+                state.questionType = Math.random() < reverseChance ? 'zh_to_en' : 'en_to_zh';
+
+                const question = state.questionType === 'en_to_zh' ? word.en : word.zh;
+                const answer = state.questionType === 'en_to_zh' ? word.zh : word.en;
+                word.answer = answer; // Store correct answer
+
+                DOMElements.gameElements.question.textContent = question;
+
+                // 產生選項
+                const options = generateOptions(answer, difficulty.options);
+                DOMElements.gameElements.options.innerHTML = '';
+                options.forEach(opt => {
+                    const button = document.createElement('button');
+                    button.textContent = opt;
+                    button.dataset.answer = opt;
+                    button.className = 'answer-btn w-full p-4 border-2 border-gray-300 rounded-lg text-lg hover:bg-gray-100';
+                    DOMElements.gameElements.options.appendChild(button);
+                });
+            }
+            
+            function generateOptions(correctAnswer, count) {
+                const allWords = Object.entries(state.wordGroups[state.currentGroup].words);
+                let options = [correctAnswer];
+
+                const answerPool = (state.questionType === 'en_to_zh') 
+                    ? allWords.map(([en, zh]) => zh)
+                    : allWords.map(([en, zh]) => en);
+
+                while (options.length < count) {
+                    const randomWord = answerPool[Math.floor(Math.random() * answerPool.length)];
+                    if (!options.includes(randomWord)) {
+                        options.push(randomWord);
+                    }
+                }
+                return options.sort(() => 0.5 - Math.random());
+            }
+
+            function nextQuestion() {
+                state.currentWordIndex++;
+                displayQuestion();
+            }
+
+            function endGame() {
+                DOMElements.resultElements.finalScore.textContent = state.score;
+                
+                let feedback = "再接再厲！";
+                const percentage = (state.score / (state.currentWords.length * 15)); // 粗估
+                if (percentage > 0.9) feedback = "太棒了！你是單字大師！";
+                else if (percentage > 0.7) feedback = "表現優異！繼續保持！";
+                else if (percentage > 0.5) feedback = "不錯的成績！";
+
+                DOMElements.resultElements.feedback.textContent = feedback;
+                showScreen('result');
+            }
+
+            // =================================================================
+            // 輔助函式 (Utility Functions)
+            // =================================================================
+            function showScreen(screenName) {
+                Object.values(DOMElements.screens).forEach(screen => screen.classList.add('hidden'));
+                DOMElements.screens[screenName].classList.remove('hidden');
+                
+                if (screenName === 'settings') {
+                    // Reset selections when returning to settings
+                    state.currentGroup = null;
+                    state.currentDifficulty = null;
+                    updateActiveButton(DOMElements.buttons.groups, null);
+                    updateActiveButton(DOMElements.buttons.difficulties, null);
+                    checkStartButton();
+                }
+            }
+
+            function updateActiveButton(container, activeButton) {
+                container.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+                if (activeButton) {
+                    activeButton.classList.add('active');
+                }
+            }
+
+            function checkStartButton() {
+                DOMElements.buttons.start.disabled = !(state.currentGroup && state.currentDifficulty);
+            }
+            
+            function updateScore() {
+                DOMElements.gameElements.score.textContent = `分數: ${state.score}`;
+            }
+
+            // =================================================================
+            // 啟動應用程式
+            // =================================================================
+            initializeApp();
+        });
+    </script>
+</body>
+</html>
