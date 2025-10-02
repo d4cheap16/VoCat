@@ -2,434 +2,941 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字練習</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>VoCat</title>
+    <link rel="preload" as="image" href="https://d4cheap16.github.io/vp/GB01.png">
+    <link rel="preload" as="image" href="https://d4cheap16.github.io/vp/Cat.jpg">
+    
+    <!-- 社群媒體預覽卡片 (Open Graph Meta Tags) -->
+    <meta name="description" content="Learn high school vocabulary in a fun way!">
+    <meta property="og:title" content="VoCat">
+    <meta property="og:description" content="Learn high school vocabulary in a fun way!">
+    <meta property="og:image" content="https://d4cheap16.github.io/vp/GB.jpg">
+    <meta property="og:url" content="https://d4cheap16.github.io/vp/">
+    <meta property="og:type" content="website">
+
+    <!-- 網站圖示 (Favicon & Apple Touch Icon) -->
+    <link rel="icon" href="https://d4cheap16.github.io/vp/favicon.png" type="image/jpeg">
+    <link rel="apple-touch-icon" href="https://d4cheap16.github.io/vp/favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入兩種字體：像素風格 和 Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            background-color: #f3f4f6; /* bg-gray-100 */
+        :root {
+            --screen-bg: #9bbc0f;
+            --screen-text: #0f380f;
+            --body-bg: #d3d3d3; /* Light gray for wider screens */
         }
-        .control-btn {
-            transition: all 0.2s ease;
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--body-bg);
+            font-family: 'Press Start 2P', 'Noto Sans TC', cursive, sans-serif;
         }
-        .control-btn.active {
-            transform: scale(1.05);
-            box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
         }
-        .group-btn.active {
-            background-color: #4f46e5; /* bg-indigo-600 */
-            color: white;
+
+        .gameboy-wrapper {
+            position: relative;
+            max-width: 450px;
+            width: 100%;
+            aspect-ratio: 1000 / 1602;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
         }
-        .difficulty-btn-wrapper {
-            background-color: #f3f4f6; /* bg-gray-100 */
-            border-radius: 0.75rem; /* rounded-xl */
-            padding: 0.25rem; /* p-1 */
+        
+        .gameboy-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            user-select: none;
         }
-        .difficulty-btn.active {
-            background-color: white;
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* shadow-md */
+
+        .gameboy-screen {
+            position: absolute;
+            top: 10%; 
+            left: 11%;
+            width: 78%;
+            height: 36%;
+            background-color: var(--screen-bg);
+            color: var(--screen-text);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            clip-path: inset(0 round 9px 9px 18% 9px);
         }
-        .answer-btn {
-            transition: transform 0.1s ease-in-out;
+        
+        /* --- 開機動畫區塊 --- */
+        .boot-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOutBoot 1s ease-in 1.5s forwards;
         }
-        .answer-btn:hover {
-            transform: translateY(-2px);
+
+        .boot-logo {
+            opacity: 0;
+            animation: dropInLogo 1.5s ease-out 0.5s forwards, blinkLogo 0.8s step-end 2.5s;
         }
-        .answer-btn.correct {
-            background-color: #10b981; /* bg-emerald-500 */
-            color: white;
-            border-color: #059669; /* border-emerald-700 */
+
+        .boot-screen.reboot {
+            display: flex !important;
+            opacity: 1;
+            animation: fadeOutBoot 1s ease-in 1.5s forwards;
         }
-        .answer-btn.incorrect {
-            background-color: #ef4444; /* bg-red-500 */
-            color: white;
-            border-color: #dc2626; /* border-red-700 */
+        .boot-screen.reboot .boot-logo {
+            opacity: 0;
+            animation: dropInLogo 1.5s ease-out 0.5s forwards, blinkLogo 0.8s step-end 2.5s;
         }
+
+        .boot-logo img {
+            width: 100%; 
+            height: auto;
+        }  
+
+        @keyframes dropInLogo {
+            0% { transform: translateY(-100%); opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes blinkLogo {
+            50% { opacity: 0; }
+        }
+
+        @keyframes fadeOutBoot {
+            to { opacity: 0; visibility: hidden; }
+        }
+        
+        /* --- 主選單 --- */
+        .main-menu {
+            opacity: 0;
+            animation: fadeInMenu 0.5s ease-in 2.5s forwards;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 3%;
+            box-sizing: border-box;
+        }
+        
+        .main-menu.reboot {
+            opacity: 0;
+            animation: fadeInMenu 0.5s ease-in 2.5s forwards;
+        }
+
+        @keyframes fadeInMenu {
+            to { opacity: 1; }
+        }
+
+        /* --- 遊戲選單 --- */
+        .tester-menu {
+            display: none;
+            height: 100%;
+            flex-direction: column;
+            padding: 3%;
+            box-sizing: border-box;
+        }
+        .gameboy-screen.tester-active .main-menu {
+            display: none;
+        }
+        .gameboy-screen.tester-active .tester-menu {
+            display: flex;
+        }
+
+        .screen-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 2%;
+            border-bottom: 2px solid var(--screen-text);
+            margin-bottom: 3%;
+            font-size: clamp(10px, 3vw, 14px);
+            letter-spacing: -1px;
+            flex-shrink: 0;
+        }
+        .header-cat {
+           height: 2em;
+            width: auto;
+        }        
+        .menu-wrapper {
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        /* --- 美化卷軸樣式 --- */
+        .menu-wrapper::-webkit-scrollbar {
+            width: 10px;
+        }
+        .menu-wrapper::-webkit-scrollbar-track {
+            background: transparent;
+            border-left: 2px solid transparent;
+        }
+        .menu-wrapper::-webkit-scrollbar-thumb {
+            background: transparent;
+            border-radius: 0;
+        }
+
+        .menu-list { list-style: none; padding: 0; margin: 0; }
+        .menu-list li { margin-bottom: 2%; }
+        .menu-list a { color: var(--screen-text); text-decoration: none; display: flex; align-items: center; padding: 2.5%; font-size: clamp(14px, 3.8vw, 16px); transition: all 0.2s; white-space: nowrap; }
+        .menu-category > a { font-weight: bold; justify-content: space-between; }
+        .menu-category > a::after { content: '▼'; font-size: 80%; transition: transform 0.2s; }
+        .menu-category.open > a::after { transform: rotate(180deg); }
+        .sub-menu { list-style: none; padding-left: 10px; margin: 5px 0; display: none; }
+        .menu-category.open .sub-menu { display: block; }
+        .sub-menu a { font-size: clamp(12px, 3.5vw, 14px); }
+
+        .sub-menu a::before, 
+        .tester-menu .menu-list a::before { 
+            content: '▶'; 
+            margin-right: 8%; 
+            opacity: 0; 
+            transition: opacity 0.2s; 
+        }
+        .menu-list a:hover, 
+        .menu-list a:focus, 
+        .menu-list a.selected { 
+            background-color: var(--screen-text); 
+            color: var(--screen-bg); 
+        }
+        .sub-menu a:hover::before, 
+        .sub-menu a:focus::before, 
+        .tester-menu .menu-list a:hover::before, 
+        .tester-menu .menu-list a.selected::before { 
+            opacity: 1; 
+        }
+        
+        /* --- 遊戲選單底部說明 --- */
+        .menu-footer {
+            flex-shrink: 0;
+            text-align: center;
+            padding: 4% 0 2%;
+            margin-top: auto;
+            border-top: 2px solid var(--screen-text);
+            font-size: clamp(9px, 2.5vw, 11px);
+            letter-spacing: -1px;
+        }
+        .menu-footer p {
+            margin: 0;
+        }
+        
+        /* --- 遊戲畫布與計分板 (通用) --- */
+        #game-canvas { display: none; width: 100%; height: 100%; background-color: var(--screen-bg); }
+        #game-score { 
+            display: none; 
+            position: absolute; 
+            top: 4px;
+            left: 12px;
+            right: 12px;
+            font-size: clamp(10px, 2.5vw, 11px); 
+            color: var(--screen-text); 
+            z-index: 10;
+            white-space: pre; 
+            text-align: right;
+            line-height: 1.2;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .gameboy-screen.game-active .main-menu,
+        .gameboy-screen.game-active .tester-menu { 
+            display: none; 
+        }
+        .gameboy-screen.game-active #game-canvas { display: block; }
+        .gameboy-screen.game-active #game-score { display: block; }
+
+        /* --- 新增：遊戲畫面復古濾鏡 --- */
+        .gameboy-screen.game-active::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(15, 56, 15, 0.07) 1px, rgba(15, 56, 15, 0.07) 2px),
+                repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(15, 56, 15, 0.07) 1px, rgba(15, 56, 15, 0.07) 2px);
+            background-size: 2px 2px;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .screen-footer { 
+            margin: 0; 
+            padding: 0; 
+            position: absolute; 
+            bottom: 46%; 
+            left: 11%; 
+            width: 80%; 
+            text-align: left; 
+            font-size: clamp(9px, 2.2vw, 11px); 
+            color: #444; 
+            opacity: 0; 
+            line-height: 1.6; 
+            cursor: pointer; 
+        }
+        .screen-footer.animate { animation: fadeInMenu 0.5s ease-in 0s forwards; }
+        .screen-footer p { margin: 0; padding: 0; }
+        .site-footer { position: absolute; bottom: 10px; left: 0; width: 100%; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 6px; font-size: 10px; color: #555; z-index: 10; }
+        .site-footer span { display: inline-flex; align-items: center; }
+        @media (max-width: 380px) { .site-footer { flex-direction: column; gap: 2px; } }
+        .footer-logo { height: 2em; width: auto; margin-left: 4px; vertical-align: middle; }
+
+        .gb-button { 
+            position: absolute; 
+            transition: background-color 0.2s, transform 0.1s; 
+        }
+        .gb-button:hover { 
+            background-color: rgba(0, 0, 0, 0.2); 
+            cursor: pointer; 
+        }
+        .gb-button:active {
+            transform: scale(0.95);
+        }
+        #btn-a, #btn-b { border-radius: 50%; }
+        #btn-select, #btn-start { border-radius: 25px; }
+        #btn-up, #btn-down, #btn-left, #btn-right { border-radius: 2px; }
+
+        #btn-a { top: 60%; left: 79%; width: 14%; height: 9%; }
+        #btn-b { top: 64%; left: 62%; width: 14%; height: 9%; }
+        #btn-select { top: 80%; left: 29%; width: 14%; height: 4%; }
+        #btn-start { top: 80%; left: 46%; width: 14%; height: 4%; }
+        #btn-up { top: 60%; left: 16%; width: 9%; height: 6%; }
+        #btn-down { top: 70%; left: 16%; width: 9%; height: 6%; }
+        #btn-left { top: 65%; left: 8%; width: 9%; height: 6%; }
+        #btn-right { top: 65%; left: 25%; width: 9%; height: 6%; }
+
+        /* --- 說明視窗樣式 --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--screen-bg);
+            color: var(--screen-text);
+            border: 3px solid var(--screen-text);
+            padding: 15px;
+            max-width: 95%;
+            width: 500px;
+            border-radius: 8px;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 1.7;
+            font-size: clamp(14px, 3.5vw, 16px);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--screen-text);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        .modal-header p { margin: 0; font-size: clamp(15px, 4vw, 18px); }
+        
+        .modal-close-btn {
+            background-color: var(--screen-text);
+            color: var(--screen-bg);
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.1s;
+        }
+        .modal-close-btn:active { transform: scale(0.9); }
+        .modal-body p { margin: 0 0 1em 0; }
+        .modal-body p:last-child { margin-bottom: 0; }
     </style>
 </head>
-<body class="antialiased text-gray-800">
+<body>
 
-    <div id="app-container" class="max-w-4xl mx-auto p-4 md:p-6 lg:p-8 min-h-screen flex flex-col hidden">
-        
-        <header class="text-center mb-6">
-            <h1 class="text-3xl md:text-4xl font-bold text-indigo-600">單字達人挑戰</h1>
-            <p id="book-title" class="text-gray-500 mt-2">Book 1</p>
-        </header>
-
-        <main id="main-content" class="flex-grow flex flex-col bg-white rounded-2xl shadow-lg p-6">
-            
-            <!-- 設定畫面 -->
-            <div id="settings-screen">
-                <div class="mb-6">
-                    <h2 class="text-lg font-semibold text-gray-700 mb-3">1. 選擇單元</h2>
-                    <div id="group-buttons" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
-                        <!-- Group buttons will be inserted here -->
+    <div class="container">
+        <div class="gameboy-wrapper">
+            <img src="https://d4cheap16.github.io/vp/GB01.png" alt="Game Boy background" class="gameboy-image">
+            <div class="gameboy-screen">
+                <div class="boot-screen">
+                    <div class="boot-logo"><img src="https://d4cheap16.github.io/vp/Cat.jpg" alt="開機貓貓"></div>
+                </div>
+                <div class="main-menu">
+                    <div class="screen-header">
+                        <img src="https://d4cheap16.github.io/vp/CatL.png" alt="左貓" class="header-cat">
+                        <p>VoCat</p>
+                        <img src="https://d4cheap16.github.io/vp/CatR.png" alt="右貓" class="header-cat">
+                    </div>
+                    <div class="menu-wrapper">
+                        <ul class="menu-list">
+                            <li class="menu-category"><a href="#">課文單字</a>
+                                <ul class="sub-menu">
+                                    <li><a href="book1.html" target="_self">Book 1</a></li>
+                                    <li><a href="book2.html" target="_self">Book 2</a></li>
+                                    <li><a href="book3.html" target="_self">Book 3</a></li>
+                                    <li><a href="book4.html" target="_self">Book 4</a></li>
+                                    <li><a href="book5.html" target="_self">Book 5</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-category"><a href="#">高頻單字</a>
+                                <ul class="sub-menu">
+                                    <li><a href="high_freq.html" target="_self">Expert Mode</a></li>
+                                    <li><a href="https://forms.gle/oDeaR87M4xSkaixE6" target="_blank">高一上一段</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-category"><a href="#">文法練習</a>
+                                <ul class="sub-menu">
+                                    <li><a href="https://forms.gle/mVhyunhWvFi1TgNt5" target="_blank">高一上一段</a></li>
+                                    <li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">高二上一段</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-category"><a href="#">ABOUT ME</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#" id="design-concept-link">DESIGN CONCEPT</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                <div class="tester-menu">
+                    <div class="screen-header"><p>GAME SELECT</p></div>
+                    <div class="menu-wrapper">
+                        <ul class="menu-list">
+                            <li><a href="#" data-game="back">MAIN MENU</a></li>
+                            <li><a href="#" data-game="breakout">BREAKOUT</a></li>
+                            <li><a href="#" data-game="dino">DINO RUN</a></li>
+                            <li><a href="#" data-game="ghostbuster">GHOSTBUSTER</a></li>
+                            <li><a href="#" data-game="snake">SNAKE</a></li>
+                            <li><a href="#" data-game="tetris">TETRIS</a></li>
 
-                <div class="mb-8">
-                    <h2 class="text-lg font-semibold text-gray-700 mb-3">2. 選擇難度</h2>
-                    <div id="difficulty-buttons" class="flex items-center justify-center space-x-2 md:space-x-4 difficulty-btn-wrapper max-w-sm mx-auto">
-                        <!-- Difficulty buttons will be inserted here -->
+                        </ul>
                     </div>
+                    <div class="menu-footer"><p>A: PLAY • UP/DOWN: SELECT</p></div>
                 </div>
-                
-                <div class="text-center">
-                    <button id="start-btn" class="w-full sm:w-auto bg-indigo-600 text-white font-bold py-3 px-12 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-transform transform hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
-                        開始挑戰
-                    </button>
-                </div>
+                <canvas id="game-canvas"></canvas>
+                <div id="game-score"></div>
             </div>
-
-            <!-- 遊戲畫面 -->
-            <div id="game-screen" class="hidden flex-grow flex flex-col items-center justify-between">
-                <div class="w-full flex justify-between items-center mb-4">
-                    <div class="text-sm text-gray-500">
-                        <span id="current-word-index">1</span> / <span id="total-words-count">10</span>
-                    </div>
-                    <div id="score" class="text-lg font-bold text-indigo-500">分數: 0</div>
-                </div>
-                
-                <div class="flex-grow flex flex-col items-center justify-center w-full">
-                    <p id="question-word" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-12"></p>
-                    <div id="answer-options" class="grid grid-cols-2 gap-4 w-full max-w-md">
-                        <!-- Answer options will be inserted here -->
-                    </div>
-                </div>
-
-                <div class="w-full text-center mt-6">
-                    <button id="next-btn" class="w-full sm:w-auto bg-gray-200 text-gray-700 font-bold py-2 px-10 rounded-lg hover:bg-gray-300 hidden">下一題</button>
-                </div>
+            <div class="screen-footer">
+                <p id="quote-text">Loading quote...</p>
             </div>
-
-            <!-- 結果畫面 -->
-            <div id="result-screen" class="hidden text-center">
-                 <h2 class="text-2xl font-bold mb-4">挑戰完成！</h2>
-                 <p class="text-5xl font-bold text-indigo-600 mb-2" id="final-score">100</p>
-                 <p class="text-gray-600 mb-6" id="score-feedback">太棒了！你是單字大師！</p>
-                 <div class="space-x-4">
-                    <button id="restart-btn" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-indigo-700">再次挑戰</button>
-                    <button id="back-to-settings-btn" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded-lg hover:bg-gray-300">返回主選單</button>
-                 </div>
-            </div>
-
-        </main>
-        
-        <footer class="text-center text-gray-400 text-sm mt-6">
-            <p>Vocabulary Challenge App</p>
-        </footer>
+            <!-- Gameboy 按鈕 -->
+            <a href="#" id="btn-a" class="gb-button" data-key="A"></a>
+            <a href="#" id="btn-b" class="gb-button" data-key="B"></a>
+            <a href="#" id="btn-select" class="gb-button" data-key="Select"></a>
+            <a href="#" id="btn-start" class="gb-button" data-key="Start"></a>
+            <a href="#" id="btn-up" class="gb-button" data-key="Up"></a>
+            <a href="#" id="btn-down" class="gb-button" data-key="Down"></a>
+            <a href="#" id="btn-left" class="gb-button" data-key="Left"></a>
+            <a href="#" id="btn-right" class="gb-button" data-key="Right"></a>
+        </div>
     </div>
     
-    <div id="loading-indicator" class="flex items-center justify-center min-h-screen">
-        <p class="text-gray-500 text-lg">正在載入單字資料...</p>
+    <audio id="audio-open" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm1ートIBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAADD/38Agf9/AP//fwB/AP//f/9/AP8A//9/AIAA/wB//38AgAA="></audio>
+    <audio id="audio-select" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAAAAgP9/AP8AgAD/AIAA/wCAAP8AgAD/AIAA/wCAAP8AgAD/AIAA/wCAAP8A"></audio>
+
+    <div id="about-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>DESIGN CONCEPT</p>
+                <button id="close-modal-btn" class="modal-close-btn">X</button>
+            </div>
+            <div class="modal-body"><!-- 內容將由 JS 填入 --></div>
+        </div>
     </div>
 
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // =================================================================
-            // 初始狀態和設定
-            // =================================================================
-            const state = {
-                wordGroups: {},
-                currentGroup: null,
-                currentDifficulty: null,
-                currentWords: [],
-                currentWordIndex: 0,
-                score: 0,
-                correctStreak: 0,
-                questionType: 'en_to_zh', // 'en_to_zh' or 'zh_to_en'
-            };
+        window.addEventListener('contextmenu', function(e) { e.preventDefault(); });
 
-            const difficultyLevels = {
-                A1: { name: '初級', questionCount: 10, options: 2 },
-                B1: { name: '中級', questionCount: 15, options: 4 },
-                C1: { name: '高級', questionCount: 20, options: 4 },
-                C2: { name: '專家', questionCount: 25, options: 4, reverseChance: 0.5 }
-            };
-
-            // =================================================================
-            // DOM 元素快取
-            // =================================================================
-            const DOMElements = {
-                appContainer: document.getElementById('app-container'),
-                loadingIndicator: document.getElementById('loading-indicator'),
-                screens: {
-                    settings: document.getElementById('settings-screen'),
-                    game: document.getElementById('game-screen'),
-                    result: document.getElementById('result-screen'),
-                },
-                buttons: {
-                    start: document.getElementById('start-btn'),
-                    next: document.getElementById('next-btn'),
-                    restart: document.getElementById('restart-btn'),
-                    backToSettings: document.getElementById('back-to-settings-btn'),
-                    groups: document.getElementById('group-buttons'),
-                    difficulties: document.getElementById('difficulty-buttons'),
-                },
-                gameElements: {
-                    question: document.getElementById('question-word'),
-                    options: document.getElementById('answer-options'),
-                    score: document.getElementById('score'),
-                    currentIndex: document.getElementById('current-word-index'),
-                    totalCount: document.getElementById('total-words-count'),
-                },
-                resultElements: {
-                    finalScore: document.getElementById('final-score'),
-                    feedback: document.getElementById('score-feedback'),
-                }
-            };
+        document.addEventListener('DOMContentLoaded', function() {
             
-            // =================================================================
-            // 主要初始化函式
-            // =================================================================
-            async function initializeApp() {
-                try {
-                    const response = await fetch('vocabulary.json');
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    state.wordGroups = await response.json();
-                    
-                    // 資料載入成功後，才設定介面和事件
-                    setupGroupButtons();
-                    setupDifficultyButtons();
-                    setupEventListeners();
-                    
-                    DOMElements.loadingIndicator.classList.add('hidden');
-                    DOMElements.appContainer.classList.remove('hidden');
+            const audioOpen = document.getElementById('audio-open');
+            const audioSelect = document.getElementById('audio-select');
+            const gameboyScreen = document.querySelector('.gameboy-screen');
+            const bootScreen = document.querySelector('.boot-screen');
+            const mainMenu = document.querySelector('.main-menu');
+            const screenFooter = document.querySelector('.screen-footer');
+            const designConceptLink = document.getElementById('design-concept-link');
+            const aboutModal = document.getElementById('about-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
 
-                } catch (error) {
-                    console.error("無法載入單字資料:", error);
-                    DOMElements.loadingIndicator.textContent = '單字資料載入失敗，請重新整理頁面。';
-                }
-            }
+            const quotes = ["Try: UP UP DOWN DOWN LEFT RIGHT LEFT RIGHT B A START", "Every expert was once a beginner.", "Don't stop until you're proud.", "The harder you work, the luckier you get.", "Success is the sum of small efforts.", "It always seems impossible until it's done.", "Mistakes are proof that you are trying.", "Turn 'I wish' into 'I will'.", "Learn something new every day.", "No one can take what you've learned away from you.", "Strive for progress, not perfection.", "Be awesome today."];
+            const quoteElement = document.getElementById('quote-text');
+            quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+            screenFooter.classList.add('animate');
 
-            // =================================================================
-            // 介面設定 (Setup UI)
-            // =================================================================
-            function setupGroupButtons() {
-                DOMElements.buttons.groups.innerHTML = '';
-                for (const key in state.wordGroups) {
-                    const group = state.wordGroups[key];
-                    const button = document.createElement('button');
-                    button.textContent = group.name;
-                    button.dataset.groupKey = key;
-                    button.className = 'group-btn control-btn p-3 border rounded-lg transition-colors';
-                    DOMElements.buttons.groups.appendChild(button);
-                }
-            }
+            const modalBody = aboutModal.querySelector('.modal-body');
+            modalBody.innerHTML = `<p>WELCOME!</p><p>透過懷舊風格，學習也會更有趣。</p><p>也藏了給老玩家的小彩蛋，希望大家學得開心！</p>`;
 
-            function setupDifficultyButtons() {
-                DOMElements.buttons.difficulties.innerHTML = '';
-                for (const key in difficultyLevels) {
-                    const level = difficultyLevels[key];
-                    const button = document.createElement('button');
-                    button.textContent = level.name;
-                    button.dataset.difficultyKey = key;
-                    button.className = 'difficulty-btn control-btn flex-1 py-2 px-4 rounded-lg text-sm md:text-base font-semibold';
-                    DOMElements.buttons.difficulties.appendChild(button);
-                }
-            }
+            designConceptLink.addEventListener('click', (e) => { e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play(); aboutModal.classList.add('show'); });
+            function closeModal() { audioSelect.currentTime = 0; audioSelect.play(); aboutModal.classList.remove('show'); }
+            closeModalBtn.addEventListener('click', closeModal);
+            aboutModal.addEventListener('click', (e) => { if (e.target === aboutModal) closeModal(); });
+            screenFooter.addEventListener('click', function() { audioSelect.currentTime = 0; audioSelect.play(); quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)]; }); 
 
-            // =================================================================
-            // 事件監聽 (Event Listeners)
-            // =================================================================
-            function setupEventListeners() {
-                DOMElements.buttons.groups.addEventListener('click', handleGroupSelection);
-                DOMElements.buttons.difficulties.addEventListener('click', handleDifficultySelection);
-                DOMElements.buttons.start.addEventListener('click', startGame);
-                DOMElements.buttons.next.addEventListener('click', nextQuestion);
-                DOMElements.gameElements.options.addEventListener('click', handleAnswer);
-                DOMElements.buttons.restart.addEventListener('click', startGame);
-                DOMElements.buttons.backToSettings.addEventListener('click', () => showScreen('settings'));
-            }
-
-            function handleGroupSelection(e) {
-                if (e.target.matches('.group-btn')) {
-                    state.currentGroup = e.target.dataset.groupKey;
-                    updateActiveButton(DOMElements.buttons.groups, e.target);
-                    checkStartButton();
-                }
-            }
-
-            function handleDifficultySelection(e) {
-                if (e.target.matches('.difficulty-btn')) {
-                    state.currentDifficulty = e.target.dataset.difficultyKey;
-                    updateActiveButton(DOMElements.buttons.difficulties, e.target);
-                    checkStartButton();
-                }
-            }
-
-            function handleAnswer(e) {
-                if (e.target.matches('.answer-btn') && !e.target.disabled) {
-                    const selectedAnswer = e.target.dataset.answer;
-                    const correctAnswer = state.currentWords[state.currentWordIndex].answer;
-                    const buttons = DOMElements.gameElements.options.querySelectorAll('.answer-btn');
-
-                    buttons.forEach(btn => {
-                        btn.disabled = true;
-                        if (btn.dataset.answer === correctAnswer) {
-                            btn.classList.add('correct');
-                        }
-                    });
-
-                    if (selectedAnswer === correctAnswer) {
-                        e.target.classList.add('correct');
-                        state.correctStreak++;
-                        state.score += 10 + (state.correctStreak * 2); // 連續答對有加分
-                        updateScore();
-                    } else {
-                        e.target.classList.add('incorrect');
-                        state.correctStreak = 0;
-                    }
-                    DOMElements.buttons.next.classList.remove('hidden');
-                }
-            }
-
-            // =================================================================
-            // 遊戲邏輯 (Game Logic)
-            // =================================================================
-            function startGame() {
-                if (!state.currentGroup || !state.currentDifficulty) return;
-                
-                // 1. 重設狀態
-                state.score = 0;
-                state.currentWordIndex = 0;
-                state.correctStreak = 0;
-                updateScore();
-                
-                // 2. 準備單字
-                prepareWords();
-                
-                // 3. 顯示遊戲畫面並開始第一-題
-                showScreen('game');
-                displayQuestion();
-            }
-            
-            function prepareWords() {
-                const groupWords = state.wordGroups[state.currentGroup].words;
-                const allWords = Object.entries(groupWords).map(([en, zh]) => ({ en, zh }));
-                
-                // Shuffle and slice words
-                const shuffled = allWords.sort(() => 0.5 - Math.random());
-                const questionCount = difficultyLevels[state.currentDifficulty].questionCount;
-                state.currentWords = shuffled.slice(0, Math.min(questionCount, shuffled.length));
-
-                DOMElements.gameElements.totalCount.textContent = state.currentWords.length;
-            }
-
-            function displayQuestion() {
-                DOMElements.buttons.next.classList.add('hidden');
-                
-                if (state.currentWordIndex >= state.currentWords.length) {
-                    endGame();
-                    return;
-                }
-
-                DOMElements.gameElements.currentIndex.textContent = state.currentWordIndex + 1;
-
-                const word = state.currentWords[state.currentWordIndex];
-                const difficulty = difficultyLevels[state.currentDifficulty];
-
-                // 決定是中翻英還是英翻中
-                const reverseChance = difficulty.reverseChance || 0;
-                state.questionType = Math.random() < reverseChance ? 'zh_to_en' : 'en_to_zh';
-
-                const question = state.questionType === 'en_to_zh' ? word.en : word.zh;
-                const answer = state.questionType === 'en_to_zh' ? word.zh : word.en;
-                word.answer = answer; // Store correct answer
-
-                DOMElements.gameElements.question.textContent = question;
-
-                // 產生選項
-                const options = generateOptions(answer, difficulty.options);
-                DOMElements.gameElements.options.innerHTML = '';
-                options.forEach(opt => {
-                    const button = document.createElement('button');
-                    button.textContent = opt;
-                    button.dataset.answer = opt;
-                    button.className = 'answer-btn w-full p-4 border-2 border-gray-300 rounded-lg text-lg hover:bg-gray-100';
-                    DOMElements.gameElements.options.appendChild(button);
+            const categories = document.querySelectorAll('.menu-category > a');
+            categories.forEach(category => {
+                category.addEventListener('click', function(event) {
+                    event.preventDefault(); audioOpen.currentTime = 0; audioOpen.play();
+                    const parentLi = this.parentElement; const wasOpen = parentLi.classList.contains('open');
+                    document.querySelectorAll('.menu-category.open').forEach(c => c.classList.remove('open'));
+                    if (!wasOpen) parentLi.classList.add('open');
                 });
+            });
+            const subMenuLinks = document.querySelectorAll('.sub-menu a');
+            subMenuLinks.forEach(item => { item.addEventListener('click', () => { audioSelect.currentTime = 0; audioSelect.play(); }); });
+            
+            const testerMenuLinks = document.querySelectorAll('.tester-menu a');
+            testerMenuLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); audioSelect.currentTime = 0; audioSelect.play();
+                    const gameType = e.target.dataset.game;
+                    if (gameType === 'back') gameManager.hideTesterMenu(); else gameManager.startGame(gameType);
+                });
+            });
+
+            bootScreen.addEventListener('animationend', function(e) {
+                if (e.animationName === 'fadeOutBoot') {
+                    this.style.display = 'none'; this.classList.remove('reboot'); 
+                    mainMenu.classList.add('reboot'); userInput = []; testerInput = [];
+                }
+            });
+
+            // =================================================================
+            // --- 彩蛋遊戲管理區塊 ---
+            // =================================================================
+            const canvas = document.getElementById('game-canvas');
+            const context = canvas.getContext('2d');
+            const scoreElement = document.getElementById('game-score');
+            const SELECTOR_CHAR = '•';
+
+            function drawGameOverScreen(ctx, cvs, selectedOption) {
+                const textColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                ctx.fillStyle = 'rgba(155, 188, 15, 0.75)'; ctx.fillRect(0, 0, cvs.width, cvs.height);
+                ctx.fillStyle = textColor; ctx.textAlign = 'center';
+                ctx.font = `clamp(18px, 6vw, 24px) 'Press Start 2P'`; ctx.fillText('GAME OVER', cvs.width / 2, cvs.height / 2 - 20);
+                ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const textY = cvs.height / 2 + 20;
+                if (selectedOption === 'YES') ctx.fillText(`RETRY   ${SELECTOR_CHAR} YES / NO`, cvs.width / 2, textY); else ctx.fillText(`RETRY     YES / ${SELECTOR_CHAR} NO`, cvs.width / 2, textY);
             }
             
-            function generateOptions(correctAnswer, count) {
-                const allWords = Object.entries(state.wordGroups[state.currentGroup].words);
-                let options = [correctAnswer];
+            function drawQuitMenuScreen(ctx, cvs, selectedOption) {
+                const textColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                ctx.fillStyle = 'rgba(155, 188, 15, 0.75)'; ctx.fillRect(0, 0, cvs.width, cvs.height);
+                ctx.fillStyle = textColor; ctx.textAlign = 'center';
+                ctx.font = `clamp(14px, 5vw, 18px) 'Press Start 2P'`; ctx.fillText('QUIT?', cvs.width / 2, cvs.height / 2 - 20);
+                ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const textY = cvs.height / 2 + 20;
+                if (selectedOption === 'YES') ctx.fillText(`${SELECTOR_CHAR} YES / NO`, cvs.width / 2, textY); else ctx.fillText(`  YES / ${SELECTOR_CHAR} NO`, cvs.width / 2, textY);
+            }
 
-                const answerPool = (state.questionType === 'en_to_zh') 
-                    ? allWords.map(([en, zh]) => zh)
-                    : allWords.map(([en, zh]) => en);
+            function drawWinScreen(ctx, cvs, selectedOption) {
+                const textColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                ctx.fillStyle = 'rgba(155, 188, 15, 0.75)'; ctx.fillRect(0, 0, cvs.width, cvs.height);
+                ctx.fillStyle = textColor; ctx.textAlign = 'center';
+                ctx.font = `clamp(18px, 6vw, 24px) 'Press Start 2P'`; ctx.fillText('STAGE CLEAR!', cvs.width / 2, cvs.height / 2 - 20);
+                ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const textY = cvs.height / 2 + 20;
+                if (selectedOption === 'YES') ctx.fillText(`${SELECTOR_CHAR} NEXT / QUIT`, cvs.width / 2, textY); else ctx.fillText(`  NEXT / ${SELECTOR_CHAR} QUIT`, cvs.width / 2, textY);
+            }
 
-                while (options.length < count) {
-                    const randomWord = answerPool[Math.floor(Math.random() * answerPool.length)];
-                    if (!options.includes(randomWord)) {
-                        options.push(randomWord);
+            const gameManager = {
+                activeGame: null, isGameActive: false, animationFrameId: null,
+                showTesterMenu: function() { gameboyScreen.classList.add('tester-active'); const firstItem = document.querySelector('.tester-menu .menu-list a'); if (firstItem) firstItem.classList.add('selected'); },
+                hideTesterMenu: function() { gameboyScreen.classList.remove('tester-active'); const selectedItem = document.querySelector('.tester-menu .menu-list a.selected'); if (selectedItem) selectedItem.classList.remove('selected'); bootScreen.style.display = 'flex'; bootScreen.classList.add('reboot'); mainMenu.classList.remove('reboot'); },
+                startGame: function(gameType) {
+                    if (this.isGameActive || !gameType) return; this.isGameActive = true;
+                    gameboyScreen.classList.remove('tester-active'); gameboyScreen.classList.add('game-active');
+                    const selectedItem = document.querySelector('.tester-menu .menu-list a.selected'); if (selectedItem) selectedItem.classList.remove('selected');
+                    if (gameType === 'tetris') this.activeGame = tetrisGame;
+                    else if (gameType === 'dino') this.activeGame = dinoGame;
+                    else if (gameType === 'snake') this.activeGame = snakeGame;
+                    else if (gameType === 'breakout') this.activeGame = breakoutGame;
+                    else if (gameType === 'ghostbuster') this.activeGame = ghostbusterGame;
+                    this.activeGame.start();
+                },
+                endGame: function() {
+                    if (!this.isGameActive) return; this.isGameActive = false;
+                    if (this.activeGame) { this.activeGame.end(); } this.activeGame = null;
+                    gameboyScreen.classList.remove('game-active'); bootScreen.classList.add('reboot'); mainMenu.classList.remove('reboot');
+                },
+                handleInput: function(key) { if (this.isGameActive && this.activeGame) this.activeGame.handleInput(key); },
+                handleGameMenuInput: function(key) {
+                    const menuItems = document.querySelectorAll('.tester-menu .menu-list a'); if (menuItems.length === 0) return;
+                    let currentIndex = Array.from(menuItems).findIndex(link => link.classList.contains('selected'));
+                    if (key === 'Up' || key === 'Down') {
+                        audioOpen.currentTime = 0; audioOpen.play(); if (currentIndex !== -1) menuItems[currentIndex].classList.remove('selected');
+                        if (currentIndex === -1) currentIndex = (key === 'Up') ? menuItems.length - 1 : 0; else if (key === 'Up') currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length; else currentIndex = (currentIndex + 1) % menuItems.length;
+                        const newSelectedItem = menuItems[currentIndex]; newSelectedItem.classList.add('selected'); newSelectedItem.scrollIntoView({ block: 'nearest' });
+                    } else if (key === 'A') {
+                        const selectedItem = document.querySelector('.tester-menu a.selected'); if (selectedItem) selectedItem.click(); else { audioSelect.currentTime = 0; audioSelect.play(); }
+                    } else { audioSelect.currentTime = 0; audioSelect.play(); }
+                }
+            };
+            
+            // --- GHOSTBUSTER 遊戲 ---
+            const ghostbusterGame = {
+                gameState: {}, player: {}, playerBullets: [], enemyBullets: [], playerShootCooldown: 0, enemies: [], enemyConfig: {}, isPaused: false, pauseOption: 'NO',
+                start: function() {
+                    cancelAnimationFrame(gameManager.animationFrameId);
+                    canvas.height = canvas.clientHeight;
+                    canvas.width = canvas.clientWidth;
+                    this.isPaused = false; this.pauseOption = 'NO';
+                    this.gameState = { score: 0, highScore: parseInt(localStorage.getItem('ghostbusterHighScore')) || 0, level: 1, status: 'playing', retryOption: 'YES' };
+                    this.player = { x: canvas.clientWidth / 2 - 12, y: canvas.clientHeight - 25, width: 24, height: 12, speed: 4, alive: true };
+                    this.playerBullets = []; this.enemyBullets = [];
+                    this.enemyConfig = { rows: 2, cols: 7, width: 20, height: 10, padding: 8, offsetTop: 20, offsetLeft: 25, speedX: 0.5, direction: 1, moveInterval: 40, moveTimer: 40, shootInterval: 70, shootTimer: 60 };
+                    this.updateDifficulty(); this.createEnemies(); this.updateScore();
+                    this.update();
+                },
+                end: function() { cancelAnimationFrame(gameManager.animationFrameId); },
+                updateDifficulty: function() {
+                    this.enemyConfig.moveInterval = Math.max(10, 40 - this.gameState.level * 2);
+                    this.enemyConfig.shootInterval = Math.max(20, 70 - this.gameState.level * 3);
+                },
+                nextLevel: function() {
+                    this.gameState.level++; this.playerBullets = []; this.enemyBullets = [];
+                    this.updateDifficulty(); this.createEnemies(); this.gameState.status = 'playing';
+                },
+                handleInput: function(key) {
+                    if (this.gameState.status === 'gameOver' || this.gameState.status === 'levelComplete') {
+                        if (key === 'Left' || key === 'Right') { this.gameState.retryOption = this.gameState.retryOption === 'YES' ? 'NO' : 'YES'; }
+                        else if (key === 'A') { if (this.gameState.retryOption === 'YES') { if (this.gameState.status === 'gameOver') this.start(); else this.nextLevel(); } else { gameManager.endGame(); } }
+                    } else if (this.isPaused) {
+                        if (key === 'Left' || key === 'Right') { this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; }
+                        else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } 
+                        else if (key === 'Start') { this.isPaused = false; }
+                    } else if (this.gameState.status === 'playing') {
+                        if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; return; }
+                        if (key === 'Left') this.player.x -= this.player.speed;
+                        else if (key === 'Right') this.player.x += this.player.speed;
+                        else if (key === 'A' && this.playerShootCooldown === 0) {
+                            this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, speed: 5 });
+                            this.playerShootCooldown = 15;
+                        }
+                    }
+                },
+                updateScore: function() {
+                    const hi = String(this.gameState.highScore).padStart(5, '0');
+                    const current = String(this.gameState.score).padStart(5, '0');
+                    scoreElement.textContent = `HI ${hi}\n${current}\nLV ${this.gameState.level}`;
+                },
+                update: function() {
+                // 只有在遊戲進行中且未暫停時，才更新遊戲狀態
+                    if (this.gameState.status === 'playing' && !this.isPaused) {
+                // 更新玩家
+                    if (this.player.x < 5) this.player.x = 5;
+                    if (this.player.x + this.player.width > canvas.clientWidth - 5) this.player.x = canvas.clientWidth - this.player.width - 5;
+                    if (this.playerShootCooldown > 0) this.playerShootCooldown--;
+
+                // 更新子彈
+                    for (let i = this.playerBullets.length - 1; i >= 0; i--) { this.playerBullets[i].y -= this.playerBullets[i].speed; if (this.playerBullets[i].y < 0) this.playerBullets.splice(i, 1); }
+                    for (let i = this.enemyBullets.length - 1; i >= 0; i--) { this.enemyBullets[i].y += this.enemyBullets[i].speed; if (this.enemyBullets[i].y > canvas.clientHeight) this.enemyBullets.splice(i, 1); }
+
+                // 更新敵人
+                    this.enemyConfig.moveTimer--;
+                    if (this.enemyConfig.moveTimer <= 0) {
+                    this.enemyConfig.moveTimer = this.enemyConfig.moveInterval;
+                    let wallHit = false;
+                    for (const e of this.enemies) if (e.alive && ((e.x + e.width >= canvas.clientWidth - 10 && this.enemyConfig.direction > 0) || (e.x <= 10 && this.enemyConfig.direction < 0))) { wallHit = true; break; }
+                    if (wallHit) { this.enemyConfig.direction *= -1; for (const e of this.enemies) e.y += e.height / 2; }
+                    for (const e of this.enemies) { e.x += this.enemyConfig.speedX * this.enemyConfig.direction; if(e.alive && e.y + e.height >= this.player.y) { this.setGameOver(); break; } }
+                        }
+                    this.enemyConfig.shootTimer--;
+                    if (this.enemyConfig.shootTimer <= 0) {
+                    this.enemyConfig.shootTimer = this.enemyConfig.shootInterval;
+                    const alive = this.enemies.filter(e => e.alive); if (alive.length > 0) { const shooter = alive[Math.floor(Math.random() * alive.length)]; this.enemyBullets.push({ x: shooter.x + shooter.width / 2 - 2, y: shooter.y + shooter.height, width: 4, height: 8, speed: 3 }); }
+                        }
+
+                    // 碰撞偵測
+                    for (let i = this.playerBullets.length - 1; i >= 0; i--) { const b = this.playerBullets[i]; for (const e of this.enemies) if (e.alive && b.x < e.x + e.width && b.x + b.width > e.x && b.y < e.y + e.height && b.y + b.height > e.y) { e.alive = false; this.playerBullets.splice(i, 1); this.gameState.score += 10; this.updateScore(); break; } }
+                    for (let i = this.enemyBullets.length - 1; i >= 0; i--) { const b = this.enemyBullets[i]; if (this.player.alive && b.x < this.player.x + this.player.width && b.x + b.width > this.player.x && b.y < this.player.y + this.player.height && b.y + b.height > this.player.y) { this.setGameOver(); break; } }
+                    for (const e of this.enemies) { if (e.alive && this.player.alive && e.x < this.player.x + this.player.width && e.x + e.width > this.player.x && e.y < this.player.y + this.player.height && e.y + e.height > this.player.y) { this.setGameOver(); break; } }
+                    if (this.enemies.every(e => !e.alive)) this.gameState.status = 'levelComplete';
+                        }
+
+                // 無論遊戲狀態如何，每一幀都重新繪製畫面
+                    this.draw();
+
+                // 永遠只在函式結尾呼叫下一個迴圈，並永遠記錄其 ID
+                gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
+                },
+                
+                draw: function() {
+                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg');
+                    const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height);
+                    this.drawPlayer(fgColor);
+                    this.drawBullets(fgColor);
+                    this.drawEnemies(fgColor);
+                    if (this.gameState.status === 'gameOver') drawGameOverScreen(context, canvas, this.gameState.retryOption);
+                    if (this.gameState.status === 'levelComplete') drawWinScreen(context, canvas, this.gameState.retryOption);
+                    if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
+                },
+                setGameOver: function() {
+                    this.player.alive = false; this.gameState.status = 'gameOver';
+                    if (this.gameState.score > this.gameState.highScore) {
+                        this.gameState.highScore = this.gameState.score; localStorage.setItem('ghostbusterHighScore', this.gameState.highScore);
+                    }
+                    this.updateScore();
+                },
+                createEnemies: function() {
+                    this.enemies = []; this.enemyConfig.direction = 1;
+                    for (let c = 0; c < this.enemyConfig.cols; c++) {
+                        for (let r = 0; r < this.enemyConfig.rows; r++) {
+                            const enemyX = c * (this.enemyConfig.width + this.enemyConfig.padding) + this.enemyConfig.offsetLeft;
+                            const enemyY = r * (this.enemyConfig.height + this.enemyConfig.padding) + this.enemyConfig.offsetTop;
+                            this.enemies.push({ x: enemyX, y: enemyY, width: this.enemyConfig.width, height: this.enemyConfig.height, alive: true });
+                        }
+                    }
+                },
+                drawPlayer: function(color) {
+                    if (!this.player.alive) return;
+                    context.fillStyle = color;
+                    const p = this.player;
+                    context.fillRect(p.x, p.y + 4, p.width, p.height - 4); 
+                    context.fillRect(p.x + (p.width / 2) - 3, p.y, 6, 6); 
+                },
+                drawBullets: function(color) {
+                    context.fillStyle = color; for (const b of this.playerBullets) context.fillRect(b.x, b.y, b.width, b.height);
+                    context.fillStyle = color; for (const b of this.enemyBullets) context.fillRect(b.x, b.y, b.width, b.height);
+                },
+                drawEnemies: function(color) {
+                    for (const e of this.enemies) {
+                        if (e.alive) {
+                            context.fillStyle = color;
+                            context.fillRect(e.x, e.y, e.width, e.height);
+                        }
                     }
                 }
-                return options.sort(() => 0.5 - Math.random());
-            }
+            };
 
-            function nextQuestion() {
-                state.currentWordIndex++;
-                displayQuestion();
-            }
+            const tetrisGame = {
+                arena: [], player: { pos: {x: 0, y: 0}, matrix: null, score: 0 }, highScore: 0, COLS: 10, ROWS: 20, BLOCK_SIZE: 0, xOffset: 0, dropCounter: 0, dropInterval: 1000, lastTime: 0, gameOver: false, isPaused: false, pauseOption: 'NO', retryOption: 'YES',
+                start: function() {
+                    cancelAnimationFrame(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'NO'; this.dropInterval = 1000; this.highScore = parseInt(localStorage.getItem('tetrisHighScore')) || 0;
+                    const screenHeight = canvas.clientHeight; const screenWidth = canvas.clientWidth; this.ROWS = 20; this.BLOCK_SIZE = screenHeight / this.ROWS; this.COLS = 10; this.xOffset = (screenWidth / this.BLOCK_SIZE - this.COLS) / 2;
+                    canvas.height = screenHeight; canvas.width = screenWidth; this.arena = this.createMatrix(this.COLS, this.ROWS); this.player.score = 0; this.updateScore(); this.playerReset(); this.update();
+                },
+                end: function() { clearTimeout(gameManager.animationFrameId); },
+                handleInput: function(key) {
+                    if (this.gameOver) { if (key === 'Left' || key === 'Right') this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } } 
+                    else if (this.isPaused) { if (key === 'Left' || key === 'Right') this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } else if (key === 'Start') this.isPaused = false; } 
+                    else { if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; return; } if (key === 'Left') this.playerMove(-1); else if (key === 'Right') this.playerMove(1); else if (key === 'Down') this.playerDrop(); else if (key === 'A' || key === 'Up') this.playerRotate(1); else if (key === 'B') this.playerRotate(-1); }
+                },
+                updateScore: function() { const hi = String(this.highScore).padStart(5, '0'); const current = String(this.player.score).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}`; },
+                update: function(time = 0) {
+                    if (!this.gameOver && !this.isPaused) { const deltaTime = time - this.lastTime; this.lastTime = time; this.dropCounter += deltaTime; if (this.dropCounter > this.dropInterval) this.playerDrop(); }
+                    this.draw(); gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
+                },
+                draw: function() {
+                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    context.setTransform(1, 0, 0, 1, 0, 0); context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = fgColor;
+                    const borderX_left = this.xOffset * this.BLOCK_SIZE - 1; const borderX_right = (this.xOffset + this.COLS) * this.BLOCK_SIZE; context.fillRect(borderX_left, 0, 1, canvas.height); context.fillRect(borderX_right, 0, 1, canvas.height);
+                    context.scale(this.BLOCK_SIZE, this.BLOCK_SIZE); this.drawMatrix(this.arena, {x: 0, y: 0}); this.drawMatrix(this.player.matrix, this.player.pos);
+                    context.setTransform(1, 0, 0, 1, 0, 0); if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
+                },
+                playerReset: function() {
+                    const p='ILJOTSZ'; this.player.matrix = this.createPiece(p[p.length * Math.random() | 0]); this.player.pos.y=0; this.player.pos.x = (this.COLS / 2 | 0) - (this.player.matrix[0].length / 2 | 0);
+                    if (this.collide(this.arena, this.player)) { if (this.player.score > this.highScore) { this.highScore = this.player.score; localStorage.setItem('tetrisHighScore', this.highScore); this.updateScore(); } this.gameOver = true; }
+                },
+                drawMatrix: function(matrix, offset) { const blockColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text'); context.fillStyle = blockColor; matrix.forEach((row, y) => { row.forEach((value, x) => { if (value !== 0) context.fillRect(this.xOffset + x + offset.x, y + offset.y, 1, 1); }); }); },
+                createMatrix: function(w, h) { const m = []; while(h--){ m.push(new Array(w).fill(0)); } return m; },
+                createPiece: function(t) { if (t === 'T') return [[0,0,0],[1,1,1],[0,1,0]]; else if (t === 'O') return [[1,1],[1,1]]; else if (t === 'L') return [[0,1,0],[0,1,0],[0,1,1]]; else if (t === 'J') return [[0,1,0],[0,1,0],[1,1,0]]; else if (t === 'I') return [[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,1,0,0]]; else if (t === 'S') return [[0,1,1],[1,1,0],[0,0,0]]; else if (t === 'Z') return [[1,1,0],[0,1,1],[0,0,0]]; },
+                collide: function(a, p) { const [m, o] = [p.matrix, p.pos]; for (let y=0; y<m.length; ++y) for (let x=0; x<m[y].length; ++x) if (m[y][x] !== 0 && (a[y+o.y] && a[y+o.y][x+o.x]) !== 0) return true; return false; },
+                merge: function(a, p) { p.matrix.forEach((r, y) => { r.forEach((v, x) => { if (v !== 0) a[y+p.pos.y][x+p.pos.x] = v; }); }); },
+                playerDrop: function() { this.player.pos.y++; if (this.collide(this.arena, this.player)) { this.player.pos.y--; this.merge(this.arena, this.player); this.playerReset(); this.arenaSweep(); } this.dropCounter = 0; },
+                playerMove: function(dir) { this.player.pos.x += dir; if (this.collide(this.arena, this.player)) this.player.pos.x -= dir; },
+                playerRotate: function(dir) { const pos = this.player.pos.x; let offset=1; this.rotate(this.player.matrix, dir); while (this.collide(this.arena, this.player)) { this.player.pos.x += offset; offset = -(offset + (offset > 0 ? 1 : -1)); if (offset > this.player.matrix[0].length) { this.rotate(this.player.matrix, -dir); this.player.pos.x = pos; return; } } },
+                rotate: function(m, d) { for (let y=0; y<m.length; ++y) for (let x=0; x<y; ++x) [m[x][y], m[y][x]] = [m[y][x], m[x][y]]; if (d > 0) m.forEach(r => r.reverse()); else m.reverse(); },
+                arenaSweep: function() { let rowCount = 0; outer: for (let y = this.arena.length-1; y>0; --y) { for (let x=0; x<this.arena[y].length; ++x) if(this.arena[y][x] === 0) continue outer; const r = this.arena.splice(y, 1)[0].fill(0); this.arena.unshift(r); ++y; rowCount++; } if (rowCount > 0) { this.player.score += rowCount * 10; if (Math.floor(this.player.score / 60) > Math.floor((this.player.score - rowCount * 10) / 60)) this.dropInterval = Math.max(150, this.dropInterval - 50); this.updateScore(); } },
+            };
+            const dinoGame = {
+                dino: {}, obstacles: [], score: 0, highScore: 0, gameOver: false, spawnTimer: 0, retryOption: 'YES', isPaused: false, pauseOption: 'NO', pixelScale: 3,
+                start: function() {
+                    cancelAnimationFrame(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'NO'; this.highScore = parseInt(localStorage.getItem('dinoHighScore')) || 0;
+                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth; context.setTransform(1, 0, 0, 1, 0, 0); 
+                    const s = this.pixelScale; const dinoHeight = s * 6; this.dino = { x: 50, y: canvas.height - dinoHeight, dy: 0, gravity: 0.6, jumpPower: -13, onGround: true };
+                    this.obstacles = []; this.score = 0; this.spawnTimer = 0; this.updateScore(); this.update();
+                },
+                end: function() { cancelAnimationFrame(gameManager.animationFrameId); },
+                handleInput: function(key) {
+                    if (this.gameOver) { if (key === 'Left' || key === 'Right') this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } } 
+                    else if (this.isPaused) { if (key === 'Left' || key === 'Right') this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } else if (key === 'Start') this.isPaused = false; } 
+                    else { if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; return; } if ((key === 'A' || key === 'Up') && this.dino.onGround) { this.dino.dy = this.dino.jumpPower; this.dino.onGround = false; } }
+                },
+                updateScore: function() { const hi = String(Math.floor(this.highScore)).padStart(5, '0'); const current = String(Math.floor(this.score)).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}`; },
+                update: function() {
+                    if (!this.gameOver && !this.isPaused) {
+                        this.dino.dy += this.dino.gravity; this.dino.y += this.dino.dy; this.dino.onGround = false; const s = this.pixelScale; const dinoHeight = s * 6;
+                        if (this.dino.y + dinoHeight >= canvas.height) { this.dino.y = canvas.height - dinoHeight; this.dino.dy = 0; this.dino.onGround = true; }
+                        this.spawnTimer--;
+                        if (this.spawnTimer <= 0) { const type = Math.random() > 0.5 ? 1 : 2; const height = type === 1 ? 25 : 45; const width = type === 1 ? 12 : 23; this.obstacles.push({ x: canvas.width, width: width, height: height, type: type }); this.spawnTimer = 80 + Math.random() * 50; }
+                        const dinoHitbox = { x: this.dino.x - s * 3, y: this.dino.y, width: s * 13, height: s * 6 };
+                        for (let i = this.obstacles.length - 1; i >= 0; i--) { let obs = this.obstacles[i]; obs.x -= 2.2 + (this.score / 200); if (obs.x + obs.width < 0) this.obstacles.splice(i, 1); const obsHitbox = { x: obs.x, y: canvas.height - obs.height, width: obs.width, height: obs.height }; if (dinoHitbox.x < obsHitbox.x + obsHitbox.width && dinoHitbox.x + dinoHitbox.width > obsHitbox.x && dinoHitbox.y < obsHitbox.y + obsHitbox.height && dinoHitbox.y + dinoHitbox.height > obsHitbox.y) { if (!this.gameOver) if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('dinoHighScore', Math.floor(this.highScore)); } this.gameOver = true; } }
+                        this.score += 0.2; this.updateScore();
+                    }
+                    this.draw(); gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
+                },
+                draw: function() {
+                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); this.drawBlockyDino(context, fgColor); context.fillStyle = fgColor; this.obstacles.forEach(obs => { this.drawCactus(context, obs); });
+                    context.setTransform(1, 0, 0, 1, 0, 0); if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
+                },
+                drawCactus: function(ctx, obs) { const groundY = canvas.height; const stemWidth = obs.width * 0.6; const stemX = obs.x + (obs.width - stemWidth) / 2; ctx.fillRect(stemX, groundY - obs.height, stemWidth, obs.height); const armWidth = obs.width * 0.8; const armHeight = 5; if (obs.type === 1) ctx.fillRect(obs.x, groundY - obs.height * 0.7, armWidth, armHeight); else { ctx.fillRect(obs.x, groundY - obs.height * 0.8, armWidth, armHeight); ctx.fillRect(stemX, groundY - obs.height * 0.5, armWidth, armHeight); } },
+                drawBlockyDino: function(ctx, color) { const dinoX = this.dino.x; const dinoY = this.dino.y; const s = this.pixelScale; ctx.fillStyle = color; ctx.fillRect(dinoX, dinoY + s * 2, s * 5, s * 3); ctx.fillRect(dinoX + s * 4, dinoY, s * 5, s * 5); ctx.fillRect(dinoX - s * 3, dinoY + s * 3, s * 4, s * 2); const isRunningFrame1 = Math.floor(this.score / 6) % 2 === 0; if (this.gameOver) { ctx.fillRect(dinoX + s * 1, dinoY + s * 5, s * 2, s * 1); ctx.fillRect(dinoX + s * 4, dinoY + s * 5, s * 2, s * 1); } else if (!this.dino.onGround) ctx.fillRect(dinoX + s * 2, dinoY + s * 5, s * 2, s * 1); else if (isRunningFrame1) ctx.fillRect(dinoX + s * 1, dinoY + s * 5, s * 2, s * 1); else ctx.fillRect(dinoX + s * 4, dinoY + s * 5, s * 2, s * 1); },
+            };
+            const snakeGame = {
+                snake: [], food: {}, score: 0, highScore: 0, gameOver: false, isPaused: false, retryOption: 'YES', pauseOption: 'NO', direction: 'Right', nextDirection: 'Right', gridSize: 0, tileCountX: 20, tileCountY: 0,
+                start: function() {
+                    clearTimeout(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'NO'; this.highScore = parseInt(localStorage.getItem('snakeHighScore')) || 0;
+                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth; this.gridSize = Math.floor(canvas.width / this.tileCountX); this.tileCountY = Math.floor(canvas.height / this.gridSize);
+                    this.snake = [{x: 10, y: 10}, {x: 9, y: 10}, {x: 8, y: 10}]; this.direction = 'Right'; this.nextDirection = 'Right'; this.score = 0; this.spawnFood(); this.updateScore(); this.update();
+                },
+                end: function() { clearTimeout(gameManager.animationFrameId); },
+                handleInput: function(key) {
+                    if (this.gameOver) { if (key === 'Left' || key === 'Right') { this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; this.draw(); } else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } } 
+                    else if (this.isPaused) { if (key === 'Left' || key === 'Right') { this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; this.draw(); } else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else { this.isPaused = false; this.update(); } } else if (key === 'Start') { this.isPaused = false; this.update(); } } 
+                    else { if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; this.draw(); return; } if (key === 'Up' && this.direction !== 'Down') this.nextDirection = 'Up'; else if (key === 'Down' && this.direction !== 'Up') this.nextDirection = 'Down'; else if (key === 'Left' && this.direction !== 'Right') this.nextDirection = 'Left'; else if (key === 'Right' && this.direction !== 'Left') this.nextDirection = 'Right'; }
+                },
+                updateScore: function() { const hi = String(this.highScore).padStart(5, '0'); const current = String(this.score).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}`; },
+                update: function() {
+                    if (this.gameOver || this.isPaused) return; this.direction = this.nextDirection; let head = {x: this.snake[0].x, y: this.snake[0].y};
+                    if (this.direction === 'Up') head.y--; else if (this.direction === 'Down') head.y++; else if (this.direction === 'Left') head.x--; else if (this.direction === 'Right') head.x++;
+                    if (head.x < 0 || head.x >= this.tileCountX || head.y < 0 || head.y >= this.tileCountY) this.setGameOver();
+                    for (let i = 1; i < this.snake.length; i++) if (head.x === this.snake[i].x && head.y === this.snake[i].y) this.setGameOver();
+                    this.snake.unshift(head); if (head.x === this.food.x && head.y === this.food.y) { this.score += 10; this.updateScore(); this.spawnFood(); } else this.snake.pop();
+                    this.draw(); gameManager.animationFrameId = setTimeout(this.update.bind(this), Math.max(90, 300 - (this.score * 2)));
+                },
+                draw: function() {
+                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = fgColor; this.snake.forEach(segment => { context.fillRect(segment.x * this.gridSize, segment.y * this.gridSize, this.gridSize - 1, this.gridSize - 1); });
+                    context.beginPath(); context.arc(this.food.x * this.gridSize + this.gridSize / 2, this.food.y * this.gridSize + this.gridSize / 2, this.gridSize / 2, 0, Math.PI * 2); context.fill();
+                    if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
+                },
+                spawnFood: function() { this.food = { x: Math.floor(Math.random() * this.tileCountX), y: Math.floor(Math.random() * this.tileCountY) }; for (let segment of this.snake) if (segment.x === this.food.x && segment.y === this.food.y) { this.spawnFood(); return; } },
+                setGameOver: function() { this.gameOver = true; if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('snakeHighScore', this.highScore); } this.updateScore(); }
+            };
+            const breakoutGame = {
+                ball: {}, paddle: {}, bricks: [], score: 0, highScore: 0, lives: 3, gameOver: false, isPaused: false, retryOption: 'YES', pauseOption: 'NO', levelComplete: false, winOption: 'YES', level: 1,
+                start: function() {
+                    cancelAnimationFrame(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'NO'; this.levelComplete = false; this.winOption = 'YES'; this.level = 1; this.highScore = parseInt(localStorage.getItem('breakoutHighScore')) || 0;
+                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth; this.lives = 3; this.score = 0; this.paddle = {x: canvas.width / 2 - 25, y: canvas.height - 10, width: 50, height: 5}; this.ball = {x: canvas.width / 2, y: canvas.height - 20, radius: 4, dx: 2, dy: -2}; this.createBricks(); this.updateScore(); this.update();
+                },
+                end: function() { cancelAnimationFrame(gameManager.animationFrameId); },
+                nextLevel: function() {
+                    this.level++; this.levelComplete = false; this.paddle = {x: canvas.width / 2 - 25, y: canvas.height - 10, width: 50, height: 5};
+                    const speedMultiplier = 1 + (this.level - 1) * 0.15; this.ball = { x: canvas.width / 2, y: canvas.height - 20, radius: 4, dx: (Math.random() < 0.5 ? 2 : -2) * speedMultiplier, dy: -2 * speedMultiplier };
+                    this.createBricks(); this.updateScore();
+                },
+                handleInput: function(key) {
+                     if (this.gameOver) { if (key === 'Left' || key === 'Right') this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } } 
+                     else if (this.levelComplete) { if (key === 'Left' || key === 'Right') this.winOption = this.winOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.winOption === 'YES') this.nextLevel(); else gameManager.endGame(); } } 
+                     else if (this.isPaused) { if (key === 'Left' || key === 'Right') this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } else if (key === 'Start') this.isPaused = false; } 
+                     else { if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; return; } if (key === 'Left') { this.paddle.x -= 15; if (this.paddle.x < 0) this.paddle.x = 0; } else if (key === 'Right') { this.paddle.x += 15; if (this.paddle.x + this.paddle.width > canvas.width) this.paddle.x = canvas.width - this.paddle.width; } }
+                },
+                updateScore: function() { const hi = String(this.highScore).padStart(5, '0'); const current = String(this.score).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}\nLIVES ${this.lives} LV ${this.level}`; },
+                update: function() {
+                    if (!this.gameOver && !this.isPaused && !this.levelComplete) {
+                        this.ball.x += this.ball.dx; this.ball.y += this.ball.dy;
+                        if (this.ball.x + this.ball.radius > canvas.width || this.ball.x - this.ball.radius < 0) this.ball.dx *= -1; if (this.ball.y - this.ball.radius < 0) this.ball.dy *= -1;
+                        if (this.ball.y + this.ball.radius > canvas.height) { this.lives--; this.updateScore(); if (this.lives <= 0) this.setGameOver(); else { this.ball = {x: canvas.width / 2, y: canvas.height - 20, radius: 4, dx: 2, dy: -2}; this.paddle = {x: canvas.width / 2 - 25, y: canvas.height - 10, width: 50, height: 5}; } }
+                        if (this.ball.y + this.ball.radius > this.paddle.y && this.ball.x > this.paddle.x && this.ball.x < this.paddle.x + this.paddle.width) this.ball.dy *= -1;
+                        this.bricks.forEach(brick => { if (brick.visible && this.ball.x > brick.x && this.ball.x < brick.x + brick.width && this.ball.y > brick.y && this.ball.y < brick.y + brick.height) { this.ball.dy *= -1; brick.visible = false; this.score += 10; this.updateScore(); } });
+                        if (this.bricks.every(b => !b.visible)) this.levelComplete = true;
+                    }
+                    this.draw(); gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
+                },
+                draw: function() {
+                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = fgColor; context.beginPath(); context.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI * 2); context.fill(); context.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
+                    this.bricks.forEach(brick => { if (brick.visible) context.fillRect(brick.x, brick.y, brick.width, brick.height); });
+                    if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption); if (this.levelComplete) drawWinScreen(context, canvas, this.winOption);
+                },
+                createBricks: function() { this.bricks = []; const brickRowCount = 5, brickColumnCount = 6; const brickWidth = (canvas.width / brickColumnCount) - 4; const brickHeight = 8, brickPadding = 3, brickOffsetTop = 50, brickOffsetLeft = 3; for (let c = 0; c < brickColumnCount; c++) for (let r = 0; r < brickRowCount; r++) this.bricks.push({ x: c * (brickWidth + brickPadding) + brickOffsetLeft, y: r * (brickHeight + brickPadding) + brickOffsetTop, width: brickWidth, height: brickHeight, visible: true }); },
+                setGameOver: function() { this.gameOver = true; if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('breakoutHighScore', this.highScore); } this.updateScore(); }
+            };
 
-            function endGame() {
-                DOMElements.resultElements.finalScore.textContent = state.score;
-                
-                let feedback = "再接再厲！";
-                const percentage = (state.score / (state.currentWords.length * 15)); // 粗估
-                if (percentage > 0.9) feedback = "太棒了！你是單字大師！";
-                else if (percentage > 0.7) feedback = "表現優異！繼續保持！";
-                else if (percentage > 0.5) feedback = "不錯的成績！";
+            const konamiCode = ['Up', 'Up', 'Down', 'Down', 'Left', 'Right', 'Left', 'Right', 'B', 'A', 'Start']; let userInput = [];
+            const testerCode = ['A', 'B', 'B', 'A', 'Start']; let testerInput = [];
 
-                DOMElements.resultElements.feedback.textContent = feedback;
-                showScreen('result');
-            }
-
-            // =================================================================
-            // 輔助函式 (Utility Functions)
-            // =================================================================
-            function showScreen(screenName) {
-                Object.values(DOMElements.screens).forEach(screen => screen.classList.add('hidden'));
-                DOMElements.screens[screenName].classList.remove('hidden');
-                
-                if (screenName === 'settings') {
-                    // Reset selections when returning to settings
-                    state.currentGroup = null;
-                    state.currentDifficulty = null;
-                    updateActiveButton(DOMElements.buttons.groups, null);
-                    updateActiveButton(DOMElements.buttons.difficulties, null);
-                    checkStartButton();
-                }
-            }
-
-            function updateActiveButton(container, activeButton) {
-                container.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
-                if (activeButton) {
-                    activeButton.classList.add('active');
-                }
-            }
-
-            function checkStartButton() {
-                DOMElements.buttons.start.disabled = !(state.currentGroup && state.currentDifficulty);
+            function handleButtonPress(key) {
+                if (gameManager.isGameActive) { gameManager.handleInput(key); return; }
+                if (gameboyScreen.classList.contains('tester-active')) { gameManager.handleGameMenuInput(key); return; }
+                audioSelect.currentTime = 0; audioSelect.play();
+                userInput.push(key); userInput = userInput.slice(-konamiCode.length);
+                if (JSON.stringify(userInput) === JSON.stringify(konamiCode)) { gameManager.showTesterMenu(); userInput = []; testerInput = []; return; }
+                testerInput.push(key); testerInput = testerInput.slice(-testerCode.length);
+                if (JSON.stringify(testerInput) === JSON.stringify(testerCode)) { gameManager.showTesterMenu(); userInput = []; testerInput = []; }
             }
             
-            function updateScore() {
-                DOMElements.gameElements.score.textContent = `分數: ${state.score}`;
+            let moveInterval = null; const allButtons = document.querySelectorAll('.gb-button');
+            function startAction(key) {
+                clearInterval(moveInterval); if (gameManager.isGameActive) { audioSelect.currentTime = 0; audioSelect.play(); }
+                handleButtonPress(key); if (gameManager.isGameActive && ['Left', 'Right', 'Down', 'A'].includes(key)) moveInterval = setInterval(() => { handleButtonPress(key); }, 100);
             }
-
-            // =================================================================
-            // 啟動應用程式
-            // =================================================================
-            initializeApp();
+            function stopAction() { clearInterval(moveInterval); }
+            allButtons.forEach(button => {
+                const key = button.dataset.key;
+                button.addEventListener('mousedown', (e) => { e.preventDefault(); startAction(key); });
+                button.addEventListener('touchstart', (e) => { e.preventDefault(); startAction(key); });
+                button.addEventListener('mouseup', stopAction);
+                button.addEventListener('touchend', stopAction);
+                button.addEventListener('mouseleave', stopAction);
+            });
         });
     </script>
+    
+    <footer class="site-footer">
+        <span>Designed by CHENWEI with</span>
+        <span>
+            Gemini
+            <img src="https://d4cheap16.github.io/vp/Gemini.png" alt="Google Gemini Logo" class="footer-logo">
+        </span>
+    </footer>
+
 </body>
 </html>
+
+
