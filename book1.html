@@ -234,6 +234,9 @@
 <canvas id="shareCanvas" class="hidden" width="800" height="800"></canvas>
 
 <script type="module">
+    // --- THIS IS THE ONLY SCRIPT BLOCK NOW ---
+
+    // 1. IMPORT FIREBASE MODULES (ONLY ONCE!)
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
     import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
     import { getFirestore, collection, addDoc, serverTimestamp, setLogLevel, query, where, doc, getDoc, setDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -311,7 +314,7 @@
     // =================================================================
     // INITIALIZATION
     // =================================================================
-    async function initializeApp() {
+    async function initializeAppWrapper() { // Renamed to avoid conflict with imported initializeApp
         try {
             // 1. Fetch data from JSON file
             const response = await fetch('book1-data.json');
@@ -670,9 +673,6 @@
     };
 
     // --- HELPER & UTILITY FUNCTIONS ---
-    // (All other functions like speak, showHint, checkAchievements, shareSingleScore, etc. go here)
-    // The content of these functions is identical to the original file, so they are omitted here for brevity,
-    // but they must be included for the script to work. We'll copy them over.
     const updateDropdownOptions = () => {
         const allSelects = Array.from(document.querySelectorAll('.word-select'));
         const answeredCount = allSelects.filter(s => s.value !== '').length;
@@ -1265,7 +1265,7 @@
     // =================================================================
     // START THE APP
     // =================================================================
-    initializeApp();
+    initializeAppWrapper();
 
 </script>
 <footer class="text-center py-4">
@@ -1275,3 +1275,4 @@
 </footer>
 </body>
 </html>
+
