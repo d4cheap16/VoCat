@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>VoCat</title>
-    <link rel="preload" as="image" href="https://d4cheap16.github.io/vp/GB01.png">
-    <link rel="preload" as="image" href="https://d4cheap16.github.io/vp/Cat.jpg">
+    <link rel="preload" as="image" href="https://d4cheap16.github.io/VoCat/GB01.png">
+    <link rel="preload" as="image" href="https://d4cheap16.github.io/VoCat/Cat.jpg">
     
     <!-- 社群媒體預覽卡片 (Open Graph Meta Tags) -->
     <meta name="description" content="Learn high school vocabulary in a fun way!">
     <meta property="og:title" content="VoCat">
     <meta property="og:description" content="Learn high school vocabulary in a fun way!">
-    <meta property="og:image" content="https://d4cheap16.github.io/vp/GB.jpg">
-    <meta property="og:url" content="https://d4cheap16.github.io/vp/">
+    <meta property="og:image" content="https://d4cheap16.github.io/VoCat/GB.jpg">
+    <meta property="og:url" content="https://d4cheap16.github.io/VoCat/">
     <meta property="og:type" content="website">
 
     <!-- 網站圖示 (Favicon & Apple Touch Icon) -->
-    <link rel="icon" href="https://d4cheap16.github.io/vp/favicon.png" type="image/jpeg">
-    <link rel="apple-touch-icon" href="https://d4cheap16.github.io/vp/favicon.png">
+    <link rel="icon" href="https://d4cheap16.github.io/VoCat/favicon.png" type="image/jpeg">
+    <link rel="apple-touch-icon" href="https://d4cheap16.github.io/VoCat/favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -401,16 +401,16 @@
 
     <div class="container">
         <div class="gameboy-wrapper">
-            <img src="https://d4cheap16.github.io/vp/GB01.png" alt="Game Boy background" class="gameboy-image">
+            <img src="https://d4cheap16.github.io/VoCat/GB01.png" alt="Game Boy background" class="gameboy-image">
             <div class="gameboy-screen">
                 <div class="boot-screen">
-                    <div class="boot-logo"><img src="https://d4cheap16.github.io/vp/Cat.jpg" alt="開機貓貓"></div>
+                    <div class="boot-logo"><img src="https://d4cheap16.github.io/VoCat/Cat.jpg" alt="開機貓貓"></div>
                 </div>
                 <div class="main-menu">
                     <div class="screen-header">
-                        <img src="https://d4cheap16.github.io/vp/CatL.png" alt="左貓" class="header-cat">
+                        <img src="https://d4cheap16.github.io/VoCat/CatL.png" alt="左貓" class="header-cat">
                         <p>VoCat</p>
-                        <img src="https://d4cheap16.github.io/vp/CatR.png" alt="右貓" class="header-cat">
+                        <img src="https://d4cheap16.github.io/VoCat/CatR.png" alt="右貓" class="header-cat">
                     </div>
                     <div class="menu-wrapper">
                         <ul class="menu-list">
@@ -510,7 +510,7 @@
             screenFooter.classList.add('animate');
 
             const modalBody = aboutModal.querySelector('.modal-body');
-            modalBody.innerHTML = `<p>WELCOME!</p><p>透過懷舊風格，學習也會更有趣。</p><p>也藏了給老玩家的小彩蛋，希望大家學得開心！</p>`;
+            modalBody.innerHTML = `<p>Welcome to VoCat！</p><p>希望能透過 Game Boy 的懷舊風格，將學習變成一場有趣的冒險。</p><p>網站還原了我的童年，也藏了小彩蛋，希望大家一起找到樂趣！</p>`;
 
             designConceptLink.addEventListener('click', (e) => { e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play(); aboutModal.classList.add('show'); });
             function closeModal() { audioSelect.currentTime = 0; audioSelect.play(); aboutModal.classList.remove('show'); }
@@ -932,11 +932,10 @@
         <span>Designed by CHENWEI with</span>
         <span>
             Gemini
-            <img src="https://d4cheap16.github.io/vp/Gemini.png" alt="Google Gemini Logo" class="footer-logo">
+            <img src="https://d4cheap16.github.io/VoCat/Gemini.png" alt="Google Gemini Logo" class="footer-logo">
         </span>
     </footer>
 
 </body>
 </html>
-
 
