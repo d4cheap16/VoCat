@@ -89,7 +89,7 @@
 
 <div id="app-container" class="hidden">
     <div class="max-w-4xl mx-auto mb-4">
-        <a href="https://d4cheap16.github.io/vp/"
+        <a href="https://d4cheap16.github.io/VoCat/"
        target="_top"
            class="inline-block bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300">
             &larr; 回家
@@ -142,25 +142,27 @@
                 </div>
         
                 <!-- Group & Difficulty Selection -->
-                <div class="flex flex-col items-center justify-center space-y-4 pt-2">
-                    <!-- Group Selection -->
-                    <div class="flex flex-col items-center space-y-2">
-                        <label class="font-medium text-gray-700">選擇組別:</label>
-                        <div id="group-selector" class="flex flex-wrap justify-center gap-2 rounded-lg p-2 bg-gray-200">
-                            <button data-group="groupA" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group A</button>
-                            <button data-group="groupB" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group B</button>
-                            <button data-group="groupC" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group C</button>
-                            <button data-group="groupBonus" id="bonus-group-btn" class="hidden control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-yellow-500 bg-gray-800 rounded-md" title="傳說級挑戰">❓</button>
+                <div id="main-controls">
+                    <div class="flex flex-col items-center justify-center space-y-4 pt-2">
+                        <!-- Group Selection -->
+                        <div class="flex flex-col items-center space-y-2">
+                            <label class="font-medium text-gray-700">選擇組別:</label>
+                            <div id="group-selector" class="flex flex-wrap justify-center gap-2 rounded-lg p-2 bg-gray-200">
+                                <button data-group="groupA" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group A</button>
+                                <button data-group="groupB" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group B</button>
+                                <button data-group="groupC" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group C</button>
+                                <button data-group="groupBonus" id="bonus-group-btn" class="hidden control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-yellow-500 bg-gray-800 rounded-md" title="傳說級挑戰">❓</button>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Difficulty Selection -->
-                    <div class="flex flex-col items-center space-y-2">
-                        <label class="font-medium text-gray-700">選擇難度:</label>
-                        <div id="difficulty-selector" class="flex items-center space-x-2 text-3xl">
-                            <button data-level="A2" class="control-btn difficulty-btn-wrapper disabled" title="A2 - 初級 (一顆星)"><span class="difficulty-btn">★</span></button>
-                            <button data-level="B1" class="control-btn difficulty-btn-wrapper disabled" title="B1 - 中級 (兩顆星)"><span class="difficulty-btn">★ ★</span></button>
-                            <button data-level="B2" class="control-btn difficulty-btn-wrapper disabled" title="B2 - 中高級 (三顆星)"><span class="difficulty-btn">★ ★ ★</span></button>
-                            <button data-level="C1" class="control-btn difficulty-btn-wrapper disabled text-4xl" title="C1 - 高級 (四顆星)"><span class="difficulty-btn">★ ★ ★ ★</span></button>
+                        <!-- Difficulty Selection -->
+                        <div class="flex flex-col items-center space-y-2">
+                            <label class="font-medium text-gray-700">選擇難度:</label>
+                            <div id="difficulty-selector" class="flex items-center space-x-2 text-3xl">
+                                <button data-level="A2" class="control-btn difficulty-btn-wrapper disabled" title="A2 - 初級 (一顆星)"><span class="difficulty-btn">★</span></button>
+                                <button data-level="B1" class="control-btn difficulty-btn-wrapper disabled" title="B1 - 中級 (兩顆星)"><span class="difficulty-btn">★ ★</span></button>
+                                <button data-level="B2" class="control-btn difficulty-btn-wrapper disabled" title="B2 - 中高級 (三顆星)"><span class="difficulty-btn">★ ★ ★</span></button>
+                                <button data-level="C1" class="control-btn difficulty-btn-wrapper disabled text-4xl" title="C1 - 高級 (四顆星)"><span class="difficulty-btn">★ ★ ★ ★</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -201,6 +203,10 @@
                  <div id="welcome-message" class="text-center py-12">
                     <h2 class="text-2xl font-semibold text-gray-700">請先選擇單元、組別與難度</h2>
                     <p class="text-gray-500 mt-2">完成設定後，測驗內容將會顯示於此處。</p>
+                </div>
+                <div id="construction-message" class="hidden text-center py-12">
+                    <h2 class="text-2xl font-semibold text-orange-600">🚧 單元建置中 🚧</h2>
+                    <p class="text-gray-500 mt-2">此單元的內容正在準備中，敬請期待！</p>
                 </div>
             </div>
             
@@ -247,7 +253,7 @@
     let wordDetails = {};
 
     // --- Firebase and App Config ---
-    const pageIdentifier = 'book3'; // <-- IMPORTANT: Changed to 'book3'
+    const pageIdentifier = 'book3';
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
     
     const firebaseConfig = {
@@ -292,6 +298,8 @@
         seatNumberInput: document.getElementById('seat-number'),
         quizArea: document.getElementById('quiz-area'),
         welcomeMessage: document.getElementById('welcome-message'),
+        constructionMessage: document.getElementById('construction-message'),
+        mainControls: document.getElementById('main-controls'),
         bonusGroupBtn: document.getElementById('bonus-group-btn'),
         shareAchievementsBtn: document.getElementById('share-achievements-btn'),
         badgeHallContainer: document.getElementById('badge-hall-container'),
@@ -314,14 +322,16 @@
     // =================================================================
     // INITIALIZATION
     // =================================================================
-    async function initializeAppWrapper() { 
+    async function initializeAppWrapper() { // Renamed to avoid conflict with imported initializeApp
         try {
-            // 1. Fetch data from JSON file
-            const response = await fetch('book3-data.json'); // <-- IMPORTANT: Changed to 'book3-data.json'
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            // 1. Fetch data from the external JSON file
+            const response = await fetch('book3-data.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const data = await response.json();
 
-            // 2. Populate data variables
+            // 2. Populate data variables from the fetched data
             allBadges = data.allBadges;
             vocabulary = data.vocabulary;
             wordDetails = data.wordDetails;
@@ -357,7 +367,7 @@
 
         } catch (error) {
             console.error("Initialization failed:", error);
-            dom.loadingIndicator.textContent = '資料載入失敗，請檢查 book3-data.json 檔案是否存在，或重新整理頁面。';
+            dom.loadingIndicator.textContent = '資料載入失敗，請確認 book3-data.json 檔案是否在同一路徑，或重新整理頁面。';
         }
     }
 
@@ -384,20 +394,41 @@
             'L01': '1: The Day I Broke the Rules',
             'L02': '2: The Marshmallow Challenge',
             'L03': '3: Prometheus',
+	        'L04': '4: Day of the Dead',
+	        'L05': '5: Kyoto',
+	        'L06': '6: The Country of the Blind',
+            'L07': '7: Bodies Speak Louder Than Words',
+            'L08': '8: Elephant Abuse',
+            'L09': '9: Mazu Mania',
         };
-        for (const unitKey in vocabulary) {
+
+        const allUnitKeys = Object.keys(unitDisplayNames);
+
+        allUnitKeys.forEach(unitKey => {
             const option = document.createElement('option');
             option.value = unitKey;
             option.textContent = unitDisplayNames[unitKey] || unitKey;
             unitSelect.appendChild(option);
-        }
+        });
     }
 
     function setupEventListeners() {
         dom.unitSelect.addEventListener('change', (e) => {
             state.currentUnit = e.target.value;
-            updateBonusButtonVisibility();
-            resetQuizArea();
+            
+            // Logic to show/hide content based on whether the unit exists in the data
+            if (!vocabulary[state.currentUnit] || Object.keys(vocabulary[state.currentUnit]).length === 0) {
+                dom.mainControls.classList.add('hidden');
+                dom.welcomeMessage.classList.add('hidden');
+                dom.constructionMessage.classList.remove('hidden');
+                dom.quizArea.classList.add('hidden');
+            } else {
+                dom.mainControls.classList.remove('hidden');
+                dom.welcomeMessage.classList.remove('hidden');
+                dom.constructionMessage.classList.add('hidden');
+                updateBonusButtonVisibility();
+                resetQuizArea();
+            }
             renderBadgeHall();
         });
 
@@ -585,6 +616,7 @@
         
         dom.quizArea.classList.remove('hidden');
         dom.welcomeMessage.classList.add('hidden');
+        dom.constructionMessage.classList.add('hidden');
         
         const isBonus = state.currentGroup === 'groupBonus';
         const unitData = vocabulary[state.currentUnit][state.currentGroup];
@@ -724,13 +756,15 @@
             }
         }
          if (!wordData) {
-            console.error(`Data for "${word}" or its family not found.`);
+            console.error(`Data for "${word}" or its family not found in unit ${state.currentUnit}.`);
+            dom.modalContent.innerHTML = `<p class="text-red-600">抱歉，找不到「${word}」的詳細資料。</p>`;
+            dom.hintModal.style.display = 'block';
             return;
          }
 
         let familyHtml = '';
         const mainWordData = allWordData[mainWordKey];
-        if (mainWordData && mainWordData.family && mainWordData.family.length > 0) {
+        if (mainWordData.family && mainWordData.family.length > 0) {
              familyHtml += `<details class="mt-4 pt-4 border-t border-gray-200 text-left"><summary class="text-xl font-semibold text-indigo-700 mb-2 cursor-pointer p-2 rounded-lg hover:bg-yellow-100 flex justify-between items-center"><span>單字家族 (Word Family)</span><span class="text-sm font-normal text-gray-500">點擊展開/收合</span></summary><div class="space-y-2 mt-2">`;
             
             familyHtml += createFamilyWordHtml(mainWordKey, mainWordData, mainWordKey);
@@ -744,7 +778,7 @@
             familyHtml += `</div></details>`;
         }
         
-        let usageNoteHtml = (mainWordData && mainWordData.note) ? `<div class="mt-4 text-left p-3 bg-blue-50 border-l-4 border-blue-400">${mainWordData.note}</div>` : '';
+        let usageNoteHtml = mainWordData.note ? `<div class="mt-4 text-left p-3 bg-blue-50 border-l-4 border-blue-400">${mainWordData.note}</div>` : '';
 
         dom.modalContent.innerHTML = `
             <div class="flex justify-between items-start">
@@ -1173,7 +1207,7 @@
         
         ctx.fillStyle = '#00796b'; 
         ctx.font = '36px "Noto Sans TC", sans-serif';
-        ctx.fillText(`${studentClass} ${seatNumber}`, canvas.width / 2, 140);
+        ctx.fillText(`${studentClass} ${seatNumber}號`, canvas.width / 2, 140);
         
         ctx.font = '30px "Noto Sans TC", sans-serif';
         ctx.fillText(`測驗: ${unitText} - ${group} ${state.currentGroup !== 'groupBonus' ? `(${state.currentDifficulty})` : ''}`, canvas.width / 2, 190);
@@ -1232,7 +1266,7 @@
         
         ctx.fillStyle = '#6b21a8';
         ctx.font = '40px "Noto Sans TC", sans-serif';
-        ctx.fillText(`${studentClass} ${seatNumber}`, canvas.width / 2, 180);
+        ctx.fillText(`${studentClass} ${seatNumber}號`, canvas.width / 2, 180);
         
         ctx.font = 'bold 32px "Inter", sans-serif';
         ctx.fillStyle = '#3b0764';
@@ -1277,3 +1311,4 @@
 </body>
 </html>
 
+}
