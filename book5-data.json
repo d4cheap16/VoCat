@@ -14,7 +14,7 @@
         "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
     },
     "vocabulary": {
-        "L05L02": {
+        "L02": {
             "groupA": {
                 "words": ["candidate", "objective", "define", "necessity", "credibility", "extensive"],
                 "stories": [
@@ -56,7 +56,7 @@
                 "story": { "level": "C2", "text": "Our team's **intention** was ambitious: to create a board game based on a forgotten historical event. We started with **extensive** research, which felt like a form of historical **journalism**. We even read a rare **biography** of a key figure from that era. Our **prior** design concepts were deeply **flawed**, and we realized some of the historical accounts we found were **misleading**. This forced us to **evaluate** every source to confirm its **validity**. A primary **necessity** was to clearly **define** the game's rules to avoid confusion. To **illustrate** the gameplay, we designed a colorful and detailed rulebook. Our first **attempt** to playtest the game was a disaster; the complex rules seemed to **shatter** everyone's enthusiasm. I started to **panic**, fearing the project would fail. However, the **subsequent** design meeting was surprisingly productive. We decided we needed an **objective** third party to give us honest feedback. Choosing the right person to help was like a small **political** decision, but we found the perfect **candidate**. With her help, we fixed the major issues. Our game's **credibility** as a fun *and* historically-informed product improved immensely. Now, we can proudly **cite** this project as a **notable** success. We didn't **deceive** ourselves; we knew it would be a monumental challenge, but the final result was worth it." }
             }
         },
-        "L05L03": {
+        "L03": {
             "groupA": {
                 "words": ["settle", "crew", "dense", "valley", "soar", "majestic"],
                 "stories": [
@@ -100,7 +100,7 @@
         }
     },
     "wordDetails": {
-        "L05L02": {
+        "L02": {
             "define": { "pos": "vt.", "translation": "解釋；給……下定義", "definition": "to give the exact meaning of a word or phrase", "example": "A dentist can be defined as a medical doctor who treats and repairs people's teeth.", "example_tw": "牙醫可以被定義為治療和修復人們牙齒的醫生。", "family": ["definition"] },
             "definition": { "pos": "n.", "translation": "解釋；定義" },
             "misleading": { "pos": "adj.", "translation": "誤導的", "definition": "causing someone to get the wrong idea or impression, or to believe something that is actually false", "example": "The store used a misleading sign to make people believe that all items were 50% off.", "example_tw": "這家商店用了一個誤導性的標誌，讓人們相信所有商品都打五折。", "family": ["mislead"] },
@@ -142,7 +142,7 @@
             "objective": { "pos": "adj.", "translation": "客觀的", "definition": "not affected or influenced by one's own point of view or opinion", "example": "It is difficult to remain completely objective in situations where the health of one's family members is at risk.", "example_tw": "在家人的健康受到威脅的情況下，很難保持完全客觀。", "family": ["objective_n"] },
             "objective_n": { "pos": "n.", "translation": "目標；目的" }
         },
-        "L05L03": {
+        "L03": {
             "investigate": { "pos": "vt.", "translation": "調查；偵查", "definition": "to carry out an inquiry into a situation to determine what happened", "example": "The police continue to investigate the case of the stolen painting, which has not yet been found.", "example_tw": "警方持續調查失竊畫作的案件，該畫作至今尚未被找到。", "family": ["investigation"] },
             "investigation": { "pos": "n.", "translation": "調查；偵查" },
             "differ": { "pos": "vi.", "translation": "相異，不同於", "definition": "to be not the same as someone or something else", "example": "Although they are sisters, Jamie differs from Tina in personality and appearance.", "example_tw": "雖然她們是姊妹，潔米在個性與外貌上都與蒂娜不同。", "family": ["differentiate"] },
@@ -185,3 +185,4 @@
         }
     }
 }
+
