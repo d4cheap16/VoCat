@@ -199,7 +199,7 @@
             "conflict_v": { "pos": "vi.", "translation": "(兩種想法等)抵觸" },
             "distribution": { "pos": "n.", "translation": "分配;分布", "definition": "how something is spread or shared among a group or over an area", "example": "The large forest fire has affected the distribution of wild animals within the national park.", "example_tw": "大規模的森林大火影響了國家公園內野生動物的分布。", "family": ["distribute"] },
             "distribute": { "pos": "vt.", "translation": "分發;分配" },
-            "benefit": { "pos": "n.", "translation": "益處", "definition": "a good, useful, or helpful effect; an advantage or gain", "example": "Everyone agreed that free education for all would solve a lot of problems and be of great benefit to society.", "example_tw": "所有人都同意，全民免費教育將解決許多問題，並對社會大有裨益。", "family": ["benefit_v", "beneficial"] },
+            "benefit": { "pos": "n.", "translation": "益處", "definition": "a good, useful, or helpful effect; an advantage or gain", "example": "Everyone agreed that free education for all would solve a lot of problems and be of great benefit to society.", "example_tw": "所有人都同意，全民免費教育將解決許多問題，並對社會大有裨益。", "family": ["benefit_v", "beneficial"], "note": "<h5>用法小提示：</h5><p class='text-sm text-left px-2'>及物 (vt.): 「事情」 benefit 「人」。<br>The new library will <b>benefit</b> the students.</p><p class='text-sm text-left px-2'>不及物 (vi.): 「人」 benefit from 「事情」。<br>The students will <b>benefit from</b> the new library.</p>" },
             "benefit_v": { "pos": "vt. vi.", "translation": "對...有益;得益於", "definition": "to help someone or be helped by something", "note": "<h5>用法小提示：</h5><p class='text-sm text-left px-2'>及物 (vt.): 「事情」 benefit 「人」。<br>The new library will <b>benefit</b> the students.</p><p class='text-sm text-left px-2'>不及物 (vi.): 「人」 benefit from 「事情」。<br>The students will <b>benefit from</b> the new library.</p>" },
             "beneficial": { "pos": "adj.", "translation": "有利的;有幫助的" },
             "slaughter": { "pos": "vt.", "translation": "宰殺", "definition": "to kill an animal for its meat", "example": "Pigs are often transported to Taipei before being slaughtered so that the meat will be fresh.", "example_tw": "豬隻通常在被宰殺前被運到台北，以確保肉質新鮮。", "family": ["slaughter_n"] },
@@ -223,3 +223,4 @@
         }
     }
 }
+
