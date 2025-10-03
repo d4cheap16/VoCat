@@ -126,6 +126,7 @@
             "groupB": {
                 "words": ["locate", "reward", "ability", "predict", "manage", "create"],
                 "stories": [
+                    { "level": "A2", "text": "To build a treehouse, you first need to **locate** a strong tree. Then, you can **create** a design plan. Building it will take a lot of effort, but you can **manage** it with help from friends. The special **ability** to build things is a great skill to have. It's hard to **predict** how long it will take, but the **reward** of having your own secret clubhouse is worth it." },
                     { "level": "B1", "text": "As a team leader, you must **manage** your time effectively. It's important to **create** a clear plan for everyone to follow. You should also **locate** the best resources for the project. A good leader has the **ability** to **predict** potential problems before they happen. Don't forget to **reward** your team members for their hard work and success." },
                     { "level": "B2", "text": "To successfully launch a startup, one must **manage** finances carefully and **locate** a niche in the market. The CEO's **ability** to **predict** market trends was a key factor in their success. They had to **create** an innovative product that solved a real-world problem. The ultimate **reward** for their years of hard work was seeing their company become a household name." },
                     { "level": "C1", "text": "Scientists developing advanced AI must **manage** the ethical implications of their work. They **create** complex algorithms with the **ability** to learn and adapt. It is difficult to **predict** all the long-term consequences of such powerful technology. The challenge is to **locate** the balance between innovation and safety. The true **reward** of this field lies in using AI to benefit humanity, not to harm it." }
@@ -144,7 +145,12 @@
                 "words": ["keen", "ability", "assign", "specific", "item", "locate", "manage", "sensitive", "detect", "behavior", "disease", "alert", "predict", "create", "perform", "expose", "accomplish", "complete", "reward"],
                 "story": { "level": "C2", "text": "Detective Harding, a man with a **keen** eye for detail, was known for his uncanny **ability** to solve the most baffling cases. The police chief decided to **assign** him a new, highly sensitive investigation. A very **specific** and priceless **item**—an ancient vial sealed with wax—had vanished from the city museum's most secure exhibit. Harding's mission was twofold: **locate** the vial and understand the motive behind its theft.\n\nHe had to **manage** a team of forensics experts and historians. Harding himself was extremely **sensitive** to atmospheric changes in a crime scene; he could almost feel the echoes of what had happened. His first objective was to **detect** any microscopic evidence the thief might have left behind. As he reviewed the security logs, the **behavior** of one of the night curators, a man named Alistair Finch, seemed unusual. Finch appeared nervous and avoided eye contact during questioning.\n\nThe case took a terrifying turn when a historian on the team discovered the vial wasn't just an artifact; it was rumored to contain a dormant, ancient **disease**. This new information sent an **alert** through the entire department. The thief didn't just steal an antique; they stole a potential plague. Harding could now **predict** the thief's next move might not be to sell the vial, but to weaponize it. The priority shifted from recovery to prevention. The team had to **create** a plan to find Finch, who had now disappeared.\n\nHarding knew he had to **perform** a deep dive into Finch's life. He discovered that Finch's family was being threatened. The real criminals wanted to **expose** the ancient virus to modern pathogens to create a new bioweapon. To **accomplish** his goal of rescuing Finch and securing the vial, he followed a trail of cryptic clues left by the curator. The final confrontation took place in an abandoned subway station. After a tense standoff, Harding retrieved the vial, and the bioweapon plot was foiled. The mission was **complete**. Finch received protection in exchange for his testimony, which was a far greater **reward** for him than any stolen treasure." }
             }
-        }
+        },
+        "L05": {},
+        "L06": {},
+        "L07": {},
+        "L08": {},
+        "L09": {}
     },
     "wordDetails": {
         "L01": {
@@ -248,7 +254,49 @@
             "expert": { "pos": "n.", "translation": "專家;行家", "definition": "a person with advanced knowledge, skills, or training in a particular field or subject", "example": "Mr. Yang is an expert in math. I'm glad to have him as my tutor.", "example_tw": "楊先生是數學專家。我很高興有他當我的家教。" },
             "survive": { "pos": "vi. vt.", "translation": "生存;倖存", "definition": "to stay alive or continue to exist", "example": "Some animals are able to survive from season to season by changing the color of their fur.", "example_tw": "有些動物能夠透過改變毛色來度過不同的季節。", "family": ["survival"] },
             "survival": { "pos": "n.", "translation": "生存;倖存", "definition": "(not provided in text)", "example": "The news report said that the missing mountain climbers had a low chance of survival.", "example_tw": "新聞報導稱，失蹤的登山客生還的機會很低。" }
-        }
+        },
+        "L04": {
+            "sensitive": { "pos": "adj.", "translation": "敏感的", "definition": "able to notice very subtle things such as changes or differences that others may not be aware of", "example": "Kelly is very sensitive to flavors. She can taste any food or drink and name it without seeing it.", "example_tw": "凱莉對味道非常敏感。她可以品嚐任何食物或飲料並在沒有看到的情況下說出它的名字。" },
+            "keen": { "pos": "adj.", "translation": "敏銳的", "definition": "highly advanced, referring to the five senses", "example": "The owl has such a keen sense of hearing that it can hunt animals in the dark.", "example_tw": "貓頭鷹有如此敏銳的聽覺，以至於它可以在黑暗中捕獵動物。" },
+            "detect": { "pos": "vt.", "translation": "偵測到;察覺", "definition": "to find or be aware of something not easy to notice", "example": "For most people, it is not easy to detect a small change in temperature.", "example_tw": "對大多數人來說，察覺溫度的微小變化並不容易。" },
+            "item": { "pos": "n. [C]", "translation": "一項物品", "definition": "a single product or thing", "example": "More than half of the items in the clothing store were on sale for one day only.", "example_tw": "這家服裝店一半以上的商品僅特價一天。" },
+            "accomplish": { "pos": "vt.", "translation": "達成", "definition": "to complete a difficult task or reach a goal", "example": "Albert respects those who have accomplished something great in their lives.", "example_tw": "艾伯特尊敬那些在生活中取得了偉大成就的人。", "family": ["accomplishment"] },
+            "accomplishment": { "pos": "n. [C]", "translation": "成就" },
+            "disease": { "pos": "n. [U, C]", "translation": "疾病", "definition": "a human, animal, or plant sickness that is usually caused by an infection", "example": "Washing your hands often is a good way to stop the spread of disease.", "example_tw": "經常洗手是阻止疾病傳播的好方法。", "family": ["infected", "infect", "infection"] },
+            "infected": { "pos": "adj.", "translation": "遭感染的" },
+            "infect": { "pos": "vt.", "translation": "感染" },
+            "infection": { "pos": "n. [C, U]", "translation": "感染" },
+            "locate": { "pos": "vt.", "translation": "找到……(的位置)", "definition": "to find a certain place, or the position of someone or something", "example": "These days, most taxi drivers use GPS to locate places they don't know how to drive to.", "example_tw": "如今，大多數計程車司機使用GPS來定位他們不知道如何開車去的地方。", "family": ["location"] },
+            "location": { "pos": "n. [C]", "translation": "地點" },
+            "reward": { "pos": "n. [C, U]", "translation": "獎勵;報酬", "definition": "something that is given to someone in recognition of a good deed or difficult task he or she has accomplished", "example": "Janice was given a reward of $2,000 for informing the police of the address of the man they were searching for.", "example_tw": "珍妮絲因向警方通報他們正在尋找的男子的地址而獲得了2000美元的獎勵。", "family": ["reward_v"] },
+            "reward_v": { "pos": "vt.", "translation": "獎賞;提供報酬" },
+            "ability": { "pos": "n. sing.", "translation": "能力", "definition": "the power to do a certain thing or a special thing that one can do", "example": "Eagles have the ability to fly without landing for over three hours.", "example_tw": "老鷹有能力連續飛行超過三個小時不落地。" },
+            "predict": { "pos": "vt.", "translation": "預測", "definition": "to guess that something will happen at a future time", "example": "The weatherperson predicted that it would start raining around 6:00 p.m., and she was correct.", "example_tw": "氣象預報員預測下午六點左右會開始下雨，她說對了。" },
+            "manage": { "pos": "vt. vi.", "translation": "設法成功做到;能夠應付", "definition": "to put great effort into doing something and succeed", "example": "Kyle managed to lose twenty pounds by exercising every day and eating less junk food.", "example_tw": "凱爾透過每天運動和少吃垃圾食物，成功減掉了二十磅。", "family": ["management"] },
+            "management": { "pos": "n. [U]", "translation": "管理" },
+            "create": { "pos": "vt.", "translation": "創造;產生出", "definition": "to cause something to come to be or to exist", "example": "The inventor of the telephone, Antonio Meucci, created a new way for humans to communicate.", "example_tw": "電話的發明者安東尼奧·穆奇，創造了一種新的人類溝通方式。", "family": ["creation", "creative", "creativity"] },
+            "creation": { "pos": "n. [U]", "translation": "創造;創建" },
+            "creative": { "pos": "adj.", "translation": "有創意的" },
+            "creativity": { "pos": "n. [U]", "translation": "創意" },
+            "expose": { "pos": "vt.", "translation": "使接觸;使體驗", "definition": "to let someone experience something or to introduce something to someone", "example": "By reading these articles, students will be exposed to different opinions about the topic.", "example_tw": "透過閱讀這些文章，學生將接觸到關於該主題的不同意見。", "family": ["exposure"] },
+            "exposure": { "pos": "n. [U]", "translation": "暴露" },
+            "perform": { "pos": "vt.", "translation": "做某事;做某種行為", "definition": "to carry out an action, task, or duty", "example": "After Mrs. Checknita fell ill, her family hired someone to help her perform daily tasks.", "example_tw": "在Checknita夫人病倒後，她的家人雇人幫助她執行日常任務。", "family": ["performance"] },
+            "performance": { "pos": "n. [C]", "translation": "表演" },
+            "behavior": { "pos": "n. [U]", "translation": "行為", "definition": "the way a person or animal acts", "example": "Animal behavior can tell us a lot about what a creature is thinking about or wants.", "example_tw": "動物的行為可以告訴我們很多關於一個生物在想什麼或想要什麼。", "family": ["behave"] },
+            "behave": { "pos": "vi.", "translation": "表現" },
+            "alert": { "pos": "n. [C]", "translation": "警示", "definition": "a warning that there may be some sort of danger or some special problem", "example": "Everybody was asked to leave the mall due to a bomb alert in one of the stores.", "example_tw": "由於其中一家商店發出炸彈警報，所有人都被要求離開購物中心。", "family": ["alert_adj"] },
+            "alert_adj": { "pos": "adj.", "translation": "警覺的" },
+            "complete": { "pos": "adj.", "translation": "已完成的;已結束的", "definition": "finished; entirely done", "example": "The race is not complete until every runner from every team crosses the finish line.", "example_tw": "直到每隊的每位跑者都越過終點線，比賽才算完成。", "family": ["complete_v"] },
+            "complete_v": { "pos": "vt.", "translation": "完成" },
+            "assign": { "pos": "vt.", "translation": "指派", "definition": "to give a special task or role to a certain person", "example": "Craig was assigned the task of giving the new students a tour of the school.", "example_tw": "克雷格被指派帶領新生參觀學校的任務。", "family": ["assignment"] },
+            "assignment": { "pos": "n. [C]", "translation": "(分派的)作業;工作" },
+            "specific": { "pos": "adj.", "translation": "特定的", "definition": "relating to one certain thing", "example": "There wasn't any specific reason why Jason didn't attend the performance with his friends. He just didn't feel like it.", "example_tw": "傑森沒有和朋友們一起去看表演並沒有任何特定的原因。他只是不想去而已。" }
+        },
+        "L05": {},
+        "L06": {},
+        "L07": {},
+        "L08": {},
+        "L09": {}
     }
 }
 
