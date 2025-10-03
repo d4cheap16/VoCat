@@ -145,7 +145,7 @@
                 "words": ["accompany", "annual", "anticipate", "arrival", "concept", "occasion", "joyous", "recognize", "preference", "reunion", "sorrow", "transform", "await", "feast", "mock", "resemble", "cycle", "dawn", "decorate", "escape", "essential", "inevitable", "mourn", "participate", "reception"],
                 "story": { "level": "C2", "text": "The core **concept** behind our family's **annual** gathering this year was profoundly different. It wasn't just another summer **occasion**; it was to be the final, grand **reunion** at the old Blackwood Manor before its sale. Our task was to **transform** the dusty, forgotten mansion into a place worthy of a final, magnificent farewell. It was **essential** that every family member, from the youngest to the oldest, **participate** in the preparations. We had weeks of work ahead of us. We had to **decorate** the grand ballroom, whose faded elegance seemed to **resemble** a scene from a historical film. My grandmother, despite her age, insisted on overseeing the floral arrangements, her **preference** being white roses. I was tasked to **accompany** her, listening to her stories of past celebrations. Her tales were mostly **joyous**, but tinged with an undercurrent of **sorrow** for the end of an era. 'We are not here to **mourn** the house,' she said softly, 'but to celebrate its long life **cycle** with us.' As the day drew closer, a sense of excitement began to build. We started to eagerly **anticipate** the flurry of activity that the **arrival** of relatives from across the globe would bring. We planned a spectacular **feast** for the main evening, a culinary journey through our family's history. The initial **reception** would be in the garden, where, as children, we used to play hide-and-seek, trying to **escape** from our parents' watchful eyes. It felt strange to be there as adults, almost difficult to **recognize** the once-wild patches we had claimed as our kingdoms. On the final morning, I woke before **dawn**. A profound sense of finality was in the air, a feeling that was **inevitable**. My cynical cousin, who often used to **mock** our sentimentality, was quietly placing old family photos on the mantelpiece. The house was ready. All that was left was to **await** the final sunset, the laughter, and the tears of this one last, unforgettable gathering." }
             }
-        }
+        },
             "L05": {
             "groupA": {
                 "words": ["blossom", "rustle", "landscape", "distinctive", "elegant", "deliberate", "destination"],
@@ -330,7 +330,7 @@
             "await": { "pos": "vt.", "translation": "等待", "definition": "to wait for; to anticipate", "example": "The advertisement reads, \"At the Dolphin Bay Hotel, a warm reception and amazing ocean views await our honored guests.\"", "example_tw": "廣告上寫著：「在海豚灣飯店，熱情的接待和絕佳的海景正等待著我們尊貴的客人。」" },
             "escape": { "pos": "vt.", "translation": "避免", "definition": "to get away from or avoid", "example": "Greg pretended to have a headache in order to escape doing the dishes, but his mother didn't fall for it.", "example_tw": "葛瑞格假裝頭痛以逃避洗碗，但他媽媽沒有上當。", "family": ["escape_vi_n"] },
             "escape_vi_n": { "pos": "vi. n.", "translation": "逃跑；逃走" }
-        }
+        },
         "L05": {
             "blossom": { "pos": "n.", "translation": "花朵；開花", "definition": "a flower or group of flowers, especially those found on blooming fruit trees", "example": "Apple blossoms are beautiful white flowers, but did you know they're actually poisonous to cats?", "example_tw": "蘋果花是美麗的白色花朵，但你知道牠們對貓有毒嗎？", "family": ["blossom_vi"] },
             "blossom_vi": { "pos": "vi.", "translation": "開花" },
@@ -368,6 +368,7 @@
         
     }
 }
+
 
 
 
