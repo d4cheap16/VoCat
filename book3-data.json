@@ -254,8 +254,6 @@
             "torture_n": { "pos": "n.", "translation": "折磨" },
             "civilization": { "pos": "n.", "translation": "文明", "definition": "advanced, well-developed, and well-organized human society", "example": "The new port and bridges brought civilization to the remote island.", "example_tw": "新的港口和橋樑為這座偏遠的島嶼帶來了文明。" }
         }
-    },
-    "wordDetails": {
         "L04": {
             "joyous": { "pos": "adj.", "translation": "令人愉快的", "definition": "making one feel very happy; filling one with happiness", "example": "Hannah celebrated her daughter's birth with friends and family; it was a joyous event.", "example_tw": "漢娜與親友一同慶祝女兒的誕生；那是一個令人愉快的活動。" },
             "accompany": { "pos": "vt.", "translation": "陪伴", "definition": "to go somewhere with someone", "example": "Whenever Allen goes for a walk in the park, his furry black dog Butch always accompanies him.", "example_tw": "每當艾倫去公園散步時，他毛茸茸的黑狗布奇總是陪伴著他。", "family": ["company"] },
@@ -300,3 +298,4 @@
         }
     }
 }
+
