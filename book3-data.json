@@ -232,8 +232,8 @@
             "conflict_v": { "pos": "vi.", "translation": "(兩種想法等)抵觸" },
             "distribution": { "pos": "n.", "translation": "分配;分布", "definition": "how something is spread or shared among a group or over an area", "example": "The large forest fire has affected the distribution of wild animals within the national park.", "example_tw": "大規模的森林大火影響了國家公園內野生動物的分布。", "family": ["distribute"] },
             "distribute": { "pos": "vt.", "translation": "分發;分配" },
-            "benefit": { "pos": "n.", "translation": "益處", "definition": "a good, useful, or helpful effect; an advantage or gain", "example": "Everyone agreed that free education for all would solve a lot of problems and be of great benefit to society.", "example_tw": "所有人都同意，全民免費教育將解決許多問題，並對社會大有裨益。", "family": ["benefit_v", "beneficial"], "note": "<h5>用法小提示：</h5><p class='text-sm text-left px-2'>及物 (vt.): 「事情」 benefit 「人」。<br>The new library will <b>benefit</b> the students.</p><p class='text-sm text-left px-2'>不及物 (vi.): 「人」 benefit from 「事情」。<br>The students will <b>benefit from</b> the new library.</p>"  },
-            "benefit_v": { "pos": "vt. vi.", "translation": "對...有益;得益於", "definition": "to help someone or be helped by something", "note": "<h5>用法小提示：</h5><p class='text-sm text-left px-2'>及物 (vt.): 「事情」 benefit 「人」。<br>The new library will <b>benefit</b> the students.</p><p class='text-sm text-left px-2'>不及物 (vi.): 「人」 benefit from 「事情」。<br>The students will <b>benefit from</b> the new library.</p>" },
+            "benefit": { "pos": "n.", "translation": "益處", "definition": "a good, useful, or helpful effect; an advantage or gain", "example": "Everyone agreed that free education for all would solve a lot of problems and be of great benefit to society.", "example_tw": "所有人都同意，全民免費教育將解決許多問題，並對社會大有裨益。", "family": ["benefit_v", "beneficial"], "note": "<h5>用法小提示：</h5><p class='text-sm text-left px-2'>及物 (vt.): 「事情」 benefit 「人」。<br>The new library will <b>benefit</b> the students.</p><p class='text-sm text-left px-2'>不及物 (vi.): 「人」 benefit from 「事情」。<br>The students will <b>benefit from</b> the new library.</p>"},
+            "benefit_v": { "pos": "vt. vi.", "translation": "對...有益;得益於", "definition": "to help someone or be helped by something"},
             "beneficial": { "pos": "adj.", "translation": "有利的;有幫助的" },
             "slaughter": { "pos": "vt.", "translation": "宰殺", "definition": "to kill an animal for its meat", "example": "Pigs are often transported to Taipei before being slaughtered so that the meat will be fresh.", "example_tw": "豬隻通常在被宰殺前被運到台北，以確保肉質新鮮。", "family": ["slaughter_n"] },
             "slaughter_n": { "pos": "n.", "translation": "屠殺" },
@@ -253,7 +253,7 @@
             "torture": { "pos": "vt.", "translation": "折磨", "definition": "to force someone to suffer a lot of pain, often on purpose and without any mercy", "example": "Professional athletes torture themselves with long workouts and practice routines in order to become the best.", "example_tw": "職業運動員為了成為最頂尖的選手，用長時間的訓練和練習來折磨自己。", "family": ["torture_n"] },
             "torture_n": { "pos": "n.", "translation": "折磨" },
             "civilization": { "pos": "n.", "translation": "文明", "definition": "advanced, well-developed, and well-organized human society", "example": "The new port and bridges brought civilization to the remote island.", "example_tw": "新的港口和橋樑為這座偏遠的島嶼帶來了文明。" }
-        }
+        },
         "L04": {
             "joyous": { "pos": "adj.", "translation": "令人愉快的", "definition": "making one feel very happy; filling one with happiness", "example": "Hannah celebrated her daughter's birth with friends and family; it was a joyous event.", "example_tw": "漢娜與親友一同慶祝女兒的誕生；那是一個令人愉快的活動。" },
             "accompany": { "pos": "vt.", "translation": "陪伴", "definition": "to go somewhere with someone", "example": "Whenever Allen goes for a walk in the park, his furry black dog Butch always accompanies him.", "example_tw": "每當艾倫去公園散步時，他毛茸茸的黑狗布奇總是陪伴著他。", "family": ["company"] },
@@ -268,7 +268,8 @@
             "occasional": { "pos": "adj.", "translation": "偶爾的" },
             "reunion": { "pos": "n.", "translation": "重逢；團聚", "definition": "a special occasion for a family, class, etc. to get together after being apart for a while", "example": "Every five years, all my cousins living abroad return to Taiwan for a big family reunion. It's always great to see everybody again.", "example_tw": "每隔五年，我所有住在國外的表兄弟姊妹都會回到台灣來場大型的家庭團聚。能再次見到大家總是件很棒的事。", "family": ["reunite"] },
             "reunite": { "pos": "vt.", "translation": "重逢；重聚" },
-            "anticipate": { "pos": "vt.", "translation": "期盼", "definition": "to look forward to something", "example": "Months before the birth of their child, the couple started to anticipate holding the little baby in their arms.", "example_tw": "在孩子出生前的幾個月，這對夫妻就開始期盼能將小寶寶擁入懷中。" },
+            "anticipate": { "pos": "vt.", "translation": "期盼", "definition": "to look forward to something", "example": "Months before the birth of their child, the couple started to anticipate holding the little baby in their arms.", "example_tw": "在孩子出生前的幾個月，這對夫妻就開始期盼能將小寶寶擁入懷中。", "family": ["anticipation"] },
+            "anticipation": { "pos": "n.", "translation": "預料" },
             "arrival": { "pos": "n.", "translation": "到達；到來", "definition": "the act of one's coming to or reaching a certain place", "example": "Upon the passengers' arrival at the airport, customs officials searched all their bags for drugs and dangerous weapons.", "example_tw": "旅客一抵達機場，海關人員便搜查他們所有的行李，尋找毒品和危險武器。" },
             "decorate": { "pos": "vt.", "translation": "裝飾", "definition": "to make something look more attractive by putting things on it", "example": "In the week before the performance, the students decorated the stage with balloons and colorful lights.", "example_tw": "在表演前一週，學生們用氣球和彩燈裝飾舞台。", "family": ["decoration"] },
             "decoration": { "pos": "n.", "translation": "裝飾(品)" },
@@ -298,4 +299,5 @@
         }
     }
 }
+
 
