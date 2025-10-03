@@ -89,7 +89,7 @@
 
 <div id="app-container" class="hidden">
     <div class="max-w-4xl mx-auto mb-4">
-        <a href="https://d4cheap16.github.io/VoCat/"
+        <a href="https://d4cheap16.github.io/vp/"
        target="_top"
            class="inline-block bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300">
             &larr; 回家
@@ -386,6 +386,12 @@
             'L01': '1: The Firsts in Life',
             'L02': '2: A Break-Up Letter',
             'L03': '3: Do Animals Sleep like You and Me?',
+	    'L04': '4: Sniffing Out More Than Just Bones',
+	    'L05': '5: The Life of a Plastic Bag',
+	    'L06': '6: Built for Freedom',
+            'L07': '7: From Trash to Triumph',
+            'L08': '8: Convenience Stores',
+            'L09': '9: Fighting for or against Graffiti',
         };
         for (const unitKey in vocabulary) {
             const option = document.createElement('option');
@@ -1175,7 +1181,7 @@
         
         ctx.fillStyle = '#00796b'; 
         ctx.font = '36px "Noto Sans TC", sans-serif';
-        ctx.fillText(`${studentClass} ${seatNumber}`, canvas.width / 2, 140);
+        ctx.fillText(`${studentClass} ${seatNumber}號`, canvas.width / 2, 140);
         
         ctx.font = '30px "Noto Sans TC", sans-serif';
         ctx.fillText(`測驗: ${unitText} - ${group} ${state.currentGroup !== 'groupBonus' ? `(${state.currentDifficulty})` : ''}`, canvas.width / 2, 190);
@@ -1234,7 +1240,7 @@
         
         ctx.fillStyle = '#6b21a8';
         ctx.font = '40px "Noto Sans TC", sans-serif';
-        ctx.fillText(`${studentClass} ${seatNumber}`, canvas.width / 2, 180);
+        ctx.fillText(`${studentClass} ${seatNumber}號`, canvas.width / 2, 180);
         
         ctx.font = 'bold 32px "Inter", sans-serif';
         ctx.fillStyle = '#3b0764';
@@ -1278,7 +1284,4 @@
 </footer>
 </body>
 </html>
-
-
-
 
