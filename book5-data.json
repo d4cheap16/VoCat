@@ -14,6 +14,7 @@
         "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
     },
     "vocabulary": {
+        "L01": {},
         "L02": {
             "groupA": {
                 "words": ["candidate", "objective", "define", "necessity", "credibility", "extensive"],
@@ -97,7 +98,10 @@
                 "words": ["investigate", "differ", "crew", "sailor", "exceptional", "settle", "penetrate", "core", "considerably", "majestic", "dense", "soar", "valley", "stream", "stark", "lively", "cattle", "agricultural", "exceed", "gorgeous", "plain", "lush", "bustling", "mighty", "mountainous"],
                 "story": { "level": "C2", "text": "Our project was to revitalize a forgotten town nestled in a **valley**. The town's atmosphere used to be **lively**, but it had faded. The **stark** contrast between old photos of a **bustling** main street and its current quiet state was our motivation. Our team's opinions on the best approach did **differ**, but we agreed the **core** issue was a lack of identity. We decided to **investigate** the town's unique history. We discovered it was founded by a famous **sailor** whose life was an **exceptional** story of adventure. Our intention was to create a tourist experience. We worked with a film **crew** to shoot a promotional video. It showcased the **lush** greenery of the surrounding **mountainous** region and the **majestic** waterfall nearby. A small **stream** flows from the falls, and we helped clean it up. The local economy was primarily **agricultural**, but we saw potential. We helped a local farmer expand his herd of **cattle** into a tourist-friendly petting zoo. The project's budget was tight, and we could not **exceed** it. The biggest challenge was renovating the old town hall, a **mighty** but decaying building. The cold air could **penetrate** its walls. We wanted the final result to be **gorgeous**. The renovation's quality improved **considerably** after we found a skilled carpenter. We hoped our work would convince new families to **settle** here. Now, passenger jets **soar** overhead, bringing visitors. The once-empty **plain** outside of town now hosts a vibrant weekend market. The once **dense** forest is now managed as a beautiful park." }
             }
-        }
+        },
+        "L04": {},
+        "L05": {},
+        "L06": {},
     },
     "wordDetails": {
         "L02": {
@@ -182,7 +186,9 @@
             "bustle": { "pos": "vi.", "translation": "忙碌" },
             "mighty": { "pos": "adj.", "translation": "巨大的；非凡的", "definition": "of impressively large size", "example": "The mighty oak towered above the other trees in the forest.", "example_tw": "巨大的橡樹高聳於森林中的其他樹木之上。" },
             "mountainous": { "pos": "adj.", "translation": "多山的", "definition": "having a lot of mountains", "example": "This is a highly mountainous region with a lot of wild animals, so few people live here.", "example_tw": "這是一個野生動物繁多的高山地區，所以很少有人居住在這裡。" }
-        }
+        },
+        "L04": {},
+        "L05": {},
+        "L06": {},
     }
 }
-
