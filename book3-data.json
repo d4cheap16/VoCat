@@ -341,7 +341,7 @@
             "previous": { "pos": "adj.", "translation": "先前的" },
             "capital": { "pos": "n.", "translation": "首都", "definition": "a country's main or the most important city", "example": "No one in the group had previously visited London, so they decided to start their UK trip in the capital.", "example_tw": "團體中沒有人之前去過倫敦，所以他們決定從首都開始他們的英國之旅。" },
             "boast": { "pos": "vt.", "translation": "以……為傲；擁有", "definition": "to have something of great value to be proud of", "example": "Our new community sports center boasts six indoor basketball courts, an Olympic-size swimming pool, and four tennis courts.", "example_tw": "我們新的社區運動中心擁有六個室內籃球場、一個奧運規格的游泳池和四個網球場。" },
-            "historic": { "pos": "adj.", "translation": "歷史悠久的；歷史上著名的", "definition": "having importance in history", "example": "On April 12, 1961, Yuri Gagarin became the first person to fly into space. It was a historic day for humankind.", "example_tw": "1961年4月12日，尤里·加加林成為第一位飛入太空的人。那對人類來說是歷史性的一天。", "family": ["historical", "historian"] },
+            "historic": { "pos": "adj.", "translation": "歷史悠久的；歷史上著名的", "definition": "having importance in history", "example": "On April 12, 1961, Yuri Gagarin became the first person to fly into space. It was a historic day for humankind.", "example_tw": "1961年4月12日，尤里·加加林成為第一位飛入太空的人。那對人類來說是歷史性的一天。", "family": ["historical", "historian"], "note": "<h5>用法比較 (Usage Note):</h5><p class='text-sm text-left px-2'><b>historic</b>: 形容在歷史上<b>非常重要、有名、或具重大意義的</b>人事物。帶有「創造歷史」的感覺。<br>(e.g., a <b>historic</b> speech, a <b>historic</b> victory)</p><p class='text-sm text-left px-2'><b>historical</b>: 泛指一切<b>與歷史有關的</b>、關於過去的人事物。範圍較廣。<br>(e.g., a <b>historical</b> novel, <b>historical</b> research)</p>" },
             "historical": { "pos": "adj.", "translation": "歷史的" },
             "historian": { "pos": "n.", "translation": "歷史學家" },
             "entrance": { "pos": "n.", "translation": "大門；入口", "definition": "a gate or a door where one can enter a room, building, or place", "example": "A large fish which represents the baseball team is found at the entrance to the stadium.", "example_tw": "在體育場的入口處，有一條代表棒球隊的大魚。" },
@@ -366,3 +366,4 @@
         }
     }
 }
+
