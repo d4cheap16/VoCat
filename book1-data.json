@@ -190,7 +190,7 @@
             "fortunate": { "pos": "adj.", "translation": "幸運的" }
         },
         "L02": {
-            "relationship": { "pos": "n.", "translation": "戀愛關係", "definition": "a close or loving friendship between two people", "example": "Marc and Amy have been in a relationship since their first date four years ago.", "example_tw": "馬克和艾美從四年前第一次約會後，就一直維持著戀愛關係。", "family": ["relation", "relate"], "note": "<h5>用法比較 (Usage Note):</h5><p class='text-sm text-left px-2'><b>relationship</b>: 較常用，強調人與人之間<b>情感的連結</b>與互動，例如友情、愛情、親情。(e.g., a romantic relationship, a good relationship with his parents.)</p><p class='text-sm text-left px-2'><b>relation</b>: 較正式，指人或事物之間的<b>客觀關聯</b>，不一定帶有情感。也指<b>親戚</b>關係。(e.g., What is the relation between the two events? She is a distant relation of mine.)</p>" },
+            "relationship": { "pos": "n.", "translation": "戀愛關係", "definition": "a close or loving friendship between two people", "example": "Marc and Amy have been in a relationship since their first date four years ago.", "example_tw": "馬克和艾美從四年前第一次約會後，就一直維持著戀愛關係。", "family": ["relation", "relate"], "note": "<h5>用法比較 (Usage Note):</h5><p class='text-sm text-left px-2'><b>relationship</b>: 較常用，強調人與人之間<b>情感的連結</b>與互動，例如友情、愛情、親情。</p><p class='text-sm text-left px-2'><b>relation</b>: 較正式，指人或事物之間的<b>客觀關聯</b>，不一定帶有情感。也指<b>親戚</b>關係。</p>" },
             "relation": { "pos": "n.", "translation": "關係" },
             "relate": { "pos": "vt.", "translation": "使兩者有聯繫" },
             "satisfying": { "pos": "adj.", "translation": "令人滿意的", "definition": "bringing pleasure to a person by providing something that person wants or needs", "example": "Billy thinks it is satisfying to drink a big cup of iced tea after he exercises.", "example_tw": "比利認為運動後喝一大杯冰茶是件很令人滿足的事。", "family": ["satisfy", "satisfaction"] },
@@ -299,4 +299,5 @@
         "L09": {}
     }
 }
+
 
