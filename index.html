@@ -27,8 +27,22 @@
         :root {
             --screen-bg: #9bbc0f;
             --screen-text: #0f380f;
-            --body-bg: #d3d3d3; /* Light gray for wider screens */
+            --screen-overlay: rgba(155, 188, 15, 0.75);
+            --body-bg: #d3d3d3;
         }
+
+        /* --- 新增：調色盤主題 --- */
+        body.palette-pocket {
+            --screen-bg: #e0e0e0;
+            --screen-text: #000000;
+            --screen-overlay: rgba(224, 224, 224, 0.75);
+        }
+        body.palette-sepia {
+            --screen-bg: #d0e0f0;
+            --screen-text: #2c3e50;
+            --screen-overlay: rgba(208, 224, 240, 0.75);
+        }
+
 
         html, body {
             margin: 0;
@@ -359,7 +373,7 @@
             max-width: 95%;
             width: 500px;
             border-radius: 8px;
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Press Start 2P', 'Noto Sans TC', sans-serif; /* 改為混合字體 */
             line-height: 1.7;
             font-size: clamp(14px, 3.5vw, 16px);
         }
@@ -395,6 +409,26 @@
         .modal-close-btn:active { transform: scale(0.9); }
         .modal-body p { margin: 0 0 1em 0; }
         .modal-body p:last-child { margin-bottom: 0; }
+        
+        /* 高分榜專用樣式 */
+        .scores-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .scores-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8em;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(12px, 3vw, 14px);
+        }
+        .scores-list li span:first-child {
+            text-align: left;
+        }
+        .scores-list li span:last-child {
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -435,10 +469,12 @@
                                     <li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">高二上一段</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-category"><a href="#">ABOUT ME</a>
+                            <li class="menu-category"><a href="#">MORE...</a>
                                 <ul class="sub-menu">
                                     <li><a href="#" id="design-concept-link">DESIGN CONCEPT</a></li>
-                                    <li><a href="https://forms.gle/iWMy29gJDsgCWr837" target="_blank">CONTACT ME</a></li>
+                                    <li><a href="#" id="palette-switch-link">THEME</a></li>                                    <li><a href="https://forms.gle/iWMy29gJDsgCWr837" target="_blank">CONTACT ME</a></li>
+                                    <li><a href="#" id="high-scores-link">HIGH SCORES</a></li>
+                                    <li><a href="#" id="clear-data-link">CLEAR SCORES</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -489,6 +525,22 @@
             <div class="modal-body"><!-- 內容將由 JS 填入 --></div>
         </div>
     </div>
+    
+    <!-- 新增：高分榜視窗 -->
+    <div id="high-scores-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>HIGH SCORES</p>
+                <button id="close-scores-btn" class="modal-close-btn">X</button>
+            </div>
+            <div class="modal-body">
+                <ul class="scores-list">
+                    <!-- 分數將由 JS 動態填入 -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         window.addEventListener('contextmenu', function(e) { e.preventDefault(); });
@@ -501,9 +553,18 @@
             const bootScreen = document.querySelector('.boot-screen');
             const mainMenu = document.querySelector('.main-menu');
             const screenFooter = document.querySelector('.screen-footer');
+            
+            // --- 視窗元素 ---
             const designConceptLink = document.getElementById('design-concept-link');
             const aboutModal = document.getElementById('about-modal');
             const closeModalBtn = document.getElementById('close-modal-btn');
+            
+            const highScoresLink = document.getElementById('high-scores-link');
+            const highScoresModal = document.getElementById('high-scores-modal');
+            const closeScoresBtn = document.getElementById('close-scores-btn');
+
+            const clearDataLink = document.getElementById('clear-data-link');
+            const paletteSwitchLink = document.getElementById('palette-switch-link');
 
             const quotes = ["Try: UP UP DOWN DOWN LEFT RIGHT LEFT RIGHT B A START", "Every expert was once a beginner.", "Don't stop until you're proud.", "The harder you work, the luckier you get.", "Success is the sum of small efforts.", "It always seems impossible until it's done.", "Mistakes are proof that you are trying.", "Turn 'I wish' into 'I will'.", "Learn something new every day.", "No one can take what you've learned away from you.", "Strive for progress, not perfection.", "Be awesome today."];
             const quoteElement = document.getElementById('quote-text');
@@ -512,12 +573,131 @@
 
             const modalBody = aboutModal.querySelector('.modal-body');
             modalBody.innerHTML = `<p>WELCOME!</p><p>用懷舊的感覺，讓學習也有趣一點。</p><p>網站還有小彩蛋，可以一起體驗我的童年！</p>`;
-
+            
+            // --- 事件監聽 ---
             designConceptLink.addEventListener('click', (e) => { e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play(); aboutModal.classList.add('show'); });
-            function closeModal() { audioSelect.currentTime = 0; audioSelect.play(); aboutModal.classList.remove('show'); }
+            function closeModal() { audioSelect.currentTime = 0; audioSelect.play(); aboutModal.classList.remove('show'); highScoresModal.classList.remove('show'); }
             closeModalBtn.addEventListener('click', closeModal);
             aboutModal.addEventListener('click', (e) => { if (e.target === aboutModal) closeModal(); });
+            
+            closeScoresBtn.addEventListener('click', closeModal);
+            highScoresModal.addEventListener('click', (e) => { if (e.target === highScoresModal) closeModal(); });
+
             screenFooter.addEventListener('click', function() { audioSelect.currentTime = 0; audioSelect.play(); quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)]; }); 
+            
+            // --- 高分榜邏輯 ---
+            highScoresLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                audioOpen.currentTime = 0;
+                audioOpen.play();
+                
+                const scoresList = highScoresModal.querySelector('.scores-list');
+                const games = [
+                    { name: 'BREAKOUT', key: 'breakoutHighScore' },
+                    { name: 'DINO RUN', key: 'dinoHighScore' },
+                    { name: 'GHOSTBUSTER', key: 'ghostbusterHighScore' },
+                    { name: 'SNAKE', key: 'snakeHighScore' },
+                    { name: 'TETRIS', key: 'tetrisHighScore' }
+                ];
+                
+                scoresList.innerHTML = ''; // 清空舊列表
+                
+                games.forEach(game => {
+                    const score = localStorage.getItem(game.key) || '0';
+                    const scoreItem = document.createElement('li');
+                    scoreItem.innerHTML = `<span>${game.name}</span><span>${String(Math.floor(score)).padStart(5, '0')}</span>`;
+                    scoresList.appendChild(scoreItem);
+                });
+
+                highScoresModal.classList.add('show');
+            });
+
+            // --- 清除分數邏輯 ---
+            clearDataLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                audioOpen.currentTime = 0;
+                audioOpen.play();
+
+                showCustomConfirm('Are you sure you want to clear all high scores? This action cannot be undone.', () => {
+                    const games = ['breakoutHighScore', 'dinoHighScore', 'ghostbusterHighScore', 'snakeHighScore', 'tetrisHighScore'];
+                    games.forEach(key => localStorage.removeItem(key));
+                    showCustomAlert('All high scores have been cleared!');
+                });
+            });
+
+            // --- 調色盤邏輯 ---
+            const palettes = ['', 'palette-pocket', 'palette-sepia'];
+            let currentPaletteIndex = 0;
+
+            const savedPalette = localStorage.getItem('vocatPalette');
+            if (savedPalette && palettes.includes(savedPalette)) {
+                document.body.className = savedPalette;
+                currentPaletteIndex = palettes.indexOf(savedPalette);
+            }
+
+            paletteSwitchLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                audioSelect.currentTime = 0;
+                audioSelect.play();
+
+                currentPaletteIndex = (currentPaletteIndex + 1) % palettes.length;
+                const newPalette = palettes[currentPaletteIndex];
+                document.body.className = newPalette;
+                localStorage.setItem('vocatPalette', newPalette);
+            });
+
+
+            // --- 自訂 Alert 和 Confirm ---
+            function showCustomAlert(message) {
+                const alertModal = document.createElement('div');
+                alertModal.className = 'modal-overlay show';
+                alertModal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header"><p>NOTICE</p></div>
+                        <div class="modal-body" style="text-align: center; padding: 20px 0;">
+                            <p>${message}</p>
+                            <button id="custom-alert-ok" style="padding: 8px 16px; margin-top: 20px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: var(--screen-text); color: var(--screen-bg); cursor: pointer;">OK</button>
+                        </div>
+                    </div>`;
+                document.body.appendChild(alertModal);
+                document.getElementById('custom-alert-ok').onclick = () => {
+                    audioSelect.play();
+                    document.body.removeChild(alertModal);
+                };
+                 document.getElementById('custom-alert-ok').focus();
+            }
+
+            function showCustomConfirm(message, onConfirm) {
+                const confirmModal = document.createElement('div');
+                confirmModal.className = 'modal-overlay show';
+                confirmModal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header"><p>CONFIRM</p></div>
+                        <div class="modal-body" style="text-align: center; padding: 20px 0;">
+                            <p>${message}</p>
+                            <div style="margin-top: 20px;">
+                                <button id="custom-confirm-yes" style="padding: 8px 16px; margin-right: 10px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: var(--screen-text); color: var(--screen-bg); cursor: pointer;">YES</button>
+                                <button id="custom-confirm-no" style="padding: 8px 16px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: transparent; color: var(--screen-text); cursor: pointer;">NO</button>
+                            </div>
+                        </div>
+                    </div>`;
+                document.body.appendChild(confirmModal);
+
+                const yesBtn = document.getElementById('custom-confirm-yes');
+                const noBtn = document.getElementById('custom-confirm-no');
+
+                yesBtn.onclick = () => {
+                    audioSelect.play();
+                    onConfirm();
+                    document.body.removeChild(confirmModal);
+                };
+                noBtn.onclick = () => {
+                    audioSelect.play();
+                    document.body.removeChild(confirmModal);
+                };
+                yesBtn.focus();
+            }
+
 
             const categories = document.querySelectorAll('.menu-category > a');
             categories.forEach(category => {
@@ -556,8 +736,9 @@
             const SELECTOR_CHAR = '•';
 
             function drawGameOverScreen(ctx, cvs, selectedOption) {
-                const textColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
-                ctx.fillStyle = 'rgba(155, 188, 15, 0.75)'; ctx.fillRect(0, 0, cvs.width, cvs.height);
+                const textColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                const overlayColor = getComputedStyle(document.body).getPropertyValue('--screen-overlay');
+                ctx.fillStyle = overlayColor; ctx.fillRect(0, 0, cvs.width, cvs.height);
                 ctx.fillStyle = textColor; ctx.textAlign = 'center';
                 ctx.font = `clamp(18px, 6vw, 24px) 'Press Start 2P'`; ctx.fillText('GAME OVER', cvs.width / 2, cvs.height / 2 - 20);
                 ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const textY = cvs.height / 2 + 20;
@@ -565,8 +746,9 @@
             }
             
             function drawQuitMenuScreen(ctx, cvs, selectedOption) {
-                const textColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
-                ctx.fillStyle = 'rgba(155, 188, 15, 0.75)'; ctx.fillRect(0, 0, cvs.width, cvs.height);
+                const textColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                const overlayColor = getComputedStyle(document.body).getPropertyValue('--screen-overlay');
+                ctx.fillStyle = overlayColor; ctx.fillRect(0, 0, cvs.width, cvs.height);
                 ctx.fillStyle = textColor; ctx.textAlign = 'center';
                 ctx.font = `clamp(14px, 5vw, 18px) 'Press Start 2P'`; ctx.fillText('QUIT?', cvs.width / 2, cvs.height / 2 - 20);
                 ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const textY = cvs.height / 2 + 20;
@@ -574,8 +756,9 @@
             }
 
             function drawWinScreen(ctx, cvs, selectedOption) {
-                const textColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
-                ctx.fillStyle = 'rgba(155, 188, 15, 0.75)'; ctx.fillRect(0, 0, cvs.width, cvs.height);
+                const textColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                const overlayColor = getComputedStyle(document.body).getPropertyValue('--screen-overlay');
+                ctx.fillStyle = overlayColor; ctx.fillRect(0, 0, cvs.width, cvs.height);
                 ctx.fillStyle = textColor; ctx.textAlign = 'center';
                 ctx.font = `clamp(18px, 6vw, 24px) 'Press Start 2P'`; ctx.fillText('STAGE CLEAR!', cvs.width / 2, cvs.height / 2 - 20);
                 ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const textY = cvs.height / 2 + 20;
@@ -705,8 +888,8 @@
                 },
                 
                 draw: function() {
-                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg');
-                    const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg');
+                    const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
                     context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height);
                     this.drawPlayer(fgColor);
                     this.drawBullets(fgColor);
@@ -772,7 +955,7 @@
                     this.draw(); gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
                 },
                 draw: function() {
-                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
                     context.setTransform(1, 0, 0, 1, 0, 0); context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = fgColor;
                     const borderX_left = this.xOffset * this.BLOCK_SIZE - 1; const borderX_right = (this.xOffset + this.COLS) * this.BLOCK_SIZE; context.fillRect(borderX_left, 0, 1, canvas.height); context.fillRect(borderX_right, 0, 1, canvas.height);
                     context.scale(this.BLOCK_SIZE, this.BLOCK_SIZE); this.drawMatrix(this.arena, {x: 0, y: 0}); this.drawMatrix(this.player.matrix, this.player.pos);
@@ -782,7 +965,7 @@
                     const p='ILJOTSZ'; this.player.matrix = this.createPiece(p[p.length * Math.random() | 0]); this.player.pos.y=0; this.player.pos.x = (this.COLS / 2 | 0) - (this.player.matrix[0].length / 2 | 0);
                     if (this.collide(this.arena, this.player)) { if (this.player.score > this.highScore) { this.highScore = this.player.score; localStorage.setItem('tetrisHighScore', this.highScore); this.updateScore(); } this.gameOver = true; }
                 },
-                drawMatrix: function(matrix, offset) { const blockColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text'); context.fillStyle = blockColor; matrix.forEach((row, y) => { row.forEach((value, x) => { if (value !== 0) context.fillRect(this.xOffset + x + offset.x, y + offset.y, 1, 1); }); }); },
+                drawMatrix: function(matrix, offset) { const blockColor = getComputedStyle(document.body).getPropertyValue('--screen-text'); context.fillStyle = blockColor; matrix.forEach((row, y) => { row.forEach((value, x) => { if (value !== 0) context.fillRect(this.xOffset + x + offset.x, y + offset.y, 1, 1); }); }); },
                 createMatrix: function(w, h) { const m = []; while(h--){ m.push(new Array(w).fill(0)); } return m; },
                 createPiece: function(t) { if (t === 'T') return [[0,0,0],[1,1,1],[0,1,0]]; else if (t === 'O') return [[1,1],[1,1]]; else if (t === 'L') return [[0,1,0],[0,1,0],[0,1,1]]; else if (t === 'J') return [[0,1,0],[0,1,0],[1,1,0]]; else if (t === 'I') return [[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,1,0,0]]; else if (t === 'S') return [[0,1,1],[1,1,0],[0,0,0]]; else if (t === 'Z') return [[1,1,0],[0,1,1],[0,0,0]]; },
                 collide: function(a, p) { const [m, o] = [p.matrix, p.pos]; for (let y=0; y<m.length; ++y) for (let x=0; x<m[y].length; ++x) if (m[y][x] !== 0 && (a[y+o.y] && a[y+o.y][x+o.x]) !== 0) return true; return false; },
@@ -821,7 +1004,7 @@
                     this.draw(); gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
                 },
                 draw: function() {
-                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
                     context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); this.drawBlockyDino(context, fgColor); context.fillStyle = fgColor; this.obstacles.forEach(obs => { this.drawCactus(context, obs); });
                     context.setTransform(1, 0, 0, 1, 0, 0); if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
                 },
@@ -851,7 +1034,7 @@
                     this.draw(); gameManager.animationFrameId = setTimeout(this.update.bind(this), Math.max(90, 300 - (this.score * 2)));
                 },
                 draw: function() {
-                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
                     context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = fgColor; this.snake.forEach(segment => { context.fillRect(segment.x * this.gridSize, segment.y * this.gridSize, this.gridSize - 1, this.gridSize - 1); });
                     context.beginPath(); context.arc(this.food.x * this.gridSize + this.gridSize / 2, this.food.y * this.gridSize + this.gridSize / 2, this.gridSize / 2, 0, Math.PI * 2); context.fill();
                     if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
@@ -890,7 +1073,7 @@
                     this.draw(); gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
                 },
                 draw: function() {
-                    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.documentElement).getPropertyValue('--screen-text');
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
                     context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = fgColor; context.beginPath(); context.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI * 2); context.fill(); context.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
                     this.bricks.forEach(brick => { if (brick.visible) context.fillRect(brick.x, brick.y, brick.width, brick.height); });
                     if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption); if (this.levelComplete) drawWinScreen(context, canvas, this.winOption);
@@ -939,8 +1122,4 @@
 
 </body>
 </html>
-
-
-
-
 
