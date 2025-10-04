@@ -158,7 +158,7 @@
                     { "level": "C1", "text": "The narrative structure of the novel is overwhelmingly **dominated** by the recurring motif of light and shadow, a deliberate symbolic **contrast** that the author uses to explore moral ambiguities. The author is particularly **adept** at manipulating the reader's emotional state through subtle sensory details; for instance, the scent of rain on dry earth consistently **evoked** a profound sense of melancholic memory. Ultimately, the work does not offer simple solutions but seeks to **address** the complex duality of freedom and security, forcing the reader to confront uncomfortable truths about modern societal constraints." }
                 ]
             }
-        },       
+        }       
     },
     "wordDetails": {
         "test1": {
@@ -248,4 +248,5 @@
         }
     }
 }
+
 
