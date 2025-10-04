@@ -262,7 +262,7 @@
             "item": {"pos": "n. [C]", "translation": "一項物品", "definition": "a single product or thing", "example": "More than half of the items in the clothing store were on sale for one day only.", "example_tw": "這家服裝店一半以上的商品僅特價一天。"},
             "accomplish": {"pos": "vt.", "translation": "達成", "definition": "to complete a difficult task or reach a goal", "example": "Albert respects those who have accomplished something great in their lives.", "example_tw": "艾伯特尊敬那些在生活中取得了偉大成就的人。", "family": ["accomplishment"]},
             "accomplishment": {"pos": "n. [C]", "translation": "成就"},
-            "disease": {"pos": "n. [U, C]", "translation": "疾病", "definition": "a human, animal, or plant sickness that is usually caused by an infection", "example": "Washing your hands often is a good way to stop the spread of disease.", "example_tw": "經常洗手是阻止疾病傳播的好方法。", "family": ["infected", "infect", "infection"]},
+            "disease": {"pos": "n. [U, C]", "translation": "疾病", "definition": "a human, animal, or plant sickness that is usually caused by an infection", "example": "Washing your hands often is a good way to stop the spread of disease.", "example_tw": "經常洗手是阻止疾病傳播的好方法。"},
             "infected": {"pos": "adj.", "translation": "遭感染的"},
             "infect": {"pos": "vt.", "translation": "感染"},
             "infection": {"pos": "n. [C, U]", "translation": "感染"},
@@ -299,4 +299,5 @@
         "L09": {}
     }
 }
+
 
