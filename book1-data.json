@@ -263,9 +263,9 @@
             "accomplish": {"pos": "vt.", "translation": "達成", "definition": "to complete a difficult task or reach a goal", "example": "Albert respects those who have accomplished something great in their lives.", "example_tw": "艾伯特尊敬那些在生活中取得了偉大成就的人。", "family": ["accomplishment"]},
             "accomplishment": {"pos": "n. [C]", "translation": "成就"},
             "disease": {"pos": "n. [U, C]", "translation": "疾病", "definition": "a human, animal, or plant sickness that is usually caused by an infection", "example": "Washing your hands often is a good way to stop the spread of disease.", "example_tw": "經常洗手是阻止疾病傳播的好方法。"},
-            "infected": {"pos": "adj.", "translation": "遭感染的"},
+            "infected": {"pos": "adj.", "translation": "遭感染的", "definition": "affected by or containing disease-causing bacteria", "example": "Several passengers were found to have the disease after they took the same flight as an infected person.", "example_tw": "幾名乘客在與一名感染者搭乘同一班機後，被發現也感染了該疾病。", "family": ["infect", "infection"]},
             "infect": {"pos": "vt.", "translation": "感染"},
-            "infection": {"pos": "n. [C, U]", "translation": "感染"},
+            "infection": {"pos": "n. [C, U]", "translation": "感染"}
             "locate": {"pos": "vt.", "translation": "找到……(的位置)", "definition": "to find a certain place, or the position of someone or something", "example": "These days, most taxi drivers use GPS to locate places they don't know how to drive to.", "example_tw": "如今，大多數計程車司機使用GPS來定位他們不知道如何開車去的地方。", "family": ["location"]},
             "location": {"pos": "n. [C]", "translation": "地點"},
             "reward": {"pos": "n. [C, U]", "translation": "獎勵;報酬", "definition": "something that is given to someone in recognition of a good deed or difficult task he or she has accomplished", "example": "Janice was given a reward of $2,000 for informing the police of the address of the man they were searching for.", "example_tw": "珍妮絲因向警方通報他們正在尋找的男子的地址而獲得了2000美元的獎勵。", "family": ["reward_v"]},
@@ -299,5 +299,6 @@
         "L09": {}
     }
 }
+
 
 
