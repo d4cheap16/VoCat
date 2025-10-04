@@ -292,7 +292,7 @@
             "assign": {"pos": "vt.", "translation": "指派", "definition": "to give a special task or role to a certain person", "example": "Craig was assigned the task of giving the new students a tour of the school.", "example_tw": "克雷格被指派帶領新生參觀學校的任務。", "family": ["assignment"]},
             "assignment": {"pos": "n. [C]", "translation": "(分派的)作業;工作"},
             "specific": {"pos": "adj.", "translation": "特定的", "definition": "relating to one certain thing", "example": "There wasn't any specific reason why Jason didn't attend the performance with his friends. He just didn't feel like it.", "example_tw": "傑森沒有和朋友們一起去看表演並沒有任何特定的原因。他只是不想去而已。"}
-        },
+        }
         "L05": {},
         "L06": {},
         "L07": {},
@@ -300,5 +300,6 @@
         "L09": {}
     }
 }
+
 
 
