@@ -86,7 +86,7 @@
                 "stories": [
                     { "level": "A2", "text": "Imagine a visitor from another part of the **universe**. This alien is very tall and walks **upright**, just like **humankind**. He is covered in soft, blue **fur**. His spaceship has special tools that **enable** him to understand our language. He is also very **generous**, bringing gifts of strange and beautiful fruits from his home planet for everyone to try." },
                     { "level": "B1", "text": "A **generous** inventor wanted to create something to help all of **humankind**. His new device would **enable** people with disabilities to walk again. It was a complex suit that helped them stand **upright**. Some people joked that it looked like it came from another part of the **universe**. For those who were cold, he even designed a special coat made from synthetic **fur** that was warmer than any real animal's coat." },
-                    { "level": "B2", "text": "The ancient myth speaks of a time before the **universe** as we know it existed. In this void, the gods were creating all life forms. They wanted a special creature to rule over the others, and so they created **humankind**. To distinguish them, they gave humans the ability to stand **upright**. The creator god was so **generous** that he also gifted them with intelligence. To protect them from the harsh winters, he gave them the idea to use animal **fur** for warmth. This gift would **enable** them to survive and build civilizations." },
+                    { "level": "B2", "text": "The ancient myth speaks of a time before the **universe** as we know it existed. In this void, the gods were creating all life forms. They wanted a special creature to rule over the others, and so they created **humankind**. To distinguish them, they gave them the ability to stand **upright**. The creator god was so **generous** that he also gifted them with intelligence. To protect them from the harsh winters, he gave them the idea to use animal **fur** for warmth. This gift would **enable** them to survive and build civilizations." },
                     { "level": "C1", "text": "The novel is set in a distant future where **humankind** has colonized a new solar system. This expansion across the **universe** was made possible by a single, **generous** corporation that funded the project. Their technology can **enable** humans to adapt to alien environments. On one planet, the colonists even evolved a fine layer of **fur** to protect them from the radiation. The plot's main twist is that this adaptation prevents them from standing fully **upright**, creating a new set of challenges for their society." }
                 ]
             },
@@ -146,7 +146,7 @@
                 "story": { "level": "C2", "text": "The core **concept** behind our family's **annual** gathering this year was profoundly different. It wasn't just another summer **occasion**; it was to be the final, grand **reunion** at the old Blackwood Manor before its sale. Our task was to **transform** the dusty, forgotten mansion into a place worthy of a final, magnificent farewell. It was **essential** that every family member, from the youngest to the oldest, **participate** in the preparations. We had weeks of work ahead of us. We had to **decorate** the grand ballroom, whose faded elegance seemed to **resemble** a scene from a historical film. My grandmother, despite her age, insisted on overseeing the floral arrangements, her **preference** being white roses. I was tasked to **accompany** her, listening to her stories of past celebrations. Her tales were mostly **joyous**, but tinged with an undercurrent of **sorrow** for the end of an era. 'We are not here to **mourn** the house,' she said softly, 'but to celebrate its long life **cycle** with us.' As the day drew closer, a sense of excitement began to build. We started to eagerly **anticipate** the flurry of activity that the **arrival** of relatives from across the globe would bring. We planned a spectacular **feast** for the main evening, a culinary journey through our family's history. The initial **reception** would be in the garden, where, as children, we used to play hide-and-seek, trying to **escape** from our parents' watchful eyes. It felt strange to be there as adults, almost difficult to **recognize** the once-wild patches we had claimed as our kingdoms. On the final morning, I woke before **dawn**. A profound sense of finality was in the air, a feeling that was **inevitable**. My cynical cousin, who often used to **mock** our sentimentality, was quietly placing old family photos on the mantelpiece. The house was ready. All that was left was to **await** the final sunset, the laughter, and the tears of this one last, unforgettable gathering." }
             }
         },
-            "L05": {
+        "L05": {
             "groupA": {
                 "words": ["blossom", "rustle", "landscape", "distinctive", "elegant", "deliberate", "destination"],
                 "stories": [
@@ -179,26 +179,25 @@
                 "story": { "level": "C2", "text": "The art historian, Dr. Aris Thorne, arrived in the former imperial **capital**, a city that could **boast** a truly **historic** pedigree. Though now a bustling modern metropolis, it was still a prime **destination** for those seeking echoes of the past. His journey continued into the countryside, where the urban **landscape** gave way to rolling hills. He was heading to the remote estate of a reclusive collector, a place **previously** shrouded in folklore. As he passed through the main **entrance**, a **magnificent** gate guarded by stone lions, he could hear the dry autumn leaves **rustle** under the tires of his car. The collector, an old man known for his **distinctive** and somewhat eccentric taste, met him in a grand library. Sunlight streamed through tall, arched windows, illuminating the room's faded **splendor**. The collector's movements were slow and **deliberate** as he unveiled the object of Aris's long journey. It was a painting, an artifact even more **breathtaking** than the legends in obscure art **literature** had described. The artist had captured a geisha, whose overall **appearance** conveyed a sense of profound, quiet grace. Her posture was impossibly **elegant**, a study in controlled poise. The brushwork on the silk kimono was so **delicate** that the fabric seemed to shimmer with a life of its own. Aris spent what felt like hours taking a **leisurely** look, his eyes tracing every detail. The most **stunning** element was a single cherry **blossom** held loosely between her fingers, a potent symbol of transient beauty. It was in that tiny detail that Aris found the answer. This was not just a painting; it was a confession, a key to a puzzle that had haunted historians for decades." }
             }
         }
-    
     },
     "wordDetails": {
         "L01": {
             "employ": { "pos": "vt.", "translation": "僱用", "definition": "to pay someone to do work or a job", "example": "With his restaurant business growing fast, Mr. Finch decided to employ more people to serve the customers.", "example_tw": "隨著餐廳生意快速成長，芬奇先生決定僱用更多人手來服務顧客。", "family": ["employer", "employee", "employment"] },
-            "employer": { "pos": "n.", "translation": "雇主", "definition": "a person or company that pays people to work for them" },
-            "employee": { "pos": "n.", "translation": "員工；受僱者", "definition": "someone who is paid to work for someone else" },
-            "employment": { "pos": "n.", "translation": "工作；受僱", "definition": "the fact of someone being paid to work for a company or organization" },
+            "employer": { "pos": "n.", "translation": "雇主" },
+            "employee": { "pos": "n.", "translation": "員工；受僱者" },
+            "employment": { "pos": "n.", "translation": "工作；受僱" },
             "corporation": { "pos": "n.", "translation": "(大)公司；集團公司", "definition": "a very large company or business", "example": "Most global corporations operate in many countries and prefer employees who can speak more than one language.", "example_tw": "大多數的跨國公司在許多國家營運，並且偏好會說一種以上語言的員工。", "family": ["corporate"] },
-            "corporate": { "pos": "adj.", "translation": "(大)公司的", "definition": "relating to a large company" },
+            "corporate": { "pos": "adj.", "translation": "(大)公司的" },
             "suffer": { "pos": "vi.", "translation": "受苦", "definition": "to experience pain or trouble because of something", "example": "Uncle Harry suffers from a heart condition, so the doctors told him to cut down on fatty foods.", "example_tw": "哈利叔叔患有心臟病，所以醫生告訴他要減少攝取油膩的食物。" },
             "terminal": { "pos": "adj.", "translation": "末期的", "definition": "(of a disease or condition) that can't be cured and will lead to death", "example": "When Grandma learned she had terminal cancer, she decided to make the most of the time left.", "example_tw": "當奶奶得知她患有末期癌症時，她決定要好好把握剩下的時間。", "family": ["terminal_n"] },
-            "terminal_n": { "pos": "n.", "translation": "航廈；月臺", "definition": "a building where you can get on and off planes, buses, or ships", "example": "Our flight leaves from Terminal 1, so make sure you don't get off the bus at the wrong terminal building.", "example_tw": "我們的班機從第一航廈起飛，所以確保你不要在錯誤的航廈大樓下車。"},
+            "terminal_n": { "pos": "n.", "translation": "航廈；月臺" },
             "illness": { "pos": "n.", "translation": "疾病；生病", "definition": "sickness or disease", "example": "These days, many people suffer from illnesses such as diabetes or cancer caused by unhealthy lifestyles.", "example_tw": "現今，許多人因不健康的生活方式而罹患如糖尿病或癌症等疾病。", "family": ["ill"] },
-            "ill": { "pos": "adj.", "translation": "生病的", "definition": "not feeling well, or suffering from a disease" },
+            "ill": { "pos": "adj.", "translation": "生病的" },
             "tremendously": { "pos": "adv.", "translation": "相當大地", "definition": "greatly; extremely", "example": "Aunt Mimi was tremendously thankful when the firefighters rescued her cat from the tree.", "example_tw": "當消防員將咪咪阿姨的貓從樹上救下來時，她非常感謝。", "family": ["tremendous"] },
-            "tremendous": { "pos": "adj.", "translation": "相當大的", "definition": "very great in amount or level, or extremely good" },
+            "tremendous": { "pos": "adj.", "translation": "相當大的" },
             "laughter": { "pos": "n.", "translation": "笑；笑聲", "definition": "the act or sound of laughing", "example": "Every time Dennis tells that funny story, we all burst into laughter.", "example_tw": "每次丹尼斯講那個好笑的故事，我們都會爆笑出聲。" },
             "frighten": { "pos": "vt.", "translation": "使驚嚇", "definition": "to scare someone, usually very suddenly", "example": "When the kids came around the corner dressed in zombie costumes for Halloween, they frightened the old lady almost to death.", "example_tw": "當孩子們為了萬聖節穿著殭屍服裝從轉角出現時，他們差點把那位老太太嚇死。", "family": ["fright"] },
-            "fright": { "pos": "n.", "translation": "驚嚇", "definition": "the feeling of fear, especially if sudden" },
+            "fright": { "pos": "n.", "translation": "驚嚇" },
             "contact": { "pos": "n.", "translation": "接觸；聯絡", "definition": "the state of people or things touching each other", "example": "When your hand comes into contact with a surface that's very hot, your body reacts even more quickly than your brain does!", "example_tw": "當你的手接觸到非常燙的表面時，你的身體反應甚至比你的大腦還快！" },
             "germ": { "pos": "n.", "translation": "細菌", "definition": "a very tiny living thing that can cause illness or disease", "example": "Proper cleaning of your contact lenses will kill the germs which may cause a serious eye infection.", "example_tw": "適當地清潔你的隱形眼鏡將會殺死可能導致嚴重眼睛感染的細菌。" },
             "warmth": { "pos": "n.", "translation": "熱情；溫暖", "definition": "kindness, passion, or enthusiasm shown by someone", "example": "Agnes felt bad about staying an extra night, but the warmth in Mel's smile assured her that she was still welcome.", "example_tw": "愛麗絲對於多待一晚感到不好意思，但梅爾微笑中的熱情讓她確信她仍然是受歡迎的。" },
@@ -210,9 +209,9 @@
             "drowsy": { "pos": "adj.", "translation": "昏昏欲睡的", "definition": "feeling sleepy or tremendously tired", "example": "Nicole didn't sleep well last night. No wonder she feels so drowsy today.", "example_tw": "妮可昨晚沒睡好。難怪她今天這麼昏昏欲睡。" },
             "stretch": { "pos": "vt.", "translation": "伸出(手臂或腿)；伸長", "definition": "to reach out with an arm or leg to get to something", "example": "The book about corporate finance was on the top shelf, so Chuck had to stretch his arm high up to reach it.", "example_tw": "那本關於企業金融的書在書架最上層，所以查克必須把手臂伸得很高才拿得到。" },
             "refuse": { "pos": "vi. vt.", "translation": "拒絕", "definition": "to answer no to a request or invitation", "example": "Nurse Wells offered to take the patient for a walk in the garden, but he refused because he felt drowsy.", "example_tw": "威爾斯護士提議帶病人到花園散步，但他因為感到昏昏欲睡而拒絕了。", "family": ["refusal"] },
-            "refusal": { "pos": "n.", "translation": "拒絕", "definition": "the act of refusing to do or accept something" },
+            "refusal": { "pos": "n.", "translation": "拒絕" },
             "hesitate": { "pos": "vi.", "translation": "猶豫", "definition": "to pause before doing something because one feels unsure, afraid, or nervous", "example": "When her boyfriend proposed, Kim didn't hesitate about the decision at all. She answered \"Yes!\" right away.", "example_tw": "當她男友求婚時，金對這個決定一點也沒有猶豫。她立刻回答了「我願意！」。", "family": ["hesitation"] },
-            "hesitation": { "pos": "n.", "translation": "猶豫", "definition": "the action of pausing or hesitating before saying or doing something" }
+            "hesitation": { "pos": "n.", "translation": "猶豫" }
         },
         "L02": {
             "innovative": { "pos": "adj.", "translation": "創新的", "definition": "able to come up with new and creative ideas for using or doing something", "example": "Successful inventions often involve people taking an innovative approach to solving a problem.", "example_tw": "成功的發明通常涉及人們用創新的方法來解決問題。", "family": ["innovate", "innovation"] },
@@ -267,7 +266,7 @@
             "distribution": { "pos": "n.", "translation": "分配;分布", "definition": "how something is spread or shared among a group or over an area", "example": "The large forest fire has affected the distribution of wild animals within the national park.", "example_tw": "大規模的森林大火影響了國家公園內野生動物的分布。", "family": ["distribute"] },
             "distribute": { "pos": "vt.", "translation": "分發;分配" },
             "benefit": { "pos": "n.", "translation": "益處", "definition": "a good, useful, or helpful effect; an advantage or gain", "example": "Everyone agreed that free education for all would solve a lot of problems and be of great benefit to society.", "example_tw": "所有人都同意，全民免費教育將解決許多問題，並對社會大有裨益。", "family": ["benefit_v", "beneficial"], "note": "<h5>用法小提示：</h5><p class='text-sm text-left px-2'>及物 (vt.): 「事情」 benefit 「人」。<br>The new library will <b>benefit</b> the students.</p><p class='text-sm text-left px-2'>不及物 (vi.): 「人」 benefit from 「事情」。<br>The students will <b>benefit from</b> the new library.</p>"},
-            "benefit_v": { "pos": "vt. vi.", "translation": "對...有益;得益於", "definition": "to help someone or be helped by something"},
+            "benefit_v": { "pos": "vt. vi.", "translation": "對...有益;得益於" },
             "beneficial": { "pos": "adj.", "translation": "有利的;有幫助的" },
             "slaughter": { "pos": "vt.", "translation": "宰殺", "definition": "to kill an animal for its meat", "example": "Pigs are often transported to Taipei before being slaughtered so that the meat will be fresh.", "example_tw": "豬隻通常在被宰殺前被運到台北，以確保肉質新鮮。", "family": ["slaughter_n"] },
             "slaughter_n": { "pos": "n.", "translation": "屠殺" },
@@ -365,10 +364,5 @@
             "deliberate": { "pos": "adj.", "translation": "(動作等)小心翼翼的", "definition": "slow, precise, and careful", "example": "Zoo employees didn't want to frighten the rhino, so they approached the animal with very slow, deliberate movements.", "example_tw": "動物園員工不想嚇到犀牛，所以他們以非常緩慢、小心翼翼的動作靠近牠。" },
             "destination": { "pos": "n.", "translation": "目的地", "definition": "a final place of arrival", "example": "Bali, Indonesia, has become one of the most popular holiday destinations for travel bloggers and Instagram influencers.", "example_tw": "印尼的峇里島已成為旅遊部落客和Instagram網紅最受歡迎的度假目的地之一。" }
         }
-        
     }
 }
-
-
-
-
