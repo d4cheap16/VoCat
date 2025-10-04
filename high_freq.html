@@ -662,7 +662,29 @@
         dom.shareBtn.classList.add('hidden');
         dom.submitBtn.disabled = true;
 
-        const selectedStory = isBonus ? unitData.story : unitData.stories.find(s => s.level === state.currentDifficulty);
+        // --- FIX START ---
+        // Added checks to prevent crash if data is missing and corrected the logic for bonus group.
+        if (!unitData || !unitData.stories || unitData.stories.length === 0) {
+            console.error(`Quiz data is missing for Unit: ${state.currentUnit}, Group: ${state.currentGroup}`);
+            dom.constructionMessage.classList.remove('hidden');
+            dom.quizArea.classList.add('hidden');
+            dom.welcomeMessage.classList.add('hidden');
+            return;
+        }
+
+        const selectedStory = isBonus
+            ? unitData.stories[0] // For bonus, take the first item in the 'stories' array.
+            : unitData.stories.find(s => s.level === state.currentDifficulty); // For regular groups, find by level.
+
+        if (!selectedStory) {
+            console.error(`Could not find a story for level: ${state.currentDifficulty}`);
+            dom.constructionMessage.classList.remove('hidden');
+            dom.quizArea.classList.add('hidden');
+            dom.welcomeMessage.classList.add('hidden');
+            return;
+        }
+        // --- FIX END ---
+        
         state.currentWords = unitData.words.slice().sort((a, b) => a.localeCompare(b));
 
         let selectCounter = 0;
@@ -1342,6 +1364,3 @@
 </footer>
 </body>
 </html>
-
-
-
