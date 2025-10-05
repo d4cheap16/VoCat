@@ -1,15 +1,15 @@
 {
     "allBadges": {
         "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
-        "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分(含)以上。" },
-        "effortful_learner": { "name": "努力不懈", "icon": "💪", "description": "在任何測驗中獲得60分(含)以上。" },
-        "a2_explorer": { "name": "探索者", "icon": "🧭", "description": "完成一個單元內所有組別的\"一顆星\"難度測驗（80分以上）。" },
-        "b1_voyager": { "name": "旅行家", "icon": "🗺️", "description": "完成一個單元內所有組別的\"兩顆星\"難度測驗（80分以上）。" },
+        "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分以上。" },
+        "effortful_learner": { "name": "努力不懈", "icon": "💪", "description": "在任何測驗中獲得60分以上。" },
+        "a2_explorer": { "name": "探索者", "icon": "🧭", "description": "完成一個單元內所有組別的一顆星難度測驗（80分以上）。" },
+        "b1_voyager": { "name": "旅行家", "icon": "🗺️", "description": "完成一個單元內所有組別的兩顆星難度測驗（80分以上）。" },
         "conqueror": { "name": "征服者", "icon": "👑", "description": "完成一個單元內所有組別的三顆星難度測驗(80分以上)。" },
         "strong_one": { "name": "真強者", "icon": "💎", "description": "完成一個單元內所有組別的四顆星難度測驗(80分以上)。" },
         "english_monster": { "name": "英文怪物", "icon": "👹", "description": "完成一個單元內所有組別的四顆星難度測驗(皆為滿分)。" },
-        "legend": { "name": "傳說", "icon": "🌌", "description": "完成一個單元內所有常規測驗且皆為滿分。" },
-        "alien": { "name": "外星人", "icon": "👽", "description": "在一個單元的傳說級(❓)挑戰中獲得滿分。" },
+        "alien": { "name": "外星人", "icon": "👽", "description": "在一個單元的隱藏挑戰(❓)中獲得滿分。" },
+        "legend": { "name": "傳說", "icon": "🌌", "description": "完成一個單元內所有測驗且皆為滿分。" },
         "unit_master": { "name": "單元大師", "icon": "🎖️", "description": "在單一單元內，同時獲得「傳說」與「外星人」徽章。" },
         "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
     },
@@ -366,5 +366,6 @@
         }
     }
 }
+
 
 
