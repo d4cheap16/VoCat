@@ -802,14 +802,14 @@
             
             // --- 🌟 PAC-MAN CLASSIC RUN 遊戲 (Bug 修正版) 🌟 ---
             const pacmanGame = {
-                player: {}, obstacles: [], score: 0, highScore: 0, gameOver: false, spawnTimer: 0, retryOption: 'YES', isPaused: false, pauseOption: 'YES', pixelScale: 6,
+                player: {}, obstacles: [], score: 0, highScore: 0, gameOver: false, spawnTimer: 0, retryOption: 'YES', isPaused: false, pauseOption: 'YES', pixelScale: 5,
                 start: function() {
                     cancelAnimationFrame(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'YES';
                     this.highScore = parseInt(localStorage.getItem('pacmanClassicRunHighScore')) || 0;
                     canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth;
                     context.setTransform(1, 0, 0, 1, 0, 0); 
                     const playerSpriteHeight = this.pixelScale * 8;
-                    this.player = { x: 50, y: canvas.height - playerSpriteHeight, dy: 0, gravity: 0.8, jumpPower: -19, onGround: true };
+                    this.player = { x: 50, y: canvas.height - playerSpriteHeight, dy: 0, gravity: 0.9, jumpPower: -18, onGround: true };
                     this.obstacles = []; this.score = 0; this.spawnTimer = 0;
                     this.updateScore(); this.update();
                 },
@@ -1170,4 +1170,5 @@
 
 </body>
 </html>
+
 
