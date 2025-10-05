@@ -488,11 +488,10 @@
                         <ul class="menu-list">
                             <li><a href="#" data-game="back">MAIN MENU</a></li>
                             <li><a href="#" data-game="breakout">BREAKOUT</a></li>
-                            <li><a href="#" data-game="dino">DINO RUN</a></li>
                             <li><a href="#" data-game="ghostbuster">GHOSTBUSTER</a></li>
+                            <li><a href="#" data-game="pacman">PAC-MAN RUN</a></li>
                             <li><a href="#" data-game="snake">SNAKE</a></li>
                             <li><a href="#" data-game="tetris">TETRIS</a></li>
-
                         </ul>
                     </div>
                     <div class="menu-footer"><p>A: PLAY • UP/DOWN: SELECT</p></div>
@@ -596,8 +595,8 @@
                 const scoresList = highScoresModal.querySelector('.scores-list');
                 const games = [
                     { name: 'BREAKOUT', key: 'breakoutHighScore' },
-                    { name: 'DINO RUN', key: 'dinoHighScore' },
                     { name: 'GHOSTBUSTER', key: 'ghostbusterHighScore' },
+                    { name: 'PAC-MAN RUN', key: 'pacmanClassicRunHighScore' },
                     { name: 'SNAKE', key: 'snakeHighScore' },
                     { name: 'TETRIS', key: 'tetrisHighScore' }
                 ];
@@ -621,7 +620,7 @@
                 audioOpen.play();
 
                 showCustomConfirm('Are you sure you want to clear all high scores? This action cannot be undone.', () => {
-                    const games = ['breakoutHighScore', 'dinoHighScore', 'ghostbusterHighScore', 'snakeHighScore', 'tetrisHighScore'];
+                    const games = ['breakoutHighScore', 'pacmanClassicRunHighScore', 'ghostbusterHighScore', 'snakeHighScore', 'tetrisHighScore'];
                     games.forEach(key => localStorage.removeItem(key));
                     showCustomAlert('All high scores have been cleared!');
                 });
@@ -776,7 +775,7 @@
                     gameboyScreen.classList.remove('tester-active'); gameboyScreen.classList.add('game-active');
                     const selectedItem = document.querySelector('.tester-menu .menu-list a.selected'); if (selectedItem) selectedItem.classList.remove('selected');
                     if (gameType === 'tetris') this.activeGame = tetrisGame;
-                    else if (gameType === 'dino') this.activeGame = dinoGame;
+                    else if (gameType === 'pacman') this.activeGame = pacmanGame;
                     else if (gameType === 'snake') this.activeGame = snakeGame;
                     else if (gameType === 'breakout') this.activeGame = breakoutGame;
                     else if (gameType === 'ghostbuster') this.activeGame = ghostbusterGame;
@@ -801,6 +800,87 @@
                 }
             };
             
+            // --- 🌟 PAC-MAN CLASSIC RUN 遊戲 (Bug 修正版) 🌟 ---
+            const pacmanGame = {
+                player: {}, obstacles: [], score: 0, highScore: 0, gameOver: false, spawnTimer: 0, retryOption: 'YES', isPaused: false, pauseOption: 'YES', pixelScale: 6,
+                start: function() {
+                    cancelAnimationFrame(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'YES';
+                    this.highScore = parseInt(localStorage.getItem('pacmanClassicRunHighScore')) || 0;
+                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth;
+                    context.setTransform(1, 0, 0, 1, 0, 0); 
+                    const playerSpriteHeight = this.pixelScale * 8;
+                    this.player = { x: 50, y: canvas.height - playerSpriteHeight, dy: 0, gravity: 0.8, jumpPower: -19, onGround: true };
+                    this.obstacles = []; this.score = 0; this.spawnTimer = 0;
+                    this.updateScore(); this.update();
+                },
+                end: function() { cancelAnimationFrame(gameManager.animationFrameId); },
+                handleInput: function(key) {
+                    if (this.gameOver) { 
+                        if (key === 'Left' || key === 'Right') { this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; } 
+                        else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } 
+                    } else if (this.isPaused) { 
+                        if (key === 'Left' || key === 'Right') { this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; } 
+                        else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } 
+                        else if (key === 'Start') { this.isPaused = false; } 
+                    } else { 
+                        if (key === 'Start') { this.isPaused = true; this.pauseOption = 'YES'; return; } 
+                        if ((key === 'A' || key === 'Up') && this.player.onGround) { this.player.dy = this.player.jumpPower; this.player.onGround = false; } 
+                    }
+                },
+                updateScore: function() { const hi = String(Math.floor(this.highScore)).padStart(5, '0'); const current = String(Math.floor(this.score)).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}`; },
+                update: function() {
+                    if (!this.gameOver && !this.isPaused) {
+                        this.player.dy += this.player.gravity; this.player.y += this.player.dy; this.player.onGround = false;
+                        const s = this.pixelScale; const playerCurrentHeight = s * 8;
+                        if (this.player.y + playerCurrentHeight >= canvas.height) { this.player.y = canvas.height - playerCurrentHeight; this.player.dy = 0; this.player.onGround = true; }
+                        this.spawnTimer--;
+                        if (this.spawnTimer <= 0) {
+                            if (Math.random() < 0.15) { const size = s * 3; const pelletY = canvas.height - (s * 8) - Math.random() * (s * 9); this.obstacles.push({ x: canvas.width, y: pelletY, width: size, height: size, type: 'pellet' }); } 
+                            else { const heights = [s * 7, s * 10, s * 13]; const randomIndex = Math.floor(Math.random() * 3); const height = heights[randomIndex]; const width = s * 6; this.obstacles.push({ x: canvas.width, width: width, height: height, type: 'wall' }); }
+                            this.spawnTimer = 60 + Math.random() * 40; 
+                        }
+                        const playerHitbox = { x: this.player.x, y: this.player.y, width: s * 8, height: playerCurrentHeight };
+                        for (let i = this.obstacles.length - 1; i >= 0; i--) {
+                            let obs = this.obstacles[i]; obs.x -= 4.5 + (this.score / 200);
+                            let obsHitbox;
+                            if (obs.type === 'wall') obsHitbox = { x: obs.x, y: canvas.height - obs.height, width: obs.width, height: obs.height }; else obsHitbox = { x: obs.x, y: obs.y, width: obs.width, height: obs.height };
+                            if (playerHitbox.x < obsHitbox.x + obsHitbox.width && playerHitbox.x + playerHitbox.width > obsHitbox.x && playerHitbox.y < obsHitbox.y + obsHitbox.height && playerHitbox.y + playerHitbox.height > obsHitbox.y) {
+                                if (obs.type === 'wall') { if (!this.gameOver) { if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('pacmanClassicRunHighScore', Math.floor(this.highScore)); } this.gameOver = true; } } 
+                                else if (obs.type === 'pellet') { this.score += 100; this.updateScore(); this.obstacles.splice(i, 1); }
+                            }
+                            if (obs.x + obs.width < 0) this.obstacles.splice(i, 1);
+                        }
+                        this.score += 0.2; this.updateScore();
+                    }
+                    this.draw(); 
+                    gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
+                },
+                draw: function() {
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height);
+                    this.drawPacman(context, fgColor);
+                    this.obstacles.forEach(obs => { if (obs.type === 'wall') this.drawEnergyWall(context, fgColor, obs); else if (obs.type === 'pellet') this.drawPowerPellet(context, fgColor, obs); });
+                    context.setTransform(1, 0, 0, 1, 0, 0); 
+                    if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); 
+                    if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
+                },
+                drawEnergyWall: function(ctx, color, obs) {
+                    const ox = obs.x; const oy = canvas.height - obs.height; const borderWidth = 2;
+                    ctx.fillStyle = color; ctx.fillRect(ox, oy, obs.width, obs.height);
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); ctx.fillStyle = bgColor;
+                    if (obs.width > borderWidth * 2 && obs.height > borderWidth * 2) ctx.fillRect(ox + borderWidth, oy + borderWidth, obs.width - borderWidth * 2, obs.height - borderWidth * 2);
+                },
+                drawPowerPellet: function(ctx, color, obs) { if (Math.floor(Date.now() / 200) % 2 === 0) return; ctx.fillStyle = color; ctx.fillRect(obs.x, obs.y, obs.width, obs.height); },
+                drawPacman: function(ctx, color) {
+                    const px = this.player.x; const py = this.player.y; const s = this.pixelScale; ctx.fillStyle = color; const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg');
+                    if (this.gameOver) return;
+                    ctx.fillRect(px + s * 2, py, s * 4, s); ctx.fillRect(px + s, py + s, s * 6, s * 2); ctx.fillRect(px, py + s * 3, s * 8, s * 2); ctx.fillRect(px + s, py + s * 5, s * 6, s * 2); ctx.fillRect(px + s * 2, py + s * 7, s * 4, s);
+                    ctx.fillStyle = bgColor; ctx.fillRect(px + s * 5, py + s * 2, s, s); ctx.fillStyle = color;
+                    let mouthOpen = false; if (this.player.onGround) mouthOpen = Math.floor(this.score / 4) % 2 === 0; else mouthOpen = true;
+                    if (mouthOpen) { ctx.fillStyle = bgColor; ctx.beginPath(); ctx.moveTo(px + s * 4, py + s * 4); ctx.lineTo(px + s * 9, py + s * 1); ctx.lineTo(px + s * 9, py + s * 7); ctx.closePath(); ctx.fill(); }
+                },
+            };
+
             // --- GHOSTBUSTER 遊戲 ---
             const ghostbusterGame = {
                 gameState: {}, player: {}, playerBullets: [], enemyBullets: [], playerShootCooldown: 0, enemies: [], enemyConfig: {}, isPaused: false, pauseOption: 'NO',
@@ -812,7 +892,7 @@
                     this.gameState = { score: 0, highScore: parseInt(localStorage.getItem('ghostbusterHighScore')) || 0, level: 1, status: 'playing', retryOption: 'YES' };
                     this.player = { x: canvas.clientWidth / 2 - 12, y: canvas.clientHeight - 25, width: 24, height: 12, speed: 4, alive: true };
                     this.playerBullets = []; this.enemyBullets = [];
-                    this.enemyConfig = { rows: 2, cols: 7, width: 20, height: 10, padding: 8, offsetTop: 20, offsetLeft: 25, speedX: 0.5, direction: 1, moveInterval: 40, moveTimer: 40, shootInterval: 90, shootTimer: 60 };
+                    this.enemyConfig = { rows: 2, cols: 7, width: 20, height: 10, padding: 8, offsetTop: 20, offsetLeft: 25, speedX: 0.5, direction: 1, moveInterval: 40, moveTimer: 40, shootInterval: 95, shootTimer: 60 };
                     this.updateDifficulty(); this.createEnemies(); this.updateScore();
                     this.update();
                 },
@@ -978,41 +1058,7 @@
                 rotate: function(m, d) { for (let y=0; y<m.length; ++y) for (let x=0; x<y; ++x) [m[x][y], m[y][x]] = [m[y][x], m[x][y]]; if (d > 0) m.forEach(r => r.reverse()); else m.reverse(); },
                 arenaSweep: function() { let rowCount = 0; outer: for (let y = this.arena.length-1; y>0; --y) { for (let x=0; x<this.arena[y].length; ++x) if(this.arena[y][x] === 0) continue outer; const r = this.arena.splice(y, 1)[0].fill(0); this.arena.unshift(r); ++y; rowCount++; } if (rowCount > 0) { this.player.score += rowCount * 10; if (Math.floor(this.player.score / 60) > Math.floor((this.player.score - rowCount * 10) / 60)) this.dropInterval = Math.max(150, this.dropInterval - 50); this.updateScore(); } },
             };
-            const dinoGame = {
-                dino: {}, obstacles: [], score: 0, highScore: 0, gameOver: false, spawnTimer: 0, retryOption: 'YES', isPaused: false, pauseOption: 'NO', pixelScale: 3,
-                start: function() {
-                    cancelAnimationFrame(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'NO'; this.highScore = parseInt(localStorage.getItem('dinoHighScore')) || 0;
-                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth; context.setTransform(1, 0, 0, 1, 0, 0); 
-                    const s = this.pixelScale; const dinoHeight = s * 6; this.dino = { x: 50, y: canvas.height - dinoHeight, dy: 0, gravity: 0.6, jumpPower: -13, onGround: true };
-                    this.obstacles = []; this.score = 0; this.spawnTimer = 0; this.updateScore(); this.update();
-                },
-                end: function() { cancelAnimationFrame(gameManager.animationFrameId); },
-                handleInput: function(key) {
-                    if (this.gameOver) { if (key === 'Left' || key === 'Right') this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } } 
-                    else if (this.isPaused) { if (key === 'Left' || key === 'Right') this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } else if (key === 'Start') this.isPaused = false; } 
-                    else { if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; return; } if ((key === 'A' || key === 'Up') && this.dino.onGround) { this.dino.dy = this.dino.jumpPower; this.dino.onGround = false; } }
-                },
-                updateScore: function() { const hi = String(Math.floor(this.highScore)).padStart(5, '0'); const current = String(Math.floor(this.score)).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}`; },
-                update: function() {
-                    if (!this.gameOver && !this.isPaused) {
-                        this.dino.dy += this.dino.gravity; this.dino.y += this.dino.dy; this.dino.onGround = false; const s = this.pixelScale; const dinoHeight = s * 6;
-                        if (this.dino.y + dinoHeight >= canvas.height) { this.dino.y = canvas.height - dinoHeight; this.dino.dy = 0; this.dino.onGround = true; }
-                        this.spawnTimer--;
-                        if (this.spawnTimer <= 0) { const type = Math.random() > 0.5 ? 1 : 2; const height = type === 1 ? 25 : 45; const width = type === 1 ? 12 : 23; this.obstacles.push({ x: canvas.width, width: width, height: height, type: type }); this.spawnTimer = 80 + Math.random() * 50; }
-                        const dinoHitbox = { x: this.dino.x - s * 3, y: this.dino.y, width: s * 13, height: s * 6 };
-                        for (let i = this.obstacles.length - 1; i >= 0; i--) { let obs = this.obstacles[i]; obs.x -= 2.2 + (this.score / 200); if (obs.x + obs.width < 0) this.obstacles.splice(i, 1); const obsHitbox = { x: obs.x, y: canvas.height - obs.height, width: obs.width, height: obs.height }; if (dinoHitbox.x < obsHitbox.x + obsHitbox.width && dinoHitbox.x + dinoHitbox.width > obsHitbox.x && dinoHitbox.y < obsHitbox.y + obsHitbox.height && dinoHitbox.y + dinoHitbox.height > obsHitbox.y) { if (!this.gameOver) if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('dinoHighScore', Math.floor(this.highScore)); } this.gameOver = true; } }
-                        this.score += 0.2; this.updateScore();
-                    }
-                    this.draw(); gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
-                },
-                draw: function() {
-                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
-                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); this.drawBlockyDino(context, fgColor); context.fillStyle = fgColor; this.obstacles.forEach(obs => { this.drawCactus(context, obs); });
-                    context.setTransform(1, 0, 0, 1, 0, 0); if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
-                },
-                drawCactus: function(ctx, obs) { const groundY = canvas.height; const stemWidth = obs.width * 0.6; const stemX = obs.x + (obs.width - stemWidth) / 2; ctx.fillRect(stemX, groundY - obs.height, stemWidth, obs.height); const armWidth = obs.width * 0.8; const armHeight = 5; if (obs.type === 1) ctx.fillRect(obs.x, groundY - obs.height * 0.7, armWidth, armHeight); else { ctx.fillRect(obs.x, groundY - obs.height * 0.8, armWidth, armHeight); ctx.fillRect(stemX, groundY - obs.height * 0.5, armWidth, armHeight); } },
-                drawBlockyDino: function(ctx, color) { const dinoX = this.dino.x; const dinoY = this.dino.y; const s = this.pixelScale; ctx.fillStyle = color; ctx.fillRect(dinoX, dinoY + s * 2, s * 5, s * 3); ctx.fillRect(dinoX + s * 4, dinoY, s * 5, s * 5); ctx.fillRect(dinoX - s * 3, dinoY + s * 3, s * 4, s * 2); const isRunningFrame1 = Math.floor(this.score / 6) % 2 === 0; if (this.gameOver) { ctx.fillRect(dinoX + s * 1, dinoY + s * 5, s * 2, s * 1); ctx.fillRect(dinoX + s * 4, dinoY + s * 5, s * 2, s * 1); } else if (!this.dino.onGround) ctx.fillRect(dinoX + s * 2, dinoY + s * 5, s * 2, s * 1); else if (isRunningFrame1) ctx.fillRect(dinoX + s * 1, dinoY + s * 5, s * 2, s * 1); else ctx.fillRect(dinoX + s * 4, dinoY + s * 5, s * 2, s * 1); },
-            };
+            
             const snakeGame = {
                 snake: [], food: {}, score: 0, highScore: 0, gameOver: false, isPaused: false, retryOption: 'YES', pauseOption: 'NO', direction: 'Right', nextDirection: 'Right', gridSize: 0, tileCountX: 20, tileCountY: 0,
                 start: function() {
@@ -1124,12 +1170,4 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
 
