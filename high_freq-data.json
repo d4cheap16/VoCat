@@ -223,7 +223,53 @@
                     {"level": "C2", "text": "Log Entry: Sol 47, Site Prime, Planet Xylos\n\nUnlike any **previous** dig site I've documented, Xylos presents a profound paradox. The official historical **version**, painstakingly decoded from the central monolith, speaks of a peaceful, linear societal **transition**. It describes a culture that gradually abandoned its **traditional** rituals for more enlightened, secular **values**. However, my personal **inclinations** lead me to question this sanitized narrative. The story feels incomplete, almost deliberately **vague**.\n\nMy research suggests that this grand cultural shift **originated** not from internal evolution, but from an external catalyst—a silent, intellectual **invasion** of ideas. This new ideology was **transmitted** through their planet-wide energy grid, leading to a **widespread** and rapid philosophical restructuring. It wasn't a hostile takeover, but a form of cultural **liberation**, freeing them from ancient dogmas.\n\nThe most fascinating evidence lies in their art. We see an explosion of **variety** in their creative expressions post-contact, with new artistic **trends** replacing millennia of stylistic stagnation. This challenges our **contemporary** understanding of cultural exchange, suggesting that a civilization's greatest transformation can arrive not with a bang, but as a whisper on the solar wind."}
                 ]
             }
-        }
+        },
+        "test7": {
+            "groupA": {
+                "words": ["bulky", "extreme", "compelled", "mess", "loose"],
+                "stories": [
+                    {"level": "A2", "text": "Hi Mom,\n\nCould you help me pack my books tomorrow? Some of them are really **bulky** and heavy. Also, this weather is **extreme**! It's too hot to do anything outside. I feel **compelled** to stay indoors all day. I don't want to **mess** up my new room, so I'm trying to be organized. By the way, my closet door has a **loose** screw, can Dad help fix it?\n\nThanks!\nAlex"},
+                    {"level": "B1", "text": "**Title: Advice for a freshman?**\n\nHey everyone, I'm starting college next month and I'm a bit nervous. My older brother warned me not to **mess** around with the wrong crowd, as it can really affect your grades. He also said that the pressure from assignments can become **extreme**, especially during finals week. I feel **compelled** to join a lot of clubs to make friends, but I don't want to overcommit. Any tips? Also, I bought my textbooks already and my backpack is super **bulky**! One last thing, my roommate talks a lot and seems to have a **loose** tongue. How do I politely tell him not to share my secrets?"},
+                    {"level": "B2", "text": "In \"The Silent Witness,\" the protagonist, a reclusive librarian, finds herself in **extreme** peril after discovering a hidden diary. The author masterfully builds a sense of claustrophobia, not through physical confinement, but through the protagonist's own mind. She feels **compelled** by her conscience to uncover a truth that everyone else wants to keep buried. A minor yet significant detail is her grandfather's old, **bulky** suitcase, which contains crucial clues but is a burden to carry as she moves from one hiding place to another. The plot is a chaotic **mess** of lies and half-truths, but the narrative holds together. My only critique is a secondary character, a gossip columnist with a **loose** tongue, whose role feels more like a convenient plot device than a fully developed person."},
+                    {"level": "C1", "text": "Historians argue that the failure of the campaign was not due to a single catastrophic event, but a systemic **mess** of logistical errors and poor leadership. The army was equipped with **bulky**, outdated artillery that was difficult to transport across the rugged terrain. Commanders, facing **extreme** weather conditions, felt **compelled** to push forward by political mandates from a distant capital, ignoring the warnings of their seasoned scouts. The strategic breakdown was further exacerbated by a general known for his **loose** tongue, whose careless boasts at a banquet revealed key troop movements to enemy spies, sealing the campaign's fate."}
+                ]
+            },
+            "groupB": {
+                "words": ["comparable", "diversity", "external", "suspect", "absolute"],
+                "stories": [
+                    {"level": "A2", "text": "Liam: Hey Maya! Are you free for dinner tonight? I found a new food court. It has a great **diversity** of choices, from Mexican to Japanese.\n\nMaya: Ooh, that sounds good! How is it? Is the quality **comparable** to the restaurant we went to last week?\n\nLiam: I think so! The only strange thing is the building's **external** walls are painted bright green, so it looks a bit weird from the outside.\n\nMaya: Haha, that's fine. Should we invite Tom?\n\nLiam: We can, but I **suspect** he might be busy. He said he had a lot of homework. But it's an **absolute** yes for me. I'm already hungry!"},
+                    {"level": "B1", "text": "**Title: The \"Aura Watch 5\" - Almost Perfect!**\n\nI've been using the new Aura Watch 5 for a week, and I'm impressed. For its price, the performance is **comparable** to high-end brands that cost twice as much. The **external** design is sleek, with a durable aluminum casing that looks and feels premium. I also appreciate the **diversity** of watch faces you can choose from. My only concern is the battery. Under heavy use, I **suspect** it might not last a full day. Despite that small issue, if you're looking for a new smartwatch, this is an **absolute** must-buy."},
+                    {"level": "B2", "text": "The world's coral reefs are treasures of biological **diversity**, hosting thousands of marine species. The richness of the Great Barrier Reef, for example, is **comparable** to that of a tropical rainforest. However, these ecosystems face immense pressure from **external** factors such as rising sea temperatures and pollution from coastal development. Scientists **suspect** that over 50% of the world's reefs are already severely damaged. There is an **absolute** need for global cooperation to implement stronger conservation policies before these vibrant underwater cities vanish forever."},
+                    {"level": "C1", "text": "**TO:** Senior Management\n**FROM:** Strategy Department\n**SUBJECT:** Analysis of Competitor X's Market Growth\n\nThis memo outlines our findings on Competitor X's recent expansion. Their primary strength lies in their product **diversity**, which allows them to appeal to multiple market segments simultaneously. We must acknowledge that their current market share is now **comparable** to our own in the Asian-Pacific region. While their **external** marketing campaigns are aggressive, we **suspect** their true advantage comes from a proprietary logistics software they developed internally. It is an **absolute** imperative that we accelerate our own tech development to counter this threat. Further action items will be discussed in Friday's meeting."}
+                ]
+            },
+            "groupC": {
+                "words": ["crucial", "flushed", "faulty", "clashes", "highlight"],
+                "stories": [
+                    {"level": "A2", "text": "Hi Chloe,\n\nI'm so excited about Jessica's birthday party tonight! I think the **highlight** of the evening will be when they bring out the surprise cake. I can't wait to see her face!\n\nI have a small problem, though. I wanted to wear my new red skirt, but I think it **clashes** with my favorite orange top. Choosing the right outfit is **crucial** because I want to look good in the photos! Also, my new hair dryer seems to be **faulty**; it keeps turning off by itself. I remember my face **flushed** the last time I had a bad hair day at a party. It was so embarrassing!\n\nSee you soon,\nMia"},
+                    {"level": "B1", "text": "The **highlight** of our trip to the national park was definitely the hike to Crystal Falls. The view was breathtaking! However, the journey wasn't without its challenges. The trail map we were given was hopelessly **faulty**, showing paths that didn't exist. It's **crucial** for any hiker to have reliable navigation, so this was a serious issue.\n\nAt one point, we got so lost that my friend's face **flushed** with a mix of frustration and panic. I also made a poor fashion choice; my bright purple jacket **clashes** terribly with the orange backpack I borrowed. I must have looked ridiculous! Despite the troubles, it was an unforgettable adventure."},
+                    {"level": "B2", "text": "Dear Sir or Madam,\n\nI am writing to formally complain about a recent repair service for my laptop, which I believe was handled unprofessionally. The **highlight** of my complaint is the technician's claim that the issue was resolved, when in fact the motherboard is clearly still **faulty**.\n\nIt is **crucial** that my laptop functions correctly for my work, and this unresolved issue has caused significant delays. When I pointed this out to the manager, his face **flushed**, and he became defensive rather than helpful. Furthermore, the new casing he offered as a \"solution\" is an awful color that **clashes** with the laptop's original design. I request an immediate and proper repair or a full refund.\n\nSincerely,\nDavid Chen"},
+                    {"level": "C1", "text": "Interviewer: \"The emotional **highlight** of the film is undoubtedly the final scene. Can you tell us about filming it?\"\n\nDirector: \"Of course. That scene was **crucial** to the entire narrative structure we had built. Everything depended on it. We had a major setback when a **faulty** camera lens created a subtle but noticeable distortion, forcing us to reshoot the entire sequence. You could see our cinematographer's face just **flushed** when he discovered the error. Artistically, there's also a moment where the lead actress's costume, a vibrant crimson, deliberately **clashes** with the muted, somber tones of the set. This was a conscious choice to represent her inner turmoil against her calm exterior.\""}
+                ]
+            },
+            "groupBonus": {
+                "words": ["bulky", "comparable", "extreme", "crucial", "diversity", "flushed", "external", "faulty", "compelled", "loose", "suspect", "absolute", "clashes", "highlight", "mess"],
+                "stories": [
+                    {"level": "C2", "text": "The declassified archives concerning Operation Cornflower, a covert Cold War initiative, present a narrative of ambition undone by a confluence of internal fallibility and geopolitical turbulence. The project's primary objective was to establish an intelligence network of **comparable** scale, intended to rival any existing apparatus. However, its operational framework was a **bulky** and convoluted system, relying on outdated protocols that proved inefficient. The ideological premise, which championed a monolithic view of global politics, often **clashes** with the nuanced realities on the ground, creating unforeseen diplomatic friction.\n\nThe inquiry that followed its spectacular failure became a media sensation. The **highlight** of the public hearings was the testimony of a junior analyst, whose photographic memory brought critical oversights to light. Investigators began to **suspect** that the project's downfall was not merely incompetence but involved deliberate sabotage. They noted that the lead cryptographer, a man known for his taciturn nature, was visibly **flushed** and agitated when questioned about a specific data breach.\n\nFurther scrutiny of the records revealed that **external** pressures from allied nations, who feared the project's scope, played a significant role. The project director, under **extreme** political strain, felt **compelled** to proceed despite glaring red flags. It is now understood that maintaining operational secrecy was a **crucial** factor for success, yet this was compromised by a senior official with a notoriously **loose** tongue, whose indiscretions at a diplomatic function were widely reported.\n\nThe technological aspect was equally disastrous. The communication equipment was discovered to be fundamentally **faulty**, a result of corrupted supply chains. This technical failure was an **absolute** catastrophe from which the operation could not recover. The resulting diplomatic **mess** took years to untangle, damaging international relations significantly. Ultimately, the archives reveal a breathtaking **diversity** of misjudgments, from strategic planning to human error, offering a stark lesson on the perils of hubris in intelligence operations."}
+                ]
+            }
+        },
+        "test8": {},
+        "test9": {},
+        "test10": {},
+        "test11": {},
+        "test12": {},
+        "test13": {},
+        "test14": {},
+        "test15": {},
+        "test16": {},
+        "test17": {},
+        "test18": {}
     },
     "wordDetails": {
         "test1": {
@@ -327,7 +373,34 @@
             "vague": {"pos": "adj.", "translation": "模糊的", "definition": "Not clear or easy to see or understand.", "example": "On the hillside, we could see the vague shapes of sheep coming through the mist.", "example_tw": "在山坡上，我們可以看到羊群的模糊身影穿過薄霧而來。"},
             "values": {"pos": "n.", "translation": "價值觀", "definition": "Ideas about what is important in life and how to act.", "example": "The following are the reputed Asian values: thrift, hard work, and respect for authority.", "example_tw": "以下是著名的亞洲價值觀：節儉、勤奮和尊重權威。"},
             "contemporary": {"pos": "adj.", "translation": "當代的", "definition": "Happening or from the present time.", "example": "Jolene takes great interest in literature, especially contemporary literature.", "example_tw": "喬琳對文學有極大的興趣，特別是當代文學。"}
-        }
+        },
+        "test7": {
+            "bulky": {"pos": "adj.", "translation": "佔空間的；過於龐大而難以攜帶的", "definition": "Big and hard to carry.", "example": "Helen didn't buy that notebook computer because it was too bulky to carry around.", "example_tw": "海倫沒有買那台筆記型電腦，因為它太笨重了，不方便隨身攜帶。"},
+            "comparable": {"pos": "adj.", "translation": "可與另一事物相比的；水準相似的", "definition": "Almost the same as something else in quality or level.", "example": "His poetry isn't bad, but it's hardly comparable with Shakespeare's.", "example_tw": "他的詩寫得不差，但幾乎無法與莎士比亞的相提並論。"},
+            "extreme": {"pos": "adj.", "translation": "達到很高或最高程度的；極端的", "definition": "Very big or very great.", "example": "They took extreme measures to conserve fuel. They tried to save as much as possible.", "example_tw": "他們採取了極端的措施來節約燃料。他們試圖盡可能地節省。"},
+            "crucial": {"pos": "adj.", "translation": "決定性的、關鍵的", "definition": "Very, very important for success.", "example": "The accurate diagnosis of cancer is crucial for successful treatment.", "example_tw": "準確的癌症診斷對於成功治療至關重要。"},
+            "diversity": {"pos": "n.", "translation": "多樣性", "definition": "Having many different types of something.", "example": "We are surprised to find the birds' diversity in size and shape.", "example_tw": "我們驚訝地發現鳥類在體型和形狀上的多樣性。"},
+            "flushed": {"pos": "v.", "translation": "因尷尬而臉紅", "definition": "When your face becomes red because you feel shy or embarrassed.", "example": "The young lady flushed with embarrassment when she saw the handsome young man come in the door.", "example_tw": "當那位年輕女士看到英俊的年輕男子進門時，她尷尬得滿臉通紅。"},
+            "external": {"pos": "adj.", "translation": "外在的", "definition": "On the outside of something.", "example": "Red spots are an external sign of an allergy.", "example_tw": "紅斑是過敏的外在跡象。"},
+            "faulty": {"pos": "adj.", "translation": "有缺陷的", "definition": "Not working in the right way.", "example": "A faulty cable may be causing the problem. It doesn't seem to be working properly.", "example_tw": "一條有問題的電纜可能是造成問題的原因。它似乎無法正常工作。"},
+            "compelled": {"pos": "v.", "translation": "被迫；驅使", "definition": "To be made to do something you don't want to do.", "example": "His conscience compelled him to admit his part in the affair. He could not but tell the truth.", "example_tw": "他的良心驅使他承認自己在這件事中的角色。他不得不說出真相。"},
+            "loose": {"pos": "adj.", "translation": "嘴不嚴的", "definition": "(For a tongue) talking too much and not keeping secrets.", "example": "Never tell her a secret; she's got a loose tongue and always talks too much.", "example_tw": "絕不要告訴她秘密；她嘴不嚴，而且總是話太多。"},
+            "suspect": {"pos": "v.", "translation": "懷疑", "definition": "To think that someone did something wrong, without being sure.", "example": "Though there's no specific evidence, we suspect him of murder.", "example_tw": "雖然沒有具體證據，我們懷疑他犯了謀殺罪。"},
+            "absolute": {"pos": "adj.", "translation": "完全的；絕對的", "definition": "100% complete; total.", "example": "We have absolute confidence in his ability. We are quite confident that he will deal with the problem successfully.", "example_tw": "我們對他的能力有絕對的信心。我們相當相信他會成功處理這個問題。"},
+            "clashes": {"pos": "v.", "translation": "（顏色）衝突；不協調", "definition": "(For colors) to look bad together.", "example": "Danny's red tie clashes with his yellow shirt. The two colors don't match.", "example_tw": "丹尼的紅色領帶和他的黃色襯衫不搭配。這兩種顏色不協調。"},
+            "highlight": {"pos": "n.", "translation": "最精彩的部分", "definition": "The most interesting or exciting part of something.", "example": "The highlight of the program left an unforgettable impression. We felt both excited and surprised.", "example_tw": "節目的亮點留下了難以忘懷的印象。我們感到既興奮又驚訝。"},
+            "mess": {"pos": "v.", "translation": "廝混", "definition": "To spend time with bad people.", "example": "A number of dropouts run away from home and mess around with hooligans.", "example_tw": "許多輟學者離家出走，與小流氓廝混。"}
+        },
+        "test8": {},
+        "test9": {},
+        "test10": {},
+        "test11": {},
+        "test12": {},
+        "test13": {},
+        "test14": {},
+        "test15": {},
+        "test16": {},
+        "test17": {},
+        "test18": {}
     }
 }
-
