@@ -332,7 +332,7 @@
         try {
             // 1. Fetch data from the external JSON file
             // ** IMPORTANT: Make sure this JSON file exists in the same directory **
-            const response = await fetch('high_freq-data.json');
+            const response = await fetch('high_freq4-data.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -374,7 +374,7 @@
 
         } catch (error) {
             console.error("Initialization failed:", error);
-            dom.loadingIndicator.textContent = '資料載入失敗，請確認 high_freq-data.json 檔案是否在同一路徑，或重新整理頁面。';
+            dom.loadingIndicator.textContent = '資料載入失敗，請確認 high_freq4-data.json 檔案是否在同一路徑，或重新整理頁面。';
         }
     }
 
@@ -424,7 +424,7 @@
             optgroup.label = groupName;
             unitDisplayGroups[groupName].forEach(unitKey => {
                 // The 'if (vocabulary[unitKey])' check ensures that only units with
-                // corresponding data in your 'high_freq-data.json' file will appear.
+                // corresponding data in your 'high_freq-data4.json' file will appear.
                 // This prevents errors if you define a unit here but haven't added its data yet.
                 if (vocabulary[unitKey]) { 
                     const option = document.createElement('option');
@@ -1356,5 +1356,6 @@
 </footer>
 </body>
 </html>
+
 
 
