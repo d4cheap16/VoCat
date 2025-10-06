@@ -259,7 +259,64 @@
                 ]
             }
         },
-        "test8": {},
+        "test8": {
+            "groupA": {
+                "words": ["concise", "peculiar", "significant", "unique", "precisely"],
+                "stories": [{
+                    "level": "A2",
+                    "text": "Leo: Hey Sara, for Mark's surprise party, I have a (1) idea for the theme: a 1980s retro night!\n\nSara: That sounds fun! He has a (2) taste in music, so he'll love the old songs.\n\nLeo: Exactly. Now, the most (3) detail is the time. We must all arrive (4) at 7:30 PM, before he gets there.\n\nSara: Got it. Can you send a (5) message to the group chat with the address and instructions? Just the important info.\n\nLeo: Will do!"
+                }, {
+                    "level": "B1",
+                    "text": "I just finished \"The City of Glass,\" and I highly recommend it. The author has a truly (1) writing style that is unlike anyone else I've read. The plot is filled with mystery, and the ending has a (2) twist that I did not see coming. One of the book's strengths is its dialogue; every conversation is (3) and powerful, with no wasted words. The story also explores the (4) relationship between the two main characters, which is quite strange but feels very real. It was (5) the kind of book I was looking for: smart, engaging, and thought-provoking."
+                }, {
+                    "level": "B2",
+                    "text": "Subject: Project Phoenix - Weekly Update\n\nHi Team,\n\nThis week, we've hit a (1) milestone by completing the initial user-testing phase. The feedback has been overwhelmingly positive. I've attached a (2) summary of the key findings to this email; please review it before our Monday meeting.\n\nWe did encounter a (3) bug in the login module that only appears on a specific type of device. Our tech lead is currently investigating this anomaly. Despite this small issue, we are (4) on schedule to meet our Q3 deadline. This project is a (5) opportunity for our department to demonstrate innovation, so let's keep up the great work.\n\nBest,\nMaria"
+                }, {
+                    "level": "C1",
+                    "text": "The historical impact of Governor Thorne's 1856 speech cannot be overstated. It represented a (1) departure from the political rhetoric of his era. His rhetorical style was (2) to him; it was a blend of formal argumentation and plain-spoken appeal that resonated with the common citizen. What makes the speech so powerful is how it delivers a complex argument in a remarkably (3) manner, articulating a vision for the future in under ten minutes. Historians agree that this speech was (4) the moment he consolidated his political power. He managed to capture the zeitgeist of a nation at a crossroads, a truly (5) feat in political oratory."
+                }]
+            },
+            "groupB": {
+                "words": ["redundant", "splendid", "tremendous", "profound", "defects"],
+                "stories": [{
+                    "level": "A2",
+                    "text": "Dear Grandma,\n\nThank you so much for the (1) new toy car! The red color is so bright and shiny. I am having a (2) amount of fun playing with it in the garden all day long.\n\nMom helped me check it, and it has no (3) at all; all the wheels spin perfectly. The extra sticker you included was nice, but maybe a little (4) because the car already had cool racing stripes on it. This gift has brought me a (5) sense of happiness.\n\nLove,\nLeo"
+                }, {
+                    "level": "B1",
+                    "text": "Title: Declutter Your Closet, Declutter Your Life!\n\nFeeling overwhelmed by your clothes? Let's fix that! First, take everything out. You'll be surprised by the (1) pile you've made. Now, inspect each item. If it has any major (2), like a broken zipper or a big stain, it's time to let it go.\n\nNext, identify anything that is (3). Do you really need five identical black t-shirts? Probably not. The goal is to create a (4), organized space that makes you feel good every morning. This process can have a surprisingly (5) effect on your mindset, giving you a sense of control and peace."
+                }, {
+                    "level": "B2",
+                    "text": "Title: A Flawless Restoration: \"Sunrise Kingdom\" Returns\n\nThe 4K restoration of the 1958 classic, \"Sunrise Kingdom,\" is a (1) cinematic event. The restoration team undertook a (2) effort to digitally remove decades of scratches, color fading, and other (3) from the original film negatives. The result is a visual experience so crisp it feels contemporary. Watching it today, one might find some of the lengthy opening narration a bit (4), a common storytelling device of that era. However, this minor critique does not lessen the film's (5) emotional impact, which remains as powerful as ever. This is a must-see for any lover of classic cinema."
+                }, {
+                    "level": "C1",
+                    "text": "The new metropolitan art museum is, from a distance, a (1) achievement in architectural design. Its sweeping glass facade and innovative use of natural light are truly breathtaking. However, this grand vision is unfortunately undermined by a series of minor but noticeable construction (2) that are visible upon closer inspection.\n\nThe building's impact on the city's cultural life has been (3), drawing in record-breaking crowds. Yet, one must question certain design choices. For instance, the cavernous main hall, while impressive, includes a secondary echo-dampening system that is entirely (4) given the acoustic properties of the primary materials used. Ultimately, the structure fails to make the (5) statement about art and community that it so clearly aims for, leaving one with a feeling of admiration tinged with disappointment."
+                }]
+            },
+            "groupC": {
+                "words": ["reverse", "reluctant", "terrific", "complicated", "probable"],
+                "stories": [{
+                    "level": "A2",
+                    "text": "Hi Sam,\n\nI got a (1) new remote-controlled car! It's super fast. But there's a problem. I can't make it (2). I think the wiring is (3) by a loose connection inside.\n\nI'm a bit (4) to ask my dad for help because he's so busy. Do you think it's (5) we can fix it together this weekend?\n\nThanks,\nTom"
+                }, {
+                    "level": "B1",
+                    "text": "Title: Group Project Nightmare - Need Advice!\n\nHey everyone, I'm in a bit of a tough spot. The situation has been (1) by one team member who does absolutely nothing, which is a shame because our project started with a (2) idea.\n\nI'm (3) to be a tattletale and go to the teacher, but it's becoming (4) that our whole group will fail because of this. I really wish I could (5) my decision to team up with him. Has anyone been in a similar situation? What did you do?"
+                }, {
+                    "level": "B2",
+                    "text": "Subject: Project Titan - Status Update & Challenges\n\nHi Team,\n\nFirst off, I want to acknowledge the (1) work everyone put in during the initial development phase. At this rate, however, it is highly (2) that we will miss the initial launch date.\n\nUnfortunately, our progress has been (3) by unforeseen integration issues with the third-party API. I know everyone is (4) to admit how far behind we are, but transparency is key. We need to work together now to find a way to (5) this negative trend. I'm open to all suggestions in our emergency meeting tomorrow.\n\nBest,\nDavid"
+                }, {
+                    "level": "C1",
+                    "text": "The fiscal policy of 1888 serves as a classic case study in political intransigence. Despite mounting evidence of its devastating impact on domestic industries, the government was ideologically (1) to admit error. The political capital invested was so significant that the administration found it impossible to (2) its course, leading to what historians now call the \"Great Contraction.\"\n\nRetrospective analysis suggests it was highly (3) that the policy would fail. The situation was further (4) by a sudden collapse in international commodity prices, a factor the administration's models failed to predict. This is a stark contrast to how the policy was lauded in initial prospectuses as a (5) solution to the national debt."
+                }]
+            },
+            "groupBonus": {
+                "words": ["concise", "peculiar", "precisely", "redundant", "reverse", "defects", "significant", "splendid", "reluctant", "tremendous", "terrific", "complicated", "unique", "profound", "probable"],
+                "stories": [{
+                    "level": "C2",
+                    "text": "The post-mortem analysis of the Orion VII probe failure reveals a narrative far more intricate than initially reported. The mission, lauded at its launch as a (1) technical achievement, ended in a communications blackout that had a (2) and lasting impact on the agency's deep-space program. The investigation team was initially (3) to assign blame, given the caliber of the engineers involved. The final report, a document of (4) length, is surprisingly (5) in its conclusions, avoiding speculation and focusing purely on telemetry data.\n\nThe core issue was not a single catastrophic event, but a cascade of seemingly minor software (6). The situation was further (7) by an unforeseen solar flare that degraded the probe's communication systems at a critical moment. One error, (8) to the probe's trajectory correction module, was particularly (9). It is now considered highly (10) that this single flaw was the primary catalyst for the mission's loss.\n\nThe irony is that the original navigational algorithm was a (11) piece of theoretical engineering. However, its implementation contained a (12) vulnerability that went undetected. The report identifies (13) the moment—down to the nanosecond—when the probe began to deviate from its intended path. A last-ditch effort to (14) the probe's thruster sequence failed. It appears that a series of diagnostic subroutines, which could have caught the error, were labeled (15) during pre-flight checks and consequently disabled to conserve processing power—a decision with catastrophic consequences."
+                }]
+            }
+        }
+        },
         "test9": {},
         "test10": {},
         "test11": {},
@@ -391,7 +448,23 @@
             "highlight": {"pos": "n.", "translation": "最精彩的部分", "definition": "The most interesting or exciting part of something.", "example": "The highlight of the program left an unforgettable impression. We felt both excited and surprised.", "example_tw": "節目的亮點留下了難以忘懷的印象。我們感到既興奮又驚訝。"},
             "mess": {"pos": "v.", "translation": "廝混", "definition": "To spend time with bad people.", "example": "A number of dropouts run away from home and mess around with hooligans.", "example_tw": "許多輟學者離家出走，與小流氓廝混。"}
         },
-        "test8": {},
+        "test8": {
+            "concise": {"pos": "adj.","translation": "簡潔的","definition": "Short and clear, with only the important information.","example": "Please give a concise explanation about the project. I don't have much time.","example_tw": "請對這個專案做一個簡潔的說明。我沒有太多時間。"},
+            "peculiar": {"pos": "adj.","translation": "特有的","definition": "Special or belonging to only one type of person or thing.","example": "Such marking on the wings are peculiar to this kind of bird.","example_tw": "翅膀上的這種斑紋是這種鳥所特有的。"},
+            "precisely": {"pos": "adv.","translation": "精確地；準時地","definition": "Exactly at a time or in a way.","example": "The train leaves at nine o'clock precisely. You'd better not be late, not even by one minute.","example_tw": "火車九點準時出發。你最好不要遲到，一分鐘都不要。"},
+            "redundant": {"pos": "adj.","translation": "多餘的","definition": "Not needed anymore.","example": "The word gradually became redundant and dropped out of use.","example_tw": "這個詞逐漸變得多餘並退出了使用。"},
+            "reverse": {"pos": "v.","translation": "倒車","definition": "To move backward.","example": "The truck entered a narrow alley and had to reverse out.","example_tw": "卡車駛入一條窄巷，不得不倒車出來。"},
+            "defects": {"pos": "n.","translation": "缺陷","definition": "A problem with something that makes it not perfect.","example": "Before the cars leave the factory, they are tested carefully to make sure there are no defects.","example_tw": "汽車出廠前都經過仔細測試，以確保沒有任何缺陷。"},
+            "significant": {"pos": "adj.","translation": "重大的","definition": "Very important.","example": "The detective said that the time of the murder was extremely significant.","example_tw": "偵探說謀殺案發生的時間極為重要。"},
+            "splendid": {"pos": "adj.","translation": "壯麗的；令人印象深刻的","definition": "Very beautiful and impressive.","example": "The queen arrived in a splendid golden coach drawn by white horses.","example_tw": "女王乘坐一輛由白馬拉的華麗金色馬車抵達。"},
+            "reluctant": {"pos": "adj.","translation": "不願意的","definition": "Not wanting to do something.","example": "Obviously, they are very reluctant to help. We'll have to do it by ourselves.","example_tw": "顯然地，他們很不情願幫忙。我們將必須自己來做。"},
+            "tremendous": {"pos": "adj.","translation": "極大的","definition": "Very, very big or large.","example": "Our neighbors were making a tremendous amount of noise last night.","example_tw": "我們的鄰居昨晚製造了巨大的噪音。"},
+            "terrific": {"pos": "adj.","translation": "極好的","definition": "Very good or wonderful.","example": "They had a terrific time at the disco last night. Everyone was happy and excited.","example_tw": "他們昨晚在迪斯科舞廳玩得非常開心。每個人都既高興又興奮。"},
+            "complicated": {"pos": "v.","translation": "使複雜化","definition": "To be made harder to understand or do because of something.","example": "To our disappointment, the problem is complicated by his indecision and cowardice.","example_tw": "令我們失望的是，這個問題因他的優柔寡斷和怯懦而變得複雜。"},
+            "unique": {"pos": "adj.","translation": "獨一無二的","definition": "The only one of its kind; very special.","example": "This design is unique. You can't find another design like this one.","example_tw": "這個設計是獨一無二的。你找不到第二個像這樣的設計。"},
+            "profound": {"pos": "adj.","translation": "深刻的","definition": "(For a feeling) very strong.","example": "The incident made a profound impression on me. I'll never forget it.","example_tw": "這件事給我留下了深刻的印象。我永遠不會忘記。"},
+            "probable": {"pos": "adj.","translation": "很可能的","definition": "Very likely to happen.","example": "It is probable that there will be rain this afternoon. You'd better take an umbrella with you.","example_tw": "今天下午很可能會下雨。你最好帶把傘。"}            
+        },
         "test9": {},
         "test10": {},
         "test11": {},
@@ -404,4 +477,5 @@
         "test18": {}
     }
 }
+
 
