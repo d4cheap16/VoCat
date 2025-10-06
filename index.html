@@ -487,7 +487,6 @@
                     <div class="menu-wrapper">
                         <ul class="menu-list">
                             <li><a href="#" data-game="back">MAIN MENU</a></li>
-                            <li><a href="#" data-game="breakout">BREAKOUT</a></li>
                             <li><a href="#" data-game="ghostbuster">GHOSTBUSTER</a></li>
                             <li><a href="#" data-game="pacman">PAC-MAN RUN</a></li>
                             <li><a href="#" data-game="snake">SNAKE</a></li>
@@ -594,7 +593,6 @@
                 
                 const scoresList = highScoresModal.querySelector('.scores-list');
                 const games = [
-                    { name: 'BREAKOUT', key: 'breakoutHighScore' },
                     { name: 'GHOSTBUSTER', key: 'ghostbusterHighScore' },
                     { name: 'PAC-MAN RUN', key: 'pacmanClassicRunHighScore' },
                     { name: 'SNAKE', key: 'snakeHighScore' },
@@ -620,7 +618,7 @@
                 audioOpen.play();
 
                 showCustomConfirm('Are you sure you want to clear all high scores? This action cannot be undone.', () => {
-                    const games = ['breakoutHighScore', 'pacmanClassicRunHighScore', 'ghostbusterHighScore', 'snakeHighScore', 'tetrisHighScore'];
+                    const games = ['pacmanClassicRunHighScore', 'ghostbusterHighScore', 'snakeHighScore', 'tetrisHighScore'];
                     games.forEach(key => localStorage.removeItem(key));
                     showCustomAlert('All high scores have been cleared!');
                 });
@@ -777,7 +775,6 @@
                     if (gameType === 'tetris') this.activeGame = tetrisGame;
                     else if (gameType === 'pacman') this.activeGame = pacmanGame;
                     else if (gameType === 'snake') this.activeGame = snakeGame;
-                    else if (gameType === 'breakout') this.activeGame = breakoutGame;
                     else if (gameType === 'ghostbuster') this.activeGame = ghostbusterGame;
                     this.activeGame.start();
                 },
@@ -800,7 +797,7 @@
                 }
             };
             
-            // --- 🌟 PAC-MAN CLASSIC RUN 遊戲 (Bug 修正版) 🌟 ---
+            // --- PAC-MAN CLASSIC RUN 遊戲 ---
             const pacmanGame = {
                 player: {}, obstacles: [], score: 0, highScore: 0, gameOver: false, spawnTimer: 0, retryOption: 'YES', isPaused: false, pauseOption: 'YES', pixelScale: 5,
                 start: function() {
@@ -881,18 +878,18 @@
                 },
             };
 
-            // --- GHOSTBUSTER 遊戲 ---
+            // --- GHOSTBUSTER 遊戲 (升級版) ---
             const ghostbusterGame = {
-                gameState: {}, player: {}, playerBullets: [], enemyBullets: [], playerShootCooldown: 0, enemies: [], enemyConfig: {}, isPaused: false, pauseOption: 'NO',
+                gameState: {}, player: {}, playerBullets: [], enemyBullets: [], effects: [], powerUps: [],
+                enemies: [], enemyConfig: {}, isPaused: false, pauseOption: 'YES',
                 start: function() {
                     cancelAnimationFrame(gameManager.animationFrameId);
-                    canvas.height = canvas.clientHeight;
-                    canvas.width = canvas.clientWidth;
-                    this.isPaused = false; this.pauseOption = 'NO';
+                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth;
+                    this.isPaused = false; this.pauseOption = 'YES';
                     this.gameState = { score: 0, highScore: parseInt(localStorage.getItem('ghostbusterHighScore')) || 0, level: 1, status: 'playing', retryOption: 'YES' };
-                    this.player = { x: canvas.clientWidth / 2 - 12, y: canvas.clientHeight - 25, width: 24, height: 12, speed: 4, alive: true };
-                    this.playerBullets = []; this.enemyBullets = [];
-                    this.enemyConfig = { rows: 2, cols: 7, width: 20, height: 10, padding: 8, offsetTop: 20, offsetLeft: 25, speedX: 0.5, direction: 1, moveInterval: 40, moveTimer: 40, shootInterval: 95, shootTimer: 60 };
+                    this.player = { x: canvas.width / 2 - 12, y: canvas.height - 30, width: 24, height: 12, speed: 4, alive: true, shootCooldown: 0, powerUp: 'none', powerUpTimer: 0 };
+                    this.playerBullets = []; this.enemyBullets = []; this.effects = []; this.powerUps = [];
+                    this.enemyConfig = { rows: 2, cols: 6, width: 24, height: 16, padding: 10, offsetTop: 30, offsetLeft: (canvas.width - (6 * (24 + 10)))/2, speedX: 0.6, direction: 1, moveInterval: 40, moveTimer: 40, shootInterval: 90, shootTimer: 60 };
                     this.updateDifficulty(); this.createEnemies(); this.updateScore();
                     this.update();
                 },
@@ -902,7 +899,7 @@
                     this.enemyConfig.shootInterval = Math.max(20, 70 - this.gameState.level * 3);
                 },
                 nextLevel: function() {
-                    this.gameState.level++; this.playerBullets = []; this.enemyBullets = [];
+                    this.gameState.level++; this.playerBullets = []; this.enemyBullets = []; this.effects = []; this.powerUps = [];
                     this.updateDifficulty(); this.createEnemies(); this.gameState.status = 'playing';
                 },
                 handleInput: function(key) {
@@ -911,111 +908,130 @@
                         else if (key === 'A') { if (this.gameState.retryOption === 'YES') { if (this.gameState.status === 'gameOver') this.start(); else this.nextLevel(); } else { gameManager.endGame(); } }
                     } else if (this.isPaused) {
                         if (key === 'Left' || key === 'Right') { this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; }
-                        else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } 
+                        else if (key === 'A') { if (this.pauseOption === 'YES') this.isPaused = false; else gameManager.endGame(); } 
                         else if (key === 'Start') { this.isPaused = false; }
                     } else if (this.gameState.status === 'playing') {
-                        if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; return; }
+                        if (key === 'Start') { this.isPaused = true; this.pauseOption = 'YES'; return; }
                         if (key === 'Left') this.player.x -= this.player.speed;
                         else if (key === 'Right') this.player.x += this.player.speed;
-                        else if (key === 'A' && this.playerShootCooldown === 0) {
-                            this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, speed: 5 });
-                            this.playerShootCooldown = 15;
+                        else if (key === 'A' && this.player.shootCooldown === 0) {
+                            const cooldown = this.player.powerUp === 'rapid' ? 5 : 15;
+                            this.player.shootCooldown = cooldown;
+                            if (this.player.powerUp === 'spread') {
+                                this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, dx: -1.5, dy: -5 });
+                                this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, dx: 0, dy: -5 });
+                                this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, dx: 1.5, dy: -5 });
+                            } else {
+                                this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, dx: 0, dy: -5 });
+                            }
                         }
                     }
-                },
-                updateScore: function() {
-                    const hi = String(this.gameState.highScore).padStart(5, '0');
-                    const current = String(this.gameState.score).padStart(5, '0');
-                    scoreElement.textContent = `HI ${hi}\n${current}\nLV ${this.gameState.level}`;
                 },
                 update: function() {
-                // 只有在遊戲進行中且未暫停時，才更新遊戲狀態
                     if (this.gameState.status === 'playing' && !this.isPaused) {
-                // 更新玩家
-                    if (this.player.x < 5) this.player.x = 5;
-                    if (this.player.x + this.player.width > canvas.clientWidth - 5) this.player.x = canvas.clientWidth - this.player.width - 5;
-                    if (this.playerShootCooldown > 0) this.playerShootCooldown--;
-
-                // 更新子彈
-                    for (let i = this.playerBullets.length - 1; i >= 0; i--) { this.playerBullets[i].y -= this.playerBullets[i].speed; if (this.playerBullets[i].y < 0) this.playerBullets.splice(i, 1); }
-                    for (let i = this.enemyBullets.length - 1; i >= 0; i--) { this.enemyBullets[i].y += this.enemyBullets[i].speed; if (this.enemyBullets[i].y > canvas.clientHeight) this.enemyBullets.splice(i, 1); }
-
-                // 更新敵人
-                    this.enemyConfig.moveTimer--;
-                    if (this.enemyConfig.moveTimer <= 0) {
-                    this.enemyConfig.moveTimer = this.enemyConfig.moveInterval;
-                    let wallHit = false;
-                    for (const e of this.enemies) if (e.alive && ((e.x + e.width >= canvas.clientWidth - 10 && this.enemyConfig.direction > 0) || (e.x <= 10 && this.enemyConfig.direction < 0))) { wallHit = true; break; }
-                    if (wallHit) { this.enemyConfig.direction *= -1; for (const e of this.enemies) e.y += e.height / 2; }
-                    for (const e of this.enemies) { e.x += this.enemyConfig.speedX * this.enemyConfig.direction; if(e.alive && e.y + e.height >= this.player.y) { this.setGameOver(); break; } }
+                        if (this.player.x < 5) this.player.x = 5;
+                        if (this.player.x + this.player.width > canvas.width - 5) this.player.x = canvas.width - this.player.width - 5;
+                        if (this.player.shootCooldown > 0) this.player.shootCooldown--;
+                        if (this.player.powerUpTimer > 0) { this.player.powerUpTimer--; if (this.player.powerUpTimer === 0) this.player.powerUp = 'none'; }
+                        this.playerBullets.forEach(b => { b.x += b.dx; b.y += b.dy; });
+                        this.enemyBullets.forEach(b => b.y += b.speed);
+                        this.updateEffects();
+                        this.updatePowerUps();
+                        this.enemyConfig.moveTimer--;
+                        if (this.enemyConfig.moveTimer <= 0) {
+                            this.enemyConfig.moveTimer = this.enemyConfig.moveInterval;
+                            let wallHit = false;
+                            for (const e of this.enemies) if (e.alive && ((e.x + e.width >= canvas.width - 10 && this.enemyConfig.direction > 0) || (e.x <= 10 && this.enemyConfig.direction < 0))) { wallHit = true; break; }
+                            if (wallHit) { this.enemyConfig.direction *= -1; this.enemies.forEach(e => e.y += e.height / 2); }
+                            this.enemies.forEach(e => e.x += this.enemyConfig.speedX * this.enemyConfig.direction);
                         }
-                    this.enemyConfig.shootTimer--;
-                    if (this.enemyConfig.shootTimer <= 0) {
-                    this.enemyConfig.shootTimer = this.enemyConfig.shootInterval;
-                    const alive = this.enemies.filter(e => e.alive); if (alive.length > 0) { const shooter = alive[Math.floor(Math.random() * alive.length)]; this.enemyBullets.push({ x: shooter.x + shooter.width / 2 - 2, y: shooter.y + shooter.height, width: 4, height: 8, speed: 3 }); }
+                        this.enemyConfig.shootTimer--;
+                        if (this.enemyConfig.shootTimer <= 0) {
+                            this.enemyConfig.shootTimer = this.enemyConfig.shootInterval;
+                            const alive = this.enemies.filter(e => e.alive); if (alive.length > 0) { const shooter = alive[Math.floor(Math.random() * alive.length)]; this.enemyBullets.push({ x: shooter.x + shooter.width / 2 - 2, y: shooter.y + shooter.height, width: 4, height: 8, speed: 3 }); }
                         }
-
-                    // 碰撞偵測
-                    for (let i = this.playerBullets.length - 1; i >= 0; i--) { const b = this.playerBullets[i]; for (const e of this.enemies) if (e.alive && b.x < e.x + e.width && b.x + b.width > e.x && b.y < e.y + e.height && b.y + b.height > e.y) { e.alive = false; this.playerBullets.splice(i, 1); this.gameState.score += 10; this.updateScore(); break; } }
-                    for (let i = this.enemyBullets.length - 1; i >= 0; i--) { const b = this.enemyBullets[i]; if (this.player.alive && b.x < this.player.x + this.player.width && b.x + b.width > this.player.x && b.y < this.player.y + this.player.height && b.y + b.height > this.player.y) { this.setGameOver(); break; } }
-                    for (const e of this.enemies) { if (e.alive && this.player.alive && e.x < this.player.x + this.player.width && e.x + e.width > this.player.x && e.y < this.player.y + this.player.height && e.y + e.height > this.player.y) { this.setGameOver(); break; } }
-                    if (this.enemies.every(e => !e.alive)) this.gameState.status = 'levelComplete';
-                        }
-
-                // 無論遊戲狀態如何，每一幀都重新繪製畫面
+                        this.checkCollisions();
+                        if (this.enemies.every(e => !e.alive)) this.gameState.status = 'levelComplete';
+                    }
                     this.draw();
-
-                // 永遠只在函式結尾呼叫下一個迴圈，並永遠記錄其 ID
-                gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
+                    gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
                 },
-                
+                checkCollisions: function() {
+                    for (let i = this.playerBullets.length - 1; i >= 0; i--) {
+                        const b = this.playerBullets[i];
+                        for (const e of this.enemies) {
+                            if (e.alive && b.x < e.x + e.width && b.x + b.width > e.x && b.y < e.y + e.height && b.y + b.height > e.y) {
+                                e.alive = false; this.playerBullets.splice(i, 1); this.gameState.score += 10; this.updateScore();
+                                this.createExplosion(e.x + e.width / 2, e.y + e.height / 2);
+                                if (Math.random() < 0.25) { const type = Math.random() < 0.5 ? 'rapid' : 'spread'; this.powerUps.push({ x: e.x + e.width / 2, y: e.y, type: type, dy: 1.5 }); }
+                                break;
+                            }
+                        }
+                    }
+                    for (const b of this.enemyBullets) { if (this.player.alive && b.x < this.player.x + this.player.width && b.x + b.width > this.player.x && b.y < this.player.y + this.player.height && b.y + b.height > this.player.y) { this.setGameOver(); break; } }
+                    for (const e of this.enemies) { if (e.alive && this.player.alive && e.x < this.player.x + this.player.width && e.x + e.width > this.player.x && e.y < this.player.y + this.player.height && e.y + e.height > this.player.y) { this.setGameOver(); break; } }
+                },
                 draw: function() {
-                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg');
-                    const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
                     context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height);
-                    this.drawPlayer(fgColor);
-                    this.drawBullets(fgColor);
-                    this.drawEnemies(fgColor);
+                    this.drawPlayer(fgColor); this.drawBullets(fgColor); this.drawEnemies(fgColor); this.drawEffects(fgColor); this.drawPowerUps(fgColor);
                     if (this.gameState.status === 'gameOver') drawGameOverScreen(context, canvas, this.gameState.retryOption);
                     if (this.gameState.status === 'levelComplete') drawWinScreen(context, canvas, this.gameState.retryOption);
-                    if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
+                    if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption === 'YES' ? 'NO' : 'YES');
+                },
+                updateScore: function() { const hi = String(this.gameState.highScore).padStart(5, '0'); const current = String(this.gameState.score).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}\nLV ${this.gameState.level}`; },
+                createExplosion: function(x, y) { for (let i = 0; i < 15; i++) { this.effects.push({ x: x, y: y, dx: (Math.random() - 0.5) * 4, dy: (Math.random() - 0.5) * 4, life: 20, size: Math.random() * 2 + 1 }); } },
+                updateEffects: function() { for (let i = this.effects.length - 1; i >= 0; i--) { const p = this.effects[i]; p.x += p.dx; p.y += p.dy; p.life--; if (p.life <= 0) this.effects.splice(i, 1); } },
+                drawEffects: function(color) { context.fillStyle = color; this.effects.forEach(p => { context.fillRect(p.x, p.y, p.size, p.size); }); },
+                updatePowerUps: function() {
+                    for (let i = this.powerUps.length - 1; i >= 0; i--) {
+                        const p = this.powerUps[i]; p.y += p.dy;
+                        if (p.y > canvas.height) { this.powerUps.splice(i, 1); continue; }
+                        if (this.player.alive && p.x < this.player.x + this.player.width && p.x + 10 > this.player.x && p.y < this.player.y + this.player.height && p.y + 10 > this.player.y) {
+                            this.player.powerUp = p.type; this.player.powerUpTimer = 300; this.powerUps.splice(i, 1);
+                        }
+                    }
+                },
+                drawPowerUps: function(color) {
+                    context.fillStyle = color; context.font = `bold 12px 'Press Start 2P'`;
+                    this.powerUps.forEach(p => { const text = p.type === 'rapid' ? 'F' : 'S'; context.fillText(text, p.x, p.y); });
+                },
+                drawEnemies: function(color) {
+                    const frame = Math.floor(Date.now() / 500) % 2;
+                    this.enemies.forEach(e => {
+                        if (e.alive) {
+                            context.fillStyle = color;
+                            context.fillRect(e.x + 4, e.y, 16, 12); context.fillRect(e.x, e.y + 4, 24, 8);
+                            const eyeColor = getComputedStyle(document.body).getPropertyValue('--screen-bg');
+                            context.fillStyle = eyeColor; context.fillRect(e.x + 6, e.y + 4, 4, 4); context.fillRect(e.x + 14, e.y + 4, 4, 4);
+                            context.fillStyle = color;
+                            if (frame === 0) { context.fillRect(e.x, e.y + 12, 4, 4); context.fillRect(e.x + 20, e.y + 12, 4, 4); } 
+                            else { context.fillRect(e.x + 4, e.y + 12, 4, 4); context.fillRect(e.x + 16, e.y + 12, 4, 4); }
+                        }
+                    });
                 },
                 setGameOver: function() {
+                    if(!this.player.alive) return;
                     this.player.alive = false; this.gameState.status = 'gameOver';
-                    if (this.gameState.score > this.gameState.highScore) {
-                        this.gameState.highScore = this.gameState.score; localStorage.setItem('ghostbusterHighScore', this.gameState.highScore);
-                    }
+                    this.createExplosion(this.player.x + this.player.width / 2, this.player.y + this.player.height / 2);
+                    if (this.gameState.score > this.gameState.highScore) { this.gameState.highScore = this.gameState.score; localStorage.setItem('ghostbusterHighScore', this.gameState.highScore); }
                     this.updateScore();
                 },
                 createEnemies: function() {
                     this.enemies = []; this.enemyConfig.direction = 1;
                     for (let c = 0; c < this.enemyConfig.cols; c++) {
                         for (let r = 0; r < this.enemyConfig.rows; r++) {
-                            const enemyX = c * (this.enemyConfig.width + this.enemyConfig.padding) + this.enemyConfig.offsetLeft;
-                            const enemyY = r * (this.enemyConfig.height + this.enemyConfig.padding) + this.enemyConfig.offsetTop;
-                            this.enemies.push({ x: enemyX, y: enemyY, width: this.enemyConfig.width, height: this.enemyConfig.height, alive: true });
+                            this.enemies.push({ x: c * (this.enemyConfig.width + this.enemyConfig.padding) + this.enemyConfig.offsetLeft, y: r * (this.enemyConfig.height + this.enemyConfig.padding + 5) + this.enemyConfig.offsetTop, width: this.enemyConfig.width, height: this.enemyConfig.height, alive: true });
                         }
                     }
                 },
                 drawPlayer: function(color) {
-                    if (!this.player.alive) return;
-                    context.fillStyle = color;
-                    const p = this.player;
+                    if (!this.player.alive) return; context.fillStyle = color; const p = this.player;
+                    if(this.player.powerUp !== 'none' && Math.floor(Date.now() / 100) % 2 === 0){ context.fillStyle = getComputedStyle(document.body).getPropertyValue('--screen-bg'); }
                     context.fillRect(p.x, p.y + 4, p.width, p.height - 4); 
-                    context.fillRect(p.x + (p.width / 2) - 3, p.y, 6, 6); 
+                    context.fillRect(p.x + (p.width / 2) - 4, p.y, 8, 8); 
                 },
-                drawBullets: function(color) {
-                    context.fillStyle = color; for (const b of this.playerBullets) context.fillRect(b.x, b.y, b.width, b.height);
-                    context.fillStyle = color; for (const b of this.enemyBullets) context.fillRect(b.x, b.y, b.width, b.height);
-                },
-                drawEnemies: function(color) {
-                    for (const e of this.enemies) {
-                        if (e.alive) {
-                            context.fillStyle = color;
-                            context.fillRect(e.x, e.y, e.width, e.height);
-                        }
-                    }
-                }
+                drawBullets: function(color) { context.fillStyle = color; this.playerBullets.forEach(b => context.fillRect(b.x, b.y, b.width, b.height)); this.enemyBullets.forEach(b => context.fillRect(b.x, b.y, b.width, b.height)); },
             };
 
             const tetrisGame = {
@@ -1090,45 +1106,6 @@
                 spawnFood: function() { this.food = { x: Math.floor(Math.random() * this.tileCountX), y: Math.floor(Math.random() * this.tileCountY) }; for (let segment of this.snake) if (segment.x === this.food.x && segment.y === this.food.y) { this.spawnFood(); return; } },
                 setGameOver: function() { this.gameOver = true; if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('snakeHighScore', this.highScore); } this.updateScore(); }
             };
-            const breakoutGame = {
-                ball: {}, paddle: {}, bricks: [], score: 0, highScore: 0, lives: 3, gameOver: false, isPaused: false, retryOption: 'YES', pauseOption: 'NO', levelComplete: false, winOption: 'YES', level: 1,
-                start: function() {
-                    cancelAnimationFrame(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'NO'; this.levelComplete = false; this.winOption = 'YES'; this.level = 1; this.highScore = parseInt(localStorage.getItem('breakoutHighScore')) || 0;
-                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth; this.lives = 3; this.score = 0; this.paddle = {x: canvas.width / 2 - 25, y: canvas.height - 10, width: 50, height: 5}; this.ball = {x: canvas.width / 2, y: canvas.height - 20, radius: 4, dx: 2, dy: -2}; this.createBricks(); this.updateScore(); this.update();
-                },
-                end: function() { cancelAnimationFrame(gameManager.animationFrameId); },
-                nextLevel: function() {
-                    this.level++; this.levelComplete = false; this.paddle = {x: canvas.width / 2 - 25, y: canvas.height - 10, width: 50, height: 5};
-                    const speedMultiplier = 1 + (this.level - 1) * 0.15; this.ball = { x: canvas.width / 2, y: canvas.height - 20, radius: 4, dx: (Math.random() < 0.5 ? 2 : -2) * speedMultiplier, dy: -2 * speedMultiplier };
-                    this.createBricks(); this.updateScore();
-                },
-                handleInput: function(key) {
-                     if (this.gameOver) { if (key === 'Left' || key === 'Right') this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } } 
-                     else if (this.levelComplete) { if (key === 'Left' || key === 'Right') this.winOption = this.winOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.winOption === 'YES') this.nextLevel(); else gameManager.endGame(); } } 
-                     else if (this.isPaused) { if (key === 'Left' || key === 'Right') this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } else if (key === 'Start') this.isPaused = false; } 
-                     else { if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; return; } if (key === 'Left') { this.paddle.x -= 15; if (this.paddle.x < 0) this.paddle.x = 0; } else if (key === 'Right') { this.paddle.x += 15; if (this.paddle.x + this.paddle.width > canvas.width) this.paddle.x = canvas.width - this.paddle.width; } }
-                },
-                updateScore: function() { const hi = String(this.highScore).padStart(5, '0'); const current = String(this.score).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}\nLIVES ${this.lives} LV ${this.level}`; },
-                update: function() {
-                    if (!this.gameOver && !this.isPaused && !this.levelComplete) {
-                        this.ball.x += this.ball.dx; this.ball.y += this.ball.dy;
-                        if (this.ball.x + this.ball.radius > canvas.width || this.ball.x - this.ball.radius < 0) this.ball.dx *= -1; if (this.ball.y - this.ball.radius < 0) this.ball.dy *= -1;
-                        if (this.ball.y + this.ball.radius > canvas.height) { this.lives--; this.updateScore(); if (this.lives <= 0) this.setGameOver(); else { this.ball = {x: canvas.width / 2, y: canvas.height - 20, radius: 4, dx: 2, dy: -2}; this.paddle = {x: canvas.width / 2 - 25, y: canvas.height - 10, width: 50, height: 5}; } }
-                        if (this.ball.y + this.ball.radius > this.paddle.y && this.ball.x > this.paddle.x && this.ball.x < this.paddle.x + this.paddle.width) this.ball.dy *= -1;
-                        this.bricks.forEach(brick => { if (brick.visible && this.ball.x > brick.x && this.ball.x < brick.x + brick.width && this.ball.y > brick.y && this.ball.y < brick.y + brick.height) { this.ball.dy *= -1; brick.visible = false; this.score += 10; this.updateScore(); } });
-                        if (this.bricks.every(b => !b.visible)) this.levelComplete = true;
-                    }
-                    this.draw(); gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
-                },
-                draw: function() {
-                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
-                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = fgColor; context.beginPath(); context.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI * 2); context.fill(); context.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
-                    this.bricks.forEach(brick => { if (brick.visible) context.fillRect(brick.x, brick.y, brick.width, brick.height); });
-                    if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption); if (this.levelComplete) drawWinScreen(context, canvas, this.winOption);
-                },
-                createBricks: function() { this.bricks = []; const brickRowCount = 5, brickColumnCount = 6; const brickWidth = (canvas.width / brickColumnCount) - 4; const brickHeight = 8, brickPadding = 3, brickOffsetTop = 50, brickOffsetLeft = 3; for (let c = 0; c < brickColumnCount; c++) for (let r = 0; r < brickRowCount; r++) this.bricks.push({ x: c * (brickWidth + brickPadding) + brickOffsetLeft, y: r * (brickHeight + brickPadding) + brickOffsetTop, width: brickWidth, height: brickHeight, visible: true }); },
-                setGameOver: function() { this.gameOver = true; if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('breakoutHighScore', this.highScore); } this.updateScore(); }
-            };
 
             const konamiCode = ['Up', 'Up', 'Down', 'Down', 'Left', 'Right', 'Left', 'Right', 'B', 'A', 'Start']; let userInput = [];
             const testerCode = ['A', 'B', 'B', 'A', 'Start']; let testerInput = [];
@@ -1164,11 +1141,5 @@
         <span>Designed by CHENWEI with</span>
         <span>
             Gemini
-            <img src="https://d4cheap16.github.io/VoCat/Gemini.png" alt="Google Gemini Logo" class="footer-logo">
-        </span>
-    </footer>
-
-</body>
-</html>
-
+            <img src="https://d4cheap16.github.io/VoCat/Gemini.png" alt="Google Gemini Logo" class.
 
