@@ -293,17 +293,7 @@
                     {"level": "C2", "text": "The post-mortem analysis of the Orion VII probe failure reveals a narrative far more intricate than initially reported. The mission, lauded at its launch as a **terrific** technical achievement, ended in a communications blackout that had a **profound** and lasting impact on the agency's deep-space program. The investigation team was initially **reluctant** to assign blame, given the caliber of the engineers involved. The final report, a document of **tremendous** length, is surprisingly **concise** in its conclusions, avoiding speculation and focusing purely on telemetry data.\n\nThe core issue was not a single catastrophic event, but a cascade of seemingly minor software **defects**. The situation was further **complicated** by an unforeseen solar flare that degraded the probe's communication systems at a critical moment. One error, **unique** to the probe's trajectory correction module, was particularly **significant**. It is now considered highly **probable** that this single flaw was the primary catalyst for the mission's loss.\n\nThe irony is that the original navigational algorithm was a **splendid** piece of theoretical engineering. However, its implementation contained a **peculiar** vulnerability that went undetected. The report identifies **precisely** the moment—down to the nanosecond—when the probe began to deviate from its intended path. A last-ditch effort to **reverse** the probe's thruster sequence failed. It appears that a series of diagnostic subroutines, which could have caught the error, were labeled **redundant** during pre-flight checks and consequently disabled to conserve processing power—a decision with catastrophic consequences."}
                 ]
             }
-        },
-        "test9": {},
-        "test10": {},
-        "test11": {},
-        "test12": {},
-        "test13": {},
-        "test14": {},
-        "test15": {},
-        "test16": {},
-        "test17": {},
-        "test18": {}
+        }
     },
     "wordDetails": {
         "test1": {
@@ -454,4 +444,5 @@
         "test18": {}
     }
 }
+
 
