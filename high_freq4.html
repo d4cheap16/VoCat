@@ -7,12 +7,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;5-00;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* --- Gameboy 風格色彩覆蓋 (精簡版) --- */
+        /* 說明：我們只修改最外層的背景，讓主畫面維持白底黑字，以求最佳閱讀舒適度。 */
+
+        /* 1. 更改 Body 背景為 Gameboy 機身灰色，並保留原有字體 */
         body {
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            background-color: #f3f4f6;
+            background-color: #d3d3d3; /* Gameboy Grey */
         }
+
+        /* 2. 將外部的「回家」按鈕稍微調整以搭配灰色背景 */
+        /* 這個按鈕在白色區塊之外，所以我們稍微調整它 */
+        .max-w-4xl.mx-auto.mb-4 > a {
+             background-color: #777; /* 按鈕使用中性灰色 */
+             color: #fff;
+             border: 1px solid #555;
+        }
+        .max-w-4xl.mx-auto.mb-4 > a:hover {
+            background-color: #666;
+        }
+        
+        /* --- 覆蓋結束 --- */
+        /* 主螢幕的所有樣式都恢復成原本的樣子，不再覆蓋 */
+
+
+        /* --- 以下為頁面原有樣式 --- */
         .control-btn {
             transition: all 0.2s ease;
         }
@@ -332,7 +353,7 @@
         try {
             // 1. Fetch data from the external JSON file
             // ** IMPORTANT: Make sure this JSON file exists in the same directory **
-            const response = await fetch('high_freq4-data.json');
+            const response = await fetch('high_freq-data.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -374,7 +395,7 @@
 
         } catch (error) {
             console.error("Initialization failed:", error);
-            dom.loadingIndicator.textContent = '資料載入失敗，請確認 high_freq4-data.json 檔案是否在同一路徑，或重新整理頁面。';
+            dom.loadingIndicator.textContent = '資料載入失敗，請確認 high_freq-data.json 檔案是否在同一路徑，或重新整理頁面。';
         }
     }
 
@@ -424,7 +445,7 @@
             optgroup.label = groupName;
             unitDisplayGroups[groupName].forEach(unitKey => {
                 // The 'if (vocabulary[unitKey])' check ensures that only units with
-                // corresponding data in your 'high_freq-data4.json' file will appear.
+                // corresponding data in your 'high_freq-data.json' file will appear.
                 // This prevents errors if you define a unit here but haven't added its data yet.
                 if (vocabulary[unitKey]) { 
                     const option = document.createElement('option');
@@ -1356,6 +1377,3 @@
 </footer>
 </body>
 </html>
-
-
-
