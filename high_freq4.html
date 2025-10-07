@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -27,6 +27,25 @@
         }
         .max-w-4xl.mx-auto.mb-4 > a:hover {
             background-color: #666;
+        }
+
+        /* 3. (新增) 調整頁尾兩個按鈕，賦予懷舊電玩 A/B 鈕的配色 */
+        #records-details > summary {
+            background-color: #4f46e5; /* 類似 A 鈕的深紫色 (原 indigo-600) */
+            color: #fff;
+            border: none; /* 移除邊框以符合新風格 */
+        }
+        #records-details > summary:hover {
+             background-color: #4338ca; /* 紫色加深 */
+        }
+
+        #share-achievements-btn {
+            background-color: #be185d; /* 類似 B 鈕的桃紅色 (pink-700) */
+            color: #fff;
+            border: none; /* 移除邊框以符合新風格 */
+        }
+        #share-achievements-btn:hover:not(:disabled) {
+            background-color: #9d174d; /* 桃紅色加深 */
         }
         
         /* --- 覆蓋結束 --- */
@@ -1377,3 +1396,4 @@
 </footer>
 </body>
 </html>
+
