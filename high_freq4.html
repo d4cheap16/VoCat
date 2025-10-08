@@ -11,15 +11,12 @@
     <style>
         /* --- Gameboy 風格色彩覆蓋 (精簡版) --- */
         /* 說明：我們只修改最外層的背景，讓主畫面維持白底黑字，以求最佳閱讀舒適度。 */
-
         /* 1. 更改 Body 背景為 Gameboy 機身灰色，並保留原有字體 */
         body {
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
             background-color: #d3d3d3; /* Gameboy Grey */
         }
-
         /* 2. 將外部的「回家」按鈕稍微調整以搭配灰色背景 */
-        /* 這個按鈕在白色區塊之外，所以我們稍微調整它 */
         .max-w-4xl.mx-auto.mb-4 > a {
              background-color: #777; /* 按鈕使用中性灰色 */
              color: #fff;
@@ -28,31 +25,30 @@
         .max-w-4xl.mx-auto.mb-4 > a:hover {
             background-color: #666;
         }
-
-        /* 3. (新增) 調整頁尾兩個按鈕，賦予懷舊電玩 A/B 鈕的配色 */
+        /* 3. (更新) 調整頁尾兩個按鈕，賦予超任手把 Y/X 鈕的配色 */
         #records-details > summary {
-            background-color: #4f46e5; /* 類似 A 鈕的深紫色 (原 indigo-600) */
+            background-color: #0077c2; /* 懷舊藍色 (Y button) */
             color: #fff;
-            border: none; /* 移除邊框以符合新風格 */
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 增加立體感 */
         }
         #records-details > summary:hover {
-             background-color: #4338ca; /* 紫色加深 */
+             background-color: #005a9e; /* 藍色加深 */
         }
 
         #share-achievements-btn {
-            background-color: #be185d; /* 類似 B 鈕的桃紅色 (pink-700) */
+            background-color: #50a14f; /* 懷舊綠色 (X button) */
             color: #fff;
-            border: none; /* 移除邊框以符合新風格 */
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 增加立體感 */
         }
         #share-achievements-btn:hover:not(:disabled) {
-            background-color: #9d174d; /* 桃紅色加深 */
+            background-color: #3c7f3c; /* 綠色加深 */
         }
-        
         /* --- 覆蓋結束 --- */
         /* 主螢幕的所有樣式都恢復成原本的樣子，不再覆蓋 */
-
-
         /* --- 以下為頁面原有樣式 --- */
+        
         .control-btn {
             transition: all 0.2s ease;
         }
@@ -1396,4 +1392,5 @@
 </footer>
 </body>
 </html>
+
 
