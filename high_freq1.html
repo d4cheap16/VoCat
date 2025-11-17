@@ -115,6 +115,49 @@
         details > summary { list-style: none; cursor: pointer; }
         details > summary::-webkit-details-marker { display: none; }
         #story-passage { white-space: pre-line;}
+        /* ========================================== */
+        /* [MODULAR] REVIEW ALL BUTTON STYLE START    */
+        /* 位置：請貼在 CSS <style> 區塊的任意位置      */
+        /* ========================================== */
+
+        .retro-review-btn {
+        display: block;           /* 讓按鈕獨佔一行 */
+        width: 80%;               /* 寬度設定，可依喜好調整 */
+        max-width: 200px;
+        margin: 15px auto 5px;    /* 上下留白，置中 */
+        padding: 10px 0;
+    
+        /* SNES 風格配色：深紫色 */
+        background-color: #5e35b1; 
+        color: #ffffff;
+    
+        font-family: 'Press Start 2P', cursive, monospace; /* 保持像素字體 */
+        font-size: 14px;
+        border: none;
+        border-radius: 20px;       /* 膠囊形狀 */
+    
+        /* 3D 按壓陰影效果 */
+        box-shadow: 0 4px 0 #311b92; 
+        cursor: pointer;
+        transition: transform 0.1s, box-shadow 0.1s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        }
+
+        .retro-review-btn:hover {
+        background-color: #7e57c2; /* 滑鼠懸停變亮 */
+        }
+
+        .retro-review-btn:active {
+        transform: translateY(4px); /* 按下時下沉 */
+        box-shadow: 0 0 0 #311b92;  /* 陰影消失 */
+        }
+
+        /* 隱藏測驗按鈕的輔助類別 (Review模式用) */
+        .hidden-in-review {
+        display: none !important;
+        }
+
     </style>
 </head>
 <body class="p-4 sm:p-8">
@@ -203,6 +246,7 @@
                                 <button data-level="B1" class="control-btn difficulty-btn-wrapper disabled" title="B1 - 中級 (兩顆星)"><span class="difficulty-btn">★ ★</span></button>
                                 <button data-level="B2" class="control-btn difficulty-btn-wrapper disabled" title="B2 - 中高級 (三顆星)"><span class="difficulty-btn">★ ★ ★</span></button>
                                 <button data-level="C1" class="control-btn difficulty-btn-wrapper disabled text-4xl" title="C1 - 高級 (四顆星)"><span class="difficulty-btn">★ ★ ★ ★</span></button>
+                                <button id="review-all-btn" class="retro-review-btn" onclick="startReviewMode()">REVIEW ALL</button>
                             </div>
                         </div>
                     </div>
@@ -534,6 +578,18 @@
         dom.difficultySelector.addEventListener('click', (e) => {
             const button = e.target.closest('.difficulty-btn-wrapper');
             if (button && !button.classList.contains('disabled')) {
+                // ==========================================
+        // [MODULAR] REVIEW MODE RESET
+        // 還原介面：顯示文章區塊與測驗按鈕
+        // ==========================================
+        const storyPassage = document.getElementById('story-passage');
+        if (storyPassage) storyPassage.style.display = 'block'; // 修正ID: story-passage
+
+        const checkBtn = document.getElementById('submitBtn'); // 修正ID: submitBtn
+        const clearBtn = document.getElementById('clearBtn'); // 修正ID: clearBtn
+        if (checkBtn) checkBtn.classList.remove('hidden-in-review');
+        if (clearBtn) clearBtn.classList.remove('hidden-in-review');
+        // ==========================================
                 const level = button.dataset.level;
                 state.currentDifficulty = level;
                 dom.difficultySelector.querySelectorAll('.difficulty-btn-wrapper').forEach(btn => btn.classList.toggle('active', btn.dataset.level === level));
@@ -1381,7 +1437,69 @@
     // START THE APP
     // =================================================================
     initializeAppWrapper();
+// ==========================================
+// [MODULAR] REVIEW ALL FUNCTION LOGIC START
+// 位置：請貼在 JS 區域的最下方，作為獨立功能
+// ==========================================
 
+function startReviewMode() {
+    if (!currentUnit) {
+        alert("請先選擇 Unit！");
+        return;
+    }
+
+    console.log("進入 Review All 模式...");
+
+    // 1. 抓取該 Unit 下所有 Group 的單字
+    let allWords = [];
+    // 假設您的資料結構是 vocabData[unit]['Group A']...
+    // 這裡會遍歷該 Unit 下所有的 Group (A, B, C...)
+    Object.keys(vocabData[currentUnit]).forEach(groupKey => {
+        if (Array.isArray(vocabData[currentUnit][groupKey])) {
+            allWords = allWords.concat(vocabData[currentUnit][groupKey]);
+        }
+    });
+
+    // 2. 依字母順序排序 (A-Z)
+    allWords.sort((a, b) => a.word.localeCompare(b.word));
+
+    // 3. 介面切換：隱藏故事區與測驗按鈕
+    const storyContainer = document.getElementById('story-container');
+    const checkBtn = document.getElementById('check-answer-btn');
+    const clearBtn = document.getElementById('clear-answer-btn');
+    const wordBank = document.getElementById('word-bank');
+
+    if(storyContainer) storyContainer.style.display = 'none';
+    if(checkBtn) checkBtn.classList.add('hidden-in-review');
+    if(clearBtn) clearBtn.classList.add('hidden-in-review');
+
+    // 4. 清空並重新渲染單字庫 (使用大網格)
+    wordBank.innerHTML = '';
+    
+    // 播放音效 (如果有定義)
+    if (typeof playSound === 'function') playSound('select'); 
+
+    // 產生單字卡
+    allWords.forEach(wordObj => {
+        // 這裡重複使用您現有的 createWordCard 邏輯，或是簡易版
+        const div = document.createElement('div');
+        div.className = 'word-card'; // 使用現有樣式
+        div.textContent = wordObj.word;
+        
+        // 點擊事件：顯示詳細資訊 (Modal)
+        div.onclick = () => {
+            // 呼叫您現有的顯示 Modal 函式
+            showWordModal(wordObj); 
+            if (typeof playSound === 'function') playSound('correct');
+        };
+        
+        wordBank.appendChild(div);
+    });
+}
+
+// ==========================================
+// [MODULAR] REVIEW ALL FUNCTION LOGIC END
+// ==========================================
 </script>
 <footer class="text-center py-4">
     <p class="text-sm text-gray-500">
@@ -1390,5 +1508,6 @@
 </footer>
 </body>
 </html>
+
 
 
