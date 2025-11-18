@@ -14,7 +14,41 @@
         "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
     },
     "vocabulary": {
-        "test9": {},
+        "test9": {
+            "groupA": {
+                "words": ["campaign", "democracy", "chaotic", "appointed", "confine"],
+                "stories": [
+                    {"level": "A2", "text": "Our class is having an election for class president. This is an example of **democracy**, where we all get to vote. We are starting a **campaign** to tell everyone our ideas. Before the election, our teacher **appointed** Mia as the temporary leader. It's a big job. She has to help when things get **chaotic**, like when everyone is talking at once. Her main rule is to **confine** all running and shouting to the playground, not the classroom."},
+                    {"level": "B1", "text": "Hi Team,\n\nI know this first week at the new office was incredibly **chaotic**! Papers were everywhere, and the phones never stopped ringing. The company is in the middle of a huge new advertising **campaign**, so everyone is busy.\n\nI was **appointed** as the junior coordinator, which means I help organize you all. For now, please try to **confine** your questions to email so I can keep track. I promise this company is a great place to work; it has a strong feeling of **democracy**, and the boss actually listens to everyone's opinion.\n\nBest,\nAlex"},
+                    {"level": "B2", "text": "The transition from a monarchy to a full **democracy** was not a smooth process for the nation. After the revolution, the new government **appointed** a special committee to write a constitution. However, their first goal was to **confine** the powers of the new leader, to ensure no single person could become a tyrant. The situation in the capital remained **chaotic** for months, with different groups fighting for control. To win public support, the interim leaders launched a massive information **campaign** to explain the benefits of the new system."},
+                    {"level": "C1", "text": "The mayor's latest urban renewal project has been criticized as being more of a publicity **campaign** than a genuine effort to help citizens. Critics argue that the project seems designed to **confine** the city's poorest residents to specific zones, rather than integrating them. The problems worsened when the mayor **appointed** a personal friend, who lacks experience, to oversee the budget. This has led to a **chaotic** allocation of resources, and the entire action fundamentally undermines the principles of social **democracy** that he claims to support."}
+                ]
+            },
+            "groupB": {
+                "words": ["combination", "conception", "alienated", "combative", "demanded"],
+                "stories": [
+                    {"level": "A2", "text": "Hey, are you okay? You seem **alienated** from everyone at lunch. You sat all alone. I have a strange **conception** of what might be wrong—did you have a fight with Sam? I know he can be **combative** and likes to argue. He **demanded** that I choose a side, which isn't fair. How about we get a **combination** of snacks after school and talk?"},
+                    {"level": "B1", "text": "My original **conception** of this recipe was that it would be very simple. I was wrong! This dish **demanded** much more attention than I expected. The flavor is a perfect **combination** of sweet and spicy. Be careful with the ginger, though. If you add too much, the taste becomes very strong and **combative**, almost fighting with the other spices. I don't want you to feel **alienated** from cooking, so I promise my next recipe will be much easier!"},
+                    {"level": "B2", "text": "Our initial **conception** of the project was too ambitious. The client **demanded** a final product by next week, which was unrealistic. This impossible deadline created a tense, **combative** atmosphere in the office, with teams blaming each other. As a result, the design team felt completely **alienated** from the process and stopped sharing their ideas. The only path forward is a **combination** of a new timeline and better communication."},
+                    {"level": "C1", "text": "The protagonist's deeply **alienated** state is the engine of the novel. His entire **conception** of the world is shaped by his isolation. This alienation isn't passive; it's a **combative** stance against a society he feels has rejected him. The author skillfully **demanded** that the reader sit with this discomfort, offering no easy answers. The character is a complex **combination** of vulnerability and aggression, making him one of the most compelling figures in modern fiction."}
+                ]
+            },
+            "groupC": {
+                "words": ["association", "committee", "chaos", "controversial", "assure"],
+                "stories": [
+                    {"level": "A2", "text": "Welcome to the School Pet Club! This is a friendly **association** for all animal lovers. We have a student **committee** that plans fun events. I want to **assure** you that all our pets are friendly. Sometimes our meetings get a little loud, but it's never total **chaos**. Our only rule is that we do not discuss **controversial** topics, like which pet is \"better.\" We are all friends here."},
+                    {"level": "B1", "text": "The city is in complete **chaos** following the mayor's speech. The new policy is extremely **controversial**, and many people are angry. The mayor formed a special **committee** to review the policy, but citizens are not satisfied. A spokesperson tried to **assure** the public that their voices were being heard. However, the local citizens' **association** has already planned a large protest for this weekend."},
+                    {"level": "B2", "text": "To: All Staff\nRe: New Partnership\n\nI want to **assure** everyone that the new partnership with TechCorp will be good for us. I know the decision was **controversial**, but the executive **committee** voted unanimously in favor. This **association** will open up new markets for us. I understand there is some fear about job changes, which can create a feeling of **chaos**, but we have a clear plan for a smooth transition."},
+                    {"level": "C1", "text": "The historical **committee** reviewing the artifacts made a highly **controversial** decision to re-date the items. This decision has thrown the entire timeline of the period into **chaos**, effectively rewriting history. The evidence relies on a tenuous **association** between two previously unconnected sites. While the authors **assure** their readers that their methodology is sound, the academic community remains deeply divided over these radical claims."}
+                ]
+            },
+            "groupBonus": {
+                "words": ["association", "assure", "appointed", "campaign", "chaos", "chaotic", "committee", "combination", "combative", "conception", "confine", "controversial", "demanded", "democracy", "alienated"],
+                "stories": [
+                    {"level": "C2", "text": "When Dr. Elias Vance was **appointed** to the governing board of the Historical Integrity **Association**, he believed it to be the pinnacle of his career. This esteemed **committee**, a self-proclaimed bastion of academic **democracy**, was tasked with preserving the nation’s founding narratives.\n\nHowever, Vance’s initial **conception** of the group as a body of objective scholars quickly dissolved. He found their work to be a strange **combination** of rigorous research and willful blindness to inconvenient truths. His attempts to introduce new, albeit **controversial**, evidence were met with a frosty, unwelcoming silence.\n\nHis nature was not passive; it was intellectually **combative**. He couldn't just sit by. He openly **demanded** a review of the society’s most cherished publications, labeling them as flawed. This, of course, did not endear him to the old guard. He soon found himself completely **alienated** from the inner circle, his memos unanswered.\n\nIn response, Vance initiated what could only be described as an internal **campaign** for reform. He bypassed the leadership and presented his findings directly to the junior members. The result was predictable: utter **chaos**. The organization, once a place of quiet consensus, became a battlefield of academic warfare.\n\nThe established members tried to **confine** the damage, limiting his access to archives and restricting his speaking time at symposia. The situation became so **chaotic** that the chairwoman had to intervene. She tried to **assure** the members that proper procedure would be followed, but the trust within the institution was already broken."}
+                ]
+            }
+        },
         "test10": {},
         "test11": {},
         "test12": {},
@@ -26,7 +60,23 @@
         "test18": {}
     },
     "wordDetails": {
-        "test9": {},
+        "test9": {
+            "association": {"pos": "n.","translation": "交往；聯繫","definition": "Being together or connected with another person as a friend or partner.","example": "Cathy feels greatly depressed because her parents are opposed to her association with the boy she loves.","example_tw": "凱西感到非常沮沮喪，因為她的父母反對她與她所愛的男孩交往。"},
+            "alienated": {"pos": "adj.","translation": "感到疏離的","definition": "Feeling like you are not part of a group or family; feeling alone.","example": "Parents often feel alienated from their children. There is often a generation gap between parents and children.","example_tw": "父母時常感覺與孩子疏離。父母和子女之間時常有代溝。"},
+            "appointed": {"pos": "v.","translation": "任命；指派","definition": "To choose someone for a job or an important position.","example": "Several years later, she was appointed sales manager.","example_tw": "幾年後，她被任命為銷售經理。"},
+            "campaign": {"pos": "n.","translation": "（政治、商業）運動","definition": "A plan with many steps to help someone win an election or sell a product.","example": "Florida was a key state in his campaign for re-election.","example_tw": "佛羅里達州是他競選連任的關鍵州。"},
+            "chaotic": {"pos": "adj.","translation": "混亂的","definition": "Very messy and not in order; full of confusion.","example": "The traffic in Taipei was really chaotic before the completion of the MRT.","example_tw": "在捷運完成前，台北的交通真的非常混亂。"},
+            "committee": {"pos": "n.","translation": "委員會","definition": "A group of people from a bigger group who meet to make decisions.","example": "The committee consists of twelve members.","example_tw": "這個委員會由十二名成員組成。"},
+            "combination": {"pos": "n.","translation": "結合；混合","definition": "Two or more different things that are put or mixed together.","example": "It's hard to describe such a feeling. Maybe we can say that it's a combination of love and hatred.","example_tw": "這種感覺很難形容。也許我們可以說這是一種愛恨交織的結合。"},
+            "controversial": {"pos": "adj.","translation": "有爭議的","definition": "Causing many people to have strong arguments or disagreements.","example": "Abortion is a highly controversial matter. Many people have strong feelings about it.","example_tw": "墮胎是一個極具爭議性的問題。許多人對此有強烈的情感。"},
+            "demanded": {"pos": "v.","translation": "要求","definition": "To ask for something in a strong way because you think you must have it.","example": "The opposition parties have demanded that all the facts be made public.","example_tw": "反對黨要求將所有事實公諸於眾。"},
+            "democracy": {"pos": "n.","translation": "民主","definition": "A way to run a country where the people choose their leaders by voting.","example": "There is a need for more democracy in that country. The citizens still don't have enough rights.","example_tw": "那個國家需要更多的民主。公民仍然沒有足夠的權利。"},
+            "assure": {"pos": "v.","translation": "向...保證","definition": "To tell someone that something is true so they do not worry.","example": "I assure you that you'll be able to make progress as long as you make an effort.","example_tw": "我向你保證，只要你努力，你就能取得進步。"},
+            "chaos": {"pos": "n.","translation": "混亂","definition": "A state of being very messy and having no order or control.","example": "The failure of the electricity supplies created complete chaos in the city. Traffic was a mess.","example_tw": "電力供應中斷在城市造成了徹底的混亂。交通一團糟。"},
+            "confine": {"pos": "v.","translation": "限制；侷限","definition": "To keep something inside a certain area or on a certain topic.","example": "Please confine your remarks to the subject under discussion. Don't talk about other things.","example_tw": "請將您的發言限制在正在討論的主題上。不要談論其他事情。"},
+            "conception": {"pos": "n.","translation": "觀念；看法","definition": "An idea or an understanding of what something is like.","example": "He's got a pretty strange conception of friendship. He treats his friends in a cold way.","example_tw": "他對友誼的觀念很奇怪。他對待朋友很冷淡。"},
+            "combative": {"pos": "adj.","translation": "好鬥的","definition": "Ready and wanting to fight or argue with people.","example": "He is famous as a(n) combative spokesman for human rights. He's ready and willing to fight.","example_tw": "他是一位著名的人權鬥士（好鬥的發言人）。他隨時準備好為人權奮鬥。"}
+        },
         "test10": {},
         "test11": {},
         "test12": {},
@@ -38,5 +88,3 @@
         "test18": {}
     }
 }
-
-
