@@ -7,16 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- [MODULAR] Added Press Start 2P for retro style -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         /* --- Gameboy 風格色彩覆蓋 (精簡版) --- */
-        /* 說明：我們只修改最外層的背景，讓主畫面維持白底黑字，以求最佳閱讀舒適度。 */
-        /* 1. 更改 Body 背景為 Gameboy 機身灰色，並保留原有字體 */
         body {
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
             background-color: #d3d3d3; /* Gameboy Grey */
         }
-        /* 2. 將外部的「回家」按鈕稍微調整以搭配灰色背景 */
         .max-w-4xl.mx-auto.mb-4 > a {
              background-color: #777; /* 按鈕使用中性灰色 */
              color: #fff;
@@ -25,7 +23,6 @@
         .max-w-4xl.mx-auto.mb-4 > a:hover {
             background-color: #666;
         }
-        /* 3. (更新) 調整頁尾兩個按鈕，賦予超任手把 Y/X 鈕的配色 */
         #records-details > summary {
             background-color: #0077c2; /* 懷舊藍色 (Y button) */
             color: #fff;
@@ -46,7 +43,37 @@
             background-color: #3c7f3c; /* 綠色加深 */
         }
         /* --- 覆蓋結束 --- */
-        /* 主螢幕的所有樣式都恢復成原本的樣子，不再覆蓋 */
+        
+        /* --- [MODULAR] REVIEW ALL BUTTON STYLE START --- */
+        /* 復古紫色按鈕樣式 (SNES Start/Select 風格) */
+        .retro-review-btn {
+            background-color: #6200EA; /* 深紫色 */
+            color: #ffffff;
+            border: none;
+            /* 讓它看起來像膠囊狀的按鈕，稍微小一點以適配 Group 列 */
+            border-radius: 9999px; 
+            font-weight: 700;
+            box-shadow: 0 3px 0 #311b92; /* 深色陰影營造立體感 */
+            transition: all 0.1s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Inter', sans-serif; /* 保持與其他按鈕一致 */
+            cursor: pointer;
+        }
+        .retro-review-btn:hover {
+            background-color: #7c4dff;
+            transform: translateY(-1px);
+        }
+        .retro-review-btn:active {
+            transform: translateY(3px);
+            box-shadow: none;
+        }
+        /* 在 Review 模式下隱藏元素的輔助類別 */
+        .hidden-in-review {
+            display: none !important;
+        }
+        /* --- [MODULAR] REVIEW ALL BUTTON STYLE END --- */
+
         /* --- 以下為頁面原有樣式 --- */
          .control-btn {
             transition: all 0.2s ease;
@@ -77,7 +104,7 @@
         .difficulty-btn-wrapper:not(.disabled) {
             cursor: pointer;
         }
-        .difficulty-btn-wrapper:not(.disabled):hover .difficulty-btn {
+        .difficulty-btn-wrapper:not(:disabled):hover .difficulty-btn {
             color: #fde047; /* yellow-300 */
             transform: scale(1.1);
         }
@@ -114,7 +141,7 @@
         .close-btn:hover, .close-btn:focus { color: black; text-decoration: none; cursor: pointer; }
         details > summary { list-style: none; cursor: pointer; }
         details > summary::-webkit-details-marker { display: none; }
-	#story-passage { white-space: pre-line; }
+		#story-passage { white-space: pre-line; }
     </style>
 </head>
 <body class="p-4 sm:p-8">
@@ -187,6 +214,13 @@
                                 <button data-group="groupA" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group A</button>
                                 <button data-group="groupB" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group B</button>
                                 <button data-group="groupC" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group C</button>
+                                
+                                <!-- [MODULAR] REVIEW ALL BUTTON HTML START -->
+                                <button id="review-all-btn" class="retro-review-btn px-4 sm:px-5 py-2 text-sm sm:text-base">
+                                    REVIEW ALL
+                                </button>
+                                <!-- [MODULAR] REVIEW ALL BUTTON HTML END -->
+                                
                                 <button data-group="groupBonus" id="bonus-group-btn" class="hidden control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-yellow-500 bg-gray-800 rounded-md" title="傳說級挑戰">❓</button>
                             </div>
                         </div>
@@ -289,7 +323,7 @@
     let wordDetails = {};
 
     // --- Firebase and App Config ---
-    const pageIdentifier = 'book2'; // Changed from 'book5'
+    const pageIdentifier = 'book2'; // [MODULAR] Corrected from 'book5'
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
     
     const firebaseConfig = {
@@ -342,6 +376,8 @@
         adminTools: document.getElementById('admin-tools'),
         adminFillBtn: document.getElementById('adminFillBtn'),
         devToolsPanel: document.getElementById('dev-tools-panel'),
+        // [MODULAR] Review Btn Element
+        reviewAllBtn: document.getElementById('review-all-btn'),
     };
 
     // --- State Management ---
@@ -361,7 +397,7 @@
     async function initializeAppWrapper() { // Renamed to avoid conflict with imported initializeApp
         try {
             // 1. Fetch data from the external JSON file
-            const response = await fetch('book2-data.json'); // Changed from 'book5-data.json'
+            const response = await fetch('book2-data.json'); // [MODULAR] Corrected from 'book5-data.json'
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -426,6 +462,7 @@
     function populateUnitSelector() {
         const unitSelect = dom.unitSelect;
         unitSelect.innerHTML = '<option value="" selected disabled>--請選擇單元--</option>';
+        // [MODULAR] Corrected Unit list for Book 2
         const unitDisplayNames = {
             'L01': '1: The Heart of a Champion',
             'L02': '2: My Mouth is in Airplane Mode',
@@ -441,10 +478,13 @@
         const allUnitKeys = Object.keys(unitDisplayNames);
 
         allUnitKeys.forEach(unitKey => {
-            const option = document.createElement('option');
-            option.value = unitKey;
-            option.textContent = unitDisplayNames[unitKey] || unitKey;
-            unitSelect.appendChild(option);
+            // [MODULAR] Check if data exists before adding the option
+            if (vocabulary[unitKey]) {
+                const option = document.createElement('option');
+                option.value = unitKey;
+                option.textContent = unitDisplayNames[unitKey] || unitKey;
+                unitSelect.appendChild(option);
+            }
         });
     }
 
@@ -482,12 +522,26 @@
 
         dom.groupSelector.addEventListener('click', (e) => {
             const button = e.target.closest('button');
+
+            // [MODULAR] 如果點到 Review 按鈕，不要執行下方的 group 邏輯
+            if (button && button.id === 'review-all-btn') return;
+
             if (button && state.currentUnit) {
                 const group = button.dataset.group;
                 state.currentGroup = group;
                 
                 dom.groupSelector.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn.dataset.group === group));
                 
+                // ==========================================
+                // [MODULAR] REVIEW MODE RESET
+                // 當切換組別時，確保畫面回復到測驗準備狀態
+                // ==========================================
+                if(dom.storyPassage) dom.storyPassage.style.display = 'block';
+                if(dom.submitBtn) dom.submitBtn.classList.remove('hidden-in-review');
+                if(dom.clearBtn) dom.clearBtn.classList.remove('hidden-in-review');
+                if(dom.welcomeMessage) dom.welcomeMessage.classList.remove('hidden');
+                // ==========================================
+
                 if (group === 'groupBonus') {
                     state.currentDifficulty = 'C2';
                     dom.difficultySelector.querySelectorAll('.difficulty-btn-wrapper').forEach(btn => {
@@ -509,6 +563,16 @@
         dom.difficultySelector.addEventListener('click', (e) => {
             const button = e.target.closest('.difficulty-btn-wrapper');
             if (button && !button.classList.contains('disabled')) {
+
+                // ==========================================
+                // [MODULAR] REVIEW MODE RESET
+                // 點擊星星時，確保還原文章顯示與按鈕
+                // ==========================================
+                if(dom.storyPassage) dom.storyPassage.style.display = 'block';
+                if(dom.submitBtn) dom.submitBtn.classList.remove('hidden-in-review');
+                if(dom.clearBtn) dom.clearBtn.classList.remove('hidden-in-review');
+                // ==========================================
+
                 const level = button.dataset.level;
                 state.currentDifficulty = level;
                 dom.difficultySelector.querySelectorAll('.difficulty-btn-wrapper').forEach(btn => btn.classList.toggle('active', btn.dataset.level === level));
@@ -516,6 +580,11 @@
             }
         });
         
+        // [MODULAR] Review All Button Listener
+        if(dom.reviewAllBtn) {
+            dom.reviewAllBtn.addEventListener('click', startReviewMode);
+        }
+
         dom.seatNumberInput.addEventListener('input', (e) => {
             try {
                 if (btoa(e.target.value) === ADMIN_PASS_B64) {
@@ -645,6 +714,70 @@
     };
     
     // =================================================================
+    // [MODULAR] REVIEW ALL LOGIC
+    // =================================================================
+    function startReviewMode() {
+        if (!state.currentUnit) {
+            alert("請先選擇單元！");
+            return;
+        }
+
+        console.log("進入 Review All 模式...");
+
+        // 1. 抓取該 Unit 下所有 Group 的單字
+        let allWords = [];
+        // 您的資料結構是 vocabulary[state.currentUnit]['groupA']...
+        Object.keys(vocabulary[state.currentUnit]).forEach(groupKey => {
+            if (vocabulary[state.currentUnit][groupKey].words) {
+                 allWords = allWords.concat(vocabulary[state.currentUnit][groupKey].words);
+            }
+        });
+
+        // 2. 依字母順序排序
+        allWords.sort((a, b) => a.localeCompare(b));
+        allWords = [...new Set(allWords)]; // 去除重複
+
+        // 3. 介面切換：顯示測驗區，但隱藏文章與按鈕
+        const quizArea = dom.quizArea;
+        const storyPassage = dom.storyPassage;
+        const checkBtn = dom.submitBtn;
+        const clearBtn = dom.clearBtn;
+        const wordBank = dom.wordOptions;
+        
+        // 取消所有 Group 與難度的選取狀態
+        dom.groupSelector.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+        dom.difficultySelector.querySelectorAll('.difficulty-btn-wrapper').forEach(btn => btn.classList.remove('active', 'disabled'));
+
+        if(quizArea) quizArea.classList.remove('hidden');
+        if(storyPassage) storyPassage.style.display = 'none'; // 隱藏文章
+        if(checkBtn) checkBtn.classList.add('hidden-in-review'); // 隱藏按鈕
+        if(clearBtn) clearBtn.classList.add('hidden-in-review'); // 隱藏按鈕
+        
+        // 隱藏歡迎訊息與 construction 訊息
+        dom.welcomeMessage.classList.add('hidden');
+        dom.constructionMessage.classList.add('hidden');
+        dom.analysisContainer.style.display = 'none'; // 隱藏檢討區
+        dom.resultsDiv.innerHTML = ''; // 清空結果
+
+        // 4. 清空並重新渲染單字庫
+        wordBank.innerHTML = '';
+        
+        // 產生單字卡
+        allWords.forEach(word => {
+            const btn = document.createElement('button');
+            btn.className = 'word-pronounceable'; // 使用您現有的樣式
+            btn.textContent = word;
+            
+            // 點擊事件：使用您現有的 showHint
+            btn.onclick = () => {
+                showHint(word); 
+            };
+            
+            wordBank.appendChild(btn);
+        });
+    }
+
+    // =================================================================
     // QUIZ LOGIC
     // =================================================================
     const loadQuiz = () => {
@@ -666,7 +799,33 @@
         dom.shareBtn.classList.add('hidden');
         dom.submitBtn.disabled = true;
 
-        const selectedStory = isBonus ? unitData.story : unitData.stories.find(s => s.level === state.currentDifficulty);
+        // [MODULAR] 確保離開 Review 模式時按鈕有顯示
+        dom.submitBtn.classList.remove('hidden-in-review');
+        dom.clearBtn.classList.remove('hidden-in-review');
+
+        // Check for story data
+        const storyData = isBonus ? unitData.story : unitData.stories;
+        if (!storyData) {
+            console.error(`Story data is missing for Unit: ${state.currentUnit}, Group: ${state.currentGroup}`);
+            dom.constructionMessage.classList.remove('hidden');
+            dom.quizArea.classList.add('hidden');
+            dom.welcomeMessage.classList.add('hidden');
+            return;
+        }
+
+        const selectedStory = isBonus
+            ? unitData.story
+            : unitData.stories.find(s => s.level === state.currentDifficulty);
+
+        // Check if selectedStory was found
+        if (!selectedStory) {
+            console.error(`Could not find a story for level: ${state.currentDifficulty}`);
+            dom.constructionMessage.classList.remove('hidden');
+            dom.quizArea.classList.add('hidden');
+            dom.welcomeMessage.classList.add('hidden');
+            return;
+        }
+
         state.currentWords = unitData.words.slice().sort((a, b) => a.localeCompare(b));
 
         let selectCounter = 0;
@@ -1014,6 +1173,7 @@
             const groups = Object.keys(vocabulary[state.currentUnit]).filter(g => g !== 'groupBonus');
             
             groups.forEach(g => {
+                // Check if stories exists for this group
                 if (vocabulary[state.currentUnit][g].stories) {
                     vocabulary[state.currentUnit][g].stories.forEach(story => {
                         allTests.push(`${g}-${story.level}`);
@@ -1026,7 +1186,7 @@
                 return allScoresForUnit.some(s => s.group === group && s.level === level && s.score === 100);
             });
 
-            if (passedAll100) {
+            if (passedAll100 && allTests.length > 0) { // Ensure there were tests to pass
                 addBadge('legend');
                 updateBonusButtonVisibility();
             }
@@ -1346,7 +1506,3 @@
 </footer>
 </body>
 </html>
-
-
-
-
