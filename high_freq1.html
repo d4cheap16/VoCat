@@ -7,46 +7,69 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         /* --- Gameboy 風格色彩覆蓋 (精簡版) --- */
-        /* 說明：我們只修改最外層的背景，讓主畫面維持白底黑字，以求最佳閱讀舒適度。 */
-        /* 1. 更改 Body 背景為 Gameboy 機身灰色，並保留原有字體 */
         body {
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
             background-color: #d3d3d3; /* Gameboy Grey */
         }
-        /* 2. 將外部的「回家」按鈕稍微調整以搭配灰色背景 */
         .max-w-4xl.mx-auto.mb-4 > a {
-             background-color: #777; /* 按鈕使用中性灰色 */
+             background-color: #777;
              color: #fff;
              border: 1px solid #555;
         }
         .max-w-4xl.mx-auto.mb-4 > a:hover {
             background-color: #666;
         }
-        /* 3. (更新) 調整頁尾兩個按鈕，賦予超任手把 Y/X 鈕的配色 */
         #records-details > summary {
-            background-color: #0077c2; /* 懷舊藍色 (Y button) */
+            background-color: #0077c2; /* Y button */
             color: #fff;
             border: none;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 增加立體感 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         #records-details > summary:hover {
-             background-color: #005a9e; /* 藍色加深 */
+             background-color: #005a9e;
         }
-
         #share-achievements-btn {
-            background-color: #50a14f; /* 懷舊綠色 (X button) */
+            background-color: #50a14f; /* X button */
             color: #fff;
             border: none;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 增加立體感 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         #share-achievements-btn:hover:not(:disabled) {
-            background-color: #3c7f3c; /* 綠色加深 */
+            background-color: #3c7f3c;
         }
-        /* --- 覆蓋結束 --- */
-        /* 主螢幕的所有樣式都恢復成原本的樣子，不再覆蓋 */
+        
+        /* --- [MODULAR] REVIEW ALL BUTTON STYLE START --- */
+        /* 復古紫色按鈕樣式 (SNES Start/Select 風格) */
+        .retro-review-btn {
+            background-color: #6200EA; /* 深紫色 */
+            color: #ffffff;
+            border: none;
+            /* 讓它看起來像膠囊狀的按鈕，稍微小一點以適配 Group 列 */
+            border-radius: 9999px; 
+            font-weight: 700;
+            box-shadow: 0 3px 0 #311b92; /* 深色陰影營造立體感 */
+            transition: all 0.1s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Inter', sans-serif; /* 保持與其他按鈕一致，或改用像素字體 */
+        }
+        .retro-review-btn:hover {
+            background-color: #7c4dff;
+            transform: translateY(-1px);
+        }
+        .retro-review-btn:active {
+            transform: translateY(3px);
+            box-shadow: none;
+        }
+        /* 在 Review 模式下隱藏元素的輔助類別 */
+        .hidden-in-review {
+            display: none !important;
+        }
+        /* --- [MODULAR] REVIEW ALL BUTTON STYLE END --- */
+
         /* --- 以下為頁面原有樣式 --- */
          .control-btn {
             transition: all 0.2s ease;
@@ -136,13 +159,11 @@
             <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">高頻率單字UNIT01-04</h1>
             
             <div class="space-y-4 border-b border-gray-200 pb-6">
-                <!-- User Info -->
                 <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-4 text-gray-700">
                     <div class="flex flex-col items-center text-center sm:flex-row sm:space-x-2">
                         <label for="unit-select" class="font-medium mb-1 sm:mb-0">單元:</label>
                         <select id="unit-select" class="rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-64 sm:w-auto">
-                            <!-- Options will be loaded dynamically -->
-                        </select>
+                            </select>
                     </div>
                     <div class="flex flex-col items-center text-center sm:flex-row sm:space-x-2">
                         <label for="class-select" class="font-medium mb-1 sm:mb-0">班級:</label>
@@ -182,20 +203,21 @@
                     </div>
                 </div>
         
-                <!-- Group & Difficulty Selection -->
                 <div id="main-controls">
                     <div class="flex flex-col items-center justify-center space-y-4 pt-2">
-                        <!-- Group Selection -->
                         <div class="flex flex-col items-center space-y-2">
                             <label class="font-medium text-gray-700">選擇組別:</label>
                             <div id="group-selector" class="flex flex-wrap justify-center gap-2 rounded-lg p-2 bg-gray-200">
                                 <button data-group="groupA" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group A</button>
                                 <button data-group="groupB" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group B</button>
                                 <button data-group="groupC" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group C</button>
+                                
+                                <button id="review-all-btn" class="retro-review-btn px-4 sm:px-5 py-2 text-sm sm:text-base">
+                                    REVIEW ALL
+                                </button>
                                 <button data-group="groupBonus" id="bonus-group-btn" class="hidden control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-yellow-500 bg-gray-800 rounded-md" title="傳說級挑戰">❓</button>
                             </div>
                         </div>
-                        <!-- Difficulty Selection -->
                         <div class="flex flex-col items-center space-y-2">
                             <label class="font-medium text-gray-700">選擇難度:</label>
                             <div id="difficulty-selector" class="flex items-center space-x-2 text-3xl">
@@ -347,6 +369,8 @@
         adminTools: document.getElementById('admin-tools'),
         adminFillBtn: document.getElementById('adminFillBtn'),
         devToolsPanel: document.getElementById('dev-tools-panel'),
+        // [MODULAR] Review Btn Element
+        reviewAllBtn: document.getElementById('review-all-btn'),
     };
 
     // --- State Management ---
@@ -366,7 +390,6 @@
     async function initializeAppWrapper() {
         try {
             // 1. Fetch data from the external JSON file
-            // ** IMPORTANT: Make sure this JSON file exists in the same directory **
             const response = await fetch('high_freq-data.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -433,7 +456,6 @@
         const unitSelect = dom.unitSelect;
         unitSelect.innerHTML = '<option value="" selected disabled>--請選擇單元--</option>';
         
-        // --- MODIFIED SECTION: Simplified for easier editing ---
         const unitDisplayGroups = {
             '--01: 人物篇--': ['test1', 'test2'],
             '--02: 工作篇--': ['test3', 'test4'],
@@ -451,15 +473,11 @@
             'test7': 'Test 7',
             'test8': 'Test 8',
         };
-        // --- END OF MODIFIED SECTION ---
 
         for (const groupName in unitDisplayGroups) {
             const optgroup = document.createElement('optgroup');
             optgroup.label = groupName;
             unitDisplayGroups[groupName].forEach(unitKey => {
-                // The 'if (vocabulary[unitKey])' check ensures that only units with
-                // corresponding data in your 'high_freq-data.json' file will appear.
-                // This prevents errors if you define a unit here but haven't added its data yet.
                 if (vocabulary[unitKey]) { 
                     const option = document.createElement('option');
                     option.value = unitKey;
@@ -467,7 +485,6 @@
                     optgroup.appendChild(option);
                 }
             });
-            // Only add the group if it contains any valid options
             if (optgroup.children.length > 0) {
                 unitSelect.appendChild(optgroup);
             }
@@ -507,12 +524,26 @@
 
         dom.groupSelector.addEventListener('click', (e) => {
             const button = e.target.closest('button');
+            
+            // [MODULAR] 如果點到 Review 按鈕，不要執行下方的 group 邏輯
+            if (button && button.id === 'review-all-btn') return;
+
             if (button && state.currentUnit) {
                 const group = button.dataset.group;
                 state.currentGroup = group;
                 
                 dom.groupSelector.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn.dataset.group === group));
                 
+                // ==========================================
+                // [MODULAR] REVIEW MODE RESET
+                // 當切換組別時，確保畫面回復到測驗準備狀態 (如果有被 Review 模式隱藏的話)
+                // ==========================================
+                if(dom.storyPassage) dom.storyPassage.style.display = 'block';
+                if(dom.submitBtn) dom.submitBtn.classList.remove('hidden-in-review');
+                if(dom.clearBtn) dom.clearBtn.classList.remove('hidden-in-review');
+                if(dom.welcomeMessage) dom.welcomeMessage.classList.remove('hidden');
+                // ==========================================
+
                 if (group === 'groupBonus') {
                     state.currentDifficulty = 'C2';
                     dom.difficultySelector.querySelectorAll('.difficulty-btn-wrapper').forEach(btn => {
@@ -534,12 +565,27 @@
         dom.difficultySelector.addEventListener('click', (e) => {
             const button = e.target.closest('.difficulty-btn-wrapper');
             if (button && !button.classList.contains('disabled')) {
+                
+                // ==========================================
+                // [MODULAR] REVIEW MODE RESET
+                // 點擊星星時，確保還原文章顯示與按鈕
+                // ==========================================
+                if(dom.storyPassage) dom.storyPassage.style.display = 'block';
+                if(dom.submitBtn) dom.submitBtn.classList.remove('hidden-in-review');
+                if(dom.clearBtn) dom.clearBtn.classList.remove('hidden-in-review');
+                // ==========================================
+
                 const level = button.dataset.level;
                 state.currentDifficulty = level;
                 dom.difficultySelector.querySelectorAll('.difficulty-btn-wrapper').forEach(btn => btn.classList.toggle('active', btn.dataset.level === level));
                 loadQuiz();
             }
         });
+
+        // [MODULAR] Review All Button Listener
+        if(dom.reviewAllBtn) {
+            dom.reviewAllBtn.addEventListener('click', startReviewMode);
+        }
         
         dom.seatNumberInput.addEventListener('input', (e) => {
             try {
@@ -668,6 +714,74 @@
              earnedBadges = {};
          }
     };
+
+    // =================================================================
+    // [MODULAR] REVIEW ALL LOGIC
+    // =================================================================
+    function startReviewMode() {
+        if (!state.currentUnit) {
+            alert("請先選擇單元！");
+            return;
+        }
+
+        console.log("進入 Review All 模式...");
+
+        // 1. 抓取該 Unit 下所有 Group 的單字
+        let allWords = [];
+        // 您的資料結構是 vocabulary[state.currentUnit]['groupA']...
+        // 我們遍歷該 Unit 下所有的 Group
+        Object.keys(vocabulary[state.currentUnit]).forEach(groupKey => {
+            // 排除非單字群組 (例如 stories 屬性或 groupBonus，如果您希望 Bonus 也包含，可以調整判斷)
+            if (vocabulary[state.currentUnit][groupKey].words) {
+                 allWords = allWords.concat(vocabulary[state.currentUnit][groupKey].words);
+            }
+        });
+
+        // 2. 依字母順序排序
+        allWords.sort((a, b) => a.localeCompare(b));
+        // 去除重複 (Optional)
+        allWords = [...new Set(allWords)];
+
+        // 3. 介面切換：顯示測驗區，但隱藏文章與按鈕
+        const quizArea = dom.quizArea;
+        const storyPassage = dom.storyPassage;
+        const checkBtn = dom.submitBtn;
+        const clearBtn = dom.clearBtn;
+        const wordBank = dom.wordOptions;
+        
+        // 取消所有 Group 與難度的選取狀態
+        dom.groupSelector.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+        dom.difficultySelector.querySelectorAll('.difficulty-btn-wrapper').forEach(btn => btn.classList.remove('active', 'disabled')); // Review mode 下難度不重要，但我們可以把星星設為無效或純展示，這裡選擇不特別鎖死，但因為沒有文章，點了會跑回測驗模式
+
+        if(quizArea) quizArea.classList.remove('hidden');
+        if(storyPassage) storyPassage.style.display = 'none'; // 隱藏文章
+        if(checkBtn) checkBtn.classList.add('hidden-in-review'); // 隱藏按鈕
+        if(clearBtn) clearBtn.classList.add('hidden-in-review'); // 隱藏按鈕
+        
+        // 隱藏歡迎訊息與 construction 訊息
+        dom.welcomeMessage.classList.add('hidden');
+        dom.constructionMessage.classList.add('hidden');
+        dom.analysisContainer.style.display = 'none'; // 隱藏檢討區
+        dom.resultsDiv.innerHTML = ''; // 清空結果
+
+        // 4. 清空並重新渲染單字庫
+        wordBank.innerHTML = '';
+        
+        // 產生單字卡
+        allWords.forEach(word => {
+            const btn = document.createElement('button');
+            btn.className = 'word-pronounceable'; // 使用您現有的樣式
+            btn.textContent = word;
+            // 為了在大網格好看，增加一點 padding 或 margin (已在 CSS .word-options gap 設定)
+            
+            // 點擊事件：使用您現有的 showHint
+            btn.onclick = () => {
+                showHint(word); 
+            };
+            
+            wordBank.appendChild(btn);
+        });
+    }
     
     // =================================================================
     // QUIZ LOGIC
@@ -690,6 +804,10 @@
         dom.incorrectAnswersDiv.innerHTML = '';
         dom.shareBtn.classList.add('hidden');
         dom.submitBtn.disabled = true;
+        
+        // [MODULAR] 確保離開 Review 模式時按鈕有顯示
+        dom.submitBtn.classList.remove('hidden-in-review');
+        dom.clearBtn.classList.remove('hidden-in-review');
 
         if (!unitData || !unitData.stories || unitData.stories.length === 0) {
             console.error(`Quiz data is missing for Unit: ${state.currentUnit}, Group: ${state.currentGroup}`);
@@ -1390,5 +1508,3 @@
 </footer>
 </body>
 </html>
-
-
