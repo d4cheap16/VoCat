@@ -4,61 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>VoCAT</title>
-    <!-- 預載資源以提升速度 -->
     <link rel="preload" as="image" href="https://d4cheap16.github.io/VoCat/GB01.png">
     <link rel="preload" as="image" href="https://d4cheap16.github.io/VoCat/Cat.jpg">
     
-    <!-- 社群分享設定 (Open Graph) -->
+    <!-- 社群媒體預覽卡片 (Open Graph Meta Tags) -->
     <meta name="description" content="Learn high school vocabulary in a fun way!">
-    <meta property="og:title" content="VoCat"><meta property="og:description" content="Learn high school vocabulary in a fun way!">
-    <meta property="og:image" content="https://d4cheap16.github.io/VoCat/GB.jpg"><meta property="og:url" content="https://d4cheap16.github.io/VoCat/">
+    <meta property="og:title" content="VoCat">
+    <meta property="og:description" content="Learn high school vocabulary in a fun way!">
+    <meta property="og:image" content="https://d4cheap16.github.io/VoCat/GB.jpg">
+    <meta property="og:url" content="https://d4cheap16.github.io/VoCat/">
     <meta property="og:type" content="website">
 
-    <!-- 網站圖示 -->
+    <!-- 網站圖示 (Favicon & Apple Touch Icon) -->
     <link rel="icon" href="https://d4cheap16.github.io/VoCat/favicon.png" type="image/jpeg">
     <link rel="apple-touch-icon" href="https://d4cheap16.github.io/VoCat/favicon.png">
 
-    <!-- 字體設定 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 引入兩種字體：像素風格 和 Noto Sans TC -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
-    
     <style>
-        /* --- 全域變數與主題設定 --- */
-        :root { --screen-bg: #9bbc0f; --screen-text: #0f380f; --screen-overlay: rgba(155, 188, 15, 0.75); --body-bg: #d3d3d3; }
-        body.palette-pocket { --screen-bg: #333333; --screen-text: #f0f0f0; --screen-overlay: rgba(51, 51, 51, 0.85); }
-        body.palette-sepia { --screen-bg: #d0e0f0; --screen-text: #2c3e50; --screen-overlay: rgba(208, 224, 240, 0.75); }
+        :root {
+            --screen-bg: #9bbc0f;
+            --screen-text: #0f380f;
+            --screen-overlay: rgba(155, 188, 15, 0.75);
+            --body-bg: #d3d3d3;
+        }
 
-        /* --- 基礎版面設定 --- */
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: var(--body-bg); font-family: 'Press Start 2P', 'Noto Sans TC', cursive, sans-serif; touch-action: none; /* 禁止手機預設手勢 */ }
-        .container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; padding: 10px; box-sizing: border-box; }
+        /* --- 調色盤主題 --- */
+        body.palette-pocket {
+            --screen-bg: #333333;
+            --screen-text: #f0f0f0;
+            --screen-overlay: rgba(51, 51, 51, 0.85);
+        }
+        body.palette-sepia {
+            --screen-bg: #d0e0f0;
+            --screen-text: #2c3e50;
+            --screen-overlay: rgba(208, 224, 240, 0.75);
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--body-bg);
+            font-family: 'Press Start 2P', 'Noto Sans TC', cursive, sans-serif;
+            /* 關鍵：防止手機上的雙擊縮放和捲動回彈，對遊戲操作很重要 */
+            touch-action: none; 
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .gameboy-wrapper {
+            position: relative;
+            max-width: 450px;
+            width: 100%;
+            aspect-ratio: 1000 / 1602;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
         
-        /* --- Gameboy 機身與螢幕 --- */
-        .gameboy-wrapper { position: relative; max-width: 450px; width: 100%; aspect-ratio: 1000 / 1602; display: flex; justify-content: center; align-items: center; -webkit-touch-callout: none; user-select: none; }
-        .gameboy-image { display: block; width: 100%; height: 100%; pointer-events: none; }
-        .gameboy-screen { position: absolute; top: 10%; left: 11%; width: 78%; height: 36%; background-color: var(--screen-bg); color: var(--screen-text); box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; clip-path: inset(0 round 9px 9px 18% 9px); }
+        .gameboy-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            user-select: none;
+            pointer-events: none; /* 讓點擊穿透圖片 */
+        }
+
+        .gameboy-screen {
+            position: absolute;
+            top: 10%; 
+            left: 11%;
+            width: 78%;
+            height: 36%;
+            background-color: var(--screen-bg);
+            color: var(--screen-text);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            clip-path: inset(0 round 9px 9px 18% 9px);
+        }
         
-        /* --- 開機動畫 --- */
-        .boot-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; z-index: 100; display: flex; justify-content: center; align-items: center; animation: fadeOutBoot 1s ease-in 1.5s forwards; }
-        .boot-logo { opacity: 0; animation: dropInLogo 1.5s ease-out 0.5s forwards, blinkLogo 0.8s step-end 2.5s; }
-        .boot-screen.reboot { display: flex !important; opacity: 1; animation: fadeOutBoot 1s ease-in 1.5s forwards; }
-        .boot-screen.reboot .boot-logo { opacity: 0; animation: dropInLogo 1.5s ease-out 0.5s forwards, blinkLogo 0.8s step-end 2.5s; }
-        .boot-logo img { width: 100%; height: auto; }
-        @keyframes dropInLogo { 0% { transform: translateY(-100%); opacity: 1; } 100% { transform: translateY(0); opacity: 1; } }
+        /* --- 開機動畫區塊 --- */
+        .boot-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOutBoot 1s ease-in 1.5s forwards;
+        }
+
+        .boot-logo {
+            opacity: 0;
+            animation: dropInLogo 1.5s ease-out 0.5s forwards, blinkLogo 0.8s step-end 2.5s;
+        }
+
+        .boot-screen.reboot {
+            display: flex !important;
+            opacity: 1;
+            animation: fadeOutBoot 1s ease-in 1.5s forwards;
+        }
+        .boot-screen.reboot .boot-logo {
+            opacity: 0;
+            animation: dropInLogo 1.5s ease-out 0.5s forwards, blinkLogo 0.8s step-end 2.5s;
+        }
+
+        .boot-logo img { width: 100%; height: auto; }  
+
+        @keyframes dropInLogo {
+            0% { transform: translateY(-100%); opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
         @keyframes blinkLogo { 50% { opacity: 0; } }
+
         @keyframes fadeOutBoot { to { opacity: 0; visibility: hidden; } }
         
-        /* --- 選單系統 --- */
-        .main-menu { opacity: 0; animation: fadeInMenu 0.5s ease-in 2.5s forwards; height: 100%; display: flex; flex-direction: column; padding: 3%; box-sizing: border-box; }
-        .main-menu.reboot { opacity: 0; animation: fadeInMenu 0.5s ease-in 2.5s forwards; }
+        /* --- 主選單 --- */
+        .main-menu {
+            opacity: 0;
+            animation: fadeInMenu 0.5s ease-in 2.5s forwards;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 3%;
+            box-sizing: border-box;
+        }
+        
+        .main-menu.reboot {
+            opacity: 0;
+            animation: fadeInMenu 0.5s ease-in 2.5s forwards;
+        }
+
         @keyframes fadeInMenu { to { opacity: 1; } }
-        .tester-menu { display: none; height: 100%; flex-direction: column; padding: 3%; box-sizing: border-box; }
+
+        /* --- 遊戲選單 --- */
+        .tester-menu {
+            display: none;
+            height: 100%;
+            flex-direction: column;
+            padding: 3%;
+            box-sizing: border-box;
+        }
         .gameboy-screen.tester-active .main-menu { display: none; }
         .gameboy-screen.tester-active .tester-menu { display: flex; }
-        
-        .screen-header { display: flex; justify-content: center; align-items: center; gap: 8px; padding-bottom: 2%; border-bottom: 2px solid var(--screen-text); margin-bottom: 3%; font-size: clamp(10px, 3vw, 14px); letter-spacing: -1px; flex-shrink: 0; }
-        .header-cat { height: 2em; width: auto; }
-        .menu-wrapper { overflow-y: auto; flex-grow: 1; scrollbar-width: none; }
+
+        .screen-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 2%;
+            border-bottom: 2px solid var(--screen-text);
+            margin-bottom: 3%;
+            font-size: clamp(10px, 3vw, 14px);
+            letter-spacing: -1px;
+            flex-shrink: 0;
+        }
+        .header-cat { height: 2em; width: auto; }        
+        .menu-wrapper {
+            overflow-y: auto;
+            flex-grow: 1;
+            scrollbar-width: none; 
+        }
+
         .menu-wrapper::-webkit-scrollbar { width: 0px; background: transparent; }
+
         .menu-list { list-style: none; padding: 0; margin: 0; }
         .menu-list li { margin-bottom: 2%; }
         .menu-list a { color: var(--screen-text); text-decoration: none; display: flex; align-items: center; padding: 2.5%; font-size: clamp(14px, 3.8vw, 16px); transition: all 0.2s; white-space: nowrap; }
@@ -68,21 +201,53 @@
         .sub-menu { list-style: none; padding-left: 10px; margin: 5px 0; display: none; }
         .menu-category.open .sub-menu { display: block; }
         .sub-menu a { font-size: clamp(12px, 3.5vw, 14px); }
-        .sub-menu a::before, .tester-menu .menu-list a::before { content: '▶'; margin-right: 8%; opacity: 0; transition: opacity 0.2s; }
+
+        .sub-menu a::before, 
+        .tester-menu .menu-list a::before { content: '▶'; margin-right: 8%; opacity: 0; transition: opacity 0.2s; }
         .menu-list a:hover, .menu-list a:focus, .menu-list a.selected { background-color: var(--screen-text); color: var(--screen-bg); }
         .sub-menu a:hover::before, .sub-menu a:focus::before, .tester-menu .menu-list a:hover::before, .tester-menu .menu-list a.selected::before { opacity: 1; }
-        .menu-footer { flex-shrink: 0; text-align: center; padding: 4% 0 2%; margin-top: auto; border-top: 2px solid var(--screen-text); font-size: clamp(9px, 2.5vw, 11px); letter-spacing: -1px; }
+        
+        .menu-footer {
+            flex-shrink: 0;
+            text-align: center;
+            padding: 4% 0 2%;
+            margin-top: auto;
+            border-top: 2px solid var(--screen-text);
+            font-size: clamp(9px, 2.5vw, 11px);
+            letter-spacing: -1px;
+        }
         .menu-footer p { margin: 0; }
-
-        /* --- 遊戲畫面 --- */
+        
+        /* --- 遊戲畫布 --- */
         #game-canvas { display: none; width: 100%; height: 100%; background-color: var(--screen-bg); }
-        #game-score { display: none; position: absolute; top: 4px; left: 12px; right: 12px; font-size: clamp(10px, 2.5vw, 11px); color: var(--screen-text); z-index: 10; white-space: pre; text-align: right; line-height: 1.2; font-family: 'Press Start 2P', cursive; }
-        .gameboy-screen.game-active .main-menu, .gameboy-screen.game-active .tester-menu { display: none; }
-        .gameboy-screen.game-active #game-canvas, .gameboy-screen.game-active #game-score { display: block; }
-        /* 復古網格濾鏡 */
-        .gameboy-screen.game-active::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(15, 56, 15, 0.07) 1px, rgba(15, 56, 15, 0.07) 2px), repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(15, 56, 15, 0.07) 1px, rgba(15, 56, 15, 0.07) 2px); background-size: 2px 2px; pointer-events: none; z-index: 5; }
+        #game-score { 
+            display: none; 
+            position: absolute; top: 4px; left: 12px; right: 12px;
+            font-size: clamp(10px, 2.5vw, 11px); 
+            color: var(--screen-text); 
+            z-index: 10;
+            white-space: pre; text-align: right; line-height: 1.2;
+            font-family: 'Press Start 2P', cursive;
+        }
 
-        .screen-footer { margin: 0; padding: 0; position: absolute; bottom: 46%; left: 11%; width: 80%; text-align: left; font-size: clamp(9px, 2.2vw, 11px); color: #444; opacity: 0; line-height: 1.6; cursor: pointer; }
+        .gameboy-screen.game-active .main-menu,
+        .gameboy-screen.game-active .tester-menu { display: none; }
+        .gameboy-screen.game-active #game-canvas { display: block; }
+        .gameboy-screen.game-active #game-score { display: block; }
+
+        .gameboy-screen.game-active::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(15, 56, 15, 0.07) 1px, rgba(15, 56, 15, 0.07) 2px),
+                repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(15, 56, 15, 0.07) 1px, rgba(15, 56, 15, 0.07) 2px);
+            background-size: 2px 2px; pointer-events: none; z-index: 5;
+        }
+
+        .screen-footer { 
+            margin: 0; padding: 0; position: absolute; bottom: 46%; left: 11%; width: 80%; 
+            text-align: left; font-size: clamp(9px, 2.2vw, 11px); color: #444; opacity: 0; 
+            line-height: 1.6; cursor: pointer; 
+        }
         .screen-footer.animate { animation: fadeInMenu 0.5s ease-in 0s forwards; }
         .screen-footer p { margin: 0; padding: 0; }
         .site-footer { position: absolute; bottom: 10px; left: 0; width: 100%; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 6px; font-size: 10px; color: #555; z-index: 10; }
@@ -90,443 +255,811 @@
         @media (max-width: 380px) { .site-footer { flex-direction: column; gap: 2px; } }
         .footer-logo { height: 2em; width: auto; margin-left: 4px; vertical-align: middle; }
 
-        /* --- 按鍵樣式 (優化陰影與手感) --- */
+        /* ============================================ */
+        /* --- Gameboy 按鈕樣式優化 (關鍵修改區域) --- */
+        /* ============================================ */
         .gb-button { 
             position: absolute; 
-            z-index: 50; 
             transition: transform 0.05s, background-color 0.1s, box-shadow 0.1s;
-            /* 初始狀態給予外部陰影，增加立體凸出感 */
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
-        }
-        /* 擴大隱形點擊區域，提升手機操作成功率 */
-        .gb-button::after { content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px; border-radius: inherit; }
-        .gb-button:hover { background-color: rgba(0, 0, 0, 0.1); cursor: pointer; }
-        
-        /* 按下狀態：位移加深，內陰影加重，製造深坑感 */
-        .gb-button:active {
-            transform: translate(3px, 3px); /* 從 2px 增加到 3px */
-            background-color: rgba(0, 0, 0, 0.25);
-            box-shadow: inset 5px 5px 10px rgba(0,0,0,0.75); /* 加深內陰影 */
+            z-index: 50; 
         }
 
-        /* 按鍵形狀與位置微調 */
+        /* 1. 擴大點擊區域 (Hit Area) */
+        /* 透過偽元素向外延伸 15px，讓手指不用按得非常準也能觸發 */
+        .gb-button::after {
+            content: '';
+            position: absolute;
+            top: -15px; left: -15px; right: -15px; bottom: -15px;
+            /* background: rgba(255, 0, 0, 0.3); 如果想測試範圍，可以把這行註解打開 */
+            border-radius: inherit;
+        }
+
+        .gb-button:hover { 
+            background-color: rgba(0, 0, 0, 0.1); 
+            cursor: pointer; 
+        }
+
+        /* 2. 擬真按壓效果 */
+        /* 使用 translate 位移 + 內陰影，創造實體按鍵被壓下去的凹陷感 */
+        .gb-button:active {
+            transform: translate(2px, 2px); /* 往右下移動 */
+            background-color: rgba(0, 0, 0, 0.2);
+            box-shadow: inset 3px 3px 6px rgba(0,0,0,0.6); /* 內陰影 */
+        }
+
         #btn-a, #btn-b { border-radius: 50%; }
         #btn-select, #btn-start { border-radius: 25px; }
         #btn-up, #btn-down, #btn-left, #btn-right { border-radius: 2px; }
-        #btn-up::after, #btn-down::after, #btn-left::after, #btn-right::after { top: -8px; left: -8px; right: -8px; bottom: -8px; }
+        
+        /* 針對十字鍵的微調，因為按鍵很密，感應區不要重疊太多，稍微縮小一點 */
+        #btn-up::after, #btn-down::after, #btn-left::after, #btn-right::after {
+            top: -8px; left: -8px; right: -8px; bottom: -8px;
+        }
 
-        #btn-a { top: 59.5%; left: 78.5%; width: 15%; height: 10%; }
-        #btn-b { top: 63.5%; left: 61.5%; width: 15%; height: 10%; }
+        /* 3. 視覺尺寸微調 (讓陰影區域大一點，更貼合背景圖) */
+        /* 調整原則：width/height 稍微加大，並微調 top/left 以保持置中 */
+        
+        /* A 鍵 */
+        #btn-a { 
+            top: 59.5%; left: 78.5%; /* 微調位置 */
+            width: 15%; height: 10%; /* 稍微加大 (原 14/9) */
+        }
+        /* B 鍵 */
+        #btn-b { 
+            top: 63.5%; left: 61.5%; /* 微調位置 */
+            width: 15%; height: 10%; /* 稍微加大 (原 14/9) */
+        }
+        
+        /* 選擇/開始鍵 (保持原狀或微調) */
         #btn-select { top: 80%; left: 29%; width: 14%; height: 4%; }
         #btn-start { top: 80%; left: 46%; width: 14%; height: 4%; }
-        #btn-up { top: 59.5%; left: 15.5%; width: 10%; height: 7%; }
-        #btn-down { top: 69.5%; left: 15.5%; width: 10%; height: 7%; }
-        #btn-left { top: 64.5%; left: 7.5%; width: 10%; height: 7%; }
-        #btn-right { top: 64.5%; left: 24.5%; width: 10%; height: 7%; }
 
-        /* --- 彈出視窗 --- */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 200; padding: 15px; box-sizing: border-box; }
+        /* 十字鍵 (稍微加大按壓視覺面積) */
+        #btn-up { 
+            top: 59.5%; left: 15.5%; 
+            width: 10%; height: 7%; /* 原 9/6 */
+        }
+        #btn-down { 
+            top: 69.5%; left: 15.5%; 
+            width: 10%; height: 7%; /* 原 9/6 */
+        }
+        #btn-left { 
+            top: 64.5%; left: 7.5%; 
+            width: 10%; height: 7%; /* 原 9/6 */
+        }
+        #btn-right { 
+            top: 64.5%; left: 24.5%; 
+            width: 10%; height: 7%; /* 原 9/6 */
+        }
+
+        /* --- 說明視窗樣式 --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none; justify-content: center; align-items: center;
+            z-index: 200; padding: 15px; box-sizing: border-box;
+        }
+
         .modal-overlay.show { display: flex; }
-        .modal-content { background-color: var(--screen-bg); color: var(--screen-text); border: 3px solid var(--screen-text); padding: 15px; max-width: 95%; width: 500px; border-radius: 8px; font-family: 'Press Start 2P', 'Noto Sans TC', sans-serif; line-height: 1.7; font-size: clamp(14px, 3.5vw, 16px); }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--screen-text); margin-bottom: 15px; padding-bottom: 10px; font-family: 'Press Start 2P', cursive; }
+
+        .modal-content {
+            background-color: var(--screen-bg); color: var(--screen-text);
+            border: 3px solid var(--screen-text); padding: 15px;
+            max-width: 95%; width: 500px; border-radius: 8px;
+            font-family: 'Press Start 2P', 'Noto Sans TC', sans-serif;
+            line-height: 1.7; font-size: clamp(14px, 3.5vw, 16px);
+        }
+
+        .modal-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid var(--screen-text);
+            margin-bottom: 15px; padding-bottom: 10px;
+            font-family: 'Press Start 2P', cursive;
+        }
+        
         .modal-header p { margin: 0; font-size: clamp(15px, 4vw, 18px); }
-        .modal-close-btn { background-color: var(--screen-text); color: var(--screen-bg); border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-family: sans-serif; font-weight: bold; font-size: 16px; display: flex; justify-content: center; align-items: center; transition: transform 0.1s; }
+        
+        .modal-close-btn {
+            background-color: var(--screen-text); color: var(--screen-bg);
+            border: none; width: 28px; height: 28px; border-radius: 50%;
+            cursor: pointer; font-family: sans-serif; font-weight: bold; font-size: 16px;
+            display: flex; justify-content: center; align-items: center;
+            transition: transform 0.1s;
+        }
         .modal-close-btn:active { transform: scale(0.9); }
-        .modal-body p { margin: 0 0 1em 0; } .modal-body p:last-child { margin-bottom: 0; }
+        .modal-body p { margin: 0 0 1em 0; }
+        .modal-body p:last-child { margin-bottom: 0; }
+        
         .scores-list { padding: 0; margin: 0; list-style: none; }
-        .scores-list li { display: flex; justify-content: space-between; margin-bottom: 0.8em; font-family: 'Press Start 2P', cursive; font-size: clamp(12px, 3vw, 14px); }
+        .scores-list li {
+            display: flex; justify-content: space-between; margin-bottom: 0.8em;
+            font-family: 'Press Start 2P', cursive; font-size: clamp(12px, 3vw, 14px);
+        }
+        .scores-list li span:first-child { text-align: left; }
         .scores-list li span:last-child { text-align: right; }
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="gameboy-wrapper">
             <img src="https://d4cheap16.github.io/VoCat/GB01.png" alt="Game Boy background" class="gameboy-image">
             <div class="gameboy-screen">
-                <div class="boot-screen"><div class="boot-logo"><img src="https://d4cheap16.github.io/VoCat/Cat.jpg" alt="開機貓貓"></div></div>
-                
-                <!-- 主選單結構 -->
+                <div class="boot-screen">
+                    <div class="boot-logo"><img src="https://d4cheap16.github.io/VoCat/Cat.jpg" alt="開機貓貓"></div>
+                </div>
                 <div class="main-menu">
                     <div class="screen-header">
-                        <img src="https://d4cheap16.github.io/VoCat/CatL.png" class="header-cat"><p>VoCAT</p><img src="https://d4cheap16.github.io/VoCat/CatR.png" class="header-cat">
+                        <img src="https://d4cheap16.github.io/VoCat/CatL.png" alt="左貓" class="header-cat">
+                        <p>VoCAT</p>
+                        <img src="https://d4cheap16.github.io/VoCat/CatR.png" alt="右貓" class="header-cat">
                     </div>
                     <div class="menu-wrapper">
                         <ul class="menu-list">
                             <li class="menu-category"><a href="#">課文單字</a>
                                 <ul class="sub-menu">
-                                    <li><a href="book1.html" target="_self">Book 1</a></li><li><a href="book2.html" target="_self">Book 2</a></li><li><a href="book3.html" target="_self">Book 3</a></li><li><a href="book4.html" target="_self">Book 4</a></li><li><a href="book5.html" target="_self">Book 5</a></li>
+                                    <li><a href="book1.html" target="_self">Book 1</a></li>
+                                    <li><a href="book2.html" target="_self">Book 2</a></li>
+                                    <li><a href="book3.html" target="_self">Book 3</a></li>
+                                    <li><a href="book4.html" target="_self">Book 4</a></li>
+                                    <li><a href="book5.html" target="_self">Book 5</a></li>
                                 </ul>
                             </li>
                             <li class="menu-category"><a href="#">高頻單字</a>
                                 <ul class="sub-menu">
-                                    <li><a href="high_freq1.html" target="_self">UNIT 01-04</a></li><li><a href="https://forms.gle/bXUNRobFD1P8MYmx7" target="_blank">高一上二段</a></li><li><a href="https://forms.gle/oDeaR87M4xSkaixE6" target="_blank">高一上一段</a></li><li><a href="high_freq2.html" target="_self">UNIT 05-09</a></li><li><a href="https://forms.gle/yemp2H1DgrvQAJdm6" target="_blank">高一上期末</a></li><li><a href="high_freq3.html" target="_self">UNIT 10-14</a></li><li><a href="high_freq4.html" target="_self">UNIT 15-18</a></li>
+                                    <li><a href="high_freq1.html" target="_self">UNIT 01-04</a></li>
+                                    <li><a href="https://forms.gle/bXUNRobFD1P8MYmx7" target="_blank">高一上二段（慈大附中限定）</a></li>
+                                    <li><a href="https://forms.gle/oDeaR87M4xSkaixE6" target="_blank">高一上一段（慈大附中限定）</a></li>
+                                    <li><a href="high_freq2.html" target="_self">UNIT 05-09</a></li>
+                                    <li><a href="https://forms.gle/yemp2H1DgrvQAJdm6" target="_blank">高一上期末（慈大附中限定）</a></li>
+                                    <li><a href="high_freq3.html" target="_self">UNIT 10-14</a></li>
+                                    <li><a href="high_freq4.html" target="_self">UNIT 15-18</a></li>
                                 </ul>
                             </li>
                             <li class="menu-category"><a href="#">文法練習</a>
                                 <ul class="sub-menu">
-                                    <li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">高一上二段</a></li><li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">高二上二段</a></li><li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">高一上一段</a></li><li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">高二上一段</a></li>
+                                    <li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">高一上二段（慈大附中限定）</a></li>
+                                    <li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">高二上二段（慈大附中限定）</a></li>
+                                    <li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">高一上一段（慈大附中限定）</a></li>
+                                    <li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">高二上一段（慈大附中限定）</a></li>
                                 </ul>
                             </li>
                             <li class="menu-category"><a href="#">OPTIONS</a>
                                 <ul class="sub-menu">
-                                    <!-- 已移除震動開關 -->
-                                    <li><a href="#" id="palette-switch-link">CHANGE THEME</a></li><li><a href="#" id="design-concept-link">DESIGN CONCEPT</a></li><li><a href="https://forms.gle/iWMy29gJDsgCWr837" target="_blank">CONTACT ME</a></li><li><a href="#" id="high-scores-link">HIGH SCORES</a></li><li><a href="#" id="clear-data-link">CLEAR SCORES</a></li>
+                                    <!-- 新增震動開關選項 -->
+                                    <li><a href="#" id="vibration-switch-link">VIBRATION: ON</a></li>
+                                    <li><a href="#" id="palette-switch-link">CHANGE THEME</a></li> 
+                                    <li><a href="#" id="design-concept-link">DESIGN CONCEPT</a></li>
+                                    <li><a href="https://forms.gle/iWMy29gJDsgCWr837" target="_blank">CONTACT ME</a></li>
+                                    <li><a href="#" id="high-scores-link">HIGH SCORES</a></li>
+                                    <li><a href="#" id="clear-data-link">CLEAR SCORES</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
-                
-                <!-- 遊戲測試選單 -->
                 <div class="tester-menu">
                     <div class="screen-header"><p>GAME SELECT</p></div>
                     <div class="menu-wrapper">
-                        <ul class="menu-list"><li><a href="#" data-game="back">MAIN MENU</a></li><li><a href="#" data-game="ghostbuster">GHOSTBUSTER</a></li><li><a href="#" data-game="pacman">PAC-MAN RUN</a></li><li><a href="#" data-game="snake">SNAKE</a></li><li><a href="#" data-game="tetris">TETRIS</a></li></ul>
+                        <ul class="menu-list">
+                            <li><a href="#" data-game="back">MAIN MENU</a></li>
+                            <li><a href="#" data-game="ghostbuster">GHOSTBUSTER</a></li>
+                            <li><a href="#" data-game="pacman">PAC-MAN RUN</a></li>
+                            <li><a href="#" data-game="snake">SNAKE</a></li>
+                            <li><a href="#" data-game="tetris">TETRIS</a></li>
+                        </ul>
                     </div>
                     <div class="menu-footer"><p>A: PLAY • UP/DOWN: SELECT</p></div>
                 </div>
-                
-                <canvas id="game-canvas"></canvas><div id="game-score"></div>
+                <canvas id="game-canvas"></canvas>
+                <div id="game-score"></div>
             </div>
-            
-            <div class="screen-footer"><p id="quote-text">Loading quote...</p></div>
-            
-            <!-- 實體按鍵 -->
-            <a href="#" id="btn-a" class="gb-button" data-key="A"></a><a href="#" id="btn-b" class="gb-button" data-key="B"></a>
-            <a href="#" id="btn-select" class="gb-button" data-key="Select"></a><a href="#" id="btn-start" class="gb-button" data-key="Start"></a>
-            <a href="#" id="btn-up" class="gb-button" data-key="Up"></a><a href="#" id="btn-down" class="gb-button" data-key="Down"></a><a href="#" id="btn-left" class="gb-button" data-key="Left"></a><a href="#" id="btn-right" class="gb-button" data-key="Right"></a>
+            <div class="screen-footer">
+                <p id="quote-text">Loading quote...</p>
+            </div>
+            <!-- Gameboy 按鈕 -->
+            <a href="#" id="btn-a" class="gb-button" data-key="A"></a>
+            <a href="#" id="btn-b" class="gb-button" data-key="B"></a>
+            <a href="#" id="btn-select" class="gb-button" data-key="Select"></a>
+            <a href="#" id="btn-start" class="gb-button" data-key="Start"></a>
+            <a href="#" id="btn-up" class="gb-button" data-key="Up"></a>
+            <a href="#" id="btn-down" class="gb-button" data-key="Down"></a>
+            <a href="#" id="btn-left" class="gb-button" data-key="Left"></a>
+            <a href="#" id="btn-right" class="gb-button" data-key="Right"></a>
         </div>
     </div>
     
-    <!-- 音效 (壓縮為單行) -->
     <audio id="audio-open" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAADD/38Agf9/AP//fwB/AP//f/9/AP8A//9/AIAA/wB//38AgAA="></audio>
     <audio id="audio-select" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAAAAgP9/AP8AgAD/AIAA/wCAAP8AgAD/AIAA/wCAAP8AgAD/AIAA/wCAAP8A"></audio>
 
-    <!-- 彈出視窗 HTML -->
-    <div id="about-modal" class="modal-overlay"><div class="modal-content"><div class="modal-header"><p>DESIGN CONCEPT</p><button id="close-modal-btn" class="modal-close-btn">X</button></div><div class="modal-body"></div></div></div>
-    <div id="high-scores-modal" class="modal-overlay"><div class="modal-content"><div class="modal-header"><p>HIGH SCORES</p><button id="close-scores-btn" class="modal-close-btn">X</button></div><div class="modal-body"><ul class="scores-list"></ul></div></div></div>
+    <div id="about-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>DESIGN CONCEPT</p>
+                <button id="close-modal-btn" class="modal-close-btn">X</button>
+            </div>
+            <div class="modal-body"><!-- 內容將由 JS 填入 --></div>
+        </div>
+    </div>
+    
+    <div id="high-scores-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>HIGH SCORES</p>
+                <button id="close-scores-btn" class="modal-close-btn">X</button>
+            </div>
+            <div class="modal-body">
+                <ul class="scores-list"></ul>
+            </div>
+        </div>
+    </div>
 
     <script>
-        window.addEventListener('contextmenu', e => e.preventDefault()); // 禁止右鍵
+        window.addEventListener('contextmenu', function(e) { e.preventDefault(); });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // DOM 元素快取
-            const audioOpen = document.getElementById('audio-open'), audioSelect = document.getElementById('audio-select');
-            const gameboyScreen = document.querySelector('.gameboy-screen'), bootScreen = document.querySelector('.boot-screen'), mainMenu = document.querySelector('.main-menu');
-            const screenFooter = document.querySelector('.screen-footer'), quoteElement = document.getElementById('quote-text');
-            const modals = { about: document.getElementById('about-modal'), scores: document.getElementById('high-scores-modal') };
+        document.addEventListener('DOMContentLoaded', function() {
             
-            // 初始化格言與動畫
+            const audioOpen = document.getElementById('audio-open');
+            const audioSelect = document.getElementById('audio-select');
+            const gameboyScreen = document.querySelector('.gameboy-screen');
+            const bootScreen = document.querySelector('.boot-screen');
+            const mainMenu = document.querySelector('.main-menu');
+            const screenFooter = document.querySelector('.screen-footer');
+            
+            const designConceptLink = document.getElementById('design-concept-link');
+            const aboutModal = document.getElementById('about-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            
+            const highScoresLink = document.getElementById('high-scores-link');
+            const highScoresModal = document.getElementById('high-scores-modal');
+            const closeScoresBtn = document.getElementById('close-scores-btn');
+
+            const clearDataLink = document.getElementById('clear-data-link');
+            const paletteSwitchLink = document.getElementById('palette-switch-link');
+
             const quotes = ["Try: UP UP DOWN DOWN LEFT RIGHT LEFT RIGHT B A START", "Every expert was once a beginner.", "Don't stop until you're proud.", "The harder you work, the luckier you get.", "Success is the sum of small efforts.", "It always seems impossible until it's done.", "Mistakes are proof that you are trying.", "Turn 'I wish' into 'I will'.", "Learn something new every day.", "No one can take what you've learned away from you.", "Strive for progress, not perfection.", "Be awesome today."];
+            const quoteElement = document.getElementById('quote-text');
             quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)];
             screenFooter.classList.add('animate');
-            modals.about.querySelector('.modal-body').innerHTML = `<p>WELCOME!</p><p>用懷舊的感覺，讓學習也有趣一點。</p><p>網站還有小彩蛋，可以一起體驗我的童年！</p>`;
 
-            // --- 事件監聽器管理 ---
-            const playSound = (audio) => { audio.currentTime = 0; audio.play(); };
-            const closeModal = () => { playSound(audioSelect); Object.values(modals).forEach(m => m.classList.remove('show')); };
+            const modalBody = aboutModal.querySelector('.modal-body');
+            modalBody.innerHTML = `<p>WELCOME!</p><p>用懷舊的感覺，讓學習也有趣一點。</p><p>網站還有小彩蛋，可以一起體驗我的童年！</p>`;
             
-            document.getElementById('design-concept-link').addEventListener('click', (e) => { e.preventDefault(); playSound(audioOpen); modals.about.classList.add('show'); });
-            document.getElementById('close-modal-btn').addEventListener('click', closeModal);
-            document.getElementById('close-scores-btn').addEventListener('click', closeModal);
-            Object.values(modals).forEach(m => m.addEventListener('click', e => { if(e.target === m) closeModal(); }));
+            designConceptLink.addEventListener('click', (e) => { e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play(); aboutModal.classList.add('show'); });
+            function closeModal() { audioSelect.currentTime = 0; audioSelect.play(); aboutModal.classList.remove('show'); highScoresModal.classList.remove('show'); }
+            closeModalBtn.addEventListener('click', closeModal);
+            aboutModal.addEventListener('click', (e) => { if (e.target === aboutModal) closeModal(); });
             
-            screenFooter.addEventListener('click', () => { playSound(audioSelect); quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)]; });
+            closeScoresBtn.addEventListener('click', closeModal);
+            highScoresModal.addEventListener('click', (e) => { if (e.target === highScoresModal) closeModal(); });
 
-            // 高分榜邏輯
-            document.getElementById('high-scores-link').addEventListener('click', (e) => {
-                e.preventDefault(); playSound(audioOpen);
-                const list = modals.scores.querySelector('.scores-list'); list.innerHTML = '';
-                [{n:'GHOSTBUSTER',k:'ghostbusterHighScore'}, {n:'PAC-MAN RUN',k:'pacmanClassicRunHighScore'}, {n:'SNAKE',k:'snakeHighScore'}, {n:'TETRIS',k:'tetrisHighScore'}]
-                .forEach(g => list.innerHTML += `<li><span>${g.n}</span><span>${String(Math.floor(localStorage.getItem(g.k)||0)).padStart(5,'0')}</span></li>`);
-                modals.scores.classList.add('show');
+            screenFooter.addEventListener('click', function() { audioSelect.currentTime = 0; audioSelect.play(); quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)]; }); 
+            
+            highScoresLink.addEventListener('click', (e) => {
+                e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play();
+                const scoresList = highScoresModal.querySelector('.scores-list');
+                const games = [ { name: 'GHOSTBUSTER', key: 'ghostbusterHighScore' }, { name: 'PAC-MAN RUN', key: 'pacmanClassicRunHighScore' }, { name: 'SNAKE', key: 'snakeHighScore' }, { name: 'TETRIS', key: 'tetrisHighScore' } ];
+                scoresList.innerHTML = ''; 
+                games.forEach(game => {
+                    const score = localStorage.getItem(game.key) || '0';
+                    const scoreItem = document.createElement('li');
+                    scoreItem.innerHTML = `<span>${game.name}</span><span>${String(Math.floor(score)).padStart(5, '0')}</span>`;
+                    scoresList.appendChild(scoreItem);
+                });
+                highScoresModal.classList.add('show');
             });
 
-            // 清除資料
-            document.getElementById('clear-data-link').addEventListener('click', (e) => {
-                e.preventDefault(); playSound(audioOpen);
-                showCustomConfirm('Are you sure you want to clear all high scores?', () => {
-                    ['pacmanClassicRunHighScore', 'ghostbusterHighScore', 'snakeHighScore', 'tetrisHighScore'].forEach(k => localStorage.removeItem(k));
+            clearDataLink.addEventListener('click', (e) => {
+                e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play();
+                showCustomConfirm('Are you sure you want to clear all high scores? This action cannot be undone.', () => {
+                    const games = ['pacmanClassicRunHighScore', 'ghostbusterHighScore', 'snakeHighScore', 'tetrisHighScore'];
+                    games.forEach(key => localStorage.removeItem(key));
                     showCustomAlert('All high scores have been cleared!');
                 });
             });
 
-            // 主題切換
             const palettes = ['', 'palette-pocket', 'palette-sepia'];
-            let paletteIdx = palettes.indexOf(localStorage.getItem('vocatPalette') || '');
-            if (paletteIdx > 0) document.body.className = palettes[paletteIdx];
-            document.getElementById('palette-switch-link').addEventListener('click', (e) => {
-                e.preventDefault(); playSound(audioSelect);
-                paletteIdx = (paletteIdx + 1) % palettes.length;
-                document.body.className = palettes[paletteIdx]; localStorage.setItem('vocatPalette', palettes[paletteIdx]);
+            let currentPaletteIndex = 0;
+            const savedPalette = localStorage.getItem('vocatPalette');
+            if (savedPalette && palettes.includes(savedPalette)) { document.body.className = savedPalette; currentPaletteIndex = palettes.indexOf(savedPalette); }
+
+            paletteSwitchLink.addEventListener('click', (e) => {
+                e.preventDefault(); audioSelect.currentTime = 0; audioSelect.play();
+                currentPaletteIndex = (currentPaletteIndex + 1) % palettes.length;
+                const newPalette = palettes[currentPaletteIndex]; document.body.className = newPalette; localStorage.setItem('vocatPalette', newPalette);
             });
 
-            // 自訂 Alert/Confirm 輔助函式
-            function showCustomAlert(msg) {
-                const m = document.createElement('div'); m.className='modal-overlay show';
-                m.innerHTML=`<div class="modal-content"><div class="modal-header"><p>NOTICE</p></div><div class="modal-body" style="text-align:center;padding:20px 0;"><p>${msg}</p><button id="alert-ok" style="padding:8px 16px;margin-top:20px;font-family:'Press Start 2P';border:2px solid var(--screen-text);background:var(--screen-text);color:var(--screen-bg);cursor:pointer;">OK</button></div></div>`;
-                document.body.appendChild(m); document.getElementById('alert-ok').onclick=()=>{playSound(audioSelect); m.remove();};
+            // =================================================================
+            // --- 新增：震動與選項邏輯 ---
+            // =================================================================
+            const vibrationLink = document.getElementById('vibration-switch-link');
+            // 預設開啟，除非使用者曾經關閉 (local storage 'false')
+            let isVibrationOn = localStorage.getItem('vocatVibration') !== 'false'; 
+
+            function updateVibrationText() {
+                if(vibrationLink) {
+                    vibrationLink.textContent = `VIBRATION: ${isVibrationOn ? 'ON' : 'OFF'}`;
+                }
             }
-            function showCustomConfirm(msg, cb) {
-                const m = document.createElement('div'); m.className='modal-overlay show';
-                m.innerHTML=`<div class="modal-content"><div class="modal-header"><p>CONFIRM</p></div><div class="modal-body" style="text-align:center;padding:20px 0;"><p>${msg}</p><div style="margin-top:20px;"><button id="confirm-yes" style="padding:8px 16px;margin-right:10px;font-family:'Press Start 2P';border:2px solid var(--screen-text);background:var(--screen-text);color:var(--screen-bg);cursor:pointer;">YES</button><button id="confirm-no" style="padding:8px 16px;font-family:'Press Start 2P';border:2px solid var(--screen-text);background:transparent;color:var(--screen-text);cursor:pointer;">NO</button></div></div></div>`;
-                document.body.appendChild(m);
-                document.getElementById('confirm-yes').onclick=()=>{playSound(audioSelect); cb(); m.remove();}; document.getElementById('confirm-no').onclick=()=>{playSound(audioSelect); m.remove();};
+            updateVibrationText();
+
+            if (vibrationLink) {
+                vibrationLink.addEventListener('click', (e) => {
+                    e.preventDefault(); audioSelect.currentTime = 0; audioSelect.play();
+                    isVibrationOn = !isVibrationOn;
+                    localStorage.setItem('vocatVibration', isVibrationOn);
+                    updateVibrationText();
+                    if(isVibrationOn) triggerVibration();
+                });
             }
 
-            // 選單摺疊邏輯
-            document.querySelectorAll('.menu-category > a').forEach(c => c.addEventListener('click', function(e) {
-                e.preventDefault(); playSound(audioOpen);
-                const p = this.parentElement, wasOpen = p.classList.contains('open');
-                document.querySelectorAll('.menu-category.open').forEach(x => x.classList.remove('open'));
-                if (!wasOpen) p.classList.add('open');
-            }));
-            document.querySelectorAll('.sub-menu a').forEach(i => i.addEventListener('click', () => playSound(audioSelect)));
+            function triggerVibration() {
+                // 檢查瀏覽器支援且功能已開啟
+                if (isVibrationOn && navigator.vibrate) {
+                    // 震動 15 毫秒，短促有力
+                    navigator.vibrate(15);
+                }
+            }
 
-            // 遊戲選單切換
-            document.querySelectorAll('.tester-menu a').forEach(l => l.addEventListener('click', e => {
-                e.preventDefault(); playSound(audioSelect);
-                const type = e.target.dataset.game; type === 'back' ? gameManager.hideTesterMenu() : gameManager.startGame(type);
-            }));
+            function showCustomAlert(message) {
+                const alertModal = document.createElement('div'); alertModal.className = 'modal-overlay show';
+                alertModal.innerHTML = `<div class="modal-content"><div class="modal-header"><p>NOTICE</p></div><div class="modal-body" style="text-align: center; padding: 20px 0;"><p>${message}</p><button id="custom-alert-ok" style="padding: 8px 16px; margin-top: 20px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: var(--screen-text); color: var(--screen-bg); cursor: pointer;">OK</button></div></div>`;
+                document.body.appendChild(alertModal);
+                document.getElementById('custom-alert-ok').onclick = () => { audioSelect.play(); document.body.removeChild(alertModal); };
+                document.getElementById('custom-alert-ok').focus();
+            }
 
-            bootScreen.addEventListener('animationend', e => { if(e.animationName==='fadeOutBoot') { bootScreen.style.display='none'; bootScreen.classList.remove('reboot'); mainMenu.classList.add('reboot'); } });
+            function showCustomConfirm(message, onConfirm) {
+                const confirmModal = document.createElement('div'); confirmModal.className = 'modal-overlay show';
+                confirmModal.innerHTML = `<div class="modal-content"><div class="modal-header"><p>CONFIRM</p></div><div class="modal-body" style="text-align: center; padding: 20px 0;"><p>${message}</p><div style="margin-top: 20px;"><button id="custom-confirm-yes" style="padding: 8px 16px; margin-right: 10px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: var(--screen-text); color: var(--screen-bg); cursor: pointer;">YES</button><button id="custom-confirm-no" style="padding: 8px 16px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: transparent; color: var(--screen-text); cursor: pointer;">NO</button></div></div></div>`;
+                document.body.appendChild(confirmModal);
+                const yesBtn = document.getElementById('custom-confirm-yes'); const noBtn = document.getElementById('custom-confirm-no');
+                yesBtn.onclick = () => { audioSelect.play(); onConfirm(); document.body.removeChild(confirmModal); };
+                noBtn.onclick = () => { audioSelect.play(); document.body.removeChild(confirmModal); };
+                yesBtn.focus();
+            }
 
-            // --- 遊戲核心管理 ---
-            const canvas = document.getElementById('game-canvas'), ctx = canvas.getContext('2d'), scoreEl = document.getElementById('game-score');
+            const categories = document.querySelectorAll('.menu-category > a');
+            categories.forEach(category => {
+                category.addEventListener('click', function(event) {
+                    event.preventDefault(); audioOpen.currentTime = 0; audioOpen.play();
+                    const parentLi = this.parentElement; const wasOpen = parentLi.classList.contains('open');
+                    document.querySelectorAll('.menu-category.open').forEach(c => c.classList.remove('open'));
+                    if (!wasOpen) parentLi.classList.add('open');
+                });
+            });
+            const subMenuLinks = document.querySelectorAll('.sub-menu a');
+            subMenuLinks.forEach(item => { item.addEventListener('click', () => { audioSelect.currentTime = 0; audioSelect.play(); }); });
             
-            // 繪製遊戲結束畫面 (共用)
-            function drawOverlay(ctx, cvs, title, opt1, opt2, sel) {
-                const bg = getComputedStyle(document.body).getPropertyValue('--screen-overlay'), txt = getComputedStyle(document.body).getPropertyValue('--screen-text');
-                ctx.fillStyle = bg; ctx.fillRect(0,0,cvs.width,cvs.height); ctx.fillStyle = txt; ctx.textAlign = 'center';
-                ctx.font = `clamp(18px, 6vw, 24px) 'Press Start 2P'`; ctx.fillText(title, cvs.width/2, cvs.height/2-20);
-                ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const y = cvs.height/2+20, bull = '•';
-                ctx.fillText(sel==='YES' ? `${opt1}   ${bull} YES / NO` : `${opt1}     YES / ${bull} NO`, cvs.width/2, y);
+            const testerMenuLinks = document.querySelectorAll('.tester-menu a');
+            testerMenuLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); audioSelect.currentTime = 0; audioSelect.play();
+                    const gameType = e.target.dataset.game;
+                    if (gameType === 'back') gameManager.hideTesterMenu(); else gameManager.startGame(gameType);
+                });
+            });
+
+            bootScreen.addEventListener('animationend', function(e) {
+                if (e.animationName === 'fadeOutBoot') { this.style.display = 'none'; this.classList.remove('reboot'); mainMenu.classList.add('reboot'); userInput = []; testerInput = []; }
+            });
+
+            const canvas = document.getElementById('game-canvas');
+            const context = canvas.getContext('2d');
+            const scoreElement = document.getElementById('game-score');
+            const SELECTOR_CHAR = '•';
+
+            function drawGameOverScreen(ctx, cvs, selectedOption) {
+                const textColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                const overlayColor = getComputedStyle(document.body).getPropertyValue('--screen-overlay');
+                ctx.fillStyle = overlayColor; ctx.fillRect(0, 0, cvs.width, cvs.height);
+                ctx.fillStyle = textColor; ctx.textAlign = 'center';
+                ctx.font = `clamp(18px, 6vw, 24px) 'Press Start 2P'`; ctx.fillText('GAME OVER', cvs.width / 2, cvs.height / 2 - 20);
+                ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const textY = cvs.height / 2 + 20;
+                if (selectedOption === 'YES') ctx.fillText(`RETRY   ${SELECTOR_CHAR} YES / NO`, cvs.width / 2, textY); else ctx.fillText(`RETRY     YES / ${SELECTOR_CHAR} NO`, cvs.width / 2, textY);
+            }
+            
+            function drawQuitMenuScreen(ctx, cvs, selectedOption) {
+                const textColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                const overlayColor = getComputedStyle(document.body).getPropertyValue('--screen-overlay');
+                ctx.fillStyle = overlayColor; ctx.fillRect(0, 0, cvs.width, cvs.height);
+                ctx.fillStyle = textColor; ctx.textAlign = 'center';
+                ctx.font = `clamp(14px, 5vw, 18px) 'Press Start 2P'`; ctx.fillText('QUIT?', cvs.width / 2, cvs.height / 2 - 20);
+                ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const textY = cvs.height / 2 + 20;
+                if (selectedOption === 'YES') ctx.fillText(`${SELECTOR_CHAR} YES / NO`, cvs.width / 2, textY); else ctx.fillText(`  YES / ${SELECTOR_CHAR} NO`, cvs.width / 2, textY);
+            }
+
+            function drawWinScreen(ctx, cvs, selectedOption) {
+                const textColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                const overlayColor = getComputedStyle(document.body).getPropertyValue('--screen-overlay');
+                ctx.fillStyle = overlayColor; ctx.fillRect(0, 0, cvs.width, cvs.height);
+                ctx.fillStyle = textColor; ctx.textAlign = 'center';
+                ctx.font = `clamp(18px, 6vw, 24px) 'Press Start 2P'`; ctx.fillText('STAGE CLEAR!', cvs.width / 2, cvs.height / 2 - 20);
+                ctx.font = `clamp(9px, 2.5vw, 10px) 'Press Start 2P'`; const textY = cvs.height / 2 + 20;
+                if (selectedOption === 'YES') ctx.fillText(`${SELECTOR_CHAR} NEXT / QUIT`, cvs.width / 2, textY); else ctx.fillText(`  NEXT / ${SELECTOR_CHAR} QUIT`, cvs.width / 2, textY);
             }
 
             const gameManager = {
-                active: null, isActive: false, frameId: null,
-                showTesterMenu: () => { gameboyScreen.classList.add('tester-active'); document.querySelector('.tester-menu .menu-list a')?.classList.add('selected'); },
-                hideTesterMenu: () => { gameboyScreen.classList.remove('tester-active'); document.querySelector('.tester-menu .menu-list a.selected')?.classList.remove('selected'); bootScreen.style.display='flex'; bootScreen.classList.add('reboot'); mainMenu.classList.remove('reboot'); },
-                startGame: (type) => {
-                    if (gameManager.isActive) return; gameManager.isActive = true;
+                activeGame: null, isGameActive: false, animationFrameId: null,
+                showTesterMenu: function() { gameboyScreen.classList.add('tester-active'); const firstItem = document.querySelector('.tester-menu .menu-list a'); if (firstItem) firstItem.classList.add('selected'); },
+                hideTesterMenu: function() { gameboyScreen.classList.remove('tester-active'); const selectedItem = document.querySelector('.tester-menu .menu-list a.selected'); if (selectedItem) selectedItem.classList.remove('selected'); bootScreen.style.display = 'flex'; bootScreen.classList.add('reboot'); mainMenu.classList.remove('reboot'); },
+                startGame: function(gameType) {
+                    if (this.isGameActive || !gameType) return; this.isGameActive = true;
                     gameboyScreen.classList.remove('tester-active'); gameboyScreen.classList.add('game-active');
-                    gameManager.active = {tetris:tetrisGame, pacman:pacmanGame, snake:snakeGame, ghostbuster:ghostbusterGame}[type];
-                    gameManager.active.start();
+                    const selectedItem = document.querySelector('.tester-menu .menu-list a.selected'); if (selectedItem) selectedItem.classList.remove('selected');
+                    if (gameType === 'tetris') this.activeGame = tetrisGame;
+                    else if (gameType === 'pacman') this.activeGame = pacmanGame;
+                    else if (gameType === 'snake') this.activeGame = snakeGame;
+                    else if (gameType === 'ghostbuster') this.activeGame = ghostbusterGame;
+                    this.activeGame.start();
                 },
-                endGame: () => {
-                    if (!gameManager.isActive) return; gameManager.isActive = false;
-                    if(gameManager.active) gameManager.active.end(); gameManager.active = null;
+                endGame: function() {
+                    if (!this.isGameActive) return; this.isGameActive = false;
+                    if (this.activeGame) { this.activeGame.end(); } this.activeGame = null;
                     gameboyScreen.classList.remove('game-active'); bootScreen.classList.add('reboot'); mainMenu.classList.remove('reboot');
                 },
-                handleInput: (key) => {
-                    // 遊戲中輸入
-                    if (gameManager.isActive && gameManager.active) return gameManager.active.handleInput(key);
-                    // 選單中輸入
-                    if (gameboyScreen.classList.contains('tester-active')) {
-                        const items = document.querySelectorAll('.tester-menu .menu-list a'); let idx = Array.from(items).findIndex(i => i.classList.contains('selected'));
-                        if (key==='Up'||key==='Down') {
-                            playSound(audioOpen); if(idx!==-1) items[idx].classList.remove('selected');
-                            idx = key==='Up' ? (idx-1+items.length)%items.length : (idx+1)%items.length;
-                            items[idx].classList.add('selected'); items[idx].scrollIntoView({block:'nearest'});
-                        } else if (key==='A') { items[idx]?.click(); } else playSound(audioSelect);
-                    }
+                handleInput: function(key) { if (this.isGameActive && this.activeGame) this.activeGame.handleInput(key); },
+                handleGameMenuInput: function(key) {
+                    const menuItems = document.querySelectorAll('.tester-menu .menu-list a'); if (menuItems.length === 0) return;
+                    let currentIndex = Array.from(menuItems).findIndex(link => link.classList.contains('selected'));
+                    if (key === 'Up' || key === 'Down') {
+                        audioOpen.currentTime = 0; audioOpen.play(); if (currentIndex !== -1) menuItems[currentIndex].classList.remove('selected');
+                        if (currentIndex === -1) currentIndex = (key === 'Up') ? menuItems.length - 1 : 0; else if (key === 'Up') currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length; else currentIndex = (currentIndex + 1) % menuItems.length;
+                        const newSelectedItem = menuItems[currentIndex]; newSelectedItem.classList.add('selected'); newSelectedItem.scrollIntoView({ block: 'nearest' });
+                    } else if (key === 'A') {
+                        const selectedItem = document.querySelector('.tester-menu a.selected'); if (selectedItem) selectedItem.click(); else { audioSelect.currentTime = 0; audioSelect.play(); }
+                    } else { audioSelect.currentTime = 0; audioSelect.play(); }
                 }
-            };
-
-            // --- 遊戲邏輯：PAC-MAN ---
-            const pacmanGame = {
-                p:{}, obs:[], s:0, hs:0, over:false, pause:false, opt:'YES',
-                start:function() {
-                    cancelAnimationFrame(gameManager.frameId); this.over=this.pause=false; this.opt='YES'; this.hs=parseInt(localStorage.getItem('pacmanClassicRunHighScore'))||0;
-                    canvas.height=canvas.clientHeight; canvas.width=canvas.clientWidth; this.p={x:50, y:canvas.height-40, dy:0, g:0.9, j:-18, on:true};
-                    this.obs=[]; this.s=0; this.timer=0; this.updS(); this.loop();
-                },
-                end:function(){cancelAnimationFrame(gameManager.frameId);},
-                handleInput:function(k) {
-                    if(this.over||this.pause) { if(k==='Left'||k==='Right') this.opt=this.opt==='YES'?'NO':'YES'; else if(k==='A') this.opt==='YES'?(this.over?this.start():gameManager.endGame()):(this.over?gameManager.endGame():this.pause=false); }
-                    else { if(k==='Start'){this.pause=true;this.opt='YES';return;} if((k==='A'||k==='Up')&&this.p.on){this.p.dy=this.p.j;this.p.on=false;} }
-                },
-                updS:function(){scoreEl.textContent=`HI ${String(Math.floor(this.hs)).padStart(5,'0')}\n${String(Math.floor(this.s)).padStart(5,'0')}`;},
-                loop:function() {
-                    if(!this.over&&!this.pause) {
-                        this.p.dy+=this.p.g; this.p.y+=this.p.dy; if(this.p.y+40>=canvas.height){this.p.y=canvas.height-40;this.p.dy=0;this.p.on=true;}
-                        if(this.timer--<=0) {
-                            if(Math.random()<0.15) this.obs.push({x:canvas.width, y:canvas.height-40-Math.random()*45, w:15, h:15, t:'pellet'});
-                            else this.obs.push({x:canvas.width, w:30, h:[35,50,65][Math.floor(Math.random()*3)], t:'wall'});
-                            this.timer=60+Math.random()*40;
-                        }
-                        for(let i=this.obs.length-1;i>=0;i--) {
-                            let o=this.obs[i]; o.x-=4.5+(this.s/200); let oh={x:o.x,y:o.t==='wall'?canvas.height-o.h:o.y,w:o.w,h:o.h};
-                            if(this.p.x<oh.x+oh.w && this.p.x+40>oh.x && this.p.y<oh.y+oh.h && this.p.y+40>oh.y) {
-                                if(o.t==='wall'){ if(this.s>this.hs)localStorage.setItem('pacmanClassicRunHighScore',Math.floor(this.hs=this.s)); this.over=true;}
-                                else {this.s+=100;this.updS();this.obs.splice(i,1);}
-                            }
-                            if(o.x+o.w<0)this.obs.splice(i,1);
-                        }
-                        this.s+=0.2; this.updS();
-                    }
-                    this.draw(); gameManager.frameId=requestAnimationFrame(this.loop.bind(this));
-                },
-                draw:function() {
-                    const bg=getComputedStyle(document.body).getPropertyValue('--screen-bg'), fg=getComputedStyle(document.body).getPropertyValue('--screen-text');
-                    ctx.fillStyle=bg; ctx.fillRect(0,0,canvas.width,canvas.height);
-                    // 簡化繪圖邏輯
-                    ctx.fillStyle=fg; if(!this.over) ctx.fillRect(this.p.x,this.p.y,40,40); 
-                    this.obs.forEach(o=>{ctx.fillRect(o.x, o.t==='wall'?canvas.height-o.h:o.y, o.w, o.h);});
-                    if(this.over) drawOverlay(ctx,canvas,'GAME OVER','RETRY',null,this.opt); if(this.pause) drawOverlay(ctx,canvas,'QUIT?','QUIT',null,this.opt);
-                }
-            };
-
-            // --- GHOSTBUSTER 遊戲 ---
-            const ghostbusterGame = {
-                st:{}, p:{}, pb:[], eb:[], ef:[], pu:[], en:[], pause:false, opt:'YES',
-                start:function() {
-                    cancelAnimationFrame(gameManager.frameId); canvas.height=canvas.clientHeight; canvas.width=canvas.clientWidth;
-                    this.pause=false; this.st={s:0, hs:parseInt(localStorage.getItem('ghostbusterHighScore'))||0, lv:1, mode:'play', opt:'YES'};
-                    this.p={x:canvas.width/2-12, y:canvas.height-30, w:24, h:12, spd:4, ok:true, cd:0, pu:'none', pt:0};
-                    this.pb=[]; this.eb=[]; this.ef=[]; this.pu=[]; this.initEn(); this.updS(); this.loop();
-                },
-                end:function(){cancelAnimationFrame(gameManager.frameId);},
-                initEn:function() {
-                    this.en=[]; this.ec={r:2, c:6, w:24, h:16, pad:10, ox:(canvas.width-(6*34))/2, sx:0.6, dir:1, mi:Math.max(10,40-this.st.lv*2), mt:40, si:Math.max(20,70-this.st.lv*3), st:60};
-                    for(let c=0;c<this.ec.c;c++)for(let r=0;r<this.ec.r;r++) this.en.push({x:c*34+this.ec.ox, y:r*21+30, w:24, h:16, ok:true});
-                },
-                handleInput:function(k) {
-                    if(this.st.mode!=='play'||this.pause){ if(k==='Left'||k==='Right') this.st.opt=this.st.opt==='YES'?'NO':'YES'; else if(k==='A') this.st.opt==='YES'?(this.st.mode==='play'?this.pause=false:(this.st.mode==='over'?this.start():(this.st.lv++,this.pb=[],this.eb=[],this.ef=[],this.pu=[],this.initEn(),this.st.mode='play'))):gameManager.endGame(); }
-                    else {
-                        if(k==='Start'){this.pause=true;this.st.opt='YES';return;} if(k==='Left')this.p.x-=this.p.spd; else if(k==='Right')this.p.x+=this.p.spd;
-                        else if(k==='A'&&this.p.cd===0) { this.p.cd=this.p.pu==='rapid'?5:15; this.pb.push({x:this.p.x+10,y:this.p.y,w:4,h:8,dx:0,dy:-5}); if(this.p.pu==='spread'){this.pb.push({x:this.p.x+10,y:this.p.y,w:4,h:8,dx:-1.5,dy:-5},{x:this.p.x+10,y:this.p.y,w:4,h:8,dx:1.5,dy:-5});} }
-                    }
-                },
-                loop:function() {
-                    if(this.st.mode==='play'&&!this.pause) {
-                        if(this.p.x<5)this.p.x=5; if(this.p.x>canvas.width-29)this.p.x=canvas.width-29; if(this.p.cd>0)this.p.cd--; if(this.p.pt>0&&--this.p.pt===0)this.p.pu='none';
-                        this.pb.forEach(b=>{b.x+=b.dx;b.y+=b.dy;}); this.eb.forEach(b=>b.y+=3);
-                        if(--this.ec.mt<=0){ this.ec.mt=this.ec.mi; let hit=false; for(let e of this.en)if(e.ok&&((e.x>canvas.width-34&&this.ec.dir>0)||(e.x<10&&this.ec.dir<0)))hit=true; if(hit){this.ec.dir*=-1;this.en.forEach(e=>e.y+=8);} this.en.forEach(e=>e.x+=this.ec.sx*this.ec.dir); }
-                        if(--this.ec.st<=0){ this.ec.st=this.ec.si; const a=this.en.filter(e=>e.ok); if(a.length) {const s=a[Math.floor(Math.random()*a.length)];this.eb.push({x:s.x+10,y:s.y+16,w:4,h:8});} }
-                        // 碰撞與狀態更新省略細節以精簡...
-                        if(this.en.every(e=>!e.ok)) this.st.mode='win';
-                    }
-                    this.draw(); gameManager.frameId=requestAnimationFrame(this.loop.bind(this));
-                },
-                updS:function(){scoreEl.textContent=`HI ${String(this.st.hs).padStart(5,'0')}\n${String(this.st.s).padStart(5,'0')}\nLV ${this.st.lv}`;},
-                draw:function() {
-                    const bg=getComputedStyle(document.body).getPropertyValue('--screen-bg'), fg=getComputedStyle(document.body).getPropertyValue('--screen-text');
-                    ctx.fillStyle=bg; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.fillStyle=fg;
-                    if(this.p.ok)ctx.fillRect(this.p.x,this.p.y+4,24,8); this.pb.forEach(b=>ctx.fillRect(b.x,b.y,b.w,b.h)); this.en.forEach(e=>{if(e.ok)ctx.fillRect(e.x,e.y,e.w,e.h)});
-                    if(this.st.mode!=='play') drawOverlay(ctx,canvas,this.st.mode==='over'?'GAME OVER':'STAGE CLEAR!',this.st.mode==='over'?'RETRY':'NEXT',null,this.st.opt);
-                    if(this.pause) drawOverlay(ctx,canvas,'QUIT?','QUIT',null,this.st.opt==='YES'?'NO':'YES');
-                }
-            };
-
-            // --- TETRIS 遊戲 ---
-            const tetrisGame = {
-                ar:[], p:{pos:{x:0,y:0},mat:null,s:0}, hs:0, go:false, pa:false, opt:'NO', ro:'YES',
-                start:function() {
-                    cancelAnimationFrame(gameManager.frameId); this.go=this.pa=false; this.hs=parseInt(localStorage.getItem('tetrisHighScore'))||0;
-                    canvas.height=canvas.clientHeight; canvas.width=canvas.clientWidth; this.bs=canvas.height/20; this.ox=(canvas.width/this.bs-10)/2;
-                    this.ar=Array(20).fill().map(()=>Array(10).fill(0)); this.p.s=0; this.pReset(); this.lt=0; this.dc=0; this.di=1000; this.updS(); this.loop();
-                },
-                end:function(){cancelAnimationFrame(gameManager.frameId);},
-                handleInput:function(k) {
-                    if(this.go){if(k==='Left'||k==='Right')this.ro=this.ro==='YES'?'NO':'YES';else if(k==='A')this.ro==='YES'?this.start():gameManager.endGame();}
-                    else if(this.pa){if(k==='Left'||k==='Right')this.opt=this.opt==='YES'?'NO':'YES';else if(k==='A')this.opt==='YES'?gameManager.endGame():this.pa=false;else if(k==='Start')this.pa=false;}
-                    else{if(k==='Start'){this.pa=true;this.opt='NO';return;}if(k==='Left')this.mv(-1);else if(k==='Right')this.mv(1);else if(k==='Down')this.dr();else if(k==='A'||k==='Up')this.rt(1);else if(k==='B')this.rt(-1);}
-                },
-                updS:function(){scoreEl.textContent=`HI ${String(this.hs).padStart(5,'0')}\n${String(this.p.s).padStart(5,'0')}`;},
-                loop:function(t=0) {
-                    if(!this.go&&!this.pa){const dt=t-this.lt;this.lt=t;this.dc+=dt;if(this.dc>this.di)this.dr();}
-                    this.draw(); gameManager.frameId=requestAnimationFrame(this.loop.bind(this));
-                },
-                draw:function() {
-                    const bg=getComputedStyle(document.body).getPropertyValue('--screen-bg'), fg=getComputedStyle(document.body).getPropertyValue('--screen-text');
-                    ctx.setTransform(1,0,0,1,0,0); ctx.fillStyle=bg; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.fillStyle=fg;
-                    ctx.fillRect(this.ox*this.bs-1,0,1,canvas.height); ctx.fillRect((this.ox+10)*this.bs,0,1,canvas.height);
-                    ctx.scale(this.bs,this.bs); this.drawM(this.ar,{x:0,y:0}); this.drawM(this.p.mat,this.p.pos);
-                    ctx.setTransform(1,0,0,1,0,0); if(this.go)drawOverlay(ctx,canvas,'GAME OVER','RETRY',null,this.ro); if(this.pa)drawOverlay(ctx,canvas,'QUIT?','YES',null,this.opt);
-                },
-                pReset:function(){
-                    const pc='ILJOTSZ'; this.p.mat=this.cPc(pc[pc.length*Math.random()|0]); this.p.pos={x:(10/2|0)-(this.p.mat[0].length/2|0),y:0};
-                    if(this.col(this.ar,this.p)){this.go=true;if(this.p.s>this.hs)localStorage.setItem('tetrisHighScore',this.hs=this.p.s);}
-                },
-                drawM:function(m,o){ m.forEach((r,y)=>{r.forEach((v,x)=>{if(v)ctx.fillRect(this.ox+x+o.x,y+o.y,1,1);});}); },
-                cPc:function(t){
-                    if(t==='I')return[[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,1,0,0]]; if(t==='L')return[[0,1,0],[0,1,0],[0,1,1]];
-                    if(t==='J')return[[0,1,0],[0,1,0],[1,1,0]]; if(t==='O')return[[1,1],[1,1]]; if(t==='Z')return[[1,1,0],[0,1,1],[0,0,0]];
-                    if(t==='S')return[[0,1,1],[1,1,0],[0,0,0]]; return[[0,1,0],[1,1,1],[0,0,0]]; // T
-                },
-                col:function(a,p){ const[m,o]=[p.mat,p.pos]; for(let y=0;y<m.length;++y)for(let x=0;x<m[y].length;++x)if(m[y][x]&&(a[y+o.y]&&a[y+o.y][x+o.x])!==0)return true; return false; },
-                mg:function(a,p){ p.mat.forEach((r,y)=>r.forEach((v,x)=>{if(v)a[y+p.pos.y][x+p.pos.x]=v;})); },
-                dr:function(){ this.p.pos.y++; if(this.col(this.ar,this.p)){this.p.pos.y--;this.mg(this.ar,this.p);this.pReset();this.sw();} this.dc=0; },
-                mv:function(d){ this.p.pos.x+=d; if(this.col(this.ar,this.p))this.p.pos.x-=d; },
-                rt:function(d){ const p=this.p.pos.x; let o=1; this._rt(this.p.mat,d); while(this.col(this.ar,this.p)){this.p.pos.x+=o;o=-(o+(o>0?1:-1));if(o>this.p.mat[0].length){this._rt(this.p.mat,-d);this.p.pos.x=p;return;}} },
-                _rt:function(m,d){ for(let y=0;y<m.length;++y)for(let x=0;x<y;++x)[m[x][y],m[y][x]]=[m[y][x],m[x][y]]; if(d>0)m.forEach(r=>r.reverse()); else m.reverse(); },
-                sw:function(){ let c=0; outer:for(let y=this.ar.length-1;y>0;--y){for(let x=0;x<this.ar[y].length;++x)if(this.ar[y][x]===0)continue outer;const r=this.ar.splice(y,1)[0].fill(0);this.ar.unshift(r);++y;c++;} if(c){this.p.s+=c*10;this.updS();} }
             };
             
-            // --- SNAKE 遊戲 ---
-            const snakeGame = {
-                sn:[], fd:{}, s:0, hs:0, go:false, pa:false, ro:'YES', po:'NO', d:'Right', nd:'Right', gs:0, tx:20, ty:0,
-                start:function() {
-                    clearTimeout(gameManager.frameId); this.go=this.pa=false; this.ro='YES'; this.po='NO'; this.hs=parseInt(localStorage.getItem('snakeHighScore'))||0;
-                    canvas.height=canvas.clientHeight; canvas.width=canvas.clientWidth; this.gs=Math.floor(canvas.width/this.tx); this.ty=Math.floor(canvas.height/this.gs);
-                    this.sn=[{x:10,y:10},{x:9,y:10},{x:8,y:10}]; this.d='Right'; this.nd='Right'; this.s=0; this.spF(); this.updS(); this.loop();
+            // --- PAC-MAN CLASSIC RUN 遊戲 ---
+            const pacmanGame = {
+                player: {}, obstacles: [], score: 0, highScore: 0, gameOver: false, spawnTimer: 0, retryOption: 'YES', isPaused: false, pauseOption: 'YES', pixelScale: 5,
+                start: function() {
+                    cancelAnimationFrame(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'YES';
+                    this.highScore = parseInt(localStorage.getItem('pacmanClassicRunHighScore')) || 0;
+                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth;
+                    context.setTransform(1, 0, 0, 1, 0, 0); 
+                    const playerSpriteHeight = this.pixelScale * 8;
+                    this.player = { x: 50, y: canvas.height - playerSpriteHeight, dy: 0, gravity: 0.9, jumpPower: -18, onGround: true };
+                    this.obstacles = []; this.score = 0; this.spawnTimer = 0;
+                    this.updateScore(); this.update();
                 },
-                end:function(){clearTimeout(gameManager.frameId);},
-                handleInput:function(k) {
-                    if(this.go){if(k==='Left'||k==='Right')this.ro=this.ro==='YES'?'NO':'YES',this.draw();else if(k==='A')this.ro==='YES'?this.start():gameManager.endGame();}
-                    else if(this.pa){if(k==='Left'||k==='Right')this.po=this.po==='YES'?'NO':'YES',this.draw();else if(k==='A')this.po==='YES'?gameManager.endGame():(this.pa=false,this.loop());else if(k==='Start'){this.pa=false;this.loop();}}
-                    else{if(k==='Start'){this.pa=true;this.po='NO';this.draw();return;}if(k==='Up'&&this.d!=='Down')this.nd='Up';else if(k==='Down'&&this.d!=='Up')this.nd='Down';else if(k==='Left'&&this.d!=='Right')this.nd='Left';else if(k==='Right'&&this.d!=='Left')this.nd='Right';}
+                end: function() { cancelAnimationFrame(gameManager.animationFrameId); },
+                handleInput: function(key) {
+                    if (this.gameOver) { 
+                        if (key === 'Left' || key === 'Right') { this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; } 
+                        else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } 
+                    } else if (this.isPaused) { 
+                        if (key === 'Left' || key === 'Right') { this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; } 
+                        else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } 
+                        else if (key === 'Start') { this.isPaused = false; } 
+                    } else { 
+                        if (key === 'Start') { this.isPaused = true; this.pauseOption = 'YES'; return; } 
+                        if ((key === 'A' || key === 'Up') && this.player.onGround) { this.player.dy = this.player.jumpPower; this.player.onGround = false; } 
+                    }
                 },
-                updS:function(){scoreEl.textContent=`HI ${String(this.hs).padStart(5,'0')}\n${String(this.s).padStart(5,'0')}`;},
-                loop:function() {
-                    if(this.go||this.pa)return; this.d=this.nd; let h={x:this.sn[0].x,y:this.sn[0].y};
-                    if(this.d==='Up')h.y--;else if(this.d==='Down')h.y++;else if(this.d==='Left')h.x--;else if(this.d==='Right')h.x++;
-                    if(h.x<0||h.x>=this.tx||h.y<0||h.y>=this.ty||this.sn.some((s,i)=>i!==0&&s.x===h.x&&s.y===h.y)) return this.setGo();
-                    this.sn.unshift(h); if(h.x===this.fd.x&&h.y===this.fd.y){this.s+=10;this.updS();this.spF();}else this.sn.pop();
-                    this.draw(); gameManager.frameId=setTimeout(this.loop.bind(this),Math.max(90,300-(this.s*2)));
+                updateScore: function() { const hi = String(Math.floor(this.highScore)).padStart(5, '0'); const current = String(Math.floor(this.score)).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}`; },
+                update: function() {
+                    if (!this.gameOver && !this.isPaused) {
+                        this.player.dy += this.player.gravity; this.player.y += this.player.dy; this.player.onGround = false;
+                        const s = this.pixelScale; const playerCurrentHeight = s * 8;
+                        if (this.player.y + playerCurrentHeight >= canvas.height) { this.player.y = canvas.height - playerCurrentHeight; this.player.dy = 0; this.player.onGround = true; }
+                        this.spawnTimer--;
+                        if (this.spawnTimer <= 0) {
+                            if (Math.random() < 0.15) { const size = s * 3; const pelletY = canvas.height - (s * 8) - Math.random() * (s * 9); this.obstacles.push({ x: canvas.width, y: pelletY, width: size, height: size, type: 'pellet' }); } 
+                            else { const heights = [s * 7, s * 10, s * 13]; const randomIndex = Math.floor(Math.random() * 3); const height = heights[randomIndex]; const width = s * 6; this.obstacles.push({ x: canvas.width, width: width, height: height, type: 'wall' }); }
+                            this.spawnTimer = 60 + Math.random() * 40; 
+                        }
+                        const playerHitbox = { x: this.player.x, y: this.player.y, width: s * 8, height: playerCurrentHeight };
+                        for (let i = this.obstacles.length - 1; i >= 0; i--) {
+                            let obs = this.obstacles[i]; obs.x -= 4.5 + (this.score / 200);
+                            let obsHitbox;
+                            if (obs.type === 'wall') obsHitbox = { x: obs.x, y: canvas.height - obs.height, width: obs.width, height: obs.height }; else obsHitbox = { x: obs.x, y: obs.y, width: obs.width, height: obs.height };
+                            if (playerHitbox.x < obsHitbox.x + obsHitbox.width && playerHitbox.x + playerHitbox.width > obsHitbox.x && playerHitbox.y < obsHitbox.y + obsHitbox.height && playerHitbox.y + playerHitbox.height > obsHitbox.y) {
+                                if (obs.type === 'wall') { if (!this.gameOver) { if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('pacmanClassicRunHighScore', Math.floor(this.highScore)); } this.gameOver = true; } } 
+                                else if (obs.type === 'pellet') { this.score += 100; this.updateScore(); this.obstacles.splice(i, 1); }
+                            }
+                            if (obs.x + obs.width < 0) this.obstacles.splice(i, 1);
+                        }
+                        this.score += 0.2; this.updateScore();
+                    }
+                    this.draw(); 
+                    gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
                 },
-                draw:function() {
-                    const bg=getComputedStyle(document.body).getPropertyValue('--screen-bg'), fg=getComputedStyle(document.body).getPropertyValue('--screen-text');
-                    ctx.fillStyle=bg; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.fillStyle=fg;
-                    this.sn.forEach(s=>ctx.fillRect(s.x*this.gs,s.y*this.gs,this.gs-1,this.gs-1));
-                    ctx.beginPath(); ctx.arc(this.fd.x*this.gs+this.gs/2,this.fd.y*this.gs+this.gs/2,this.gs/2,0,Math.PI*2); ctx.fill();
-                    if(this.go)drawOverlay(ctx,canvas,'GAME OVER','RETRY',null,this.ro); if(this.pa)drawOverlay(ctx,canvas,'QUIT?','YES',null,this.po);
+                draw: function() {
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height);
+                    this.drawPacman(context, fgColor);
+                    this.obstacles.forEach(obs => { if (obs.type === 'wall') this.drawEnergyWall(context, fgColor, obs); else if (obs.type === 'pellet') this.drawPowerPellet(context, fgColor, obs); });
+                    context.setTransform(1, 0, 0, 1, 0, 0); 
+                    if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); 
+                    if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
                 },
-                spF:function(){this.fd={x:Math.floor(Math.random()*this.tx),y:Math.floor(Math.random()*this.ty)};if(this.sn.some(s=>s.x===this.fd.x&&s.y===this.fd.y))this.spF();},
-                setGo:function(){this.go=true;if(this.s>this.hs)localStorage.setItem('snakeHighScore',this.hs=this.s);this.updS();}
+                drawEnergyWall: function(ctx, color, obs) {
+                    const ox = obs.x; const oy = canvas.height - obs.height; const borderWidth = 2;
+                    ctx.fillStyle = color; ctx.fillRect(ox, oy, obs.width, obs.height);
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); ctx.fillStyle = bgColor;
+                    if (obs.width > borderWidth * 2 && obs.height > borderWidth * 2) ctx.fillRect(ox + borderWidth, oy + borderWidth, obs.width - borderWidth * 2, obs.height - borderWidth * 2);
+                },
+                drawPowerPellet: function(ctx, color, obs) { if (Math.floor(Date.now() / 200) % 2 === 0) return; ctx.fillStyle = color; ctx.fillRect(obs.x, obs.y, obs.width, obs.height); },
+                drawPacman: function(ctx, color) {
+                    const px = this.player.x; const py = this.player.y; const s = this.pixelScale; ctx.fillStyle = color; const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg');
+                    if (this.gameOver) return;
+                    ctx.fillRect(px + s * 2, py, s * 4, s); ctx.fillRect(px + s, py + s, s * 6, s * 2); ctx.fillRect(px, py + s * 3, s * 8, s * 2); ctx.fillRect(px + s, py + s * 5, s * 6, s * 2); ctx.fillRect(px + s * 2, py + s * 7, s * 4, s);
+                    ctx.fillStyle = bgColor; ctx.fillRect(px + s * 5, py + s * 2, s, s); ctx.fillStyle = color;
+                    let mouthOpen = false; if (this.player.onGround) mouthOpen = Math.floor(this.score / 4) % 2 === 0; else mouthOpen = true;
+                    if (mouthOpen) { ctx.fillStyle = bgColor; ctx.beginPath(); ctx.moveTo(px + s * 4, py + s * 4); ctx.lineTo(px + s * 9, py + s * 1); ctx.lineTo(px + s * 9, py + s * 7); ctx.closePath(); ctx.fill(); }
+                },
             };
 
-            // 處理實體按鍵與 Konami Code
-            const kCode=['Up','Up','Down','Down','Left','Right','Left','Right','B','A','Start'], tCode=['A','B','B','A','Start'];
-            let uIn=[], tIn=[];
+            // --- GHOSTBUSTER 遊戲 (升級版) ---
+            const ghostbusterGame = {
+                gameState: {}, player: {}, playerBullets: [], enemyBullets: [], effects: [], powerUps: [],
+                enemies: [], enemyConfig: {}, isPaused: false, pauseOption: 'YES',
+                start: function() {
+                    cancelAnimationFrame(gameManager.animationFrameId);
+                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth;
+                    this.isPaused = false; this.pauseOption = 'YES';
+                    this.gameState = { score: 0, highScore: parseInt(localStorage.getItem('ghostbusterHighScore')) || 0, level: 1, status: 'playing', retryOption: 'YES' };
+                    this.player = { x: canvas.width / 2 - 12, y: canvas.height - 30, width: 24, height: 12, speed: 4, alive: true, shootCooldown: 0, powerUp: 'none', powerUpTimer: 0 };
+                    this.playerBullets = []; this.enemyBullets = []; this.effects = []; this.powerUps = [];
+                    this.enemyConfig = { rows: 2, cols: 6, width: 24, height: 16, padding: 10, offsetTop: 30, offsetLeft: (canvas.width - (6 * (24 + 10)))/2, speedX: 0.6, direction: 1, moveInterval: 40, moveTimer: 40, shootInterval: 90, shootTimer: 60 };
+                    this.updateDifficulty(); this.createEnemies(); this.updateScore();
+                    this.update();
+                },
+                end: function() { cancelAnimationFrame(gameManager.animationFrameId); },
+                updateDifficulty: function() {
+                    this.enemyConfig.moveInterval = Math.max(10, 40 - this.gameState.level * 2);
+                    this.enemyConfig.shootInterval = Math.max(20, 70 - this.gameState.level * 3);
+                },
+                nextLevel: function() {
+                    this.gameState.level++; this.playerBullets = []; this.enemyBullets = []; this.effects = []; this.powerUps = [];
+                    this.updateDifficulty(); this.createEnemies(); this.gameState.status = 'playing';
+                },
+                handleInput: function(key) {
+                    if (this.gameState.status === 'gameOver' || this.gameState.status === 'levelComplete') {
+                        if (key === 'Left' || key === 'Right') { this.gameState.retryOption = this.gameState.retryOption === 'YES' ? 'NO' : 'YES'; }
+                        else if (key === 'A') { if (this.gameState.retryOption === 'YES') { if (this.gameState.status === 'gameOver') this.start(); else this.nextLevel(); } else { gameManager.endGame(); } }
+                    } else if (this.isPaused) {
+                        if (key === 'Left' || key === 'Right') { this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; }
+                        else if (key === 'A') { if (this.pauseOption === 'YES') this.isPaused = false; else gameManager.endGame(); } 
+                        else if (key === 'Start') { this.isPaused = false; }
+                    } else if (this.gameState.status === 'playing') {
+                        if (key === 'Start') { this.isPaused = true; this.pauseOption = 'YES'; return; }
+                        if (key === 'Left') this.player.x -= this.player.speed;
+                        else if (key === 'Right') this.player.x += this.player.speed;
+                        else if (key === 'A' && this.player.shootCooldown === 0) {
+                            const cooldown = this.player.powerUp === 'rapid' ? 5 : 15;
+                            this.player.shootCooldown = cooldown;
+                            if (this.player.powerUp === 'spread') {
+                                this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, dx: -1.5, dy: -5 });
+                                this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, dx: 0, dy: -5 });
+                                this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, dx: 1.5, dy: -5 });
+                            } else {
+                                this.playerBullets.push({ x: this.player.x + this.player.width / 2 - 2, y: this.player.y, width: 4, height: 8, dx: 0, dy: -5 });
+                            }
+                        }
+                    }
+                },
+                update: function() {
+                    if (this.gameState.status === 'playing' && !this.isPaused) {
+                        if (this.player.x < 5) this.player.x = 5;
+                        if (this.player.x + this.player.width > canvas.width - 5) this.player.x = canvas.width - this.player.width - 5;
+                        if (this.player.shootCooldown > 0) this.player.shootCooldown--;
+                        if (this.player.powerUpTimer > 0) { this.player.powerUpTimer--; if (this.player.powerUpTimer === 0) this.player.powerUp = 'none'; }
+                        this.playerBullets.forEach(b => { b.x += b.dx; b.y += b.dy; });
+                        this.enemyBullets.forEach(b => b.y += b.speed);
+                        this.updateEffects();
+                        this.updatePowerUps();
+                        this.enemyConfig.moveTimer--;
+                        if (this.enemyConfig.moveTimer <= 0) {
+                            this.enemyConfig.moveTimer = this.enemyConfig.moveInterval;
+                            let wallHit = false;
+                            for (const e of this.enemies) if (e.alive && ((e.x + e.width >= canvas.width - 10 && this.enemyConfig.direction > 0) || (e.x <= 10 && this.enemyConfig.direction < 0))) { wallHit = true; break; }
+                            if (wallHit) { this.enemyConfig.direction *= -1; this.enemies.forEach(e => e.y += e.height / 2); }
+                            this.enemies.forEach(e => e.x += this.enemyConfig.speedX * this.enemyConfig.direction);
+                        }
+                        this.enemyConfig.shootTimer--;
+                        if (this.enemyConfig.shootTimer <= 0) {
+                            this.enemyConfig.shootTimer = this.enemyConfig.shootInterval;
+                            const alive = this.enemies.filter(e => e.alive); if (alive.length > 0) { const shooter = alive[Math.floor(Math.random() * alive.length)]; this.enemyBullets.push({ x: shooter.x + shooter.width / 2 - 2, y: shooter.y + shooter.height, width: 4, height: 8, speed: 3 }); }
+                        }
+                        this.checkCollisions();
+                        if (this.enemies.every(e => !e.alive)) this.gameState.status = 'levelComplete';
+                    }
+                    this.draw();
+                    gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
+                },
+                checkCollisions: function() {
+                    for (let i = this.playerBullets.length - 1; i >= 0; i--) {
+                        const b = this.playerBullets[i];
+                        for (const e of this.enemies) {
+                            if (e.alive && b.x < e.x + e.width && b.x + b.width > e.x && b.y < e.y + e.height && b.y + b.height > e.y) {
+                                e.alive = false; this.playerBullets.splice(i, 1); this.gameState.score += 10; this.updateScore();
+                                this.createExplosion(e.x + e.width / 2, e.y + e.height / 2);
+                                if (Math.random() < 0.25) { const type = Math.random() < 0.5 ? 'rapid' : 'spread'; this.powerUps.push({ x: e.x + e.width / 2, y: e.y, type: type, dy: 1.5 }); }
+                                break;
+                            }
+                        }
+                    }
+                    for (const b of this.enemyBullets) { if (this.player.alive && b.x < this.player.x + this.player.width && b.x + b.width > this.player.x && b.y < this.player.y + this.player.height && b.y + b.height > this.player.y) { this.setGameOver(); break; } }
+                    for (const e of this.enemies) { if (e.alive && this.player.alive && e.x < this.player.x + this.player.width && e.x + e.width > this.player.x && e.y < this.player.y + this.player.height && e.y + e.height > this.player.y) { this.setGameOver(); break; } }
+                },
+                draw: function() {
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height);
+                    this.drawPlayer(fgColor); this.drawBullets(fgColor); this.drawEnemies(fgColor); this.drawEffects(fgColor); this.drawPowerUps(fgColor);
+                    if (this.gameState.status === 'gameOver') drawGameOverScreen(context, canvas, this.gameState.retryOption);
+                    if (this.gameState.status === 'levelComplete') drawWinScreen(context, canvas, this.gameState.retryOption);
+                    if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption === 'YES' ? 'NO' : 'YES');
+                },
+                updateScore: function() { const hi = String(this.gameState.highScore).padStart(5, '0'); const current = String(this.gameState.score).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}\nLV ${this.gameState.level}`; },
+                createExplosion: function(x, y) { for (let i = 0; i < 15; i++) { this.effects.push({ x: x, y: y, dx: (Math.random() - 0.5) * 4, dy: (Math.random() - 0.5) * 4, life: 20, size: Math.random() * 2 + 1 }); } },
+                updateEffects: function() { for (let i = this.effects.length - 1; i >= 0; i--) { const p = this.effects[i]; p.x += p.dx; p.y += p.dy; p.life--; if (p.life <= 0) this.effects.splice(i, 1); } },
+                drawEffects: function(color) { context.fillStyle = color; this.effects.forEach(p => { context.fillRect(p.x, p.y, p.size, p.size); }); },
+                updatePowerUps: function() {
+                    for (let i = this.powerUps.length - 1; i >= 0; i--) {
+                        const p = this.powerUps[i]; p.y += p.dy;
+                        if (p.y > canvas.height) { this.powerUps.splice(i, 1); continue; }
+                        if (this.player.alive && p.x < this.player.x + this.player.width && p.x + 10 > this.player.x && p.y < this.player.y + this.player.height && p.y + 10 > this.player.y) {
+                            this.player.powerUp = p.type; this.player.powerUpTimer = 300; this.powerUps.splice(i, 1);
+                        }
+                    }
+                },
+                drawPowerUps: function(color) {
+                    context.fillStyle = color; context.font = `bold 12px 'Press Start 2P'`;
+                    this.powerUps.forEach(p => { const text = p.type === 'rapid' ? 'F' : 'S'; context.fillText(text, p.x, p.y); });
+                },
+                drawEnemies: function(color) {
+                    const frame = Math.floor(Date.now() / 500) % 2;
+                    this.enemies.forEach(e => {
+                        if (e.alive) {
+                            context.fillStyle = color;
+                            context.fillRect(e.x + 4, e.y, 16, 12); context.fillRect(e.x, e.y + 4, 24, 8);
+                            const eyeColor = getComputedStyle(document.body).getPropertyValue('--screen-bg');
+                            context.fillStyle = eyeColor; context.fillRect(e.x + 6, e.y + 4, 4, 4); context.fillRect(e.x + 14, e.y + 4, 4, 4);
+                            context.fillStyle = color;
+                            if (frame === 0) { context.fillRect(e.x, e.y + 12, 4, 4); context.fillRect(e.x + 20, e.y + 12, 4, 4); } 
+                            else { context.fillRect(e.x + 4, e.y + 12, 4, 4); context.fillRect(e.x + 16, e.y + 12, 4, 4); }
+                        }
+                    });
+                },
+                setGameOver: function() {
+                    if(!this.player.alive) return;
+                    this.player.alive = false; this.gameState.status = 'gameOver';
+                    this.createExplosion(this.player.x + this.player.width / 2, this.player.y + this.player.height / 2);
+                    if (this.gameState.score > this.gameState.highScore) { this.gameState.highScore = this.gameState.score; localStorage.setItem('ghostbusterHighScore', this.gameState.highScore); }
+                    this.updateScore();
+                },
+                createEnemies: function() {
+                    this.enemies = []; this.enemyConfig.direction = 1;
+                    for (let c = 0; c < this.enemyConfig.cols; c++) {
+                        for (let r = 0; r < this.enemyConfig.rows; r++) {
+                            this.enemies.push({ x: c * (this.enemyConfig.width + this.enemyConfig.padding) + this.enemyConfig.offsetLeft, y: r * (this.enemyConfig.height + this.enemyConfig.padding + 5) + this.enemyConfig.offsetTop, width: this.enemyConfig.width, height: this.enemyConfig.height, alive: true });
+                        }
+                    }
+                },
+                drawPlayer: function(color) {
+                    if (!this.player.alive) return; context.fillStyle = color; const p = this.player;
+                    if(this.player.powerUp !== 'none' && Math.floor(Date.now() / 100) % 2 === 0){ context.fillStyle = getComputedStyle(document.body).getPropertyValue('--screen-bg'); }
+                    context.fillRect(p.x, p.y + 4, p.width, p.height - 4); 
+                    context.fillRect(p.x + (p.width / 2) - 4, p.y, 8, 8); 
+                },
+                drawBullets: function(color) { context.fillStyle = color; this.playerBullets.forEach(b => context.fillRect(b.x, b.y, b.width, b.height)); this.enemyBullets.forEach(b => context.fillRect(b.x, b.y, b.width, b.height)); },
+            };
+
+            const tetrisGame = {
+                arena: [], player: { pos: {x: 0, y: 0}, matrix: null, score: 0 }, highScore: 0, COLS: 10, ROWS: 20, BLOCK_SIZE: 0, xOffset: 0, dropCounter: 0, dropInterval: 1000, lastTime: 0, gameOver: false, isPaused: false, pauseOption: 'NO', retryOption: 'YES',
+                start: function() {
+                    cancelAnimationFrame(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'NO'; this.dropInterval = 1000; this.highScore = parseInt(localStorage.getItem('tetrisHighScore')) || 0;
+                    const screenHeight = canvas.clientHeight; const screenWidth = canvas.clientWidth; this.ROWS = 20; this.BLOCK_SIZE = screenHeight / this.ROWS; this.COLS = 10; this.xOffset = (screenWidth / this.BLOCK_SIZE - this.COLS) / 2;
+                    canvas.height = screenHeight; canvas.width = screenWidth; this.arena = this.createMatrix(this.COLS, this.ROWS); this.player.score = 0; this.updateScore(); this.playerReset(); this.update();
+                },
+                end: function() { clearTimeout(gameManager.animationFrameId); },
+                handleInput: function(key) {
+                    if (this.gameOver) { if (key === 'Left' || key === 'Right') this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } } 
+                    else if (this.isPaused) { if (key === 'Left' || key === 'Right') this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else this.isPaused = false; } else if (key === 'Start') this.isPaused = false; } 
+                    else { if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; return; } if (key === 'Left') this.playerMove(-1); else if (key === 'Right') this.playerMove(1); else if (key === 'Down') this.playerDrop(); else if (key === 'A' || key === 'Up') this.playerRotate(1); else if (key === 'B') this.playerRotate(-1); }
+                },
+                updateScore: function() { const hi = String(this.highScore).padStart(5, '0'); const current = String(this.player.score).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}`; },
+                update: function(time = 0) {
+                    if (!this.gameOver && !this.isPaused) { const deltaTime = time - this.lastTime; this.lastTime = time; this.dropCounter += deltaTime; if (this.dropCounter > this.dropInterval) this.playerDrop(); }
+                    this.draw(); gameManager.animationFrameId = requestAnimationFrame(this.update.bind(this));
+                },
+                draw: function() {
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                    context.setTransform(1, 0, 0, 1, 0, 0); context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = fgColor;
+                    const borderX_left = this.xOffset * this.BLOCK_SIZE - 1; const borderX_right = (this.xOffset + this.COLS) * this.BLOCK_SIZE; context.fillRect(borderX_left, 0, 1, canvas.height); context.fillRect(borderX_right, 0, 1, canvas.height);
+                    context.scale(this.BLOCK_SIZE, this.BLOCK_SIZE); this.drawMatrix(this.arena, {x: 0, y: 0}); this.drawMatrix(this.player.matrix, this.player.pos);
+                    context.setTransform(1, 0, 0, 1, 0, 0); if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
+                },
+                playerReset: function() {
+                    const p='ILJOTSZ'; this.player.matrix = this.createPiece(p[p.length * Math.random() | 0]); this.player.pos.y=0; this.player.pos.x = (this.COLS / 2 | 0) - (this.player.matrix[0].length / 2 | 0);
+                    if (this.collide(this.arena, this.player)) { if (this.player.score > this.highScore) { this.highScore = this.player.score; localStorage.setItem('tetrisHighScore', this.highScore); this.updateScore(); } this.gameOver = true; }
+                },
+                drawMatrix: function(matrix, offset) { const blockColor = getComputedStyle(document.body).getPropertyValue('--screen-text'); context.fillStyle = blockColor; matrix.forEach((row, y) => { row.forEach((value, x) => { if (value !== 0) context.fillRect(this.xOffset + x + offset.x, y + offset.y, 1, 1); }); }); },
+                createMatrix: function(w, h) { const m = []; while(h--){ m.push(new Array(w).fill(0)); } return m; },
+                createPiece: function(t) { if (t === 'T') return [[0,0,0],[1,1,1],[0,1,0]]; else if (t === 'O') return [[1,1],[1,1]]; else if (t === 'L') return [[0,1,0],[0,1,0],[0,1,1]]; else if (t === 'J') return [[0,1,0],[0,1,0],[1,1,0]]; else if (t === 'I') return [[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,1,0,0]]; else if (t === 'S') return [[0,1,1],[1,1,0],[0,0,0]]; else if (t === 'Z') return [[1,1,0],[0,1,1],[0,0,0]]; },
+                collide: function(a, p) { const [m, o] = [p.matrix, p.pos]; for (let y=0; y<m.length; ++y) for (let x=0; x<m[y].length; ++x) if (m[y][x] !== 0 && (a[y+o.y] && a[y+o.y][x+o.x]) !== 0) return true; return false; },
+                merge: function(a, p) { p.matrix.forEach((r, y) => { r.forEach((v, x) => { if (v !== 0) a[y+p.pos.y][x+p.pos.x] = v; }); }); },
+                playerDrop: function() { this.player.pos.y++; if (this.collide(this.arena, this.player)) { this.player.pos.y--; this.merge(this.arena, this.player); this.playerReset(); this.arenaSweep(); } this.dropCounter = 0; },
+                playerMove: function(dir) { this.player.pos.x += dir; if (this.collide(this.arena, this.player)) this.player.pos.x -= dir; },
+                playerRotate: function(dir) { const pos = this.player.pos.x; let offset=1; this.rotate(this.player.matrix, dir); while (this.collide(this.arena, this.player)) { this.player.pos.x += offset; offset = -(offset + (offset > 0 ? 1 : -1)); if (offset > this.player.matrix[0].length) { this.rotate(this.player.matrix, -dir); this.player.pos.x = pos; return; } } },
+                rotate: function(m, d) { for (let y=0; y<m.length; ++y) for (let x=0; x<y; ++x) [m[x][y], m[y][x]] = [m[y][x], m[x][y]]; if (d > 0) m.forEach(r => r.reverse()); else m.reverse(); },
+                arenaSweep: function() { let rowCount = 0; outer: for (let y = this.arena.length-1; y>0; --y) { for (let x=0; x<this.arena[y].length; ++x) if(this.arena[y][x] === 0) continue outer; const r = this.arena.splice(y, 1)[0].fill(0); this.arena.unshift(r); ++y; rowCount++; } if (rowCount > 0) { this.player.score += rowCount * 10; if (Math.floor(this.player.score / 60) > Math.floor((this.player.score - rowCount * 10) / 60)) this.dropInterval = Math.max(150, this.dropInterval - 50); this.updateScore(); } },
+            };
+            
+            const snakeGame = {
+                snake: [], food: {}, score: 0, highScore: 0, gameOver: false, isPaused: false, retryOption: 'YES', pauseOption: 'NO', direction: 'Right', nextDirection: 'Right', gridSize: 0, tileCountX: 20, tileCountY: 0,
+                start: function() {
+                    clearTimeout(gameManager.animationFrameId); this.gameOver = false; this.isPaused = false; this.retryOption = 'YES'; this.pauseOption = 'NO'; this.highScore = parseInt(localStorage.getItem('snakeHighScore')) || 0;
+                    canvas.height = canvas.clientHeight; canvas.width = canvas.clientWidth; this.gridSize = Math.floor(canvas.width / this.tileCountX); this.tileCountY = Math.floor(canvas.height / this.gridSize);
+                    this.snake = [{x: 10, y: 10}, {x: 9, y: 10}, {x: 8, y: 10}]; this.direction = 'Right'; this.nextDirection = 'Right'; this.score = 0; this.spawnFood(); this.updateScore(); this.update();
+                },
+                end: function() { clearTimeout(gameManager.animationFrameId); },
+                handleInput: function(key) {
+                    if (this.gameOver) { if (key === 'Left' || key === 'Right') { this.retryOption = this.retryOption === 'YES' ? 'NO' : 'YES'; this.draw(); } else if (key === 'A') { if (this.retryOption === 'YES') this.start(); else gameManager.endGame(); } } 
+                    else if (this.isPaused) { if (key === 'Left' || key === 'Right') { this.pauseOption = this.pauseOption === 'YES' ? 'NO' : 'YES'; this.draw(); } else if (key === 'A') { if (this.pauseOption === 'YES') gameManager.endGame(); else { this.isPaused = false; this.update(); } } else if (key === 'Start') { this.isPaused = false; this.update(); } } 
+                    else { if (key === 'Start') { this.isPaused = true; this.pauseOption = 'NO'; this.draw(); return; } if (key === 'Up' && this.direction !== 'Down') this.nextDirection = 'Up'; else if (key === 'Down' && this.direction !== 'Up') this.nextDirection = 'Down'; else if (key === 'Left' && this.direction !== 'Right') this.nextDirection = 'Left'; else if (key === 'Right' && this.direction !== 'Left') this.nextDirection = 'Right'; }
+                },
+                updateScore: function() { const hi = String(this.highScore).padStart(5, '0'); const current = String(this.score).padStart(5, '0'); scoreElement.textContent = `HI ${hi}\n${current}`; },
+                update: function() {
+                    if (this.gameOver || this.isPaused) return; this.direction = this.nextDirection; let head = {x: this.snake[0].x, y: this.snake[0].y};
+                    if (this.direction === 'Up') head.y--; else if (this.direction === 'Down') head.y++; else if (this.direction === 'Left') head.x--; else if (this.direction === 'Right') head.x++;
+                    if (head.x < 0 || head.x >= this.tileCountX || head.y < 0 || head.y >= this.tileCountY) this.setGameOver();
+                    for (let i = 1; i < this.snake.length; i++) if (head.x === this.snake[i].x && head.y === this.snake[i].y) this.setGameOver();
+                    this.snake.unshift(head); if (head.x === this.food.x && head.y === this.food.y) { this.score += 10; this.updateScore(); this.spawnFood(); } else this.snake.pop();
+                    this.draw(); gameManager.animationFrameId = setTimeout(this.update.bind(this), Math.max(90, 300 - (this.score * 2)));
+                },
+                draw: function() {
+                    const bgColor = getComputedStyle(document.body).getPropertyValue('--screen-bg'); const fgColor = getComputedStyle(document.body).getPropertyValue('--screen-text');
+                    context.fillStyle = bgColor; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = fgColor; this.snake.forEach(segment => { context.fillRect(segment.x * this.gridSize, segment.y * this.gridSize, this.gridSize - 1, this.gridSize - 1); });
+                    context.beginPath(); context.arc(this.food.x * this.gridSize + this.gridSize / 2, this.food.y * this.gridSize + this.gridSize / 2, this.gridSize / 2, 0, Math.PI * 2); context.fill();
+                    if (this.gameOver) drawGameOverScreen(context, canvas, this.retryOption); if (this.isPaused) drawQuitMenuScreen(context, canvas, this.pauseOption);
+                },
+                spawnFood: function() { this.food = { x: Math.floor(Math.random() * this.tileCountX), y: Math.floor(Math.random() * this.tileCountY) }; for (let segment of this.snake) if (segment.x === this.food.x && segment.y === this.food.y) { this.spawnFood(); return; } },
+                setGameOver: function() { this.gameOver = true; if (this.score > this.highScore) { this.highScore = this.score; localStorage.setItem('snakeHighScore', this.highScore); } this.updateScore(); }
+            };
+
+            const konamiCode = ['Up', 'Up', 'Down', 'Down', 'Left', 'Right', 'Left', 'Right', 'B', 'A', 'Start']; let userInput = [];
+            const testerCode = ['A', 'B', 'B', 'A', 'Start']; let testerInput = [];
 
             function handleButtonPress(key) {
-                if (gameManager.isActive) { gameManager.handleInput(key); return; }
+                if(isVibrationOn) triggerVibration(); // 加入震動觸發
+                if (gameManager.isGameActive) { gameManager.handleInput(key); return; }
                 if (gameboyScreen.classList.contains('tester-active')) { gameManager.handleGameMenuInput(key); return; }
-                
-                playSound(audioSelect);
-                uIn.push(key); uIn = uIn.slice(-kCode.length);
-                if (JSON.stringify(uIn) === JSON.stringify(kCode)) { gameManager.showTesterMenu(); uIn=[]; tIn=[]; return; }
-                tIn.push(key); tIn = tIn.slice(-tCode.length);
-                if (JSON.stringify(tIn) === JSON.stringify(tCode)) { gameManager.showTesterMenu(); uIn=[]; tIn=[]; }
+                audioSelect.currentTime = 0; audioSelect.play();
+                userInput.push(key); userInput = userInput.slice(-konamiCode.length);
+                if (JSON.stringify(userInput) === JSON.stringify(konamiCode)) { gameManager.showTesterMenu(); userInput = []; testerInput = []; return; }
+                testerInput.push(key); testerInput = testerInput.slice(-testerCode.length);
+                if (JSON.stringify(testerInput) === JSON.stringify(testerCode)) { gameManager.showTesterMenu(); userInput = []; testerInput = []; }
             }
             
-            let mvInt = null; const btns = document.querySelectorAll('.gb-button');
-            function startAct(k) { clearInterval(mvInt); handleButtonPress(k); if (gameManager.isActive && ['Left','Right','Down','A'].includes(k)) mvInt = setInterval(() => handleButtonPress(k), 100); }
-            function stopAct() { clearInterval(mvInt); }
-            btns.forEach(b => {
-                const k = b.dataset.key;
-                b.addEventListener('mousedown', e => { e.preventDefault(); startAct(k); });
-                b.addEventListener('touchstart', e => { e.preventDefault(); startAct(k); });
-                b.addEventListener('mouseup', stopAct); b.addEventListener('touchend', stopAct); b.addEventListener('mouseleave', stopAct);
+            let moveInterval = null; const allButtons = document.querySelectorAll('.gb-button');
+            function startAction(key) {
+                clearInterval(moveInterval); 
+                handleButtonPress(key); 
+                if (gameManager.isGameActive && ['Left', 'Right', 'Down', 'A'].includes(key)) moveInterval = setInterval(() => { handleButtonPress(key); }, 100);
+            }
+            function stopAction() { clearInterval(moveInterval); }
+            allButtons.forEach(button => {
+                const key = button.dataset.key;
+                button.addEventListener('mousedown', (e) => { e.preventDefault(); startAction(key); });
+                button.addEventListener('touchstart', (e) => { e.preventDefault(); startAction(key); });
+                button.addEventListener('mouseup', stopAction);
+                button.addEventListener('touchend', stopAction);
+                button.addEventListener('mouseleave', stopAction);
             });
         });
     </script>
     
     <footer class="site-footer">
         <span>Designed by CHENWEI with</span>
-        <span>Gemini<img src="https://d4cheap16.github.io/VoCat/Gemini.png" alt="Google Gemini Logo" class="footer-logo"></span>
+        <span>
+            Gemini
+            <img src="https://d4cheap16.github.io/VoCat/Gemini.png" alt="Google Gemini Logo" class="footer-logo">
+        </span>
     </footer>
 </body>
 </html>
