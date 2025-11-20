@@ -49,7 +49,41 @@
                 ]
             }
         },
-        "test10": {},
+        "test10": {
+            "groupA": {
+                "words": ["military", "imprisoned", "headlines", "harmony", "kidnappers"],
+                "stories": [
+                    {"level": "A2", "text": "The police finally caught the **kidnappers** who took the rich man's son. They had to ask the **military** for help because the bad guys had big guns. This story was in the **headlines** of every newspaper today. The criminals were caught and **imprisoned** in a strong jail. Now, the city is safe and people can live in **harmony** again."},
+                    {"level": "B1", "text": "I just watched a great movie! It was all over the **headlines** last week. The story is about a group of **kidnappers** who steal a famous painting. The government sends a special **military** team to stop them. In the end, the bad guys are **imprisoned** for a long time. The final scene shows the hero returning home to live in **harmony** with his family. It was very exciting!"},
+                    {"level": "B2", "text": "Achieving social **harmony** in this region has become increasingly difficult. The government has increased its **military** presence on the streets to maintain order. Many protesters claim they were falsely accused and **imprisoned** without a fair trial. The daily **headlines** are filled with stories of conflict and fear. Some rebel groups are even acting like **kidnappers**, taking civilians hostage to demand money from the state."},
+                    {"level": "C1", "text": "The sudden **military** coup shocked the international community. The democratically elected president was immediately **imprisoned** in an undisclosed location. Observers described the junta not as leaders, but as political **kidnappers** holding the nation's future ransom. These dramatic events dominated global **headlines** for weeks. The prospect of restoring domestic **harmony** seems distant, as the population remains deeply divided and fearful of further repression."}
+                ]
+            },
+            "groupB": {
+                "words": ["permissible", "consists", "cruelties", "phenomenon", "contribution"],
+                "stories": [
+                    {"level": "A2", "text": "I read a sad book about the **cruelties** of hurting animals. It made me cry, but my mom said it is **permissible** to show feelings. The book **consists** of five true stories. It explains a strange **phenomenon**: why some people treat pets badly. I want to make a small **contribution** of money to help the animal shelter next week."},
+                    {"level": "B1", "text": "I believe that true happiness **consists** in helping others. It is a common **phenomenon** that giving makes you feel better than receiving. That is why I made a **contribution** to a charity yesterday. They work hard to stop the **cruelties** of child labor in factories. I asked the manager if it is **permissible** for me to bring my friends to volunteer next time, and she said yes!"},
+                    {"level": "B2", "text": "Dr. Lee's major **contribution** to modern medicine was discovering a new vaccine. He often said that scientific success **consists** of 99% hard work and 1% luck. It is now **permissible** for other labs to use his data for research. He spent his life studying the **phenomenon** of how viruses spread rapidly. His goal was to end the **cruelties** of the disease that had caused so much suffering."},
+                    {"level": "C1", "text": "In a civilized society, we must constantly ask what actions are legally and morally **permissible** during times of conflict. True peace **consists** of justice and equality, not merely the absence of fighting. We cannot simply turn a blind eye to the **cruelties** suffered by refugees at our borders. Their potential **contribution** to our economy and culture is often overlooked by critics. Mass displacement is a global **phenomenon** that requires a coordinated, humane response."}
+                ]
+            },
+            "groupC": {
+                "words": ["subjective", "designed", "fortify", "corporation", "token"],
+                "stories": [
+                    {"level": "A2", "text": "My father works for a large **corporation** in the city. Yesterday, he brought home a new toy that was **designed** by his team. He gave it to me as a **token** of his love. It is a castle, and I used extra blocks to **fortify** the walls to make them strong. My sister thinks the castle is ugly, but I think beauty is **subjective**, so I don't mind her opinion."},
+                    {"level": "B1", "text": "Please accept this gift basket as a **token** of our appreciation. We know that taste in food is **subjective**, but we hope you find something you like inside. This special package was **designed** just for our VIP clients. We hope to **fortify** our relationship with you in the coming year. Our **corporation** is committed to providing you with the best service possible."},
+                    {"level": "B2", "text": "The new headquarters was **designed** to be the safest building in the city. The owner is a major global **corporation** that deals with sensitive data. They built thick walls to **fortify** the structure against any physical attacks. Critics argue about the building's aesthetics; some say it looks powerful, while others say it looks scary, proving that art is **subjective**. The company also built a public park nearby as a **token** of goodwill to the neighborhood."},
+                    {"level": "C1", "text": "The general attempted to **fortify** the morale of his troops before the decisive battle. He argued that fear is a **subjective** emotion that can be mastered with discipline. The army was run like a ruthless **corporation**, prioritizing efficiency over individual welfare. The medal of honor was often seen as a mere **token** for the immense sacrifices soldiers made. The entire military campaign was **designed** not for defense, but to expand the empire's influence aggressively."}
+                ]
+            },
+            "groupBonus": {
+                "words": ["military", "imprisoned", "headlines", "harmony", "kidnappers", "permissible", "consists", "cruelties", "phenomenon", "contribution", "subjective", "designed", "fortify", "corporation", "token"],
+                "stories": [
+                    {"level": "C2", "text": "The annual charity gala hosted by the Zenith **corporation** was dominating the **headlines** for weeks. The event took place in a magnificent glass pavilion **designed** to symbolize transparency and global **harmony**. However, the evening's elegance was shattered by a shocking **phenomenon**: a sudden blackout followed by the intrusion of armed men.\n\nThe wealthy guests found themselves effectively **imprisoned** within the ballroom as the security doors locked down. Outside, the police requested **military** support to **fortify** the perimeter and prevent an escape. Inside, the leader of the intruders—identified later as political **kidnappers** who had seized the CEO—began to speak.\n\nHe passionately described the hidden **cruelties** inflicted by the company's factories abroad. He argued that while their violent methods might not be legally **permissible**, they were morally necessary. He proclaimed that true accountability **consists** not in charity, but in transparency.\n\nThe leader mocked the gala as a mere **token**, claiming it was a distraction rather than a genuine **contribution** to society. As the night wore on, the debate among the hostages regarding the intruders' morality became intensely **subjective**, blurring the line between villain and hero."}
+                ]
+            }
+        },
         "test11": {},
         "test12": {},
         "test13": {},
@@ -77,7 +111,23 @@
             "conception": {"pos": "n.","translation": "觀念；看法","definition": "An idea or an understanding of what something is like.","example": "He's got a pretty strange conception of friendship. He treats his friends in a cold way.","example_tw": "他對友誼的觀念很奇怪。他對待朋友很冷淡。"},
             "combative": {"pos": "adj.","translation": "好鬥的","definition": "Ready and wanting to fight or argue with people.","example": "He is famous as a(n) combative spokesman for human rights. He's ready and willing to fight.","example_tw": "他是一位著名的人權鬥士（好鬥的發言人）。他隨時準備好為人權奮鬥。"}
         },
-        "test10": {},
+        "test10": {
+            "headlines": {"pos": "n.","translation": "（報紙的）標題；頭條新聞","definition": "The title of a newspaper story printed in large letters.","example": "The new road plan is in the headlines again. It has been the focus of public attention for months now.","example_tw": "新的道路計畫再次登上了頭條新聞。幾個月來它一直是公眾關注的焦點。"},
+            "harmony": {"pos": "n.","translation": "和諧；融洽","definition": "A state of living together peacefully.","example": "Our cat and dog never fight they live together in perfect harmony.","example_tw": "我們的貓和狗從不打架，牠們非常和諧地生活在一起。"},
+            "imprisoned": {"pos": "v.","translation": "監禁；關押","definition": "To put someone in a prison or a place they cannot leave.","example": "The crew were imprisoned on the plane by hijackers.","example_tw": "機組人員被劫機者囚禁在飛機上。"},
+            "consists": {"pos": "v.","translation": "在於；由...組成","definition": "To be based on or lie in something.","example": "Happiness consists in contentment; therefore, we should cherish what we have now.","example_tw": "幸福在於知足；因此，我們應該珍惜現在所擁有的。"},
+            "kidnappers": {"pos": "n.","translation": "綁匪","definition": "People who take someone away by force to get money.","example": "The boy's kidnappers demanded an enormous ransom. However, his family could not afford it.","example_tw": "綁架那男孩的綁匪要求巨額贖金。然而，他的家人付不起。"},
+            "military": {"pos": "adj.","translation": "軍事的","definition": "Relating to soldiers or the army.","example": "The government has threatened to take military action if the rebels do not withdraw from the area.","example_tw": "政府威脅如果叛軍不撤離該地區，將採取軍事行動。"},
+            "cruelties": {"pos": "n.","translation": "殘酷行為；暴行","definition": "Cruel acts or behavior.","example": "People all over the world are aware of the cruelties of war.","example_tw": "全世界的人都知道戰爭的殘酷。"},
+            "permissible": {"pos": "adj.","translation": "可允許的","definition": "Allowed or okay to do.","example": "She has been exposed to radiation above the permissible level; therefore, she's had health problems.","example_tw": "她暴露在超過允許標準的輻射中；因此，她出現了健康問題。"},
+            "phenomenon": {"pos": "n.","translation": "現象","definition": "A fact or situation that is observed to exist or happen.","example": "Scientists have studied this strange phenomenon in weather patterns for years.","example_tw": "科學家們多年來一直在研究這種奇怪的氣候模式現象。"},
+            "designed": {"pos": "v.","translation": "設計","definition": "To draw plans for how something will look or be made.","example": "It is said that the magnificent building was designed by a great architect.","example_tw": "據說這座宏偉的建築是由一位偉大的建築師設計的。"},
+            "contribution": {"pos": "n.","translation": "貢獻","definition": "Something that you give or do to help something be successful.","example": "He was respected by all his colleagues, for he had made a very positive contribution to the development of the company.","example_tw": "他受到所有同事的尊敬，因為他對公司的發展做出了非常積極的貢獻。"},
+            "corporation": {"pos": "n.","translation": "大公司；企業","definition": "A large business or company.","example": "Jack owns a multinational corporation and is on good terms with many famous businessmen in the world.","example_tw": "傑克擁有一家跨國公司，並且與世界上許多著名的商人關係良好。"},
+            "subjective": {"pos": "adj.","translation": "主觀的","definition": "Based on personal feelings rather than facts.","example": "This is a very subjective judgment of her abilities. It's not fair.","example_tw": "這對她的能力是非常主觀的判斷。這不公平。"},
+            "token": {"pos": "n.","translation": "象徵；標記","definition": "A thing that you give or do to show your feelings.","example": "Please accept this small gift as a token of our gratitude.","example_tw": "請接受這份小禮物，作為我們感激之情的象徵。"},
+            "fortify": {"pos": "v.","translation": "加強；築防禦工事","definition": "To make a place stronger against attack.","example": "They built towers and walls to fortify this village against invasion.","example_tw": "他們建造塔樓和城牆來加強這個村莊的防禦，以抵禦入侵。"}
+        },
         "test11": {},
         "test12": {},
         "test13": {},
