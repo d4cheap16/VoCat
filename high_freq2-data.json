@@ -84,7 +84,41 @@
                 ]
             }
         },
-        "test11": {},
+        "test11": {
+            "groupA": {
+                "words": ["reform", "spoil", "territory", "consulted", "terror"],
+                "stories": [
+                    {"level": "A2", "text": "My dog, Max, thinks the entire garden is his **territory**. Whenever the mailman comes close to the gate, Max barks loudly. The poor mailman usually runs away in **terror**. I **consulted** a dog trainer about this problem yesterday. She said we need to **reform** Max's behavior with some training. I hope being strict won't **spoil** his happy personality, but he needs to learn."},
+                    {"level": "B1", "text": "Last month, I decided to **reform** my bad eating habits. I **consulted** a doctor to get some professional advice. He warned me that eating too much sugar would **spoil** my teeth and health. Going to the gym was new **territory** for me, and I felt nervous at first. To be honest, I had a feeling of **terror** when I saw the heavy weights, but now I love exercising."},
+                    {"level": "B2", "text": "The CEO made a sudden decision that threatened to **spoil** the company's reputation. He hadn't **consulted** the board of directors before acting. Many managers felt he was stepping on their **territory** and ignoring their authority. The news caused absolute **terror** among the investors, and the stock price dropped immediately. Now, the shareholders are demanding a plan to **reform** the management structure to prevent this from happening again."},
+                    {"level": "C1", "text": "The dictator's regime relied on psychological **terror** to suppress any opposition. He claimed that the neighboring province was historically his nation's **territory**. Although diplomats were **consulted**, peace talks quickly broke down. The aggressive military moves threatened to **spoil** years of diplomatic progress. International organizations are now pressuring the government to **reform** its foreign policy and respect human rights laws."}
+                ]
+            },
+            "groupB": {
+                "words": ["dodge", "solve", "withstand", "violence", "flourish"],
+                "stories": [
+                    {"level": "A2", "text": "I saw two boys fighting in the schoolyard today. I hate **violence** because it scares me. I tried to **dodge** them so I wouldn't get hit. A teacher came to **solve** the problem and stop the fight. She told us that if we are kind, our school will **flourish** and be a happy place. It is hard to **withstand** bullying, but we must be brave."},
+                    {"level": "B1", "text": "I'm trying to grow roses in my garden, but the strong wind is a problem. I need to find a way to **solve** this issue. I planted a hedge to help the flowers **withstand** the storms. If I don't protect them, the **violence** of the wind will destroy the petals. I also have to **dodge** bees while I'm working! Hopefully, with my care, the roses will **flourish** this summer."},
+                    {"level": "B2", "text": "The young boxer managed to **withstand** a heavy blow in the first round. His opponent was known for his speed and ability to **dodge** punches effortlessly. However, the match was criticized for its excessive **violence**, which some say is bad for the sport. The boxing association is trying to **solve** this by introducing stricter safety rules. They believe that with better regulations, the sport will continue to **flourish** safely."},
+                    {"level": "C1", "text": "The nation's economy has shown a remarkable ability to **withstand** global recessions. However, the government cannot simply **dodge** the underlying issues of inequality forever. The recent outbreak of urban **violence** was a symptom of deep social unrest. To ensure that businesses continues to **flourish**, policymakers must address the root causes. There is no simple way to **solve** such complex structural problems without significant reform."}
+                ]
+            },
+            "groupC": {
+                "words": ["supervising", "justice", "justify", "witness", "scandal"],
+                "stories": [
+                    {"level": "A2", "text": "There was a big **scandal** at school today. Someone stole the answers to the math test! I was the only **witness** who saw a boy running out of the teacher's office. The teacher was busy **supervising** the lunchroom at that time. The boy tried to **justify** his actions by saying he was stressed, but the principal said that stealing is wrong. He must face **justice** and accept his punishment."},
+                    {"level": "B1", "text": "I love watching the new TV show \"Courtroom Drama.\" In the last episode, a lawyer tried to get **justice** for an innocent man. The man was accused of causing a financial **scandal** at his company. However, a surprise **witness** appeared and told the truth. It turned out his boss, who was **supervising** the accounts, stole the money. The boss couldn't **justify** why the funds were missing and went to jail."},
+                    {"level": "B2", "text": "As a manager **supervising** a large team, you must set a good example. Any hint of a **scandal** can ruin our department's reputation. Recently, we had to fire an employee for dishonesty. He tried to **justify** lying on his report, claiming everyone does it. However, we cannot ignore such behavior. To ensure **justice** for hardworking staff, we must be fair. If you **witness** any unethical actions, please report them immediately."},
+                    {"level": "C1", "text": "The senator's career ended in disgrace following the corruption **scandal**. For years, he had been responsible for **supervising** the allocation of public funds. Critics argue that he used his power to enrich his friends, unable to **justify** the exorbitant expenses. The public demanded **justice**, calling for a full investigation. A key **witness** has now come forward with documents that could permanently destroy the senator's legacy."}
+                ]
+            },
+            "groupBonus": {
+                "words": ["reform", "dodge", "solve", "spoil", "supervising", "territory", "consulted", "terror", "violence", "withstand", "justice", "flourish", "justify", "witness", "scandal"],
+                "stories": [
+                    {"level": "C2", "text": "The task of **supervising** the International Tribunal fell to Chief Prosecutor Elena Vance. She was determined to **solve** the mystery behind the \"Midnight Purge,\" an event that had instilled absolute **terror** in the populace for a decade. The defendant, ex-Minister Kael, attempted to **dodge** culpability during the cross-examination, using rhetorical gymnastics to evade direct answers.\n\nHe tried to **justify** his authorized use of state **violence**, arguing it was the only necessary evil to ensure the nation would **flourish** amidst the chaos of civil war. However, the trial took a dramatic turn when a massive **scandal** broke: leaked audio tapes proved Kael had treated the state treasury as his private **territory**, siphoning funds for personal gain.\n\nFurthermore, records showed he hadn't **consulted** the cabinet on military strikes but acted unilaterally. A key **witness**, Kael's own brother, took the stand and testified that Kael deliberately plotted to **spoil** the peace treaty to prolong the conflict for profit.\n\nKael's defense crumbled; it could not **withstand** the weight of the truth. The verdict sparked a wave of relief, paving the way for true institutional **reform**. It was a historic moment where the victims finally saw **justice** served, marking the end of a dark era."}
+                ]
+            }
+        },
         "test12": {},
         "test13": {},
         "test14": {},
@@ -128,7 +162,23 @@
             "token": {"pos": "n.","translation": "象徵；標記","definition": "A thing that you give or do to show your feelings.","example": "Please accept this small gift as a token of our gratitude.","example_tw": "請接受這份小禮物，作為我們感激之情的象徵。"},
             "fortify": {"pos": "v.","translation": "加強；築防禦工事","definition": "To make a place stronger against attack.","example": "They built towers and walls to fortify this village against invasion.","example_tw": "他們建造塔樓和城牆來加強這個村莊的防禦，以抵禦入侵。"}
         },
-        "test11": {},
+        "test11": {
+            "reform": {"pos": "v.","translation": "改革；改良","definition": "To make changes in something to improve it.","example": "The union officials promised to reform working conditions in the factory.","example_tw": "工會官員承諾改革工廠的工作條件。"},
+            "dodge": {"pos": "v.","translation": "躲避；迴避","definition": "To avoid something unpleasant or difficult.","example": "Somehow he managed to dodge all the difficult questions. He didn't answer them.","example_tw": "不知何故，他設法迴避了所有困難的問題。他沒有回答這些問題。"},
+            "solve": {"pos": "v.","translation": "解決","definition": "To find the answer to a problem.","example": "We are supposed to work together to solve this difficult problem.","example_tw": "我們應該共同努力解決這個難題。"},
+            "spoil": {"pos": "v.","translation": "破壞；搞砸","definition": "To ruin something or make it less good.","example": "We've had a wonderful day out; let's not spoil it now by having a quarrel.","example_tw": "我們在外面度過了美好的一天；現在不要因為吵架而破壞了它。"},
+            "supervising": {"pos": "v.","translation": "監督；管理","definition": "To watch a person or activity to make sure that everything is done correctly.","example": "She was busy supervising the cooking and the sewing.","example_tw": "她正忙著監督烹飪和縫紉工作。"},
+            "territory": {"pos": "n.","translation": "領域；地盤；領土","definition": "An area of land that belongs to or is controlled by a government or person.","example": "You're treading on rather dangerous territory if you mention that incident; it will upset him.","example_tw": "如果你提到那件事，你就踏入了相當危險的領域；那會讓他不高興。"},
+            "consulted": {"pos": "v.","translation": "商議；諮詢","definition": "To ask for information or advice from someone.","example": "Why was I not consulted before you made the decision? I also had some opinions on the matter.","example_tw": "為什麼你在做決定之前沒有諮詢我？我對這件事也有一些意見。"},
+            "terror": {"pos": "n.","translation": "恐懼；驚恐","definition": "A feeling of being very frightened.","example": "She has a look of sheer terror on her face. She looks terrified.","example_tw": "她臉上露出一種純粹的恐懼。她看起來嚇壞了。"},
+            "violence": {"pos": "n.","translation": "暴力","definition": "Behavior involving physical force intended to hurt, damage, or kill someone or something.","example": "She cited several cases of domestic violence which led to tragedy.","example_tw": "她列舉了幾起導致悲劇的家庭暴力案件。"},
+            "withstand": {"pos": "v.","translation": "經受住；承受","definition": "To be strong enough not to be harmed or destroyed by something.","example": "The troops were too weak to withstand another attack.","example_tw": "部隊太虛弱，無法承受另一次攻擊。"},
+            "justice": {"pos": "n.","translation": "公平；正義","definition": "Fairness in the way people are treated.","example": "To do him justice, we should look into the matter and see if he is really responsible for the accident.","example_tw": "為了對他公平起見（說句公道話），我們應該調查這件事，看看他是否真的對這起事故負有責任。"},
+            "flourish": {"pos": "v.","translation": "繁榮；興旺","definition": "To grow or develop well and be successful.","example": "It's not easy for any business to flourish in the present economic situation, and many of them may go bankrupt.","example_tw": "在目前的經濟形勢下，任何企業都不容易繁榮發展，其中許多可能會破產。"},
+            "justify": {"pos": "v.","translation": "證明...是正當的；為...辯護","definition": "To give a good reason for something.","example": "People ask the President to justify the new policy. They need an explanation.","example_tw": "人們要求總統證明新政策是正當的。他們需要一個解釋。"},
+            "witness": {"pos": "n.","translation": "目擊者","definition": "A person who sees an event happening, especially a crime or an accident.","example": "Evan was the most important witness to the accident, so the prosecutor demanded that he testify in court.","example_tw": "伊凡是這起事故最重要的目擊者，所以檢察官要求他在法庭上作證。"},
+            "scandal": {"pos": "n.","translation": "醜聞","definition": "An action or event that is considered immoral or shocking and causes public anger.","example": "We are sure of his innocence, for there has been no hint of scandal during his time in office.","example_tw": "我們確信他是清白的，因為他在任職期間沒有任何醜聞的跡象。"}
+        },
         "test12": {},
         "test13": {},
         "test14": {},
