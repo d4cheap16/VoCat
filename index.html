@@ -31,10 +31,10 @@
             --body-bg: #d3d3d3;
         }
 
-        /* --- 調色盤主題 --- */
+        /* --- 新增：調色盤主題 --- */
         body.palette-pocket {
-            --screen-bg: #333333;
-            --screen-text: #f0f0f0;
+            --screen-bg: #333333; /* 深灰色背景 */
+            --screen-text: #f0f0f0; /* 柔和的白色文字 */
             --screen-overlay: rgba(51, 51, 51, 0.85);
         }
         body.palette-sepia {
@@ -42,6 +42,7 @@
             --screen-text: #2c3e50;
             --screen-overlay: rgba(208, 224, 240, 0.75);
         }
+
 
         html, body {
             margin: 0;
@@ -51,8 +52,6 @@
             overflow: hidden;
             background-color: var(--body-bg);
             font-family: 'Press Start 2P', 'Noto Sans TC', cursive, sans-serif;
-            /* 關鍵：防止手機上的雙擊縮放和捲動回彈，對遊戲操作很重要 */
-            touch-action: none; 
         }
 
         .container {
@@ -83,7 +82,6 @@
             width: 100%;
             height: 100%;
             user-select: none;
-            pointer-events: none; /* 讓點擊穿透圖片 */
         }
 
         .gameboy-screen {
@@ -131,16 +129,23 @@
             animation: dropInLogo 1.5s ease-out 0.5s forwards, blinkLogo 0.8s step-end 2.5s;
         }
 
-        .boot-logo img { width: 100%; height: auto; }  
+        .boot-logo img {
+            width: 100%; 
+            height: auto;
+        }  
 
         @keyframes dropInLogo {
             0% { transform: translateY(-100%); opacity: 1; }
             100% { transform: translateY(0); opacity: 1; }
         }
         
-        @keyframes blinkLogo { 50% { opacity: 0; } }
+        @keyframes blinkLogo {
+            50% { opacity: 0; }
+        }
 
-        @keyframes fadeOutBoot { to { opacity: 0; visibility: hidden; } }
+        @keyframes fadeOutBoot {
+            to { opacity: 0; visibility: hidden; }
+        }
         
         /* --- 主選單 --- */
         .main-menu {
@@ -158,7 +163,9 @@
             animation: fadeInMenu 0.5s ease-in 2.5s forwards;
         }
 
-        @keyframes fadeInMenu { to { opacity: 1; } }
+        @keyframes fadeInMenu {
+            to { opacity: 1; }
+        }
 
         /* --- 遊戲選單 --- */
         .tester-menu {
@@ -168,8 +175,12 @@
             padding: 3%;
             box-sizing: border-box;
         }
-        .gameboy-screen.tester-active .main-menu { display: none; }
-        .gameboy-screen.tester-active .tester-menu { display: flex; }
+        .gameboy-screen.tester-active .main-menu {
+            display: none;
+        }
+        .gameboy-screen.tester-active .tester-menu {
+            display: flex;
+        }
 
         .screen-header {
             display: flex;
@@ -183,14 +194,28 @@
             letter-spacing: -1px;
             flex-shrink: 0;
         }
-        .header-cat { height: 2em; width: auto; }        
+        .header-cat {
+           height: 2em;
+            width: auto;
+        }        
         .menu-wrapper {
             overflow-y: auto;
             flex-grow: 1;
-            scrollbar-width: none; 
         }
 
-        .menu-wrapper::-webkit-scrollbar { width: 0px; background: transparent; }
+        /* --- 美化卷軸樣式 --- */
+        .menu-wrapper::-webkit-scrollbar {
+            width: 10px;
+        }
+        .menu-wrapper::-webkit-scrollbar-track {
+            background: transparent;
+            border-left: 2px solid transparent;
+        }
+        .menu-wrapper::-webkit-scrollbar-thumb {
+            background: transparent;
+            border-radius: 0;
+            border: 2px solid var(--screen-text);
+        }
 
         .menu-list { list-style: none; padding: 0; margin: 0; }
         .menu-list li { margin-bottom: 2%; }
@@ -203,10 +228,26 @@
         .sub-menu a { font-size: clamp(12px, 3.5vw, 14px); }
 
         .sub-menu a::before, 
-        .tester-menu .menu-list a::before { content: '▶'; margin-right: 8%; opacity: 0; transition: opacity 0.2s; }
-        .menu-list a:hover, .menu-list a:focus, .menu-list a.selected { background-color: var(--screen-text); color: var(--screen-bg); }
-        .sub-menu a:hover::before, .sub-menu a:focus::before, .tester-menu .menu-list a:hover::before, .tester-menu .menu-list a.selected::before { opacity: 1; }
+        .tester-menu .menu-list a::before { 
+            content: '▶'; 
+            margin-right: 8%; 
+            opacity: 0; 
+            transition: opacity 0.2s; 
+        }
+        .menu-list a:hover, 
+        .menu-list a:focus, 
+        .menu-list a.selected { 
+            background-color: var(--screen-text); 
+            color: var(--screen-bg); 
+        }
+        .sub-menu a:hover::before, 
+        .sub-menu a:focus::before, 
+        .tester-menu .menu-list a:hover::before, 
+        .tester-menu .menu-list a.selected::before { 
+            opacity: 1; 
+        }
         
+        /* --- 遊戲選單底部說明 --- */
         .menu-footer {
             flex-shrink: 0;
             text-align: center;
@@ -216,37 +257,63 @@
             font-size: clamp(9px, 2.5vw, 11px);
             letter-spacing: -1px;
         }
-        .menu-footer p { margin: 0; }
+        .menu-footer p {
+            margin: 0;
+        }
         
-        /* --- 遊戲畫布 --- */
+        /* --- 遊戲畫布與計分板 (通用) --- */
         #game-canvas { display: none; width: 100%; height: 100%; background-color: var(--screen-bg); }
         #game-score { 
             display: none; 
-            position: absolute; top: 4px; left: 12px; right: 12px;
+            position: absolute; 
+            top: 4px;
+            left: 12px;
+            right: 12px;
             font-size: clamp(10px, 2.5vw, 11px); 
             color: var(--screen-text); 
             z-index: 10;
-            white-space: pre; text-align: right; line-height: 1.2;
+            white-space: pre; 
+            text-align: right;
+            line-height: 1.2;
             font-family: 'Press Start 2P', cursive;
         }
 
         .gameboy-screen.game-active .main-menu,
-        .gameboy-screen.game-active .tester-menu { display: none; }
+        .gameboy-screen.game-active .tester-menu { 
+            display: none; 
+        }
         .gameboy-screen.game-active #game-canvas { display: block; }
         .gameboy-screen.game-active #game-score { display: block; }
 
+        /* --- 新增：遊戲畫面復古濾鏡 --- */
         .gameboy-screen.game-active::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: 
                 repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(15, 56, 15, 0.07) 1px, rgba(15, 56, 15, 0.07) 2px),
                 repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(15, 56, 15, 0.07) 1px, rgba(15, 56, 15, 0.07) 2px);
-            background-size: 2px 2px; pointer-events: none; z-index: 5;
+            background-size: 2px 2px;
+            pointer-events: none;
+            z-index: 5;
         }
 
         .screen-footer { 
-            margin: 0; padding: 0; position: absolute; bottom: 46%; left: 11%; width: 80%; 
-            text-align: left; font-size: clamp(9px, 2.2vw, 11px); color: #444; opacity: 0; 
-            line-height: 1.6; cursor: pointer; 
+            margin: 0; 
+            padding: 0; 
+            position: absolute; 
+            bottom: 46%; 
+            left: 11%; 
+            width: 80%; 
+            text-align: left; 
+            font-size: clamp(9px, 2.2vw, 11px); 
+            color: #444; 
+            opacity: 0; 
+            line-height: 1.6; 
+            cursor: pointer; 
         }
         .screen-footer.animate { animation: fadeInMenu 0.5s ease-in 0s forwards; }
         .screen-footer p { margin: 0; padding: 0; }
@@ -255,128 +322,114 @@
         @media (max-width: 380px) { .site-footer { flex-direction: column; gap: 2px; } }
         .footer-logo { height: 2em; width: auto; margin-left: 4px; vertical-align: middle; }
 
-        /* ============================================ */
-        /* --- Gameboy 按鈕樣式優化 (關鍵修改區域) --- */
-        /* ============================================ */
         .gb-button { 
             position: absolute; 
-            transition: transform 0.05s, background-color 0.1s, box-shadow 0.1s;
-            z-index: 50; 
+            transition: background-color 0.2s, transform 0.1s; 
         }
-
-        /* 1. 擴大點擊區域 (Hit Area) */
-        /* 透過偽元素向外延伸 15px，讓手指不用按得非常準也能觸發 */
-        .gb-button::after {
-            content: '';
-            position: absolute;
-            top: -15px; left: -15px; right: -15px; bottom: -15px;
-            /* background: rgba(255, 0, 0, 0.3); 如果想測試範圍，可以把這行註解打開 */
-            border-radius: inherit;
-        }
-
         .gb-button:hover { 
-            background-color: rgba(0, 0, 0, 0.1); 
+            background-color: rgba(0, 0, 0, 0.2); 
             cursor: pointer; 
         }
-
-        /* 2. 擬真按壓效果 */
-        /* 使用 translate 位移 + 內陰影，創造實體按鍵被壓下去的凹陷感 */
         .gb-button:active {
-            transform: translate(2px, 2px); /* 往右下移動 */
-            background-color: rgba(0, 0, 0, 0.2);
-            box-shadow: inset 3px 3px 6px rgba(0,0,0,0.6); /* 內陰影 */
+            transform: scale(0.95);
         }
-
         #btn-a, #btn-b { border-radius: 50%; }
         #btn-select, #btn-start { border-radius: 25px; }
         #btn-up, #btn-down, #btn-left, #btn-right { border-radius: 2px; }
-        
-        /* 針對十字鍵的微調，因為按鍵很密，感應區不要重疊太多，稍微縮小一點 */
-        #btn-up::after, #btn-down::after, #btn-left::after, #btn-right::after {
-            top: -8px; left: -8px; right: -8px; bottom: -8px;
-        }
 
-        /* 3. 視覺尺寸微調 (讓陰影區域大一點，更貼合背景圖) */
-        /* 調整原則：width/height 稍微加大，並微調 top/left 以保持置中 */
-        
-        /* A 鍵 */
-        #btn-a { 
-            top: 59.5%; left: 78.5%; /* 微調位置 */
-            width: 15%; height: 10%; /* 稍微加大 (原 14/9) */
-        }
-        /* B 鍵 */
-        #btn-b { 
-            top: 63.5%; left: 61.5%; /* 微調位置 */
-            width: 15%; height: 10%; /* 稍微加大 (原 14/9) */
-        }
-        
-        /* 選擇/開始鍵 (保持原狀或微調) */
+        #btn-a { top: 60%; left: 79%; width: 14%; height: 9%; }
+        #btn-b { top: 64%; left: 62%; width: 14%; height: 9%; }
         #btn-select { top: 80%; left: 29%; width: 14%; height: 4%; }
         #btn-start { top: 80%; left: 46%; width: 14%; height: 4%; }
-
-        /* 十字鍵 (稍微加大按壓視覺面積) */
-        #btn-up { 
-            top: 59.5%; left: 15.5%; 
-            width: 10%; height: 7%; /* 原 9/6 */
-        }
-        #btn-down { 
-            top: 69.5%; left: 15.5%; 
-            width: 10%; height: 7%; /* 原 9/6 */
-        }
-        #btn-left { 
-            top: 64.5%; left: 7.5%; 
-            width: 10%; height: 7%; /* 原 9/6 */
-        }
-        #btn-right { 
-            top: 64.5%; left: 24.5%; 
-            width: 10%; height: 7%; /* 原 9/6 */
-        }
+        #btn-up { top: 60%; left: 16%; width: 9%; height: 6%; }
+        #btn-down { top: 70%; left: 16%; width: 9%; height: 6%; }
+        #btn-left { top: 65%; left: 8%; width: 9%; height: 6%; }
+        #btn-right { top: 65%; left: 25%; width: 9%; height: 6%; }
 
         /* --- 說明視窗樣式 --- */
         .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
-            display: none; justify-content: center; align-items: center;
-            z-index: 200; padding: 15px; box-sizing: border-box;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+            padding: 15px;
+            box-sizing: border-box;
         }
 
-        .modal-overlay.show { display: flex; }
+        .modal-overlay.show {
+            display: flex;
+        }
 
         .modal-content {
-            background-color: var(--screen-bg); color: var(--screen-text);
-            border: 3px solid var(--screen-text); padding: 15px;
-            max-width: 95%; width: 500px; border-radius: 8px;
-            font-family: 'Press Start 2P', 'Noto Sans TC', sans-serif;
-            line-height: 1.7; font-size: clamp(14px, 3.5vw, 16px);
+            background-color: var(--screen-bg);
+            color: var(--screen-text);
+            border: 3px solid var(--screen-text);
+            padding: 15px;
+            max-width: 95%;
+            width: 500px;
+            border-radius: 8px;
+            font-family: 'Press Start 2P', 'Noto Sans TC', sans-serif; /* 改為混合字體 */
+            line-height: 1.7;
+            font-size: clamp(14px, 3.5vw, 16px);
         }
 
         .modal-header {
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-bottom: 2px solid var(--screen-text);
-            margin-bottom: 15px; padding-bottom: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
             font-family: 'Press Start 2P', cursive;
         }
         
         .modal-header p { margin: 0; font-size: clamp(15px, 4vw, 18px); }
         
         .modal-close-btn {
-            background-color: var(--screen-text); color: var(--screen-bg);
-            border: none; width: 28px; height: 28px; border-radius: 50%;
-            cursor: pointer; font-family: sans-serif; font-weight: bold; font-size: 16px;
-            display: flex; justify-content: center; align-items: center;
+            background-color: var(--screen-text);
+            color: var(--screen-bg);
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: transform 0.1s;
         }
         .modal-close-btn:active { transform: scale(0.9); }
         .modal-body p { margin: 0 0 1em 0; }
         .modal-body p:last-child { margin-bottom: 0; }
         
-        .scores-list { padding: 0; margin: 0; list-style: none; }
-        .scores-list li {
-            display: flex; justify-content: space-between; margin-bottom: 0.8em;
-            font-family: 'Press Start 2P', cursive; font-size: clamp(12px, 3vw, 14px);
+        /* 高分榜專用樣式 */
+        .scores-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
         }
-        .scores-list li span:first-child { text-align: left; }
-        .scores-list li span:last-child { text-align: right; }
+        .scores-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8em;
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(12px, 3vw, 14px);
+        }
+        .scores-list li span:first-child {
+            text-align: left;
+        }
+        .scores-list li span:last-child {
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -426,8 +479,6 @@
                             </li>
                             <li class="menu-category"><a href="#">OPTIONS</a>
                                 <ul class="sub-menu">
-                                    <!-- 新增震動開關選項 -->
-                                    <li><a href="#" id="vibration-switch-link">VIBRATION: ON</a></li>
                                     <li><a href="#" id="palette-switch-link">CHANGE THEME</a></li> 
                                     <li><a href="#" id="design-concept-link">DESIGN CONCEPT</a></li>
                                     <li><a href="https://forms.gle/iWMy29gJDsgCWr837" target="_blank">CONTACT ME</a></li>
@@ -469,7 +520,7 @@
         </div>
     </div>
     
-    <audio id="audio-open" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAADD/38Agf9/AP//fwB/AP//f/9/AP8A//9/AIAA/wB//38AgAA="></audio>
+    <audio id="audio-open" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm1ートIBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAADD/38Agf9/AP//fwB/AP//f/9/AP8A//9/AIAA/wB//38AgAA="></audio>
     <audio id="audio-select" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAAAAgP9/AP8AgAD/AIAA/wCAAP8AgAD/AIAA/wCAAP8AgAD/AIAA/wCAAP8A"></audio>
 
     <div id="about-modal" class="modal-overlay">
@@ -482,6 +533,7 @@
         </div>
     </div>
     
+    <!-- 新增：高分榜視窗 -->
     <div id="high-scores-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -489,10 +541,13 @@
                 <button id="close-scores-btn" class="modal-close-btn">X</button>
             </div>
             <div class="modal-body">
-                <ul class="scores-list"></ul>
+                <ul class="scores-list">
+                    <!-- 分數將由 JS 動態填入 -->
+                </ul>
             </div>
         </div>
     </div>
+
 
     <script>
         window.addEventListener('contextmenu', function(e) { e.preventDefault(); });
@@ -506,6 +561,7 @@
             const mainMenu = document.querySelector('.main-menu');
             const screenFooter = document.querySelector('.screen-footer');
             
+            // --- 視窗元素 ---
             const designConceptLink = document.getElementById('design-concept-link');
             const aboutModal = document.getElementById('about-modal');
             const closeModalBtn = document.getElementById('close-modal-btn');
@@ -525,6 +581,7 @@
             const modalBody = aboutModal.querySelector('.modal-body');
             modalBody.innerHTML = `<p>WELCOME!</p><p>用懷舊的感覺，讓學習也有趣一點。</p><p>網站還有小彩蛋，可以一起體驗我的童年！</p>`;
             
+            // --- 事件監聽 ---
             designConceptLink.addEventListener('click', (e) => { e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play(); aboutModal.classList.add('show'); });
             function closeModal() { audioSelect.currentTime = 0; audioSelect.play(); aboutModal.classList.remove('show'); highScoresModal.classList.remove('show'); }
             closeModalBtn.addEventListener('click', closeModal);
@@ -535,22 +592,38 @@
 
             screenFooter.addEventListener('click', function() { audioSelect.currentTime = 0; audioSelect.play(); quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)]; }); 
             
+            // --- 高分榜邏輯 ---
             highScoresLink.addEventListener('click', (e) => {
-                e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play();
+                e.preventDefault();
+                audioOpen.currentTime = 0;
+                audioOpen.play();
+                
                 const scoresList = highScoresModal.querySelector('.scores-list');
-                const games = [ { name: 'GHOSTBUSTER', key: 'ghostbusterHighScore' }, { name: 'PAC-MAN RUN', key: 'pacmanClassicRunHighScore' }, { name: 'SNAKE', key: 'snakeHighScore' }, { name: 'TETRIS', key: 'tetrisHighScore' } ];
-                scoresList.innerHTML = ''; 
+                const games = [
+                    { name: 'GHOSTBUSTER', key: 'ghostbusterHighScore' },
+                    { name: 'PAC-MAN RUN', key: 'pacmanClassicRunHighScore' },
+                    { name: 'SNAKE', key: 'snakeHighScore' },
+                    { name: 'TETRIS', key: 'tetrisHighScore' }
+                ];
+                
+                scoresList.innerHTML = ''; // 清空舊列表
+                
                 games.forEach(game => {
                     const score = localStorage.getItem(game.key) || '0';
                     const scoreItem = document.createElement('li');
                     scoreItem.innerHTML = `<span>${game.name}</span><span>${String(Math.floor(score)).padStart(5, '0')}</span>`;
                     scoresList.appendChild(scoreItem);
                 });
+
                 highScoresModal.classList.add('show');
             });
 
+            // --- 清除分數邏輯 ---
             clearDataLink.addEventListener('click', (e) => {
-                e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play();
+                e.preventDefault();
+                audioOpen.currentTime = 0;
+                audioOpen.play();
+
                 showCustomConfirm('Are you sure you want to clear all high scores? This action cannot be undone.', () => {
                     const games = ['pacmanClassicRunHighScore', 'ghostbusterHighScore', 'snakeHighScore', 'tetrisHighScore'];
                     games.forEach(key => localStorage.removeItem(key));
@@ -558,66 +631,79 @@
                 });
             });
 
+            // --- 調色盤邏輯 ---
             const palettes = ['', 'palette-pocket', 'palette-sepia'];
             let currentPaletteIndex = 0;
+
             const savedPalette = localStorage.getItem('vocatPalette');
-            if (savedPalette && palettes.includes(savedPalette)) { document.body.className = savedPalette; currentPaletteIndex = palettes.indexOf(savedPalette); }
+            if (savedPalette && palettes.includes(savedPalette)) {
+                document.body.className = savedPalette;
+                currentPaletteIndex = palettes.indexOf(savedPalette);
+            }
 
             paletteSwitchLink.addEventListener('click', (e) => {
-                e.preventDefault(); audioSelect.currentTime = 0; audioSelect.play();
+                e.preventDefault();
+                audioSelect.currentTime = 0;
+                audioSelect.play();
+
                 currentPaletteIndex = (currentPaletteIndex + 1) % palettes.length;
-                const newPalette = palettes[currentPaletteIndex]; document.body.className = newPalette; localStorage.setItem('vocatPalette', newPalette);
+                const newPalette = palettes[currentPaletteIndex];
+                document.body.className = newPalette;
+                localStorage.setItem('vocatPalette', newPalette);
             });
 
-            // =================================================================
-            // --- 新增：震動與選項邏輯 ---
-            // =================================================================
-            const vibrationLink = document.getElementById('vibration-switch-link');
-            // 預設開啟，除非使用者曾經關閉 (local storage 'false')
-            let isVibrationOn = localStorage.getItem('vocatVibration') !== 'false'; 
 
-            function updateVibrationText() {
-                if(vibrationLink) {
-                    vibrationLink.textContent = `VIBRATION: ${isVibrationOn ? 'ON' : 'OFF'}`;
-                }
-            }
-            updateVibrationText();
-
-            if (vibrationLink) {
-                vibrationLink.addEventListener('click', (e) => {
-                    e.preventDefault(); audioSelect.currentTime = 0; audioSelect.play();
-                    isVibrationOn = !isVibrationOn;
-                    localStorage.setItem('vocatVibration', isVibrationOn);
-                    updateVibrationText();
-                    if(isVibrationOn) triggerVibration();
-                });
-            }
-
-            function triggerVibration() {
-                // 檢查瀏覽器支援且功能已開啟
-                if (isVibrationOn && navigator.vibrate) {
-                    // 震動 15 毫秒，短促有力
-                    navigator.vibrate(15);
-                }
-            }
-
+            // --- 自訂 Alert 和 Confirm ---
             function showCustomAlert(message) {
-                const alertModal = document.createElement('div'); alertModal.className = 'modal-overlay show';
-                alertModal.innerHTML = `<div class="modal-content"><div class="modal-header"><p>NOTICE</p></div><div class="modal-body" style="text-align: center; padding: 20px 0;"><p>${message}</p><button id="custom-alert-ok" style="padding: 8px 16px; margin-top: 20px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: var(--screen-text); color: var(--screen-bg); cursor: pointer;">OK</button></div></div>`;
+                const alertModal = document.createElement('div');
+                alertModal.className = 'modal-overlay show';
+                alertModal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header"><p>NOTICE</p></div>
+                        <div class="modal-body" style="text-align: center; padding: 20px 0;">
+                            <p>${message}</p>
+                            <button id="custom-alert-ok" style="padding: 8px 16px; margin-top: 20px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: var(--screen-text); color: var(--screen-bg); cursor: pointer;">OK</button>
+                        </div>
+                    </div>`;
                 document.body.appendChild(alertModal);
-                document.getElementById('custom-alert-ok').onclick = () => { audioSelect.play(); document.body.removeChild(alertModal); };
-                document.getElementById('custom-alert-ok').focus();
+                document.getElementById('custom-alert-ok').onclick = () => {
+                    audioSelect.play();
+                    document.body.removeChild(alertModal);
+                };
+                 document.getElementById('custom-alert-ok').focus();
             }
 
             function showCustomConfirm(message, onConfirm) {
-                const confirmModal = document.createElement('div'); confirmModal.className = 'modal-overlay show';
-                confirmModal.innerHTML = `<div class="modal-content"><div class="modal-header"><p>CONFIRM</p></div><div class="modal-body" style="text-align: center; padding: 20px 0;"><p>${message}</p><div style="margin-top: 20px;"><button id="custom-confirm-yes" style="padding: 8px 16px; margin-right: 10px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: var(--screen-text); color: var(--screen-bg); cursor: pointer;">YES</button><button id="custom-confirm-no" style="padding: 8px 16px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: transparent; color: var(--screen-text); cursor: pointer;">NO</button></div></div></div>`;
+                const confirmModal = document.createElement('div');
+                confirmModal.className = 'modal-overlay show';
+                confirmModal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header"><p>CONFIRM</p></div>
+                        <div class="modal-body" style="text-align: center; padding: 20px 0;">
+                            <p>${message}</p>
+                            <div style="margin-top: 20px;">
+                                <button id="custom-confirm-yes" style="padding: 8px 16px; margin-right: 10px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: var(--screen-text); color: var(--screen-bg); cursor: pointer;">YES</button>
+                                <button id="custom-confirm-no" style="padding: 8px 16px; font-family: 'Press Start 2P'; border: 2px solid var(--screen-text); background-color: transparent; color: var(--screen-text); cursor: pointer;">NO</button>
+                            </div>
+                        </div>
+                    </div>`;
                 document.body.appendChild(confirmModal);
-                const yesBtn = document.getElementById('custom-confirm-yes'); const noBtn = document.getElementById('custom-confirm-no');
-                yesBtn.onclick = () => { audioSelect.play(); onConfirm(); document.body.removeChild(confirmModal); };
-                noBtn.onclick = () => { audioSelect.play(); document.body.removeChild(confirmModal); };
+
+                const yesBtn = document.getElementById('custom-confirm-yes');
+                const noBtn = document.getElementById('custom-confirm-no');
+
+                yesBtn.onclick = () => {
+                    audioSelect.play();
+                    onConfirm();
+                    document.body.removeChild(confirmModal);
+                };
+                noBtn.onclick = () => {
+                    audioSelect.play();
+                    document.body.removeChild(confirmModal);
+                };
                 yesBtn.focus();
             }
+
 
             const categories = document.querySelectorAll('.menu-category > a');
             categories.forEach(category => {
@@ -641,9 +727,15 @@
             });
 
             bootScreen.addEventListener('animationend', function(e) {
-                if (e.animationName === 'fadeOutBoot') { this.style.display = 'none'; this.classList.remove('reboot'); mainMenu.classList.add('reboot'); userInput = []; testerInput = []; }
+                if (e.animationName === 'fadeOutBoot') {
+                    this.style.display = 'none'; this.classList.remove('reboot'); 
+                    mainMenu.classList.add('reboot'); userInput = []; testerInput = [];
+                }
             });
 
+            // =================================================================
+            // --- 彩蛋遊戲管理區塊 ---
+            // =================================================================
             const canvas = document.getElementById('game-canvas');
             const context = canvas.getContext('2d');
             const scoreElement = document.getElementById('game-score');
@@ -1026,7 +1118,6 @@
             const testerCode = ['A', 'B', 'B', 'A', 'Start']; let testerInput = [];
 
             function handleButtonPress(key) {
-                if(isVibrationOn) triggerVibration(); // 加入震動觸發
                 if (gameManager.isGameActive) { gameManager.handleInput(key); return; }
                 if (gameboyScreen.classList.contains('tester-active')) { gameManager.handleGameMenuInput(key); return; }
                 audioSelect.currentTime = 0; audioSelect.play();
@@ -1038,9 +1129,8 @@
             
             let moveInterval = null; const allButtons = document.querySelectorAll('.gb-button');
             function startAction(key) {
-                clearInterval(moveInterval); 
-                handleButtonPress(key); 
-                if (gameManager.isGameActive && ['Left', 'Right', 'Down', 'A'].includes(key)) moveInterval = setInterval(() => { handleButtonPress(key); }, 100);
+                clearInterval(moveInterval); if (gameManager.isGameActive) { audioSelect.currentTime = 0; audioSelect.play(); }
+                handleButtonPress(key); if (gameManager.isGameActive && ['Left', 'Right', 'Down', 'A'].includes(key)) moveInterval = setInterval(() => { handleButtonPress(key); }, 100);
             }
             function stopAction() { clearInterval(moveInterval); }
             allButtons.forEach(button => {
@@ -1061,5 +1151,3 @@
             <img src="https://d4cheap16.github.io/VoCat/Gemini.png" alt="Google Gemini Logo" class="footer-logo">
         </span>
     </footer>
-</body>
-</html>
