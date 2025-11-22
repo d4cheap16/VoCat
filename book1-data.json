@@ -278,7 +278,42 @@
                 "story": { "level": "C2", "text": "Navigating the virtual marketplace of the 'Cyber-League' finals, the NPC vendor extended a tempting **offer** to every passing **customer** (player), hoping to drain their credits before the match began. I was acutely **aware** that this 'exclusive' item was merely a **trap**, a shimmering distraction with zero combat utility. My **aim** remained fixed on the championship title, not virtual vanity. Fighting the **urge** to upgrade my avatar's aesthetics, I adhered to a rigorous **strategy** of economic austerity. **Similarly**, my squadmates rejected the bait, demonstrating they were sufficiently **clever** to see through the game's design. We understood that a **purchase** made on **impulse** is rarely **profitable** in a match where resource management is king. This discipline gave us a significant material **advantage** in the late game. Once the enemy's location became **visible** on the heads-up **display**, we struck. The map was **familiar** to all veterans, but our timing was unprecedented. **Eventually**, their depleted defenses crumbled under our pressure, and the victory was ours." }
             }
         },
-        "L09": {}
+        "L09": {
+            "groupA": {
+                "words": ["mess", "express", "opinion", "horror", "detailed"],
+                "stories": [
+                    { "level": "A2", "text": "My bedroom was in a terrible **mess**. My mom looked at the chaotic room with **horror**. I tried to **express** that I was very tired, but she wouldn't listen. In her **opinion**, I was just being lazy. She gave me a **detailed** list of things to clean up before dinner." },
+                    { "level": "B1", "text": "We accidentally knocked over some paint, creating a colorful **mess** on the floor. Our teacher stared in **horror** when she walked in. We immediately tried to **express** our apologies to her. In my **opinion**, it was just a clumsy accident. She asked for a **detailed** explanation of what happened." },
+                    { "level": "B2", "text": "The city released a **detailed** plan to build a mall in the park. Local residents reacted with **horror**, fearing the loss of green space. They gathered at the city hall to **express** their strong opposition. In their **opinion**, the construction would turn their peaceful neighborhood into a noisy **mess**." },
+                    { "level": "C1", "text": "To **express** the gravity of the situation, the auditor released a statement. Public **opinion** had turned sharply against the board. A **detailed** investigation revealed years of negligence. The financial **mess** resulting from these decisions caused absolute **horror** among the shareholders." }
+                ]
+            },
+            "groupB": {
+                "words": ["contrast", "innocence", "violence", "visual", "permission"],
+                "stories": [
+                    { "level": "A2", "text": "I asked for **permission** to watch a new movie. My dad said no because it has too much **violence**. He prefers cartoons with a cute **visual** style. There is a big **contrast** between what I like and what he likes. He wants to protect my **innocence** for a few more years." },
+                    { "level": "B1", "text": "The artist needed special **permission** to paint on the school wall. She wanted to create a mural against **violence**. Her painting had a strong **visual** impact. It showed the **contrast** between war and peace. The image of a child represented **innocence** and hope." },
+                    { "level": "B2", "text": "The documentary explores the loss of **innocence** in war zones. It uses a gritty **visual** style to show the reality on the ground. There is a sharp **contrast** between the soldiers' lives and the civilians'. The film depicts scenes of **violence** to make a point. The director had to get official **permission** to film in the restricted areas." },
+                    { "level": "C1", "text": "The exhibition examines how media desensitizes us to **violence**. The curator argues that constant exposure erodes our **innocence**. A striking **visual** display places toys next to weapons, creating a disturbing **contrast**. The museum secured **permission** to display these controversial items. The goal is to challenge the viewer's perception of safety." }
+                ]
+            },
+            "groupC": {
+                "words": ["pollution", "community", "criminal", "destructive", "effort", "associate"],
+                "stories": [
+                    { "level": "A2", "text": "Our **community** park was dirty. Trash caused **pollution** in the river. We made an **effort** to clean it up. It is not **criminal** to drop paper, but it is bad. It can be **destructive** to nature. People **associate** clean parks with happiness." },
+                    { "level": "B1", "text": "Some people think graffiti is art, but others see it as a **criminal** activity. Painting on walls without asking is **destructive**. It takes a lot of **effort** to clean it. This damages the look of the **community**. Also, the paint causes air **pollution**. Many people **associate** it with trouble." },
+                    { "level": "B2", "text": "The factory released toxic chemicals, a **destructive** act. This caused severe **pollution** in the water. The entire **community** is angry. They are making an **effort** to stop it. They believe the company's actions are **criminal**. We now **associate** the river with danger." },
+                    { "level": "C1", "text": "Sociologists study factors of urban decay, such as **criminal** behavior. This is often linked to a breakdown in the **community**. The **destructive** impact of industrial **pollution** drives people away. Revitalizing these areas requires a huge **effort**. Outsiders often **associate** these places with failure." }
+                ]
+            },
+            "groupBonus": {
+                "words": ["detailed", "mess", "express", "opinion", "contrast", "horror", "innocence", "violence", "visual", "pollution", "permission", "effort", "community", "associate", "criminal", "destructive"],
+                "story": {
+                    "level": "C2",
+                    "text": "The retrospective exhibition titled 'Decay and Rebirth' offers a remarkably **detailed** chronicle of the city's turbulent transformation. It does not shy away from depicting the **destructive** consequences of unchecked industrial expansion, specifically the toxic **pollution** that once choked the river, effectively severing the lifeline of the local **community**. The curator has made a commendable **effort** to balance historical accuracy with artistic interpretation. The exhibition's primary **visual** language relies on the juxtaposition of eras: serene pre-industrial paintings stand in stark **contrast** to gritty, black-and-white photographs of urban riots, provoking a visceral sense of **horror** in the viewer. While some visitors were eager to **express** their gratitude for this honest portrayal, others found the inclusion of artifacts from a notorious **criminal** gang to be distasteful. In my considered **opinion**, however, scrubbing the record of such **violence** would be an act of historical revisionism, falsely projecting an image of **innocence** onto a complicated past. We must not assume that visitors will automatically **associate** the display of these items with the glorification of crime; rather, they serve as a testament to the chaotic **mess** from which the modern city emerged. It is worth noting that the museum had to secure special **permission** from the federal archives to display the redacted police reports, adding a layer of authenticity to the narrative."
+                }
+            }
+        }
     },
     "wordDetails": {
         "L01": {
@@ -545,6 +580,38 @@
             "awareness": { "pos": "n. [U]", "translation": "意識;認識" },
             "clever": { "pos": "adj.", "translation": "聰明的", "definition": "showing or done in a way that shows intelligent thinking", "example": "The teacher was really impressed with the students' clever ideas in their reports.", "example_tw": "老師對學生報告中的聰明想法印象深刻。" }
         },
-        "L09": {}
+        "L09": {
+            "detailed": { "pos": "adj.", "translation": "詳細的;細緻的", "definition": "having features or a lot of information; paying a lot of attention to features or information", "example": "The art college students were asked to write a detailed description of their favorite work of art.", "example_tw": "藝術學院的學生被要求寫下他們最喜歡的藝術作品的詳細描述。", "family": ["detail"] },
+            "detail": { "pos": "n. [C, U]", "translation": "細節" },
+            "mess": { "pos": "n. sing.", "translation": "凌亂;髒亂", "definition": "a dirty or disorganized condition in a certain place", "example": "A week after the typhoon left the country, many areas were in a mess.", "example_tw": "颱風離開這個國家一週後，許多地區仍是一片狼藉。", "family": ["messy"] },
+            "messy": { "pos": "adj.", "translation": "凌亂的;髒亂的" },
+            "express": { "pos": "vt.", "translation": "表達", "definition": "to share a feeling or idea using words, actions, artworks, etc.", "example": "Lady Gaga uses music to express her view that people are different but equal.", "example_tw": "女神卡卡用音樂表達她認為人生而不同但平等的觀點。", "family": ["expression"] },
+            "expression": { "pos": "n. [U, C]", "translation": "表達" },
+            "opinion": { "pos": "n. [C]", "translation": "想法;意見", "definition": "one's ideas or views about someone or something, which may or may not be true", "example": "In Cassandra's opinion, borrowing books from the library is smarter than buying them because we usually only read them once.", "example_tw": "在卡珊卓拉看來，從圖書館借書比買書更明智，因為我們通常只讀一次。" },
+            "contrast": { "pos": "vt.", "translation": "對比;對照", "definition": "to compare two things by showing their differences", "example": "The video contrasted a picture of a heavy smoker's lungs with that of a non-smoker's to discourage people from smoking.", "example_tw": "這段影片將老菸槍的肺部照片與不吸菸者的肺部照片進行對比，以勸阻人們吸菸。", "family": ["contrast_n"] },
+            "contrast_n": { "pos": "n. [C, U]", "translation": "對比;對照" },
+            "horror": { "pos": "n. [U]", "translation": "可怕;恐怖", "definition": "something that causes fear, shock, or disgust", "example": "It's difficult for most of us to imagine the horror of war because we haven't experienced it ourselves.", "example_tw": "對我們大多數人來說，很難想像戰爭的恐怖，因為我們自己沒有經歷過。", "family": ["horrible", "horrify"] },
+            "horrible": { "pos": "adj.", "translation": "可怕的;令人害怕的" },
+            "horrify": { "pos": "vt.", "translation": "使人恐懼;驚嚇" },
+            "innocence": { "pos": "n. [U]", "translation": "無辜;純真", "definition": "the state of not having much knowledge or experience of the world, especially of adult matters or bad things", "example": "The salesman was good at getting customers to buy his products because he had a look of innocence.", "example_tw": "這位推銷員很擅長讓顧客購買他的產品，因為他長得一臉無辜。", "family": ["innocent"] },
+            "innocent": { "pos": "adj.", "translation": "無辜的;純真的" },
+            "violence": { "pos": "n. [U]", "translation": "暴力", "definition": "behavior or actions that are meant to hurt or kill a person or other living things", "example": "Most people would agree that the use of violence against children is not right in any situation.", "example_tw": "大多數人都同意，在任何情況下對兒童使用暴力都是不對的。", "family": ["violent"] },
+            "violent": { "pos": "adj.", "translation": "暴力的" },
+            "visual": { "pos": "adj.", "translation": "視覺的", "definition": "related to seeing or sight", "example": "Debra loves all kinds of visual arts, including pottery, paintings, drawings, and films.", "example_tw": "黛博拉喜愛各種視覺藝術，包括陶藝、繪畫、素描和電影。" },
+            "pollution": { "pos": "n. [U]", "translation": "汙染", "definition": "the process or state of air, water, soil, etc. becoming or being dirty", "example": "This machine can check the level of air pollution in your apartment and help reduce it.", "example_tw": "這台機器可以檢測你公寓裡的空氣汙染程度並幫助降低它。", "family": ["pollute"] },
+            "pollute": { "pos": "vt.", "translation": "汙染" },
+            "permission": { "pos": "n. [U]", "translation": "許可;准許", "definition": "the act of letting someone do something, usually in a formal or official way", "example": "Excuse me, sir. You need to get special permission for the video camera in the museum.", "example_tw": "先生，不好意思。在博物館內使用攝影機需要獲得特別許可。", "family": ["permit"] },
+            "permit": { "pos": "vt.", "translation": "許可;准許" },
+            "effort": { "pos": "n. [U, C]", "translation": "努力", "definition": "the physical or mental energy required to do something", "example": "Cassandra put a lot of effort into her science project and her teacher praised it in the end.", "example_tw": "卡珊卓拉在她的科學專題上投入了很多努力，最後她的老師稱讚了它。" },
+            "community": { "pos": "n. [C]", "translation": "社區", "definition": "a place and all the people who live there", "example": "Leaders of various local communities are meeting today to express their ideas about how to clean up their streets.", "example_tw": "各個當地社區的領袖今天正在開會，表達他們關於如何清理街道的想法。" },
+            "associate": { "pos": "vt.", "translation": "聯想", "definition": "to make a connection between two things or people in your mind", "example": "Most people in Taiwan associate Beethoven's \"For Elise\" with the coming of the garbage truck.", "example_tw": "台灣大多數人將貝多芬的《給愛麗絲》與垃圾車的到來聯想在一起。", "family": ["association"] },
+            "association": { "pos": "n. [C]", "translation": "聯想" },
+            "criminal": { "pos": "adj.", "translation": "犯罪的", "definition": "connected with or involving things that are against the law", "example": "Studies show that better education can lead to a drop in criminal behavior.", "example_tw": "研究顯示，更好的教育可以導致犯罪行為的減少。", "family": ["criminal_n", "crime"] },
+            "criminal_n": { "pos": "n. [C]", "translation": "罪犯" },
+            "crime": { "pos": "n. [U, C]", "translation": "犯罪行為" },
+            "destructive": { "pos": "adj.", "translation": "破壞性的;毀滅性的", "definition": "causing a lot of damage", "example": "It is hard for most people to imagine the destructive power of modern bombs.", "example_tw": "大多數人很難想像現代炸彈的破壞力。", "family": ["destroy", "destruction"] },
+            "destroy": { "pos": "vt.", "translation": "破壞;毀滅" },
+            "destruction": { "pos": "n. [U]", "translation": "破壞;毀滅" }
+        }
     }
 }
