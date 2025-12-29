@@ -224,7 +224,13 @@
         .menu-category > a::after { content: '▼'; font-size: 80%; transition: transform 0.2s; }
         .menu-category.open > a::after { transform: rotate(180deg); }
         .sub-menu { list-style: none; padding-left: 10px; margin: 5px 0; display: none; }
-        .menu-category.open .sub-menu { display: block; }
+        
+        /* 修改處：使用 > 選擇器 (Child Combinator)
+           確保只有「直接下一層」的 sub-menu 會被展開，
+           避免內層的選單因為外層的 open 狀態而被強制顯示。
+        */
+        .menu-category.open > .sub-menu { display: block; }
+        
         .sub-menu a { font-size: clamp(12px, 3.5vw, 14px); }
 
         .sub-menu a::before, 
@@ -461,22 +467,32 @@
                             <li class="menu-category"><a href="#">高頻單字</a>
                                 <ul class="sub-menu">
                                     <li><a href="high_freq1.html" target="_self">UNIT 01-04</a></li>
-                                    <li><a href="https://forms.gle/bXUNRobFD1P8MYmx7" target="_blank">高一上二段練習（慈中限定）</a></li>
-                                    <li><a href="https://forms.gle/oDeaR87M4xSkaixE6" target="_blank">高一上一段練習（慈中限定）</a></li>
                                     <li><a href="high_freq2.html" target="_self">UNIT 05-09</a></li>
-                                    <li><a href="https://forms.gle/yemp2H1DgrvQAJdm6" target="_blank">高一上期末練習（慈中限定）</a></li>
                                     <li><a href="high_freq3.html" target="_self">UNIT 10-14</a></li>
                                     <li><a href="high_freq4.html" target="_self">UNIT 15-18</a></li>
+                                    <!-- 新增：段考練習 母選單 -->
+                                    <li class="menu-category"><a href="#">段考練習</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="https://forms.gle/yemp2H1DgrvQAJdm6" target="_blank">高一上期末練習（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/bXUNRobFD1P8MYmx7" target="_blank">高一上二段練習（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/oDeaR87M4xSkaixE6" target="_blank">高一上一段練習（慈中限定）</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="menu-category"><a href="#">文法練習</a>
                                 <ul class="sub-menu">
-                                    <li><a href="https://forms.gle/Kq8qkP2xWz37YqZa6" target="_blank">高一上期末（慈大附中限定）</a></li>
-                                    <li><a href="https://forms.gle/GYspv7ni5ckFiUjp8" target="_blank">高二上期末（慈大附中限定）</a></li>
-                                    <li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">高一上二段（慈大附中限定）</a></li>
-                                    <li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">高二上二段（慈大附中限定）</a></li>
-                                    <li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">高一上一段（慈大附中限定）</a></li>
-                                    <li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">高二上一段（慈大附中限定）</a></li>
+                                    <!-- 新增：114-1學期 母選單 -->
+                                    <li class="menu-category"><a href="#">114-1學期</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="https://forms.gle/Kq8qkP2xWz37YqZa6" target="_blank">高一上期末（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/GYspv7ni5ckFiUjp8" target="_blank">高二上期末（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">高一上二段（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">高二上二段（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">高一上一段（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">高二上一段（慈中限定）</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="menu-category"><a href="#">OPTIONS</a>
@@ -522,7 +538,7 @@
         </div>
     </div>
     
-    <audio id="audio-open" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm1ートIBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAADD/38Agf9/AP//fwB/AP//f/9/AP8A//9/AIAA/wB//38AgAA="></audio>
+    <audio id="audio-open" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAADD/38Agf9/AP//fwB/AP//f/9/AP8A//9/AIAA/wB//38AgAA="></audio>
     <audio id="audio-select" src="data:audio/wav;base64,UklGRlIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQgAAAAgP9/AP8AgAD/AIAA/wCAAP8AgAD/AIAA/wCAAP8AgAD/AIAA/wCAAP8A"></audio>
 
     <div id="about-modal" class="modal-overlay">
@@ -710,10 +726,27 @@
             const categories = document.querySelectorAll('.menu-category > a');
             categories.forEach(category => {
                 category.addEventListener('click', function(event) {
-                    event.preventDefault(); audioOpen.currentTime = 0; audioOpen.play();
-                    const parentLi = this.parentElement; const wasOpen = parentLi.classList.contains('open');
-                    document.querySelectorAll('.menu-category.open').forEach(c => c.classList.remove('open'));
-                    if (!wasOpen) parentLi.classList.add('open');
+                    event.preventDefault(); 
+                    audioOpen.currentTime = 0; 
+                    audioOpen.play();
+                    
+                    const parentLi = this.parentElement; 
+                    const wasOpen = parentLi.classList.contains('open');
+                    
+                    // 修改：只關閉與目前點擊無關的選單（支援巢狀結構）
+                    document.querySelectorAll('.menu-category.open').forEach(c => {
+                        // 如果開啟的選單不是當前點擊的，也不是當前點擊的父層（即不是祖先）
+                        // 則將其關閉
+                        if (!c.contains(parentLi)) { 
+                            c.classList.remove('open');
+                        }
+                    });
+
+                    if (!wasOpen) {
+                        parentLi.classList.add('open');
+                    } else {
+                        parentLi.classList.remove('open'); // 允許切換關閉
+                    }
                 });
             });
             const subMenuLinks = document.querySelectorAll('.sub-menu a');
@@ -1153,4 +1186,5 @@
             <img src="https://d4cheap16.github.io/VoCat/Gemini.png" alt="Google Gemini Logo" class="footer-logo">
         </span>
     </footer>
-
+</body>
+</html>
