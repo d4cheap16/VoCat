@@ -1,39 +1,100 @@
 {
-    "allBadges": {
-        "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
-        "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分以上。" },
-        "effortful_learner": { "name": "努力不懈", "icon": "💪", "description": "在任何測驗中獲得60分以上。" },
-        "a2_explorer": { "name": "探索者", "icon": "🧭", "description": "完成一個單元內所有組別的一顆星難度測驗（80分以上）。" },
-        "b1_voyager": { "name": "旅行家", "icon": "🗺️", "description": "完成一個單元內所有組別的兩顆星難度測驗（80分以上）。" },
-        "conqueror": { "name": "征服者", "icon": "👑", "description": "完成一個單元內所有組別的三顆星難度測驗(80分以上)。" },
-        "strong_one": { "name": "真強者", "icon": "💎", "description": "完成一個單元內所有組別的四顆星難度測驗(80分以上)。" },
-        "english_monster": { "name": "英文怪物", "icon": "👹", "description": "完成一個單元內所有組別的四顆星難度測驗(皆為滿分)。" },
-        "alien": { "name": "外星人", "icon": "👽", "description": "在一個單元的隱藏挑戰(❓)中獲得滿分。" },
-        "legend": { "name": "傳說", "icon": "🌌", "description": "完成一個單元內所有測驗且皆為滿分。" },
-        "unit_master": { "name": "單元大師", "icon": "🎖️", "description": "在單一單元內，同時獲得「傳說」與「外星人」徽章。" },
-        "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
+  "allBadges": {
+    "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
+    "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分以上。" },
+    "effortful_learner": { "name": "努力不懈", "icon": "💪", "description": "在任何測驗中獲得60分以上。" },
+    "a2_explorer": { "name": "探索者", "icon": "🧭", "description": "完成一個單元內所有組別的一顆星難度測驗（80分以上）。" },
+    "b1_voyager": { "name": "旅行家", "icon": "🗺️", "description": "完成一個單元內所有組別的兩顆星難度測驗（80分以上）。" },
+    "conqueror": { "name": "征服者", "icon": "👑", "description": "完成一個單元內所有組別的三顆星難度測驗(80分以上)。" },
+    "strong_one": { "name": "真強者", "icon": "💎", "description": "完成一個單元內所有組別的四顆星難度測驗(80分以上)。" },
+    "english_monster": { "name": "英文怪物", "icon": "👹", "description": "完成一個單元內所有組別的四顆星難度測驗(皆為滿分)。" },
+    "alien": { "name": "外星人", "icon": "👽", "description": "在一個單元的隱藏挑戰(❓)中獲得滿分。" },
+    "legend": { "name": "傳說", "icon": "🌌", "description": "完成一個單元內所有測驗且皆為滿分。" },
+    "unit_master": { "name": "單元大師", "icon": "🎖️", "description": "在單一單元內，同時獲得「傳說」與「外星人」徽章。" },
+    "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
+  },
+  "vocabulary": {
+    "L01": {
+      "groupA": {
+        "words": ["debate", "devour", "mental", "penalty", "property", "rumor"],
+        "stories": [
+          { "level": "A2", "text": "Did you hear the **rumor** about the class trip next month? Our teacher said that since the school bus is school **property**, we must keep it very clean. If anyone leaves trash on their seat, there might be a small **penalty**, like cleaning the classroom after school. Right now, I am so hungry that I could **devour** a whole bucket of fried chicken! My mother always tells me that staying happy is important for my **mental** health. We are still having a **debate** in class about whether to go to the beach or the mountains." },
+          { "level": "B1", "text": "In today's fast-paced digital world, protecting your **mental** well-being is more essential than ever. If a large company accidentally leaks your personal data, they might face a heavy legal **penalty**. There is an ongoing **debate** among experts about whether digital accounts should be treated as private **property** that can be inherited. You should avoid believing every **rumor** you see on social media apps. Unfortunately, some people **devour** every piece of sensational news without checking if the information is actually true." },
+          { "level": "B2", "text": "Real estate investors usually **devour** the latest market reports before deciding to buy any commercial **property** in the city center. Currently, a fierce **debate** is taking place in the city council over a potential environmental **penalty** for local polluters. Meanwhile, government officials are trying their best to suppress the **rumor** of an upcoming financial crisis. Financial experts suggest that this kind of economic uncertainty can often lead to increased **mental** stress among small business owners." },
+          { "level": "C1", "text": "Intellectuals often **devour** ancient philosophical texts to fuel a modern **debate** on the nature of ethics and justice. The narrative masterfully explores how an obsession with private **property** can lead to a character’s ultimate moral downfall. A subtle **rumor** woven into the plot suggests that the protagonist's **mental** stability is merely a facade. In the end, the tragic hero must face the ultimate **penalty** for his transgressions against the state, leaving the audience to reflect on the cost of ambition." }
+        ]
+      },
+      "groupB": {
+        "words": ["acquire", "profound", "imprisonment", "companion", "claim", "worship"],
+        "stories": [
+          { "level": "A2", "text": "I finally have a new dog named Max! He is my best **companion** and follows me everywhere. It took me a few weeks to **acquire** the skills to train him to sit. My neighbors say he is the smartest dog in the world, but I do not make that **claim** because he still eats my shoes. Max seems to **worship** his tennis ball as if it were a king. Sometimes, when I have to stay in my room to study, it feels like **imprisonment** without him. My love for Max is very **profound**, and I hope we stay together for a long time." },
+          { "level": "B1", "text": "During my trip to Kyoto, I saw many people visit the ancient temple to **worship** and pray for good luck. The silence inside the hall gave me a **profound** feeling of peace that I had never felt before. Local historians **claim** that the temple's wooden structure has survived for over eight centuries without a single nail. I was lucky to travel with a knowledgeable **companion** who explained the history of the area. In ancient times, people who disrespected the temple could face long **imprisonment**. I was happy to **acquire** so much interesting information during this spiritual journey." },
+          { "level": "B2", "text": "Many modern philosophers **claim** that true freedom is the ultimate goal of human existence. However, the threat of **imprisonment** remains the primary tool for states to maintain social order. To truly be free, one must **acquire** the ability to think critically and resist social pressure. A loyal **companion** can help you through hard times, but internal strength is what matters most. In some societies, people **worship** money and fame instead of values like honesty and kindness. This change in focus has a **profound** impact on how the younger generation views the world." },
+          { "level": "C1", "text": "Scholars dedicated to social science often **acquire** vast amounts of data to support their theories on human behavior. They frequently **claim** that modern isolation can feel like a form of psychological **imprisonment** for the urban population. In the novel, the characters **worship** at the altar of technology, blinded by the promise of eternal progress. This obsession eventually creates a **profound** sense of alienation from the natural world. Without a loyal **companion** to share the burden of existence, the protagonist’s journey becomes a tragic study of loneliness and the corruption of the human spirit." }
+        ]
+      },
+      "groupC": {
+        "words": ["abandon", "wealthy", "prison", "volume", "murder", "surrender"],
+        "stories": [
+          { "level": "A2", "text": "Long ago, a **wealthy** king lived in a big castle with lots of gold. One day, a bad man tried to commit a **murder** in the village, but the brave knights stopped him. The police caught the man and sent him to a dark **prison** for many years. The bad man's friends knew they could not win, so they had to **surrender** and put down their swords. The man was sad and decided to **abandon** his bad life to become a better person. Suddenly, the **volume** of the music became very loud as the village started a big party!" },
+          { "level": "B1", "text": "While visiting an old estate last weekend, I discovered a large **volume** of dusty journals in the attic. They belonged to a **wealthy** explorer who had lived there in the 1800s. One entry vividly described how he had to **abandon** his ship during a sudden storm at sea. Interestingly, he also wrote about a local **murder** mystery that had terrified the village for decades. The suspect in that case was eventually captured and sent to a high-security **prison** far away. Although the explorer was a brave man, he finally had to **surrender** to old age and left his estate to the public." },
+          { "level": "B2", "text": "The detectives had to **abandon** their initial search after a week of failing to find any useful clues. However, new DNA evidence regarding the **murder** of the businessman finally emerged. The victim was a **wealthy** socialite who had many business rivals in the city. The sheer **volume** of phone calls to the police tip line was overwhelming for the small team. Under heavy pressure from the police, the suspect finally decided to **surrender** at a local station last night. He was immediately transported to a state **prison** where he will stay until the trial begins." },
+          { "level": "C1", "text": "This dense **volume** of prose provides a chilling and detailed account of a premeditated **murder**. The author uses the story to critique a **wealthy** society that consistently ignores the suffering of the lower classes. Driven by extreme desperation, the characters often **abandon** their moral principles just to survive another day. The setting of the novel acts as a metaphorical **prison**, reflecting the trapped mental state of the protagonist. To find any hope of redemption, the hero must eventually **surrender** his desire for absolute control over his tragic fate." }
+        ]
+      },
+      "groupD": {
+        "words": ["insist", "vain", "guilt", "intention", "disgust"],
+        "stories": [
+          { "level": "A2", "text": "My little brother really hates eating vegetables. Tonight, he looked at his plate of broccoli with **disgust** and pushed it away. My mom had no **intention** of letting him leave the table until he finished his dinner. She had to **insist** that he eat at least five pieces before going to play. He tried to hide the broccoli under his napkin in **vain**, because my mom saw him do it immediately. Later that night, he felt some **guilt** for being so stubborn and gave our mom a big hug to say sorry." },
+          { "level": "B1", "text": "Sarah had a clear **intention** to start a new recycling program at our school. At first, many students looked with **disgust** at the messy trash bins near the cafeteria and didn't want to help. Sarah had to **insist** on meeting with the principal to explain how much plastic was being wasted every day. For a few weeks, her efforts seemed to be in **vain** as very few people joined her. However, after seeing how hard she worked, some classmates felt a sense of **guilt** for ignoring the problem and finally decided to join her team." },
+          { "level": "B2", "text": "The manager’s hidden **intention** was to replace several experienced staff members with new automated software. When the employees discovered the plan, they expressed their **disgust** at the company’s lack of transparency. Despite the loud protests, the board of directors continued to **insist** that the technological transition was the only way to save the business. The workers’ attempts to block the decision were ultimately in **vain**, as the new contracts had already been signed. Years later, the CEO admitted to feeling deep **guilt** over the many livelihoods that were destroyed during that period." },
+          { "level": "C1", "text": "The novel masterfully explores the protagonist's moral decay, driven by a purely selfish **intention** to acquire political power. Even when the disastrous consequences of his actions become undeniable, he remains paralyzed by a profound sense of **guilt** that he refuses to openly acknowledge. Literary critics often **insist** that the character’s desperate struggle against his tragic fate is entirely in **vain**, as his own hubris has already ensured his downfall. The visceral **disgust** felt by the reader throughout the narrative serves as a powerful commentary on the repulsive nature of unchecked greed in society." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["debate", "penalty", "imprisonment", "prison", "claim", "insist", "property", "companion", "mental", "devour", "volume", "acquire", "profound", "wealthy", "murder", "disgust", "vain", "worship", "intention", "abandon", "surrender", "guilt", "rumor"],
+        "story": {
+          "level": "C2",
+          "text": "For decades, a clandestine **rumor** had circulated among the intellectual elite regarding a man who had vanished from society to test the limits of human endurance. The origin of this experiment can be traced back to a heated **debate** over the ethical implications of capital punishment. Critics argued about which was more merciful: the immediate finality of the death **penalty** or the slow, agonizing erosion of the soul through life **imprisonment**. Eventually, a wager was struck, and a volunteer was confined to a windowless **prison** to resolve the dispute through personal experience.\n\nThe subject was once a **wealthy** aristocrat who had lived a life of decadence, initially possessing no **intention** of seeking spiritual enlightenment. His fall from grace began when he was accused of a cold-blooded **murder** during a night of drunken rage. Although his lawyers attempted to **claim** that he acted in self-defense, their efforts were in **vain** as the evidence was overwhelming. He was forced to **surrender** his status and all his ancestral **property** to the state, beginning his long journey into the abyss of solitude.\n\nDeprived of any human **companion**, he initially struggled with the crushing weight of silence. The **mental** toll was evident as he paced the narrow confines of his cell, facing a **profound** sense of existential dread. However, a transformation occurred when he requested access to a library. He began to **devour** every literary **volume** he could **acquire**, ranging from ancient philosophy to modern science. He did not **worship** a traditional deity, but rather found a new religion in the pursuit of absolute knowledge.\n\nBy the fifteenth year, he looked upon the material world and its fleeting pleasures with a visceral **disgust**. He decided to **abandon** his pursuit of the prize money, viewing the banker’s millions as worthless paper. He felt no **guilt** for his past crimes, for the man who committed them had long since died, replaced by a being of pure intellect. He would **insist** to the very end that true freedom is not found in the physical world, but in the boundless reaches of a disciplined mind."
+        }
+      }
     },
-    "vocabulary": {
-        "L01": {},
-        "L02": {},
-        "L03": {},
-        "L04": {},
-        "L05": {},
-        "L06": {},
-        "L07": {},
-        "L08": {},
-        "L09": {}
+    "L02": {}, "L03": {}, "L04": {}, "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
+  },
+  "wordDetails": {
+    "L01": {
+      "debate": { "pos": "v/n", "translation": "辯論", "definition": "discuss arguments on both sides", "example": "The council debated the new policy.", "example_tw": "委員會辯論了新政策。" },
+      "penalty": { "pos": "n", "translation": "懲罰", "definition": "punishment for breaking a law", "example": "The penalty for speeding is a fine.", "example_tw": "超速的處罰是罰款。" },
+      "imprisonment": { "pos": "n", "translation": "監禁", "definition": "state of being kept in prison", "example": "He was sentenced to life imprisonment.", "example_tw": "他被判處終身監禁。", "family": ["imprison"] },
+      "imprison": { "pos": "v", "translation": "監禁", "definition": "to put in prison", "example": "He was wrongly imprisoned.", "example_tw": "他被冤枉入獄。" },
+      "prison": { "pos": "n", "translation": "監獄", "definition": "place for criminals", "example": "He spent ten years in prison.", "example_tw": "他在監獄待了十年。", "family": ["prisoner"] },
+      "prisoner": { "pos": "n", "translation": "囚犯", "definition": "person held in prison", "example": "The prisoner escaped.", "example_tw": "囚犯逃跑了。" },
+      "claim": { "pos": "n/v", "translation": "宣稱/所有權", "definition": "statement of truth; legal right", "example": "He claimed he saw a ghost.", "example_tw": "他宣稱看到了鬼。" },
+      "insist": { "pos": "v", "translation": "堅持", "definition": "demand something happens", "example": "He insisted on paying.", "example_tw": "他堅持要付錢。" },
+      "property": { "pos": "n", "translation": "財產", "definition": "things owned; land/buildings", "example": "This is private property.", "example_tw": "這是私人財產。" },
+      "companion": { "pos": "n", "translation": "同伴", "definition": "friend or travel partner", "example": "My travel companion snored.", "example_tw": "我的旅伴打呼。" },
+      "mental": { "pos": "adj", "translation": "心理的", "definition": "related to the mind", "example": "Mental health is important.", "example_tw": "心理健康很重要。" },
+      "devour": { "pos": "v", "translation": "熱切讀/吞食", "definition": "read eagerly; eat hungrily", "example": "She devoured the book.", "example_tw": "她熱切地讀完了那本書。" },
+      "volume": { "pos": "n", "translation": "冊/總量", "definition": "a book; total amount", "example": "A large volume of data.", "example_tw": "大量的數據。" },
+      "acquire": { "pos": "v", "translation": "習得/取得", "definition": "gain knowledge or skill", "example": "He acquired a new language.", "example_tw": "他習得了一門新語言。", "family": ["acquisition"] },
+      "acquisition": { "pos": "n", "translation": "取得", "definition": "act of gaining something", "example": "The acquisition of skills.", "example_tw": "技能的取得。" },
+      "profound": { "pos": "adj", "translation": "深厚的/重大的", "definition": "great knowledge; intense impact", "example": "A profound influence.", "example_tw": "重大的影響。" },
+      "wealthy": { "pos": "adj", "translation": "富有的", "definition": "having lots of money", "example": "A wealthy businessman.", "example_tw": "富有的商人。", "family": ["wealth"] },
+      "wealth": { "pos": "n", "translation": "財富", "definition": "abundance of money/assets", "example": "Personal wealth.", "example_tw": "個人財富。" },
+      "murder": { "pos": "v/n", "translation": "謀殺", "definition": "intentionally kill someone", "example": "A brutal murder.", "example_tw": "殘忍的謀殺案。", "family": ["murderer"] },
+      "murderer": { "pos": "n", "translation": "兇手", "definition": "person who commits murder", "example": "The murderer was caught.", "example_tw": "兇手被抓住了。" },
+      "disgust": { "pos": "n/v", "translation": "反感/使厭惡", "definition": "strong feeling of dislike", "example": "He looked in disgust.", "example_tw": "他反感地看著。" },
+      "vain": { "pos": "adj", "translation": "徒勞的", "definition": "useless or unsuccessful", "example": "A vain attempt.", "example_tw": "徒勞的嘗試。" },
+      "worship": { "pos": "v/n", "translation": "崇拜", "definition": "treat with great respect", "example": "They worship ancestors.", "example_tw": "他們崇拜祖先。" },
+      "intention": { "pos": "n", "translation": "意圖", "definition": "purpose or plan", "example": "I had no intention to hurt.", "example_tw": "我無意傷害。", "family": ["intend", "intentional"] },
+      "intend": { "pos": "v", "translation": "打算", "definition": "to plan or mean to do", "example": "What do you intend to do?", "example_tw": "你打算做什麼？" },
+      "intentional": { "pos": "adj", "translation": "故意的", "definition": "done on purpose", "example": "An intentional mistake.", "example_tw": "故意的錯誤。" },
+      "abandon": { "pos": "v", "translation": "放棄/拋棄", "definition": "leave or quit something", "example": "He abandoned the car.", "example_tw": "他遺棄了那輛車。" },
+      "surrender": { "pos": "v/n", "translation": "投降/交出", "definition": "give up control", "example": "The army surrendered.", "example_tw": "軍隊投降了。" },
+      "guilt": { "pos": "n", "translation": "內疚/罪行", "definition": "feeling of doing wrong", "example": "A sense of guilt.", "example_tw": "罪惡感。", "family": ["guilty"] },
+      "guilty": { "pos": "adj", "translation": "有罪的", "definition": "responsible for a crime", "example": "Found guilty.", "example_tw": "判決有罪。" },
+      "rumor": { "pos": "n/v", "translation": "謠言", "definition": "unofficial info", "example": "Rumors are flying.", "example_tw": "謠言滿天飛。" }
     },
-    "wordDetails": {
-        "L01": {},
-        "L02": {},
-        "L03": {},
-        "L04": {},
-        "L05": {},
-        "L06": {},
-        "L07": {},
-        "L08": {},
-        "L09": {}
-    }
+    "L02": {}, "L03": {}, "L04": {}, "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
+  }
 }
-
