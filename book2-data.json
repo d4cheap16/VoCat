@@ -1,39 +1,86 @@
 {
-    "allBadges": {
-        "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
-        "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分以上。" },
-        "effortful_learner": { "name": "努力不懈", "icon": "💪", "description": "在任何測驗中獲得60分以上。" },
-        "a2_explorer": { "name": "探索者", "icon": "🧭", "description": "完成一個單元內所有組別的一顆星難度測驗（80分以上）。" },
-        "b1_voyager": { "name": "旅行家", "icon": "🗺️", "description": "完成一個單元內所有組別的兩顆星難度測驗（80分以上）。" },
-        "conqueror": { "name": "征服者", "icon": "👑", "description": "完成一個單元內所有組別的三顆星難度測驗(80分以上)。" },
-        "strong_one": { "name": "真強者", "icon": "💎", "description": "完成一個單元內所有組別的四顆星難度測驗(80分以上)。" },
-        "english_monster": { "name": "英文怪物", "icon": "👹", "description": "完成一個單元內所有組別的四顆星難度測驗(皆為滿分)。" },
-        "alien": { "name": "外星人", "icon": "👽", "description": "在一個單元的隱藏挑戰(❓)中獲得滿分。" },
-        "legend": { "name": "傳說", "icon": "🌌", "description": "完成一個單元內所有測驗且皆為滿分。" },
-        "unit_master": { "name": "單元大師", "icon": "🎖️", "description": "在單一單元內，同時獲得「傳說」與「外星人」徽章。" },
-        "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
+  "allBadges": {
+    "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
+    "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分以上。" },
+    "effortful_learner": { "name": "努力不懈", "icon": "💪", "description": "在任何測驗中獲得60分以上。" },
+    "a2_explorer": { "name": "探索者", "icon": "🧭", "description": "完成一個單元內所有組別的一顆星難度測驗（80分以上）。" },
+    "b1_voyager": { "name": "旅行家", "icon": "🗺️", "description": "完成一個單元內所有組別的兩顆星難度測驗（80分以上）。" },
+    "conqueror": { "name": "征服者", "icon": "👑", "description": "完成一個單元內所有組別的三顆星難度測驗(80分以上)。" },
+    "strong_one": { "name": "真強者", "icon": "💎", "description": "完成一個單元內所有組別的四顆星難度測驗(80分以上)。" },
+    "english_monster": { "name": "英文怪物", "icon": "👹", "description": "完成一個單元內所有組別的四顆星難度測驗(皆為滿分)。" },
+    "alien": { "name": "外星人", "icon": "👽", "description": "在一個單元的隱藏挑戰(❓)中獲得滿分。" },
+    "legend": { "name": "傳說", "icon": "🌌", "description": "完成一個單元內所有測驗且皆為滿分。" },
+    "unit_master": { "name": "單元大師", "icon": "🎖️", "description": "在單一單元內，同時獲得「傳說」與「外星人」徽章。" },
+    "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
+  },
+  "vocabulary": {
+    "L01": {
+      "groupA": {
+        "words": ["champion", "dedication", "injury", "collapse", "medical", "medal"],
+        "stories": [
+          { "level": "A2", "text": "Yesterday was our school sports day. My best friend, Leo, is a great runner and he wanted to be the **champion** of the 100-meter race. He practiced very hard for weeks, showing great **dedication** to his training. During the race, he was leading, but suddenly he felt a sharp pain in his leg. It was a serious **injury** that made him **collapse** on the track. The school’s **medical** team ran to help him immediately. Although he didn’t win a **medal** this time, we were all very proud of him." },
+          { "level": "B1", "text": "Local runner Sarah Miller was the favorite to become the race **champion** this morning. However, halfway through, an old wall began to **collapse** near the track due to a minor earthquake. Sarah stopped running to help an elderly spectator who had suffered a head **injury** from falling debris. She stayed until the **medical** staff arrived. Even though she finished last, the committee awarded her a special **medal** for her bravery. They praised her **dedication** to the community." },
+          { "level": "B2", "text": "What truly defines a professional athlete? Is it the shiny gold **medal** hanging on the wall, or the title of world **champion**? While these are symbols of success, they are merely the results of years of invisible **dedication**. Athletes often push their bodies to the absolute limit, sometimes to the point where their physical systems **collapse** under the pressure. When a career-threatening **injury** occurs, it is not just a physical challenge. Beyond the reach of modern **medical** science, it is the athlete’s inner will that determines if they can return." },
+          { "level": "C1", "text": "Behind the roaring cheers lies a grueling reality. To pursue an Olympic **medal**, one must surrender everything. This level of **dedication** is often romanticized, yet it borders on obsession. We witness elite sprinters whose world-class forms suddenly **collapse** in the final meters, victims of immense physiological strain. Often, a single **injury** is all it takes to derail a decade of preparation, rendering one a former **champion** overnight. While the **medical** interventions available today are sophisticated, they cannot always mend a shattered dream." }
+        ]
+      },
+      "groupB": {
+        "words": ["success", "pain", "support", "courage", "emotional", "staff"],
+        "stories": [
+          { "level": "A2", "text": "My piano concert was a big **success** last night. Before I went on stage, I was so nervous and felt a little **pain** in my stomach. However, I saw you in the crowd and felt your **support**. It gave me the **courage** to play my best. The music was very **emotional**, and some people even cried. After the show, the theater **staff** told me I did a great job." },
+          { "level": "B1", "text": "Nurses often see patients in great physical **pain**, which can be very **emotional** for everyone involved. To keep going, the hospital **staff** need a lot of **courage** and mental strength to face life and death. They also rely on the **support** of their colleagues to get through long, tiring shifts. When a patient finally recovers and goes home, it is considered a wonderful **success** for the entire team." },
+          { "level": "B2", "text": "Many legendary leaders have experienced the **pain** of losing everything before reaching the top. What keeps them moving is often the **emotional** connection they have with their mission. It takes true **courage** to admit when a plan has failed and to try again. Moreover, the **support** from a dedicated team is crucial, as no one can achieve greatness alone. Ultimately, even a small group of **staff** members can change the world. Their grit is the real secret to long-term **success**." },
+          { "level": "C1", "text": "Resilience requires a highly trained **staff** capable of maintaining focus during extreme volatility. When an industry faces a downturn, the psychological **pain** experienced by employees can lead to burnout. Therefore, providing robust **support** systems is a strategic necessity. Leaders must exhibit the professional **courage** to make unpopular decisions for long-term stability. Such high-pressure environments are inevitably **emotional**, yet they serve as the ultimate litmus test for institutional **success**." }
+        ]
+      },
+      "groupC": {
+        "words": ["immediately", "struggle", "respect", "strength", "pride", "admiration"],
+        "stories": [
+          { "level": "A2", "text": "Yesterday, Sam saw a cat stuck in a tall tree. The cat began to **struggle** to get down. Sam knew he had to help **immediately**, so he started to climb. He needed all his **strength** to reach the branch. When he finally brought the cat down safely, all the neighbors looked at him with **admiration**. Sam’s parents felt great **pride** in their son. Now, everyone in the street gives Sam a lot of **respect**." },
+          { "level": "B1", "text": "From the start, the steep path was a constant **struggle** for my tired legs. I soon realized that I had underestimated the physical **strength** required for this altitude. When a thick fog rolled in, our guide told us to stop **immediately**. As I looked up at the snowy peak, I felt a deep sense of **admiration** for the professional climbers. They certainly deserve our **respect**. Although I didn't reach the top, I still take **pride** in how high I climbed." },
+          { "level": "B2", "text": "Eleanor Vance dedicated her life to the **struggle** for social justice. Whenever she witnessed unfairness, she would react **immediately** by organizing a protest. Her unwavering moral **strength** allowed her to face powerful opponents without fear. Over the decades, she earned the **respect** of world leaders and citizens alike. Today, visitors express their **admiration** for her sacrifices. Her story remains a source of national **pride**." },
+          { "level": "C1", "text": "In moments of crisis, the ego must be set aside so that one can respond **immediately** to the dictates of conscience. This requires a rare form of inner **strength** that is cultivated through years of reflection. We do not grant our **respect** to those who simply succeed, but to those who maintain their integrity while experiencing a deep **struggle**. Such resilience evokes a profound **admiration** that transcends boundaries. Ultimately, a healthy sense of **pride** is born from the knowledge that one has remained upright." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["champion", "dedication", "medal", "injury", "collapse", "medical", "emotional", "pain", "support", "staff", "courage", "strength", "struggle", "respect", "immediately", "pride", "admiration", "success"],
+        "story": { "level": "C2", "text": "The pursuit of athletic excellence is a grueling path paved with paradoxical trials. To eventually emerge as a world **champion**, one must possess a level of **dedication** that borders on the ascetic, sacrificing years for the singular hope of an Olympic **medal**. Yet, a sudden, debilitating **injury** can render a lifetime of preparation moot. When the physical framework begins to **collapse** under immense physiological pressure, the presence of an elite **medical** team is indispensable. The **emotional** toll of a failed campaign is often far more corrosive than the visceral **pain** of a torn ligament. In these dark corridors of defeat, the unwavering **support** of a loyal coaching **staff** becomes the only tether to one's former identity. It requires a rare species of **courage** to find the inner **strength** to rise from the ashes. The ensuing **struggle** to reclaim one's status is a psychological quest to regain self-**respect**. One must act **immediately** to prevent cynicism from taking root, replacing despair with a quiet **pride** in the resilience of the soul. Those who navigate this journey evoke a profound **admiration** from the global community, proving that true **success** is an enduring testament to the indomitable heart." }
+      }
     },
-    "vocabulary": {
-        "L01": {},
-        "L02": {},
-        "L03": {},
-        "L04": {},
-        "L05": {},
-        "L06": {},
-        "L07": {},
-        "L08": {},
-        "L09": {}
+    "L02": {}, "L03": {}, "L04": {}, "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
+  },
+  "wordDetails": {
+    "L01": {
+      "champion": { "pos": "n. [C]", "translation": "冠軍", "definition": "the winner of a sports event or a competition", "example": "Howard will be crowned the world chess champion after winning the final next Monday.", "example_tw": "在贏得下週一的決賽後，Howard 將被加冕為世界西洋棋冠軍。" },
+      "dedication": { "pos": "n. [U]", "translation": "奉獻；投入", "definition": "the time, effort, and hard work one puts into achieving a certain goal", "example": "Doctor Parker shows total dedication to this project. She has spent a lot of time doing detailed studies since she began the project two years ago.", "example_tw": "Parker 醫生對這個計畫展現了全然的投入。自從兩年前開始這個計畫以來，她花了很多時間進行詳盡的研究。", "family": ["dedicate"] },
+      "dedicate": { "pos": "vt.", "translation": "把……奉獻於", "definition": "to give a lot of your time and effort to a particular activity", "example": "For eighteen months, this author has dedicated himself to writing a book about the snacks available in Taiwanese night markets.", "example_tw": "十八個月來，這位作者一直致力於撰寫一本關於台灣夜市小吃的書。" },
+      "medal": { "pos": "n. [C]", "translation": "獎牌", "definition": "awarded to someone that has won a race or competition", "example": "Liz dreamed of coming in first in the race and wearing a shiny gold medal around her neck.", "example_tw": "Liz 夢想著在比賽中獲得第一名，並在脖子上戴著一面閃亮的金牌。" },
+      "injury": { "pos": "n. [C, U]", "translation": "受傷", "definition": "physical damage or harm done to one's body", "example": "After suffering a serious injury in her last race, the cyclist has no chance of becoming a world champion this time.", "example_tw": "在上一次比賽中受了重傷後，這位自行車手這次沒有機會成為世界冠軍了。", "family": ["injure"] },
+      "injure": { "pos": "vt.", "translation": "使……受傷", "definition": "to harm yourself or somebody else physically", "example": "Harry badly injured himself at the beach and was taken to the hospital.", "example_tw": "哈利在海邊受了重傷，被送往醫院。" },
+      "success": { "pos": "n. [U/C]", "translation": "成功", "definition": "the fact that someone achieves something very well", "example": "Monica had great success in her work and became a famous singer after years of dedication.", "example_tw": "Monica 在工作上取得了巨大的成功，並在多年的奉獻後成為了一名著名的歌手。", "family": ["succeed", "successful"] },
+      "succeed": { "pos": "vi.", "translation": "成功辦到", "definition": "to achieve something that you have been trying to do", "example": "Despite having faced many difficulties, Kevin still succeeded in starting his own company.", "example_tw": "儘管面臨許多困難，凱文還是成功創辦了自己的公司。" },
+      "successful": { "pos": "adj.", "translation": "成功的", "definition": "achieving your aims or what was intended", "example": "If you want to be successful in your job, work hard and never give up.", "example_tw": "如果你想在工作中取得成功，就努力工作，永不放棄。" },
+      "pain": { "pos": "n. [C, U]", "translation": "疼痛", "definition": "what you feel when you are hurt, injured, or sick", "example": "Alex experienced a sharp pain in his leg while hiking.", "example_tw": "Alex 在健行時感覺到腿部劇痛。", "family": ["painful", "painfully"] },
+      "painful": { "pos": "adj.", "translation": "疼痛的", "definition": "causing you physical or emotional pain", "example": "Meg's right arm was injured last week and thus she found carrying heavy things a bit painful.", "example_tw": "梅格的右臂上週受傷了，因此她覺得搬重物有點痛苦。" },
+      "painfully": { "pos": "adv.", "translation": "痛苦地", "definition": "in a way that causes you physical or emotional pain", "example": "In spite of her sore wrist, Mrs. Davis painfully turned the tight handle until the door opened.", "example_tw": "儘管手腕酸痛，戴維斯太太還是痛苦地轉動著緊繃的把手，直到門打開。" },
+      "immediately": { "pos": "adv.", "translation": "立即", "definition": "right away or without delay", "example": "I need to leave immediately, or I'll miss my plane.", "example_tw": "我需要立刻離開，否則我會趕不上飛機。", "family": ["immediate"] },
+      "immediate": { "pos": "adj.", "translation": "立即的", "definition": "happening or done without delay", "example": "Upon getting the call, the police took immediate action and quickly arrived at the scene of the crime.", "example_tw": "接到電話後，警察立即採取行動，迅速趕到犯罪現場。" },
+      "collapse": { "pos": "vi./n.", "translation": "倒下", "definition": "to fall down, especially when one faints or feels weak", "example": "The woman felt dizzy after the seven-hour train journey and suddenly collapsed in the station.", "example_tw": "這名女子在七小時的火車旅程後感到暈眩，並在車站突然倒下。" },
+      "medical": { "pos": "adj.", "translation": "醫療的", "definition": "related to the study and treatment of injury", "example": "Lisa plans to attend medical school and become a doctor in the future.", "example_tw": "Lisa 計畫就讀醫學院，未來成為一名醫生。" },
+      "staff": { "pos": "n. [U, C]", "translation": "全體員工", "definition": "a group or team of workers or employees", "example": "The hotel staff greets all guests in a polite way.", "example_tw": "飯店員工以禮貌的方式迎接所有客人。" },
+      "courage": { "pos": "n. [U]", "translation": "勇氣", "definition": "the ability to face a difficult situation", "example": "It takes courage for first-time swimmers to put their heads under the water.", "example_tw": "對於第一次游泳的人來說，把頭伸進水裡是需要勇氣的。" },
+      "strength": { "pos": "n. [U]", "translation": "意志力", "definition": "will power or courage under challenging conditions", "example": "It's important for a player to have enough mental strength to handle the stress during competitions.", "example_tw": "對於一名選手來說，擁有足夠的心理韌性來應對比賽期間的壓力是很重要的。", "family": ["strengthen"] },
+      "strengthen": { "pos": "vt.", "translation": "強化", "definition": "to make someone or something stronger", "example": "Spending holidays together greatly strengthens the bond between Henry and his family.", "example_tw": "一起度假大大加強了亨利與家人之間的聯繫。" },
+      "support": { "pos": "n./vt.", "translation": "支持", "definition": "backing or encouragement for someone", "example": "The crowd cheered loudly to show their support for the tennis player every time she won a point.", "example_tw": "每當那位網球選手得分時，群眾就會大聲歡呼以表示對她的支持。" },
+      "struggle": { "pos": "vi./n.", "translation": "奮鬥", "definition": "to move with difficulty / a hard fight", "example": "With a heavy load in back, the truck struggled slowly up the steep hill.", "example_tw": "由於後方載貨沉重，卡車艱難地緩慢爬上陡峭的山丘。" },
+      "pride": { "pos": "n. [U]", "translation": "驕傲", "definition": "satisfaction or pleasure in achievements", "example": "Neil took pride in his brother's determination when he saw him complete the marathon.", "example_tw": "當 Neil 看到哥哥完成馬拉松時，他為哥哥的決心感到自豪。", "family": ["proud"] },
+      "proud": { "pos": "adj.", "translation": "驕傲的", "definition": "feeling pleased about something you have done", "example": "Laura's parents were proud of her excellent score in science class.", "example_tw": "勞拉的父母對她在科學課上的優異成績感到非常自豪。" },
+      "emotional": { "pos": "adj.", "translation": "情緒激動的", "definition": "having or showing strong feelings", "example": "Mr. Jones got very emotional and struggled to hold back the tears when his daughter graduated from law school.", "example_tw": "當女兒從法學院畢業時，瓊斯先生情緒非常激動，努力忍住眼淚。", "family": ["emotion"] },
+      "emotion": { "pos": "n.", "translation": "情緒", "definition": "a strong feeling such as love, fear, or anger", "example": "Danny is shy, so it's hard for him to express his emotions and let others know how he feels.", "example_tw": "丹尼很害羞，所以他很難表達自己的情緒並讓別人知道他的感受。" },
+      "admiration": { "pos": "n. [U]", "translation": "欽佩", "definition": "a feeling of deep approval", "example": "Fans showed their admiration for the amazing actor by throwing flowers up onto the stage after the show.", "example_tw": "影迷們在表演結束後將花扔上舞台，以表達對這位了不起的演員的欽佩。" },
+      "admire": { "pos": "vt.", "translation": "欽佩", "definition": "to respect and admire someone", "example": "Debbie deeply admires Jimmy for his generosity and honesty.", "example_tw": "戴比非常欽佩吉米的慷慨和誠實。" },
+      "respect": { "pos": "n./vt.", "translation": "尊敬", "definition": "admiration for one's qualities or achievements", "example": "Mike had great respect for the wise old man and always treated him politely.", "example_tw": "Mike 非常尊敬這位睿智的老人，總是很有禮貌地對待他。" }
     },
-    "wordDetails": {
-        "L01": {},
-        "L02": {},
-        "L03": {},
-        "L04": {},
-        "L05": {},
-        "L06": {},
-        "L07": {},
-        "L08": {},
-        "L09": {}
-    }
+    "L02": {}, "L03": {}, "L04": {}, "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
+  }
 }
-
