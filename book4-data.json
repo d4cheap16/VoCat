@@ -59,7 +59,52 @@
         }
       }
     },
-    "L02": {}, "L03": {}, "L04": {}, "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
+    "L02": {
+      "groupA": {
+        "words": ["appropriate", "solar", "financial", "panel", "nutrition", "flood"],
+        "stories": [
+          { "level": "A2", "text": "Last summer, a terrible **flood** hit our town and many houses were under water. After that, the government decided to build a green library for the kids. The new building has many **solar** lights on the roof to save energy. Each **panel** on top of the library catches sunlight to make clean power. Our teacher said this is very **appropriate** because it helps protect our beautiful earth. Inside the library, there is a small cafe that sells healthy snacks with good **nutrition**. This project also helps with the **financial** problems of the town because the library doesn't have to pay for electricity anymore." },
+          { "level": "B1", "text": "Traveling through the rural areas of Bangladesh, I witnessed the aftermath of a massive **solar** energy project designed to help villages. To support the locals after a monsoon **flood**, a social enterprise started providing floating clinics. A high-quality **panel** is installed on the roof of each boat to ensure the medical equipment stays running. This setup is highly **appropriate** for regions where the traditional power grid cannot reach. Beyond basic medical care, the clinics offer advice on **nutrition** to keep children healthy and strong. The **financial** burden of these services is mostly covered by international donations, making it free for the poor villagers." },
+          { "level": "B2", "text": "Urban planners are increasingly worried about the **financial** implications of extreme weather events, particularly the rising risk of a catastrophic **flood** in coastal cities. One promising strategy involves the widespread adoption of **solar** power in public infrastructure. By installing a photovoltaic **panel** on every skyscraper, cities can generate their own clean electricity during the day. Experts believe it is **appropriate** for modern metropolises to shift away from fossil fuels to ensure long-term sustainability. Furthermore, rooftop gardens on these buildings are improving local **nutrition** by providing fresh produce directly to residents." },
+          { "level": "C1", "text": "In the wake of a devastating **flood**, affected communities often face an arduous road to recovery that demands systemic change. It is imperative to deploy **appropriate** technology that aligns with the specific geographical and cultural needs of the region. For instance, the integration of **solar** energy systems has proven to be a catalyst for local development. The efficiency of a modern crystalline **panel** allows for energy independence even in the most remote areas. This transition not only enhances the **financial** resilience of these households but also allows the focus to shift toward long-term goals like community **nutrition** and health education." }
+        ]
+      },
+      "groupB": {
+        "words": ["promising", "practical", "severe", "session", "hygiene", "install"],
+        "stories": [
+          { "level": "A2", "text": "I joined a fun cooking class today. It was a short **session** about making healthy pizza at home. The teacher said my cooking skills look **promising** and I might be a chef one day! Before we started, everyone had to wash their hands for good **hygiene**. Then, the school had to **install** a new oven for us to use. Learning to cook is very **practical** because I can help my family make dinner. Our teacher warned us that if we are not careful with knives, we could get a **severe** cut." },
+          { "level": "B1", "text": "Before going on a mountain trip, you should attend a safety **session** to learn the basic rules. It is **practical** to bring a first-aid kit and enough water in your backpack. You must maintain personal **hygiene** even in the wild to avoid getting sick. If the weather becomes **severe**, with heavy rain or strong wind, you should find a shelter immediately. Our guide told us that the weather forecast looks **promising** for tomorrow morning. We also need to **install** a special GPS app on our phones to track our location during the hike." },
+          { "level": "B2", "text": "The city has announced a **promising** plan to reduce total waste by 50% within this year. To achieve this, officials held a training **session** for restaurant owners to improve food **hygiene** and waste management. They also plan to **install** smart recycling bins across every public park. However, some critics argue that this high-tech approach isn't a **practical** solution for small businesses with limited budgets. If the city fails to take action now, it may face **severe** environmental consequences and heavy fines in the near future." },
+          { "level": "C1", "text": "The medical board's recent **session** focused on the systemic vulnerabilities revealed during the last pandemic. Analysts noted that a lack of stringent **hygiene** protocols in certain facilities led to **severe** outbreaks that could have been mitigated. Although the development of AI-driven diagnostics is **promising**, its **practical** implementation remains hindered by outdated infrastructure. To address this, the government must **install** robust digital frameworks across all public hospitals. Ultimately, bridging the gap between theoretical potential and effective application is the most daunting challenge for modern healthcare." }
+        ]
+      },
+      "groupC": {
+        "words": ["arched", "sufficient", "geographical", "productivity", "income", "barrier"],
+        "stories": [
+          { "level": "A2", "text": "By using new machines, my uncle has increased his farm's **productivity** a lot this year. The farm is in a perfect **geographical** location near a river, which provides **sufficient** water for the crops even in summer. To enter the farm, visitors walk through a large **arched** gate made of beautiful wood. My uncle also built a strong fence to act as a **barrier** so the deer wouldn't come in and eat the plants. This year, his **income** from selling organic vegetables was high enough to buy more land." },
+          { "level": "B1", "text": "Archaeologists believe that the high **productivity** of this ancient desert city allowed it to trade with distant lands. Its isolated **geographical** position protected it from invaders, while the surrounding sand dunes acted as a major **barrier** to travel. Inside the ruins, explorers were amazed by the **arched** doorways of the temples, which remained standing after a thousand years. Despite the dry climate, the residents had found **sufficient** underground water to thrive. This trade was their primary **income**, making the city one of the wealthiest in the region." },
+          { "level": "B2", "text": "In the modern era, **geographical** distance is no longer a major issue for teams collaborating across the globe. Many people enjoy working from home, which can actually boost **productivity** by reducing daily commute times. However, the lack of face-to-face interaction can be a mental **barrier** for some employees who feel isolated. As long as there is **sufficient** high-speed internet, workers can set up their laptops in cafes with unique **arched** windows. This lifestyle also allows individuals to save more of their **income** on transportation and expensive city living." },
+          { "level": "C1", "text": "The recent archaeological exhibition showcases how early civilizations overcame a major **geographical** **barrier** by constructing intricate trade routes. The sheer **productivity** of these ancient empires was supported by a highly developed tax system that ensured a steady **income** for the state. Architects of that era were famous for their massive **arched** aqueducts, which transported **sufficient** water to support expanding urban populations. Today, these historical sites remind us that human ingenuity has always found ways to thrive despite the most difficult physical limitations." }
+        ]
+      },
+      "groupD": {
+        "words": ["muddy", "resistant", "opportunity", "project", "issue", "risk", "indeed"],
+        "stories": [
+          { "level": "A2", "text": "We started a new gardening **project** at school last month. The ground was very **muddy** because it rained a lot, but we didn't mind. Our teacher said this was a great **opportunity** to learn about nature. It was **indeed** hard work to plant everything by ourselves. One **issue** we had was that some bugs tried to eat the leaves. However, some of our tomatoes are very **resistant** and grew quite strong. My friend wanted to climb the tall fence to get a tool, but I told him not to **risk** falling down." },
+          { "level": "B1", "text": "Exploring the jungle is **indeed** a life-changing experience for many travelers. However, you should never **risk** going deep into the forest without a local guide. During the rainy season, the trails become extremely **muddy** and difficult to walk on. We were working on a photography **project** to document rare birds. One major **issue** was the high humidity, which could damage our cameras. Luckily, our gear cases are **resistant** to water and kept everything dry. This trip was a perfect **opportunity** to see how animals survive in such a tough environment." },
+          { "level": "B2", "text": "Launching a startup is a venture that involves a high **risk** and requires careful planning. Before starting any major **project**, entrepreneurs must identify every potential **issue** that could lead to failure. It is **indeed** true that many new businesses fail within the first year due to lack of funding. However, for those who succeed, the **opportunity** to change an entire industry is worth the effort. In the tech world, software must be **resistant** to cyberattacks to protect user data. Even if the path to success seems **muddy** and unclear at first, persistence is the key to reaching your goals." },
+          { "level": "C1", "text": "Modern scientists continue to **issue** warnings about the catastrophic effects of global warming on the world's oceans. If we do not act now, we **risk** losing thousands of marine species to rising temperatures and pollution. Research into crops that are **resistant** to heat has become a top priority for international food organizations. A recent collaborative **project** between several universities has yielded **indeed** fascinating results regarding soil health. While the political path toward a carbon-neutral future remains **muddy** and complicated, it also presents a unique **opportunity** for innovation." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["flood", "appropriate", "promising", "arched", "solar", "panel", "install", "muddy", "session", "project", "practical", "issue", "nutrition", "hygiene", "resistant", "productivity", "sufficient", "income", "financial", "risk", "geographical", "barrier", "indeed", "opportunity", "severe"],
+        "story": {
+          "level": "C2",
+          "text": "The escalating climate crisis has rendered **severe** environmental catastrophes commonplace; specifically, the recurring **flood** has evolved into a formidable **barrier** that stifles regional progress. To counteract this existential **risk**, a **promising** humanitarian **project** was conceived to repurpose traditional barges into sophisticated floating academies. Each vessel is crowned with a resilient **arched** structure where technicians **install** a sophisticated **solar** **panel** array to harness renewable energy. This innovation is **indeed** a **practical** manifestation of adaptive architecture, tailored to overcome complex **geographical** impediments.\n\nWithin these mobile sanctuaries, a typical educational **session** transcends the traditional curriculum, addressing critical **issue** categories such as holistic **nutrition** and rigorous **hygiene** standards. By delivering **sufficient** intellectual capital to marginalized youths, these initiatives catalyze a profound enhancement in community **productivity**. This endeavor offers a rare **opportunity** for families to bolster their annual **income**, finally transcending the **muddy** stagnation of rural life. Consequently, it is profoundly **appropriate** for global **financial** institutions to subsidize such resilient models, empowering societies to remain **resistant** against the unpredictable oscillations of the natural world."
+        }
+      }
+    },
+    "L03": {}, "L04": {}, "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
   },
   "wordDetails": {
     "L01": {
@@ -95,6 +140,42 @@
       "guilty": { "pos": "adj", "translation": "有罪的", "definition": "responsible for a crime", "example": "Found guilty.", "example_tw": "判決有罪。" },
       "rumor": { "pos": "n/v", "translation": "謠言", "definition": "unofficial info", "example": "Rumors are flying.", "example_tw": "謠言滿天飛。" }
     },
-    "L02": {}, "L03": {}, "L04": {}, "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
+    "L02": {
+      "flood": { "pos": "v/n", "translation": "淹沒/洪水", "definition": "cover with water; serious overflow", "example": "The pouring rain flooded the streets.", "example_tw": "大雨淹沒了街道。", "family": ["flooding"] },
+      "flooding": { "pos": "n", "translation": "水災", "definition": "the state of being covered in water", "example": "The area suffered from severe flooding.", "example_tw": "該地區遭受了嚴重的水災。" },
+      "appropriate": { "pos": "adj", "translation": "合適的", "definition": "suitable for a particular situation", "example": "This film is not appropriate for kids.", "example_tw": "這部電影不適合小孩。" },
+      "promising": { "pos": "adj", "translation": "大有可為的", "definition": "showing signs of future success", "example": "His new business looks promising.", "example_tw": "他的新事業看起來大有可為。" },
+      "arched": { "pos": "adj", "translation": "拱形的", "definition": "curved at the top like an arch", "example": "The bridge has large arched windows.", "example_tw": "這座橋有大型拱形窗戶。", "family": ["arch"] },
+      "arch": { "pos": "n", "translation": "拱門", "definition": "curved structure spanning an opening", "example": "They walked under the stone arch.", "example_tw": "他們走過石拱門。" },
+      "solar": { "pos": "adj", "translation": "太陽能的", "definition": "getting energy from the sun", "example": "Our solar system has eight planets.", "example_tw": "我們的太陽系有八顆行星。" },
+      "panel": { "pos": "n", "translation": "嵌板/小組", "definition": "rectangular piece; group of experts", "example": "A panel of experts will judge.", "example_tw": "一個專家小組將進行評審。" },
+      "install": { "pos": "v", "translation": "安裝", "definition": "put something in place for use", "example": "Install anti-virus software.", "example_tw": "安裝防毒軟體。" },
+      "muddy": { "pos": "adj", "translation": "泥濘的", "definition": "covered by mud", "example": "The field became very muddy.", "example_tw": "田地變得非常泥濘。", "family": ["mud"] },
+      "mud": { "pos": "n", "translation": "泥巴", "definition": "soft, wet earth", "example": "His boots were covered in mud.", "example_tw": "他的靴子沾滿了泥巴。" },
+      "session": { "pos": "n", "translation": "段落/課程", "definition": "period for a particular activity", "example": "A training session for owners.", "example_tw": "一個給業主的培訓課程。" },
+      "project": { "pos": "v/n", "translation": "投影/計畫", "definition": "display on a screen; planned work", "example": "A collaborative research project.", "example_tw": "一項合作研究計畫。" },
+      "practical": { "pos": "adj", "translation": "實際的", "definition": "relating to real situations", "example": "High heels are not practical.", "example_tw": "高跟鞋不實用。" },
+      "issue": { "pos": "n/v", "translation": "議題/發布", "definition": "important topic; make known", "example": "The government issued a warning.", "example_tw": "政府發布了警告。" },
+      "nutrition": { "pos": "n", "translation": "營養", "definition": "taking in food for health", "example": "Proper nutrition is vital.", "example_tw": "適當的營養至關重要。", "family": ["nutritious"] },
+      "nutritious": { "pos": "adj", "translation": "營養豐富的", "definition": "containing high amounts of nutrients", "example": "Milk is a nutritious drink.", "example_tw": "牛奶是營養豐富的飲料。" },
+      "hygiene": { "pos": "n", "translation": "衛生", "definition": "practice of keeping clean", "example": "Maintain good personal hygiene.", "example_tw": "保持良好的個人衛生。" },
+      "resistant": { "pos": "adj", "translation": "有抵抗力的", "definition": "not harmed by something", "example": "This crop is resistant to heat.", "example_tw": "這種作物耐熱。", "family": ["resist", "resistance"] },
+      "resist": { "pos": "v", "translation": "抵抗", "definition": "fight against something", "example": "They resisted the invaders.", "example_tw": "他們抵抗了侵略者。" },
+      "resistance": { "pos": "n", "translation": "抵抗", "definition": "opposition to something", "example": "There was resistance to the plan.", "example_tw": "對該計畫有抗拒情緒。" },
+      "productivity": { "pos": "n", "translation": "生產力", "definition": "rate of production", "example": "The goal is to increase productivity.", "example_tw": "目標是提高生產力。", "family": ["productive"] },
+      "productive": { "pos": "adj", "translation": "多產的", "definition": "producing large amounts", "example": "A very productive farm.", "example_tw": "非常多產的農場。" },
+      "sufficient": { "pos": "adj", "translation": "充足的", "definition": "enough for a purpose", "example": "His income is not sufficient.", "example_tw": "他的收入不充足。" },
+      "income": { "pos": "n", "translation": "收入", "definition": "money earned from work", "example": "She has several sources of income.", "example_tw": "她有幾種收入來源。" },
+      "financial": { "pos": "adj", "translation": "財務的", "definition": "relating to money management", "example": "They faced financial difficulties.", "example_tw": "他們面臨財務困難。", "family": ["finance"] },
+      "finance": { "pos": "n", "translation": "金融", "definition": "management of money", "example": "He works in finance.", "example_tw": "他在金融業工作。" },
+      "risk": { "pos": "n/v", "translation": "風險/冒險", "definition": "possibility of bad results", "example": "Smoking is a risk to health.", "example_tw": "吸煙對健康有風險。" },
+      "geographical": { "pos": "adj", "translation": "地理的", "definition": "relating to physical features", "example": "The island's geographical location.", "example_tw": "島嶼的地理位置。", "family": ["geography"] },
+      "geography": { "pos": "n", "translation": "地理學", "definition": "study of physical features of Earth", "example": "She loves learning geography.", "example_tw": "她喜歡學習地理。" },
+      "barrier": { "pos": "n", "translation": "障礙", "definition": "something that separates or hinders", "example": "Poverty is a barrier to college.", "example_tw": "貧窮是上大學的障礙。" },
+      "indeed": { "pos": "adv", "translation": "的確", "definition": "certainly or truly", "example": "The news was indeed surprising.", "example_tw": "消息的確令人驚訝。" },
+      "opportunity": { "pos": "n", "translation": "機會", "definition": "situation to achieve something", "example": "A great opportunity for growth.", "example_tw": "一個成長的好機會。" },
+      "severe": { "pos": "adj", "translation": "嚴重的/嚴厲的", "definition": "very bad or strict", "example": "A severe leg injury.", "example_tw": "腿部受傷嚴重。" }
+    },
+    "L03": {}, "L04": {}, "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
   }
 }
