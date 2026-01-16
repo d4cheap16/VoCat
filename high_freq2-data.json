@@ -119,7 +119,41 @@
                 ]
             }
         },
-        "test12": {},
+        "test12": {
+            "groupA": {
+                "words": ["current", "evaluate", "budget", "commission", "fortune"],
+                "stories": [
+                    {"level": "A2", "text": "I want to buy a new bike, but I have a very small **budget**. My mother told me to **evaluate** the prices in different shops first. I checked my **current** savings, and I do not have enough money yet. My brother works in a bike shop and gets a **commission** for every bike he sells. He is lucky and has a small **fortune** in his bank account."},
+                    {"level": "B1", "text": "When starting a new project, the first step is to set a clear **budget**. You need to **evaluate** all possible costs to avoid running out of money. Under the **current** economic conditions, prices are changing quickly. Some sales agents earn a high **commission**, which allows them to save a **fortune** over several years of hard work."},
+                    {"level": "B2", "text": "Financial experts often **evaluate** the market to give better advice to investors. In the **current** climate, it is difficult to maintain a strict **budget** due to unexpected inflation. Many people lost a **fortune** when the stock market dropped suddenly. However, those who earn a **commission** from high-value trades are still doing quite well."},
+                    {"level": "C1", "text": "The board of directors met to **evaluate** the company's performance over the last quarter. Given the **current** instability in global markets, they decided to slash the marketing **budget** for the next year. While the CEO has amassed a personal **fortune**, many employees are struggling. The new policy states that sales staff will receive a higher **commission** to encourage better results."}
+                ]
+            },
+            "groupB": {
+                "words": ["financial", "collapsed", "currency", "mission", "enterprise"],
+                "stories": [
+                    {"level": "A2", "text": "My uncle has a small **enterprise** that sells fruit. Last year, the old roof of his shop **collapsed** during a big storm. He had many **financial** problems after that. He had to travel to another country to find work, and he had to learn about their **currency**. Now, his **mission** is to save enough money to fix his shop."},
+                    {"level": "B1", "text": "Every big **enterprise** starts with a dream. The company's **mission** is to provide clean water to everyone. However, they faced **financial** trouble when a major bridge **collapsed** and blocked their trucks. They also had to deal with changes in the local **currency**, which made buying materials more expensive."},
+                    {"level": "B2", "text": "The global **enterprise** faced a crisis when its main factory **collapsed** in the earthquake. This led to serious **financial** instability for thousands of workers and their families. Management declared that their primary **mission** was to protect jobs. They also struggled with the falling value of the national **currency** against the dollar."},
+                    {"level": "C1", "text": "The failure of the private **enterprise** sent shockwaves through the entire industry. After the housing market **collapsed**, many banks faced a **financial** nightmare. Experts analyzed the impact on the global **currency** markets for several weeks. The government's **mission** was to restore public trust and prevent further economic damage to the country."}
+                ]
+            },
+            "groupC": {
+                "words": ["credible", "competition", "code", "contract", "cash"],
+                "stories": [
+                    {"level": "A2", "text": "When you start a new school, you must follow the **code** of conduct. I saw a poster for a drawing **competition** yesterday. The prize is 500 dollars in **cash**. I want to join, but I need a **credible** teacher to sign my form. My father also had to sign a **contract** for his new job today."},
+                    {"level": "B1", "text": "It is important to be a **credible** person so that people can trust you. In business, there is always a lot of **competition** between different brands. Before you start working, you must read the **contract** carefully. Some shops only accept **cash**, while others follow a strict **code** for digital payments to keep things safe."},
+                    {"level": "B2", "text": "To stay ahead of the **competition**, a company must provide **credible** evidence that its products are the best. Every employee must sign a **contract** and agree to follow the company's ethical **code**. Although many people use credit cards now, some small businesses still prefer to be paid in **cash** to avoid bank fees."},
+                    {"level": "C1", "text": "The legal team reviewed the **contract** to ensure it was **credible** and legally binding. In a market with intense **competition**, companies often lower their prices to attract customers who pay in **cash**. However, all businesses must adhere to the professional **code** of ethics. Any violation could lead to a serious loss of reputation and trust."}
+                ]
+            },
+            "groupBonus": {
+                "words": ["current", "evaluate", "budget", "commission", "fortune", "financial", "collapsed", "currency", "mission", "enterprise", "credible", "competition", "code", "contract", "cash"],
+                "stories": [
+                    {"level": "C2", "text": "The CEO of the massive **enterprise** was forced to **evaluate** the **current** situation after their latest venture **collapsed** unexpectedly. Facing a major **financial** crisis, the board demanded a new **budget** that would prioritize stability over rapid growth. The company’s **mission** was now simply to survive the fierce **competition** in the global tech sector.\n\nDuring the emergency meeting, a **credible** whistleblower revealed that some executives had been taking an illegal **commission** on every government **contract**. This was a clear violation of the corporate **code** of ethics. The news caused the company's market value to drop, wiping out a **fortune** for many long-term shareholders. To settle the immediate debts, the company had to pay a large amount of **cash** in local **currency**, leaving its future in doubt."}
+                ]
+            }
+        },
         "test13": {},
         "test14": {},
         "test15": {},
@@ -179,7 +213,23 @@
             "witness": {"pos": "n.","translation": "目擊者","definition": "A person who sees an event happening, especially a crime or an accident.","example": "Evan was the most important witness to the accident, so the prosecutor demanded that he testify in court.","example_tw": "伊凡是這起事故最重要的目擊者，所以檢察官要求他在法庭上作證。"},
             "scandal": {"pos": "n.","translation": "醜聞","definition": "An action or event that is considered immoral or shocking and causes public anger.","example": "We are sure of his innocence, for there has been no hint of scandal during his time in office.","example_tw": "我們確信他是清白的，因為他在任職期間沒有任何醜聞的跡象。"}
         },
-        "test12": {},
+        "test12": {
+            "current": {"pos": "adj.","translation": "現況的；目前的","definition": "Belonging to the present time; happening or being used now.","example": "The current economic situation in this country is getting worse.","example_tw": "這個國家目前的經濟情勢正在惡化。"},
+            "evaluate": {"pos": "v.","translation": "評價；評估","definition": "To judge or calculate the quality, importance, amount, or value of something.","example": "It's difficult to evaluate her as a novelist. We need more time to see her work.","example_tw": "很難評價她作為小說家的表現。我們需要更多時間來觀察她的作品。"},
+            "budget": {"pos": "n.","translation": "預算","definition": "A plan to show how much money is available and how it will be spent.","example": "The budget for building a new museum has been cut significantly.","example_tw": "興建新博物館的預算已經被大幅削減了。"},
+            "commission": {"pos": "n.","translation": "佣金","definition": "Payment made to someone who sells goods, related to the amount they sell.","example": "The insurance agent earned a commission on every policy he sold.","example_tw": "這位保險業務員在他售出的每張保單中賺取佣金。"},
+            "fortune": {"pos": "n.","translation": "財富；大筆金額","definition": "A large amount of money, goods, or property.","example": "She won a fortune in the lottery and decided to travel the world.","example_tw": "她在樂透中贏得了一筆大財富，並決定環遊世界。"},
+            "financial": {"pos": "adj.","translation": "財務的","definition": "Relating to money or how money is managed.","example": "It's a pity that their business got into financial difficulties recently.","example_tw": "遺憾的是他們的事業最近陷入了財務困境。"},
+            "collapsed": {"pos": "v.","translation": "倒閉；崩塌","definition": "To fail suddenly and completely, or to fall down.","example": "The company collapsed because of poor management and a lack of investment.","example_tw": "該公司因為經營不善和缺乏投資而倒閉。"},
+            "currency": {"pos": "n.","translation": "貨幣","definition": "The money that is used in a particular country at a particular time.","example": "The British teachers in China were paid in local currency.","example_tw": "在中國的英國教師是以當地貨幣支薪。"},
+            "mission": {"pos": "n.","translation": "任務","definition": "An important job or goal that someone is sent to do.","example": "It's really a difficult mission to accomplish, requiring lots of effort.","example_tw": "這確實是一個難以完成的任務，需要大量的努力。"},
+            "enterprise": {"pos": "n.","translation": "企業；公司","definition": "An organization or business, or a difficult project.","example": "Some believe in private enterprise while others believe in government ownership.","example_tw": "有些人相信私營企業，而有些人則相信政府應擁有所有權。"},
+            "credible": {"pos": "adj.","translation": "可信的","definition": "Able to be believed or trusted.","example": "We all agree that it's a credible story with facts to support it.","example_tw": "我們都同意這是一個有事實支持的可信故事。"},
+            "competition": {"pos": "n.","translation": "競爭","definition": "An event or situation in which people try to be more successful than others.","example": "They believe that competition in business benefits the consumers.","example_tw": "他們相信商業競爭對消費者有利。"},
+            "code": {"pos": "n.","translation": "規範；準則","definition": "A set of rules that people are expected to follow.","example": "As students, we are supposed to obey the code of the school.","example_tw": "作為學生，我們應該遵守學校的規範。"},
+            "contract": {"pos": "n.","translation": "合約","definition": "A legal agreement between two or more people or organizations.","example": "According to the terms of your contract, you must give notice before leaving.","example_tw": "根據你的合約條款，你在離職前必須先發出通知。"},
+            "cash": {"pos": "n.","translation": "現金","definition": "Money in the form of notes and coins.","example": "They don't accept checks; they want cash only for this transaction.","example_tw": "他不接受支票；這筆交易他們只收現金。"}
+        },
         "test13": {},
         "test14": {},
         "test15": {},
