@@ -31,10 +31,10 @@
             --body-bg: #d3d3d3;
         }
 
-        /* --- 新增：調色盤主題 --- */
+        /* --- 調色盤主題 --- */
         body.palette-pocket {
-            --screen-bg: #333333; /* 深灰色背景 */
-            --screen-text: #f0f0f0; /* 柔和的白色文字 */
+            --screen-bg: #333333; 
+            --screen-text: #f0f0f0; 
             --screen-overlay: rgba(51, 51, 51, 0.85);
         }
         body.palette-sepia {
@@ -203,7 +203,6 @@
             flex-grow: 1;
         }
 
-        /* --- 美化卷軸樣式 --- */
         .menu-wrapper::-webkit-scrollbar {
             width: 10px;
         }
@@ -225,10 +224,6 @@
         .menu-category.open > a::after { transform: rotate(180deg); }
         .sub-menu { list-style: none; padding-left: 10px; margin: 5px 0; display: none; }
         
-        /* 修改處：使用 > 選擇器 (Child Combinator)
-           確保只有「直接下一層」的 sub-menu 會被展開，
-           避免內層的選單因為外層的 open 狀態而被強制顯示。
-        */
         .menu-category.open > .sub-menu { display: block; }
         
         .sub-menu a { font-size: clamp(12px, 3.5vw, 14px); }
@@ -253,7 +248,6 @@
             opacity: 1; 
         }
         
-        /* --- 遊戲選單底部說明 --- */
         .menu-footer {
             flex-shrink: 0;
             text-align: center;
@@ -267,7 +261,6 @@
             margin: 0;
         }
         
-        /* --- 遊戲畫布與計分板 (通用) --- */
         #game-canvas { display: none; width: 100%; height: 100%; background-color: var(--screen-bg); }
         #game-score { 
             display: none; 
@@ -291,7 +284,6 @@
         .gameboy-screen.game-active #game-canvas { display: block; }
         .gameboy-screen.game-active #game-score { display: block; }
 
-        /* --- 新增：遊戲畫面復古濾鏡 --- */
         .gameboy-screen.game-active::after {
             content: '';
             position: absolute;
@@ -352,7 +344,6 @@
         #btn-left { top: 65%; left: 8%; width: 9%; height: 6%; }
         #btn-right { top: 65%; left: 25%; width: 9%; height: 6%; }
 
-        /* --- 說明視窗樣式 --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -380,7 +371,7 @@
             max-width: 95%;
             width: 500px;
             border-radius: 8px;
-            font-family: 'Press Start 2P', 'Noto Sans TC', sans-serif; /* 改為混合字體 */
+            font-family: 'Press Start 2P', 'Noto Sans TC', sans-serif; 
             line-height: 1.7;
             font-size: clamp(14px, 3.5vw, 16px);
         }
@@ -417,7 +408,6 @@
         .modal-body p { margin: 0 0 1em 0; }
         .modal-body p:last-child { margin-bottom: 0; }
         
-        /* 高分榜專用樣式 */
         .scores-list {
             padding: 0;
             margin: 0;
@@ -470,40 +460,51 @@
                                     <li><a href="high_freq2.html" target="_self">UNIT 05-09</a></li>
                                     <li><a href="high_freq3.html" target="_self">UNIT 10-14</a></li>
                                     <li><a href="high_freq4.html" target="_self">UNIT 15-18</a></li>
-                                    <!-- 新增：段考練習 母選單 -->
                                     <li class="menu-category"><a href="#">段考練習</a>
                                         <ul class="sub-menu">
-                                            <li><a href="https://forms.gle/yemp2H1DgrvQAJdm6" target="_blank">高一上期末練習（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/bXUNRobFD1P8MYmx7" target="_blank">高一上二段練習（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/oDeaR87M4xSkaixE6" target="_blank">高一上一段練習（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/yemp2H1DgrvQAJdm6" target="_blank">Test 09-11（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/bXUNRobFD1P8MYmx7" target="_blank">Test 05-08（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/oDeaR87M4xSkaixE6" target="_blank">Test 01-04（慈中限定）</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
+                            <!-- 修改：文法練習 改為 Book 1-5 結構 -->
                             <li class="menu-category"><a href="#">文法練習</a>
                                 <ul class="sub-menu">
-                                    <!-- 新增：114-2學期 母選單 -->
-                                    <li class="menu-category"><a href="#">114-2學期</a>
+                                    <li class="menu-category"><a href="#">Book 1</a>
                                         <ul class="sub-menu">
-                                            <li><a href="empty.html" target="_blank">高一下期末（慈中限定）</a></li>
-                                            <li><a href="empty.html" target="_blank">高二下期末（慈中限定）</a></li>
-                                            <li><a href="empty.html" target="_blank">高一下二段（慈中限定）</a></li>
-                                            <li><a href="empty.html" target="_blank">高二下二段（慈中限定）</a></li>
-                                            <li><a href="empty.html" target="_blank">高一下一段（慈中限定）</a></li>
-                                            <li><a href="empty.html" target="_blank">高二下一段（慈中限定）</a></li>
+                                            <li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">Unit 1-3</a></li>
+                                            <li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">Unit 4-6</a></li>
+                                            <li><a href="https://forms.gle/Kq8qkP2xWz37YqZa6" target="_blank">Unit 7-9</a></li>
                                         </ul>
                                     </li>
-                                </ul>
-                                <ul class="sub-menu">
-                                    <!-- 新增：114-1學期 母選單 -->
-                                    <li class="menu-category"><a href="#">114-1學期</a>
+                                    <li class="menu-category"><a href="#">Book 2</a>
                                         <ul class="sub-menu">
-                                            <li><a href="https://forms.gle/Kq8qkP2xWz37YqZa6" target="_blank">高一上期末（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/GYspv7ni5ckFiUjp8" target="_blank">高二上期末（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">高一上二段（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">高二上二段（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">高一上一段（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">高二上一段（慈中限定）</a></li>
+                                            <li><a href="empty.html" target="_blank">Unit 1-3</a></li>
+                                            <li><a href="empty.html" target="_blank">Unit 4-6</a></li>
+                                            <li><a href="empty.html" target="_blank">Unit 7-9</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-category"><a href="#">Book 3</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">Unit 1-3</a></li>
+                                            <li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">Unit 4-6</a></li>
+                                            <li><a href="https://forms.gle/GYspv7ni5ckFiUjp8" target="_blank">Unit 7-9</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-category"><a href="#">Book 4</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="empty.html" target="_blank">Unit 1-3</a></li>
+                                            <li><a href="empty.html" target="_blank">Unit 4-6</a></li>
+                                            <li><a href="empty.html" target="_blank">Unit 7-9</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-category"><a href="#">Book 5</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="empty.html" target="_blank">Unit 1-3</a></li>
+                                            <li><a href="empty.html" target="_blank">Unit 4-6</a></li>
+                                            <li><a href="empty.html" target="_blank">Unit 7-9</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -539,7 +540,6 @@
             <div class="screen-footer">
                 <p id="quote-text">Loading quote...</p>
             </div>
-            <!-- Gameboy 按鈕 -->
             <a href="#" id="btn-a" class="gb-button" data-key="A"></a>
             <a href="#" id="btn-b" class="gb-button" data-key="B"></a>
             <a href="#" id="btn-select" class="gb-button" data-key="Select"></a>
@@ -560,11 +560,10 @@
                 <p>DESIGN CONCEPT</p>
                 <button id="close-modal-btn" class="modal-close-btn">X</button>
             </div>
-            <div class="modal-body"><!-- 內容將由 JS 填入 --></div>
+            <div class="modal-body"></div>
         </div>
     </div>
     
-    <!-- 新增：高分榜視窗 -->
     <div id="high-scores-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -573,12 +572,10 @@
             </div>
             <div class="modal-body">
                 <ul class="scores-list">
-                    <!-- 分數將由 JS 動態填入 -->
                 </ul>
             </div>
         </div>
     </div>
-
 
     <script>
         window.addEventListener('contextmenu', function(e) { e.preventDefault(); });
@@ -592,7 +589,6 @@
             const mainMenu = document.querySelector('.main-menu');
             const screenFooter = document.querySelector('.screen-footer');
             
-            // --- 視窗元素 ---
             const designConceptLink = document.getElementById('design-concept-link');
             const aboutModal = document.getElementById('about-modal');
             const closeModalBtn = document.getElementById('close-modal-btn');
@@ -612,7 +608,6 @@
             const modalBody = aboutModal.querySelector('.modal-body');
             modalBody.innerHTML = `<p>WELCOME!</p><p>用懷舊的感覺，讓學習也有趣一點。</p><p>網站還有小彩蛋，可以一起體驗我的童年！</p>`;
             
-            // --- 事件監聽 ---
             designConceptLink.addEventListener('click', (e) => { e.preventDefault(); audioOpen.currentTime = 0; audioOpen.play(); aboutModal.classList.add('show'); });
             function closeModal() { audioSelect.currentTime = 0; audioSelect.play(); aboutModal.classList.remove('show'); highScoresModal.classList.remove('show'); }
             closeModalBtn.addEventListener('click', closeModal);
@@ -623,12 +618,10 @@
 
             screenFooter.addEventListener('click', function() { audioSelect.currentTime = 0; audioSelect.play(); quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)]; }); 
             
-            // --- 高分榜邏輯 ---
             highScoresLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 audioOpen.currentTime = 0;
                 audioOpen.play();
-                
                 const scoresList = highScoresModal.querySelector('.scores-list');
                 const games = [
                     { name: 'GHOSTBUSTER', key: 'ghostbusterHighScore' },
@@ -636,25 +629,20 @@
                     { name: 'SNAKE', key: 'snakeHighScore' },
                     { name: 'TETRIS', key: 'tetrisHighScore' }
                 ];
-                
-                scoresList.innerHTML = ''; // 清空舊列表
-                
+                scoresList.innerHTML = ''; 
                 games.forEach(game => {
                     const score = localStorage.getItem(game.key) || '0';
                     const scoreItem = document.createElement('li');
                     scoreItem.innerHTML = `<span>${game.name}</span><span>${String(Math.floor(score)).padStart(5, '0')}</span>`;
                     scoresList.appendChild(scoreItem);
                 });
-
                 highScoresModal.classList.add('show');
             });
 
-            // --- 清除分數邏輯 ---
             clearDataLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 audioOpen.currentTime = 0;
                 audioOpen.play();
-
                 showCustomConfirm('Are you sure you want to clear all high scores? This action cannot be undone.', () => {
                     const games = ['pacmanClassicRunHighScore', 'ghostbusterHighScore', 'snakeHighScore', 'tetrisHighScore'];
                     games.forEach(key => localStorage.removeItem(key));
@@ -662,29 +650,23 @@
                 });
             });
 
-            // --- 調色盤邏輯 ---
             const palettes = ['', 'palette-pocket', 'palette-sepia'];
             let currentPaletteIndex = 0;
-
             const savedPalette = localStorage.getItem('vocatPalette');
             if (savedPalette && palettes.includes(savedPalette)) {
                 document.body.className = savedPalette;
                 currentPaletteIndex = palettes.indexOf(savedPalette);
             }
-
             paletteSwitchLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 audioSelect.currentTime = 0;
                 audioSelect.play();
-
                 currentPaletteIndex = (currentPaletteIndex + 1) % palettes.length;
                 const newPalette = palettes[currentPaletteIndex];
                 document.body.className = newPalette;
                 localStorage.setItem('vocatPalette', newPalette);
             });
 
-
-            // --- 自訂 Alert 和 Confirm ---
             function showCustomAlert(message) {
                 const alertModal = document.createElement('div');
                 alertModal.className = 'modal-overlay show';
@@ -719,10 +701,8 @@
                         </div>
                     </div>`;
                 document.body.appendChild(confirmModal);
-
                 const yesBtn = document.getElementById('custom-confirm-yes');
                 const noBtn = document.getElementById('custom-confirm-no');
-
                 yesBtn.onclick = () => {
                     audioSelect.play();
                     onConfirm();
@@ -735,30 +715,23 @@
                 yesBtn.focus();
             }
 
-
             const categories = document.querySelectorAll('.menu-category > a');
             categories.forEach(category => {
                 category.addEventListener('click', function(event) {
                     event.preventDefault(); 
                     audioOpen.currentTime = 0; 
                     audioOpen.play();
-                    
                     const parentLi = this.parentElement; 
                     const wasOpen = parentLi.classList.contains('open');
-                    
-                    // 修改：只關閉與目前點擊無關的選單（支援巢狀結構）
                     document.querySelectorAll('.menu-category.open').forEach(c => {
-                        // 如果開啟的選單不是當前點擊的，也不是當前點擊的父層（即不是祖先）
-                        // 則將其關閉
                         if (!c.contains(parentLi)) { 
                             c.classList.remove('open');
                         }
                     });
-
                     if (!wasOpen) {
                         parentLi.classList.add('open');
                     } else {
-                        parentLi.classList.remove('open'); // 允許切換關閉
+                        parentLi.classList.remove('open'); 
                     }
                 });
             });
@@ -781,9 +754,6 @@
                 }
             });
 
-            // =================================================================
-            // --- 彩蛋遊戲管理區塊 ---
-            // =================================================================
             const canvas = document.getElementById('game-canvas');
             const context = canvas.getContext('2d');
             const scoreElement = document.getElementById('game-score');
@@ -852,7 +822,6 @@
                 }
             };
             
-            // --- PAC-MAN CLASSIC RUN 遊戲 ---
             const pacmanGame = {
                 player: {}, obstacles: [], score: 0, highScore: 0, gameOver: false, spawnTimer: 0, retryOption: 'YES', isPaused: false, pauseOption: 'YES', pixelScale: 5,
                 start: function() {
@@ -933,7 +902,6 @@
                 },
             };
 
-            // --- GHOSTBUSTER 遊戲 (升級版) ---
             const ghostbusterGame = {
                 gameState: {}, player: {}, playerBullets: [], enemyBullets: [], effects: [], powerUps: [],
                 enemies: [], enemyConfig: {}, isPaused: false, pauseOption: 'YES',
@@ -1201,6 +1169,3 @@
     </footer>
 </body>
 </html>
-
-
-
