@@ -1,4 +1,11 @@
 {
+  "_notes": [
+    "單字資料庫製作原則 (Principles of Vocabulary Database)",
+    "1. 單字整理與分組原則: 每個單元提取 15 個核心單字，隨機分成 Group A, B, C 每組 5 個，並確保動詞、名詞、形容詞分佈平均且與 PDF 準確對應。",
+    "2. 故事撰寫原則: 每組需提供 A2, B1, B2, C1 四個等級，目標單字標記為 **word**。GroupBonus (C2) 需涵蓋全部 15 個單字。",
+    "3. 單字詳細解釋: 包含 pos, translation, definition, example, example_tw，例句需與單元主題相關聯。",
+    "4. JSON 格式化原則: 採用壓縮模式。wordDetails 內的單字物件與 stories 內的 level 物件均改為單行，以減少行數並提高擴充效率。"
+  ],
   "allBadges": {
     "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
     "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分以上。" },
@@ -181,3 +188,4 @@
     "test16": {}, "test17": {}, "test18": {}
   }
 }
+
