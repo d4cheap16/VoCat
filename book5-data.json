@@ -57,7 +57,7 @@
         "stories": [
           { "level": "A2", "text": "Please be **truthful** when you answer my question. I want to know your **inner** thoughts. It's important to be honest and avoid any **dishonesty**. Don't try to **distort** the story to make it sound better. I need to **translate** your feelings into a plan. Your opinion is very **relevant** to our project. I don't want your **pity**; I want your honest help." },
           { "level": "B1", "text": "In our group project, it's crucial that everyone is **truthful**. We need to discuss the problems without trying to **distort** the facts. Any form of **dishonesty** will only hurt our final grade. I'll try to **translate** the complex data into a simple chart. Let's focus on the most **relevant** information first. I'm not looking for **pity** because my part is difficult; I'm focused on finding my **inner** motivation to do it well." },
-          { "level": "B2", "text": "The witness swore to be completely **truthful** in her testimony. The lawyer warned her not to **distort** the events she saw. He explained that any **dishonesty** could lead to serious legal consequences. Her testimony was highly **relevant** to the case. Her main challenge was to **translate** her chaotic memories into a clear sequence of events. She sought to find her **inner** courage to speak publicly. The jury was moved, not by **pity**, but by the sincerity of her account." },
+          { "level": "B2", "text": "The witness swore to be completely **truthful** in her testimony. The lawyer warned her not to **distort** the events saw. He explained that any **dishonesty** could lead to serious legal consequences. Her testimony was highly **relevant** to the case. Her main challenge was to **translate** her chaotic memories into a clear sequence of events. She sought to find her **inner** courage to speak publicly. The jury was moved, not by **pity**, but by the sincerity of her account." },
           { "level": "C1", "text": "This biography attempts to be scrupulously **truthful**, avoiding the hagiographic tones of previous works. It's a challenge to **translate** the subject's complex **inner** world onto the page without resorting to speculation. The author directly confronts accusations of academic **dishonesty** that plagued the subject's career. He meticulously analyzes how rivals would **distort** his research for their own gain. The book argues that this controversy, far from being a footnote, is deeply **relevant** to understanding his later isolation. It's a portrait that evokes respect, not **pity**." }
         ]
       },
@@ -243,7 +243,48 @@
         "story": { "level": "C2", "text": "As a **prominent** climatologist, Dr. Aris is forced to **acknowledge** that the environmental **outlook** is exceedingly **grim**. She studies the **polar** regions, where the **vast** ice shelves are beginning to **melt** at an **extraordinary** rate. The **overall** scientific data **confirm** that the **excessive** consumption of fossil **fuel** by the previous **generation** has triggered an irreversible climatic **shift**. Coastal cities, which rely heavily on maritime **commerce**, must now **contend** with a higher **incidence** of extreme weather. The **likelihood** of disaster increases when a massive **volume** of water and a high **tide** combine to **surge** over sea walls and **sweep** through urban areas. To **sustain** these communities, governments must build **solid** defensive structures at a higher **elevation**. Furthermore, a **joint** international effort is required to **curb** greenhouse gas emissions and **accelerate** the transition to renewable energy. We are **literally** racing against time. Unless we **cease** our destructive habits, the **tranquil** world we once knew will be lost forever." }
       }
     },
-    "L06": {}
+    "L06": {
+      "groupA": {
+        "words": ["march", "memorial", "outline", "racism", "decisive", "civil", "grant"],
+        "stories": [
+          { "level": "A2", "text": "We will **march** to the park tomorrow. It is a **memorial** for a great leader. He fought against **racism** all his life. I will **outline** his brave story in my talk. He helped win **civil** rights for everyone. He played a **decisive** role in history. We hope the mayor will **grant** us permission to build a new statue for him." },
+          { "level": "B1", "text": "Our history teacher gave us an **outline** of the **civil** rights movement. We learned about a famous **march** in the city. The people wanted to end **racism** and unfair laws. The president's speech was a **decisive** moment for the whole country. To honor this history, the town built a beautiful new **memorial**. They also decided to **grant** a public holiday to remember the event." },
+          { "level": "B2", "text": "The mayor agreed to **grant** funds for a new **memorial** dedicated to the victims of **racism**. During the ceremony, the speaker gave a brief **outline** of the town's history. He spoke about the **decisive** battle that ended the **civil** war long ago. Every year, citizens **march** through the streets to ensure these important lessons about equality and justice are never forgotten." },
+          { "level": "C1", "text": "The historian will **outline** the causes of the **civil** conflict in her upcoming lecture. She argues that systemic **racism** was the underlying issue. The turning point was a massive protest **march** that forced the government to act. This event proved to be a **decisive** victory for human rights. Consequently, the state decided to **grant** reparations and construct a national **memorial** to honor the advocates." }
+        ]
+      },
+      "groupB": {
+        "words": ["flame", "wither", "captivity", "cripple", "segregation", "midst", "exile"],
+        "stories": [
+          { "level": "A2", "text": "The poor bird lived in **captivity** for years. It stood in the **midst** of a small cage. A bad person wanted to **cripple** it so it couldn't fly. It felt like living in **exile**. Without love, its hope started to **wither** like a flower too close to a hot **flame**. Luckily, we saved it from that terrible **segregation**." },
+          { "level": "B1", "text": "In the **midst** of the war, the kind king was forced into **exile**. The enemies wanted to **cripple** the country's power and make the people weak. They started a fire, and a huge **flame** destroyed the old castle. The people suffered from unfair **segregation** rules under the new ruler. Their freedom was kept in **captivity**. Without hope, their brave spirits began to **wither**." },
+          { "level": "B2", "text": "The documentary exposed the cruel practice of keeping wild animals in **captivity**. It showed a lion living in the **midst** of a concrete enclosure, a life of permanent **exile** from the savanna. Such conditions can physically **cripple** the animals over time. Furthermore, the unnatural **segregation** from their own kind causes their natural instincts to **wither**. The film sparked a **flame** of public outrage against these zoos." },
+          { "level": "C1", "text": "The novel depicts a dystopian society structured entirely around rigid social **segregation**. In the **midst** of this oppressive regime, the protagonist is sent into political **exile**. The government uses psychological torture to **cripple** the rebellion. They keep dissidents in harsh **captivity**, hoping their resolve will **wither** away. However, a single act of defiance ignites a **flame** of revolution across the nation." }
+        ]
+      },
+      "groupC": {
+        "words": ["shameful", "fatigue", "mobility", "rob", "dignity", "oppression"],
+        "stories": [
+          { "level": "A2", "text": "It is **shameful** to **rob** someone. It takes away their **dignity** and makes them sad. The bad king ruled his country with **oppression**. The poor people felt great **fatigue** from working all day in the hot sun. They had no **mobility** to leave the town and find a better place to live." },
+          { "level": "B1", "text": "After a long day of hard work, I felt deep **fatigue**. The workers suffered from the boss's **oppression** because he paid them very little. It was **shameful** that they had no social **mobility** to get better jobs. The company tried to **rob** them of their basic rights and free time. However, the workers stood together to protect their **dignity**." },
+          { "level": "B2", "text": "The community protested against the systemic **oppression** they faced daily. They argued that unfair laws act to **rob** citizens of their fundamental **dignity**. A **shameful** lack of economic **mobility** kept families trapped in poverty for generations. Despite their extreme **fatigue** from years of struggle, the activists continued to fight for a fairer society." },
+          { "level": "C1", "text": "The sociological study examines the lasting effects of institutional **oppression** on marginalized groups. It highlights how discriminatory policies essentially **rob** individuals of their inherent **dignity**. The author describes the **shameful** reality of restricted upward **mobility** in modern cities. Constant battles against these invisible barriers induce chronic mental and physical **fatigue** among the affected populations." }
+        ]
+      },
+      "groupD": {
+        "words": ["vicious", "symphony", "eloquence", "rhetorical", "conscience", "warrior"],
+        "stories": [
+          { "level": "A2", "text": "The brave **warrior** fought a **vicious** monster in the forest. He listened to his good **conscience** to do the right thing and help people. He spoke with great **eloquence** to his friends. His voice sounded like a beautiful **symphony**. He didn't just ask a **rhetorical** question; he really asked for their help to save the village." },
+          { "level": "B1", "text": "The young **warrior** stood before the king. With surprising **eloquence**, he warned everyone of a **vicious** enemy approaching the borders. He appealed to the king's **conscience** to save the poor village. His words were carefully chosen, using a **rhetorical** style to persuade the leaders. When the army finally marched together, it was like a well-played **symphony**." },
+          { "level": "B2", "text": "The lawyer's **eloquence** in the courtroom was truly impressive. She asked a powerful **rhetorical** question that made the jury think deeply about the case. She described the defendant as a **vicious** criminal without a **conscience**. On the other side, she painted the victim as a brave **warrior** fighting for justice. Her closing argument came together perfectly, much like the climax of a **symphony**." },
+          { "level": "C1", "text": "The leader addressed the nation with unmatched **eloquence**, condemning the **vicious** attack on democratic institutions. He employed sophisticated **rhetorical** devices to stir the public's collective **conscience**. He framed every citizen as a **warrior** in the vital battle for truth and freedom. Ultimately, his speech orchestrated a **symphony** of unified voices demanding immediate political reform." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["march", "memorial", "outline", "racism", "decisive", "civil", "grant", "flame", "wither", "captivity", "cripple", "segregation", "midst", "exile", "shameful", "fatigue", "mobility", "rob", "dignity", "oppression", "vicious", "symphony", "eloquence", "rhetorical", "conscience", "warrior"],
+        "story": { "level": "C2", "text": "Dr. Aris delivered a speech of unmatched **eloquence** at the national **memorial**. She provided a comprehensive **outline** of the historical **march** that aimed to end systemic **racism**. She condemned the **shameful** legacy of racial **segregation** and the **vicious** nature of political **oppression**. \"These unjust laws,\" she stated, using a powerful **rhetorical** technique, \"did not merely limit economic **mobility**; they sought to **rob** us of our fundamental **dignity**.\" She reminded the audience of the **decisive** moments when leaders refused to live in **exile** or accept **captivity**. Even in the **midst** of extreme **fatigue**, their commitment did not **wither**. Their clear **conscience** acted as a guiding **flame**. Every **warrior** in that **civil** rights struggle helped prevent the state from attempting to completely **cripple** justice. She urged the government to **grant** equal protections, ensuring that the diverse voices of the nation could blend into a harmonious **symphony** of true equality." }
+      }
+    }
   },
   "wordDetails": {
     "L01": {
@@ -464,6 +505,52 @@
       "acknowledgement": { "pos": "n.", "translation": "承認" },
       "generation": { "pos": "n.", "translation": "世代", "definition": "a group of people born at about the same time", "example": "To protect future generations, we must take action to stop climate change from threatening the lives of our grandchildren and those born after.", "example_tw": "為了保護後代，我們必須採取行動阻止氣候變遷威脅我們子孫後代的生活。" }
     },
-    "L06": {}
+    "L06": {
+      "march": { "pos": "vi.", "translation": "遊行示威;遊行抗議", "definition": "to walk through the streets to express ideas or protest about something", "example": "The crowd marched through the city to protest against the corrupt government.", "example_tw": "人群在城市中遊行抗議腐敗的政府。", "family": ["march_n"] },
+      "march_n": { "pos": "n.", "translation": "示威遊行;抗議遊行" },
+      "memorial": { "pos": "n.", "translation": "紀念物;紀念碑", "definition": "a structure or item that is built in memory of someone or something", "example": "The city built a large statue as a memorial to the war heroes.", "example_tw": "這座城市建了一座大型雕像作為戰爭英雄的紀念碑。", "family": ["memorial_adj"] },
+      "memorial_adj": { "pos": "adj.", "translation": "紀念的;悼念的" },
+      "outline": { "pos": "vt.", "translation": "概述;略述", "definition": "to describe the main ideas of something", "example": "In the interview, Daniel outlined his college plans to the admission committee.", "example_tw": "在面試中，丹尼爾向招生委員會概述了他的大學計畫。", "family": ["outline_n"] },
+      "outline_n": { "pos": "n.", "translation": "大綱;概要" },
+      "racism": { "pos": "n.", "translation": "種族主義;種族歧視", "definition": "the belief that some races of people are better than others and the resulting unfair treatment of members of other races", "example": "Both security guards were accused of racism after they automatically assumed the black man had stolen the jewelry.", "example_tw": "兩名保安在自動認定那名黑人偷了珠寶後被指控種族歧視。", "family": ["racist", "racial"] },
+      "racist": { "pos": "n.", "translation": "種族主義者" },
+      "racial": { "pos": "adj.", "translation": "種族的" },
+      "decisive": { "pos": "adj.", "translation": "關鍵的;決定性的", "definition": "critical and powerful in influencing the outcome of a situation", "example": "A decisive factor in our victory was the goal Steve made in the last second of the game.", "example_tw": "我們獲勝的決定性因素是史蒂夫在比賽最後一秒進的球。" },
+      "civil": { "pos": "adj.", "translation": "人民的;國民的", "definition": "having to do with the citizens of a country", "example": "The civil war broke out mainly due to the conflicts between different races in the country.", "example_tw": "內戰爆發主要是因為該國不同種族之間的衝突。" },
+      "grant": { "pos": "vt.", "translation": "授予;准予", "definition": "to allow someone to get what he or she has requested, usually in a formal way", "example": "The musician granted the director permission to use his music in the film.", "example_tw": "這位音樂家准予導演在電影中使用他的音樂。", "family": ["grant_n"] },
+      "grant_n": { "pos": "n.", "translation": "補助金;撥款" },
+      "flame": { "pos": "n.", "translation": "火焰", "definition": "the hot, bright burning gas from something on fire", "example": "The two cars were in flames after they crashed into each other and exploded.", "example_tw": "兩輛車相撞爆炸後陷入火海。" },
+      "wither": { "pos": "vt. vi.", "translation": "(使)枯萎;(使)乾枯", "definition": "(to cause) to dry up and die", "example": "The severe drought withered all the plants in the fields.", "example_tw": "嚴重的乾旱使田裡所有的植物都枯萎了。" },
+      "captivity": { "pos": "n.", "translation": "監禁", "definition": "the condition of being kept in a place and not allowed to leave", "example": "The animals in the circus are bred in captivity and suffer terrible physical abuse.", "example_tw": "馬戲團的動物是在監禁中繁殖的，並遭受了可怕的身體虐待。", "family": ["captive_n", "captive_adj"] },
+      "captive_n": { "pos": "n.", "translation": "俘虜" },
+      "captive_adj": { "pos": "adj.", "translation": "被囚禁的" },
+      "cripple": { "pos": "vt.", "translation": "使不良於行;使殘廢", "definition": "to injure one's body so that he or she cannot walk or move normally", "example": "The car accident a few years ago left Jason crippled, and thus he has been in a wheelchair ever since.", "example_tw": "幾年前的車禍使傑森殘廢，因此他從那時起就一直坐輪椅。" },
+      "segregation": { "pos": "n.", "translation": "隔離;分開", "definition": "the practice or policy of keeping people apart", "example": "The civil rights movement in the US sought to end racial segregation in public facilities.", "example_tw": "美國的民權運動試圖結束公共設施中的種族隔離。", "family": ["segregate"] },
+      "segregate": { "pos": "vt.", "translation": "隔離;分開" },
+      "midst": { "pos": "n.", "translation": "中間", "definition": "the middle part of something", "example": "In the midst of Claire's run, a wildcat jumped out of the bush and stopped her in her tracks.", "example_tw": "在克萊兒跑步的途中，一隻野貓從灌木叢中跳出來，讓她停下了腳步。" },
+      "exile": { "pos": "n.", "translation": "流亡者", "definition": "someone who has been banned from his or her homeland", "example": "Unable to return home, the two political exiles have not seen their families for years.", "example_tw": "由於無法返家，這兩名政治流亡者已經多年沒有見到家人了。", "family": ["exile_u", "exile_v"] },
+      "exile_u": { "pos": "n.", "translation": "流亡" },
+      "exile_v": { "pos": "vt.", "translation": "流放;放逐" },
+      "shameful": { "pos": "adj.", "translation": "可恥的", "definition": "so wrong, bad, or ridiculous that one should feel ashamed", "example": "In Western societies, many people consider it shameful for a healthy adult to live off his or her parents.", "example_tw": "在西方社會，許多人認為健康的成年人依賴父母生活是可恥的。", "family": ["shame_u", "shame_sing"] },
+      "shame_u": { "pos": "n.", "translation": "羞恥;羞愧" },
+      "shame_sing": { "pos": "n.", "translation": "令人惋惜或遺憾的事" },
+      "fatigue": { "pos": "n.", "translation": "疲勞", "definition": "the condition of being extremely tired", "example": "Larry's face was pale with fatigue because he had been working nonstop for three days.", "example_tw": "賴瑞因疲勞而臉色蒼白，因為他已經連續工作了三天。" },
+      "mobility": { "pos": "n.", "translation": "流動性", "definition": "the state of being able to move freely from one location to another, or one job to another", "example": "When people are better-educated, they have greater upward career mobility.", "example_tw": "當人們受過更好的教育時，他們有更大的職業向上流動性。", "family": ["mobile"] },
+      "mobile": { "pos": "adj.", "translation": "可移動的" },
+      "rob": { "pos": "vt.", "translation": "剝奪", "definition": "to take away something that someone has, wants, or deserves", "example": "When Dan's parents went bankrupt, it robbed him of the chance to go to college.", "example_tw": "當丹的父母破產時，這剝奪了他上大學的機會。", "family": ["robber", "robbery"] },
+      "robber": { "pos": "n.", "translation": "搶犯;強盜" },
+      "robbery": { "pos": "n.", "translation": "搶劫" },
+      "dignity": { "pos": "n.", "translation": "尊嚴;莊重", "definition": "a sense of one's own worth or value as a person", "example": "Everyone should be treated with dignity regardless of his or her social status.", "example_tw": "無論社會地位如何，每個人都應該被有尊嚴地對待。" },
+      "oppression": { "pos": "n.", "translation": "壓迫", "definition": "unfair and cruel treatment of people, especially by preventing them from having the same rights as others", "example": "After several decades of rule by a cruel leader, the people were finally freed from oppression when he died.", "example_tw": "在一位殘暴的領導人統治了幾十年之後，當他去世時，人民終於從壓迫中解放出來。", "family": ["oppress"] },
+      "oppress": { "pos": "vt.", "translation": "壓迫" },
+      "vicious": { "pos": "adj.", "translation": "邪惡的;兇殘的", "definition": "purposefully cruel or hurtful", "example": "Over one hundred people were injured or killed during the vicious terrorist attack.", "example_tw": "在這次兇殘的恐怖襲擊中，有一百多人死傷。" },
+      "symphony": { "pos": "n.", "translation": "交響樂", "definition": "a long musical composition that involves different instruments", "example": "During the second movement of the symphony, the drums joined in to add a stronger beat to the music.", "example_tw": "在交響樂的第二樂章中，鼓聲加入，為音樂增添了更強烈的節奏。" },
+      "eloquence": { "pos": "n.", "translation": "雄辯;口才", "definition": "the gift or skill of being able to speak or express ideas very well", "example": "The lawyer's eloquence moved the jury and won freedom for the client.", "example_tw": "律師的雄辯感動了陪審團，為委託人贏得了自由。", "family": ["eloquent"] },
+      "eloquent": { "pos": "adj.", "translation": "雄辯的;有說服力的" },
+      "rhetorical": { "pos": "adj.", "translation": "修辭的", "definition": "dealing with the art of communication meant to persuade people", "example": "The use of rhetorical devices can make your speech both impressive and persuasive.", "example_tw": "使用修辭技巧可以使你的演講令人印象深刻且具說服力。", "family": ["rhetoric"] },
+      "rhetoric": { "pos": "n.", "translation": "修辭(學)" },
+      "conscience": { "pos": "n.", "translation": "良心;良知", "definition": "the part of your mind that tells you whether your behavior is morally right or wrong", "example": "We should listen to the voice of conscience when having to make a moral judgment.", "example_tw": "在必須做出道德判斷時，我們應該傾聽良知的聲音。" },
+      "warrior": { "pos": "n.", "translation": "戰士", "definition": "someone who fights in a war or battle", "example": "Amazon warriors bravely defended their homes when enemies attacked.", "example_tw": "當敵人襲擊時，亞馬遜戰士勇敢地保衛她們的家園。" }
+    }
   }
 }
