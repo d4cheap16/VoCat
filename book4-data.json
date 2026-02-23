@@ -1,8 +1,22 @@
 {
-    "_comments": {
-    "vocabulary_principles": "1. 均衡分組 (A/B/C) 且詞性平均分佈。2. 包含詞性、中英定義。3. 例句與翻譯必須完全採用課本原句。4. 衍生字獨立拆解並提供詳解與例句。",
-    "story_principles": "1. 難度按 CEFR (A2, B1, B2, C1) 分級，Bonus 為 C2。2. 體裁多元 (電郵、新聞、評論等)。3. 提供充足上下文線索 (搭配詞、暗示)。4. Bonus 涵蓋全單元單字且語氣專業。",
-    "format_standards": "1. 目標字使用 **word** 標示。2. 物件採單行化 (minify) 以精簡行數。3. 結構一致 (vocabulary > Lesson > Group > words/stories)。"
+  "_comments": {
+    "vocabulary_principles": [
+      "- Grouping: Distribute words evenly across Groups A, B, and C with a balanced mix of parts of speech.",
+      "- Content: Each entry must include POS, English definitions, and Chinese translations.",
+      "- Authenticity: Examples and translations must strictly match the original textbook sentences.",
+      "- Word Families: Split derivatives into individual entries with full details and examples."
+    ],
+    "story_principles": [
+      "- Difficulty: Align stories with CEFR levels (A2, B1, B2, C1), with C2 for the Group Bonus.",
+      "- Variety: Employ diverse genres (e.g., emails, news, blogs, scripts, or commentaries).",
+      "- Clues: Provide sufficient context clues (collocations, synonyms) for logical deduction.",
+      "- Bonus Story: Must cover all words in the unit and maintain a professional/academic tone."
+    ],
+    "format_standards": [
+      "- Highlighting: Mark target vocabulary using **word** bold syntax.",
+      "- Efficiency: Minify objects into single lines to reduce total file length for large datasets.",
+      "- Consistency: Maintain the hierarchy (vocabulary > Lesson > Group > words/stories)."
+    ]
   },
   "allBadges": {
     "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
@@ -264,4 +278,5 @@
     "L04": {}, "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
   }
 }
+
 
