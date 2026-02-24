@@ -393,7 +393,7 @@
     async function initializeAppWrapper() {
         try {
             // 1. Fetch data from the external JSON file
-            const response = await fetch('high_freq-data.json');
+            const response = await fetch('high_freq1-data.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -435,7 +435,7 @@
 
         } catch (error) {
             console.error("Initialization failed:", error);
-            dom.loadingIndicator.textContent = '資料載入失敗，請確認 high_freq-data.json 檔案是否在同一路徑，或重新整理頁面。';
+            dom.loadingIndicator.textContent = '資料載入失敗，請確認 high_freq1-data.json 檔案是否在同一路徑，或重新整理頁面。';
         }
     }
 
@@ -1511,4 +1511,5 @@
 </footer>
 </body>
 </html>
+
 
