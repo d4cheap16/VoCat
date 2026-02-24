@@ -1,10 +1,13 @@
 {
-    "_notes": [
-    "單字資料庫製作原則 (Principles of Vocabulary Database)",
-    "1. 單字整理與分組原則: 每個單元提取 15 個核心單字，隨機分成 Group A, B, C 每組 5 個，並確保動詞、名詞、形容詞分佈平均且與 PDF 準確對應。",
-    "2. 故事撰寫原則: 每組需提供 A2, B1, B2, C1 四個等級，目標單字標記為 **word**。GroupBonus (C2) 需涵蓋全部 15 個單字。",
-    "3. 單字詳細解釋: 包含 pos, translation, definition, example, example_tw，例句需與單元主題相關聯。",
-    "4. JSON 格式化原則: 採用壓縮模式。wordDetails 內的單字物件與 stories 內的 level 物件均改為單行，以減少行數並提高擴充效率。"
+  "_notes": [
+    "Vocabulary Database Principles & Expansion Guidelines",
+    "1. Word Organization: Extract 15 core words per unit. Split into Group A, B, and C (5 words each). Maintain a balanced distribution of parts of speech. The 'pos' MUST be determined by the word's specific usage in the original test questions.",
+    "2. Passage Writing (Levels A2-C1): Provide four distinct difficulty levels for each group. Ensure tone and vocabulary are appropriate for each CEF level (A2: Basic, B1: Intermediate, B2: Upper-Inter, C1: Advanced).",
+    "3. Master Challenge (C2 Level): Every unit must include a 'GroupBonus' story that integrates all 15 words from that unit into a coherent narrative.",
+    "4. Text Markup: Highlight target words strictly using the **word** syntax. Do not use other markdown styles (like italics or underlining) within stories to ensure smooth parsing.",
+    "5. Dictionary Entries: Each word must contain 'pos' (part of speech), 'translation' (Traditional Chinese), 'definition' (English), and 'example' + 'example_tw'. The 'example' sentence MUST be adopted directly from the original test questions.",
+    "6. JSON Layout & Optimization: Use 'Compact Mode'. Every word object in 'wordDetails' and every story entry in 'stories' should be on a single line. This minimizes file height, improves scrolling speed, and supports massive future expansion.",
+    "7. Answer Sequence Variation: The appearance order of the 5 target words MUST be completely shuffled and different across the four levels (A2-C1) within the same group to prevent pattern memorization."
   ],
     "allBadges": {
         "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
@@ -39,6 +42,7 @@
         "test25": {}
     }
 }
+
 
 
 
