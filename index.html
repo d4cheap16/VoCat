@@ -43,7 +43,6 @@
             --screen-overlay: rgba(208, 224, 240, 0.75);
         }
 
-
         html, body {
             margin: 0;
             padding: 0;
@@ -147,15 +146,15 @@
             to { opacity: 0; visibility: hidden; }
         }
         
-        /* --- 主選單 --- */
+        /* --- 主選單容器 --- */
         .main-menu {
             opacity: 0;
             animation: fadeInMenu 0.5s ease-in 2.5s forwards;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 3%;
+            width: 100%;
+            padding: 4%;
             box-sizing: border-box;
+            position: relative;
         }
         
         .main-menu.reboot {
@@ -167,100 +166,149 @@
             to { opacity: 1; }
         }
 
-        /* --- 遊戲選單 --- */
+        /* --- 遊戲選單 (Tester Menu) --- */
         .tester-menu {
             display: none;
             height: 100%;
-            flex-direction: column;
-            padding: 3%;
+            width: 100%;
+            padding: 4%;
             box-sizing: border-box;
         }
         .gameboy-screen.tester-active .main-menu {
             display: none;
         }
         .gameboy-screen.tester-active .tester-menu {
-            display: flex;
+            display: block;
         }
 
-        .screen-header {
+        /* ==========================================
+           JRPG (DQ) 風格專屬 CSS 
+           ========================================== */
+        .menu-page {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInPage 0.15s ease-in;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .jrpg-window {
+            background-color: var(--screen-text); 
+            color: var(--screen-bg); 
+            border: 3px solid var(--screen-bg); 
+            outline: 3px solid var(--screen-text); 
+            border-radius: 2px;
+            padding: 12px 10px;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .jrpg-header {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            padding-bottom: 2%;
-            border-bottom: 2px solid var(--screen-text);
-            margin-bottom: 3%;
-            font-size: clamp(10px, 3vw, 14px);
-            letter-spacing: -1px;
+            border-bottom: 2px dashed var(--screen-bg);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
             flex-shrink: 0;
-        }
-        .header-cat {
-           height: 2em;
-            width: auto;
-        }        
-        .menu-wrapper {
-            overflow-y: auto;
-            flex-grow: 1;
+            gap: 8px; 
         }
 
-        .menu-wrapper::-webkit-scrollbar {
-            width: 10px;
-        }
-        .menu-wrapper::-webkit-scrollbar-track {
-            background: transparent;
-            border-left: 2px solid transparent;
-        }
-        .menu-wrapper::-webkit-scrollbar-thumb {
-            background: transparent;
-            border-radius: 0;
-            border: 2px solid var(--screen-text);
-        }
-
-        .menu-list { list-style: none; padding: 0; margin: 0; }
-        .menu-list li { margin-bottom: 2%; }
-        .menu-list a { color: var(--screen-text); text-decoration: none; display: flex; align-items: center; padding: 2.5%; font-size: clamp(14px, 3.8vw, 16px); transition: all 0.2s; white-space: nowrap; }
-        .menu-category > a { font-weight: bold; justify-content: space-between; }
-        .menu-category > a::after { content: '▼'; font-size: 80%; transition: transform 0.2s; }
-        .menu-category.open > a::after { transform: rotate(180deg); }
-        .sub-menu { list-style: none; padding-left: 10px; margin: 5px 0; display: none; }
-        
-        .menu-category.open > .sub-menu { display: block; }
-        
-        .sub-menu a { font-size: clamp(12px, 3.5vw, 14px); }
-
-        .sub-menu a::before, 
-        .tester-menu .menu-list a::before { 
-            content: '▶'; 
-            margin-right: 8%; 
-            opacity: 0; 
-            transition: opacity 0.2s; 
-        }
-        .menu-list a:hover, 
-        .menu-list a:focus, 
-        .menu-list a.selected { 
-            background-color: var(--screen-text); 
-            color: var(--screen-bg); 
-        }
-        .sub-menu a:hover::before, 
-        .sub-menu a:focus::before, 
-        .tester-menu .menu-list a:hover::before, 
-        .tester-menu .menu-list a.selected::before { 
-            opacity: 1; 
-        }
-        
-        .menu-footer {
-            flex-shrink: 0;
+        .jrpg-title {
+            margin: 0;
+            font-size: clamp(12px, 3.5vw, 15px);
+            letter-spacing: 2px;
             text-align: center;
-            padding: 4% 0 2%;
-            margin-top: auto;
-            border-top: 2px solid var(--screen-text);
-            font-size: clamp(9px, 2.5vw, 11px);
-            letter-spacing: -1px;
         }
-        .menu-footer p {
+        
+        .header-cat {
+           height: 1.5em;
+           width: auto;
+        }   
+
+        .btn-back {
+            position: absolute;
+            left: 0;
+            color: var(--screen-bg);
+            text-decoration: none;
+            font-size: clamp(10px, 3vw, 12px);
+            display: flex;
+            align-items: center;
+            transition: transform 0.1s;
+        }
+
+        .btn-back:active {
+            transform: scale(0.9);
+        }
+
+        .jrpg-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding-right: 5px; 
+        }
+
+        .jrpg-content::-webkit-scrollbar {
+            width: 4px;
+        }
+        .jrpg-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .jrpg-content::-webkit-scrollbar-thumb {
+            background: var(--screen-bg);
+        }
+
+        .jrpg-list {
+            list-style: none;
+            padding: 0;
             margin: 0;
         }
+
+        .jrpg-list li {
+            margin-bottom: 16px;
+            position: relative;
+            padding-left: 20px; 
+        }
         
+        .jrpg-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .jrpg-list a {
+            color: var(--screen-bg);
+            text-decoration: none;
+            display: block;
+            font-size: clamp(10px, 3.2vw, 13px);
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .jrpg-list a::before {
+            content: '▶';
+            position: absolute;
+            left: -5px;
+            opacity: 0;
+            transition: opacity 0.1s;
+        }
+
+        .jrpg-list a:hover::before,
+        .jrpg-list a:focus::before,
+        .jrpg-list a.selected::before {
+            opacity: 1;
+        }
+
+        /* --- 遊戲畫面 --- */
         #game-canvas { display: none; width: 100%; height: 100%; background-color: var(--screen-bg); }
         #game-score { 
             display: none; 
@@ -344,6 +392,7 @@
         #btn-left { top: 65%; left: 8%; width: 9%; height: 6%; }
         #btn-right { top: 65%; left: 25%; width: 9%; height: 6%; }
 
+        /* --- 彈出視窗 --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -437,111 +486,216 @@
                 <div class="boot-screen">
                     <div class="boot-logo"><img src="https://d4cheap16.github.io/VoCat/Cat.jpg" alt="開機貓貓"></div>
                 </div>
+                
                 <div class="main-menu">
-                    <div class="screen-header">
-                        <img src="https://d4cheap16.github.io/VoCat/CatL.png" alt="左貓" class="header-cat">
-                        <p>VoCAT</p>
-                        <img src="https://d4cheap16.github.io/VoCat/CatR.png" alt="右貓" class="header-cat">
-                    </div>
-                    <div class="menu-wrapper">
-                        <ul class="menu-list">
-                            <li><a href="https://d4cheap16.github.io/tddt/" target="_blank">Dead Don't Talk</a>
-                            <li class="menu-category"><a href="#">課文單字</a>
-                                <ul class="sub-menu">
-                                    <li><a href="book1.html" target="_self">Book 1</a></li>
-                                    <li><a href="book2.html" target="_self">Book 2</a></li>
-                                    <li><a href="book3.html" target="_self">Book 3</a></li>
-                                    <li><a href="book4.html" target="_self">Book 4</a></li>
-                                    <li><a href="book5.html" target="_self">Book 5</a></li>
+                    <!-- ===================================== -->
+                    <!-- 0. 主選單 -->
+                    <!-- ===================================== -->
+                    <div id="page-main" class="menu-page">
+                        <div class="jrpg-window">
+                            <div class="jrpg-header">
+                                <img src="https://d4cheap16.github.io/VoCat/CatL.png" alt="左貓" class="header-cat">
+                                <p class="jrpg-title">VoCAT</p>
+                                <img src="https://d4cheap16.github.io/VoCat/CatR.png" alt="右貓" class="header-cat">
+                            </div>
+                            <div class="jrpg-content">
+                                <ul class="jrpg-list">
+                                    <li><a href="https://d4cheap16.github.io/tddt/" target="_blank">Dead Don't Talk</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-vocab">課文單字</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-highfreq">高頻單字</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-grammar">文法練習(慈中限定)</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-options">OPTIONS</a></li>
                                 </ul>
-                            </li>
-                            <li class="menu-category"><a href="#">高頻單字</a>
-                                <ul class="sub-menu">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===================================== -->
+                    <!-- 1. 課文單字 相關選單 -->
+                    <!-- ===================================== -->
+                    <div id="page-vocab" class="menu-page" style="display: none;">
+                        <div class="jrpg-window">
+                            <div class="jrpg-header">
+                                <a href="#" class="nav-btn btn-back" data-target="page-main">◀返回</a>
+                                <p class="jrpg-title">課文單字</p>
+                            </div>
+                            <div class="jrpg-content">
+                                <ul class="jrpg-list">
+                                    <li><a href="#" class="nav-btn" data-target="page-vocab-b1">Book 1</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-vocab-b2">Book 2</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-vocab-b3">Book 3</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-vocab-b4">Book 4</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-vocab-b5">Book 5</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book 1 子選單 (包含單元) -->
+                    <div id="page-vocab-b1" class="menu-page" style="display: none;">
+                        <div class="jrpg-window">
+                            <div class="jrpg-header">
+                                <a href="#" class="nav-btn btn-back" data-target="page-vocab">◀返回</a>
+                                <p class="jrpg-title">Book 1</p>
+                            </div>
+                            <div class="jrpg-content">
+                                <ul class="jrpg-list">
+                                    <li><a href="book1.html" target="_self">全部單字</a></li>
+                                    <li><a href="javascript:void(0)">Unit 1: The First Day</a></li>
+                                    <li><a href="javascript:void(0)">Unit 2: My Family</a></li>
+                                    <li><a href="javascript:void(0)">Unit 3: School Life</a></li>
+                                    <li><a href="javascript:void(0)">Unit 4: Hobbies</a></li>
+                                    <li><a href="javascript:void(0)">Unit 5: Food</a></li>
+                                    <li><a href="javascript:void(0)">Unit 6: Animals</a></li>
+                                    <li><a href="javascript:void(0)">Unit 7: Weather</a></li>
+                                    <li><a href="javascript:void(0)">Unit 8: Holidays</a></li>
+                                    <li><a href="javascript:void(0)">Unit 9: Future</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- (Book 2 ~ 5 預設模板) -->
+                    <div id="page-vocab-b2" class="menu-page" style="display: none;">
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-vocab">◀返回</a><p class="jrpg-title">Book 2</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="book2.html" target="_self">全部單字</a></li><li><a href="javascript:void(0)">單元建置中...</a></li></ul></div></div>
+                    </div>
+                    <div id="page-vocab-b3" class="menu-page" style="display: none;">
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-vocab">◀返回</a><p class="jrpg-title">Book 3</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="book3.html" target="_self">全部單字</a></li><li><a href="javascript:void(0)">單元建置中...</a></li></ul></div></div>
+                    </div>
+                    <div id="page-vocab-b4" class="menu-page" style="display: none;">
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-vocab">◀返回</a><p class="jrpg-title">Book 4</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="book4.html" target="_self">全部單字</a></li><li><a href="javascript:void(0)">單元建置中...</a></li></ul></div></div>
+                    </div>
+                    <div id="page-vocab-b5" class="menu-page" style="display: none;">
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-vocab">◀返回</a><p class="jrpg-title">Book 5</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="book5.html" target="_self">全部單字</a></li><li><a href="javascript:void(0)">單元建置中...</a></li></ul></div></div>
+                    </div>
+
+                    <!-- ===================================== -->
+                    <!-- 2. 高頻單字 相關選單 -->
+                    <!-- ===================================== -->
+                    <div id="page-highfreq" class="menu-page" style="display: none;">
+                        <div class="jrpg-window">
+                            <div class="jrpg-header">
+                                <a href="#" class="nav-btn btn-back" data-target="page-main">◀返回</a>
+                                <p class="jrpg-title">高頻單字</p>
+                            </div>
+                            <div class="jrpg-content">
+                                <ul class="jrpg-list">
                                     <li><a href="high_freq1.html" target="_self">UNIT 01-04</a></li>
                                     <li><a href="high_freq2.html" target="_self">UNIT 05-09</a></li>
                                     <li><a href="high_freq3.html" target="_self">UNIT 10-14</a></li>
                                     <li><a href="high_freq4.html" target="_self">UNIT 15-18</a></li>
-                                    <li class="menu-category"><a href="#">段考練習</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="https://forms.gle/GbM4E5vm2dpnPug68" target="_blank">Test 16-19（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/1GYXU3QVFGFivWfR6" target="_blank">Test 12-15（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/yemp2H1DgrvQAJdm6" target="_blank">Test 09-11（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/bXUNRobFD1P8MYmx7" target="_blank">Test 05-08（慈中限定）</a></li>
-                                            <li><a href="https://forms.gle/oDeaR87M4xSkaixE6" target="_blank">Test 01-04（慈中限定）</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="#" class="nav-btn" data-target="page-exam">段考練習 ▶</a></li>
                                 </ul>
-                            </li>
-                            <!-- 修改：文法練習 改為 Book 1-5 結構 -->
-                            <li class="menu-category"><a href="#">文法練習(慈中限定)</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-category"><a href="#">Book 1</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">Unit 1-3</a></li>
-                                            <li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">Unit 4-6</a></li>
-                                            <li><a href="https://forms.gle/Kq8qkP2xWz37YqZa6" target="_blank">Unit 7-9</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-category"><a href="#">Book 2</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="https://forms.gle/SQfRjw9CrE1Ub4Q56" target="_blank">Unit 1-3</a></li>
-                                            <li><a href="https://forms.gle/mDiTDfM8v5L8571H6" target="_blank">Unit 4-6</a></li>
-                                            <li><a href="https://forms.gle/AyJxMKw3zDrxoDwDA" target="_blank">Unit 7-9</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-category"><a href="#">Book 3</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">Unit 1-3</a></li>
-                                            <li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">Unit 4-6</a></li>
-                                            <li><a href="https://forms.gle/GYspv7ni5ckFiUjp8" target="_blank">Unit 7-9</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-category"><a href="#">Book 4</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="https://forms.gle/33YjHRVqNpoDwZcTA" target="_blank">Unit 1-3</a></li>
-                                            <li><a href="empty.html" target="_blank">Unit 4-6</a></li>
-                                            <li><a href="empty.html" target="_blank">Unit 7-9</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-category"><a href="#">Book 5</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="empty.html" target="_blank">Unit 1-3</a></li>
-                                            <li><a href="empty.html" target="_blank">Unit 4-6</a></li>
-                                        </ul>
-                                    </li>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 高頻單字 -> 段考練習 子選單 -->
+                    <div id="page-exam" class="menu-page" style="display: none;">
+                        <div class="jrpg-window">
+                            <div class="jrpg-header">
+                                <a href="#" class="nav-btn btn-back" data-target="page-highfreq">◀返回</a>
+                                <p class="jrpg-title">段考練習</p>
+                            </div>
+                            <div class="jrpg-content">
+                                <ul class="jrpg-list">
+                                    <li><a href="https://forms.gle/GbM4E5vm2dpnPug68" target="_blank">Test 16-19</a></li>
+                                    <li><a href="https://forms.gle/1GYXU3QVFGFivWfR6" target="_blank">Test 12-15</a></li>
+                                    <li><a href="https://forms.gle/yemp2H1DgrvQAJdm6" target="_blank">Test 09-11</a></li>
+                                    <li><a href="https://forms.gle/bXUNRobFD1P8MYmx7" target="_blank">Test 05-08</a></li>
+                                    <li><a href="https://forms.gle/oDeaR87M4xSkaixE6" target="_blank">Test 01-04</a></li>
                                 </ul>
-                            </li>
-                            <li class="menu-category"><a href="#">OPTIONS</a>
-                                <ul class="sub-menu">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===================================== -->
+                    <!-- 3. 文法練習 相關選單 -->
+                    <!-- ===================================== -->
+                    <div id="page-grammar" class="menu-page" style="display: none;">
+                        <div class="jrpg-window">
+                            <div class="jrpg-header">
+                                <a href="#" class="nav-btn btn-back" data-target="page-main">◀返回</a>
+                                <p class="jrpg-title">文法練習</p>
+                            </div>
+                            <div class="jrpg-content">
+                                <ul class="jrpg-list">
+                                    <li><a href="#" class="nav-btn" data-target="page-grammar-b1">Book 1</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-grammar-b2">Book 2</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-grammar-b3">Book 3</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-grammar-b4">Book 4</a></li>
+                                    <li><a href="#" class="nav-btn" data-target="page-grammar-b5">Book 5</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 文法 Book 1 ~ 5 子選單 -->
+                    <div id="page-grammar-b1" class="menu-page" style="display: none;">
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B1</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">Unit 1-3</a></li><li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">Unit 4-6</a></li><li><a href="https://forms.gle/Kq8qkP2xWz37YqZa6" target="_blank">Unit 7-9</a></li></ul></div></div>
+                    </div>
+                    <div id="page-grammar-b2" class="menu-page" style="display: none;">
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B2</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/SQfRjw9CrE1Ub4Q56" target="_blank">Unit 1-3</a></li><li><a href="https://forms.gle/mDiTDfM8v5L8571H6" target="_blank">Unit 4-6</a></li><li><a href="https://forms.gle/AyJxMKw3zDrxoDwDA" target="_blank">Unit 7-9</a></li></ul></div></div>
+                    </div>
+                    <div id="page-grammar-b3" class="menu-page" style="display: none;">
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B3</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">Unit 1-3</a></li><li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">Unit 4-6</a></li><li><a href="https://forms.gle/GYspv7ni5ckFiUjp8" target="_blank">Unit 7-9</a></li></ul></div></div>
+                    </div>
+                    <div id="page-grammar-b4" class="menu-page" style="display: none;">
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B4</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/33YjHRVqNpoDwZcTA" target="_blank">Unit 1-3</a></li><li><a href="empty.html" target="_blank">Unit 4-6</a></li><li><a href="empty.html" target="_blank">Unit 7-9</a></li></ul></div></div>
+                    </div>
+                    <div id="page-grammar-b5" class="menu-page" style="display: none;">
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B5</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="empty.html" target="_blank">Unit 1-3</a></li><li><a href="empty.html" target="_blank">Unit 4-6</a></li></ul></div></div>
+                    </div>
+
+                    <!-- ===================================== -->
+                    <!-- 4. 系統設定 (OPTIONS) -->
+                    <!-- ===================================== -->
+                    <div id="page-options" class="menu-page" style="display: none;">
+                        <div class="jrpg-window">
+                            <div class="jrpg-header">
+                                <a href="#" class="nav-btn btn-back" data-target="page-main">◀返回</a>
+                                <p class="jrpg-title">OPTIONS</p>
+                            </div>
+                            <div class="jrpg-content">
+                                <ul class="jrpg-list">
                                     <li><a href="#" id="palette-switch-link">CHANGE THEME</a></li> 
                                     <li><a href="#" id="design-concept-link">DESIGN CONCEPT</a></li>
                                     <li><a href="https://forms.gle/iWMy29gJDsgCWr837" target="_blank">CONTACT ME</a></li>
                                     <li><a href="#" id="high-scores-link">HIGH SCORES</a></li>
                                     <li><a href="#" id="clear-data-link">CLEAR SCORES</a></li>
                                 </ul>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- 隱藏的遊戲選單，同樣套用 JRPG 視窗風格 -->
                 <div class="tester-menu">
-                    <div class="screen-header"><p>GAME SELECT</p></div>
-                    <div class="menu-wrapper">
-                        <ul class="menu-list">
-                            <li><a href="#" data-game="back">MAIN MENU</a></li>
-                            <li><a href="#" data-game="ghostbuster">GHOSTBUSTER</a></li>
-                            <li><a href="#" data-game="pacman">PAC-MAN RUN</a></li>
-                            <li><a href="#" data-game="snake">SNAKE</a></li>
-                            <li><a href="#" data-game="tetris">TETRIS</a></li>
-                        </ul>
+                    <div class="jrpg-window">
+                        <div class="jrpg-header">
+                            <p class="jrpg-title">GAME SELECT</p>
+                        </div>
+                        <div class="jrpg-content">
+                            <!-- 注意：這裡保留了 menu-list class 確保十字鍵彩蛋正常運作 -->
+                            <ul class="jrpg-list menu-list">
+                                <li><a href="#" data-game="back">MAIN MENU</a></li>
+                                <li><a href="#" data-game="ghostbuster">GHOSTBUSTER</a></li>
+                                <li><a href="#" data-game="pacman">PAC-MAN RUN</a></li>
+                                <li><a href="#" data-game="snake">SNAKE</a></li>
+                                <li><a href="#" data-game="tetris">TETRIS</a></li>
+                            </ul>
+                        </div>
+                        <div style="font-size: clamp(8px, 2.5vw, 10px); text-align: center; margin-top: 10px; border-top: 1px dashed var(--screen-bg); padding-top: 8px;">A: PLAY • UP/DOWN: SELECT</div>
                     </div>
-                    <div class="menu-footer"><p>A: PLAY • UP/DOWN: SELECT</p></div>
                 </div>
+                
                 <canvas id="game-canvas"></canvas>
                 <div id="game-score"></div>
             </div>
+            
             <div class="screen-footer">
                 <p id="quote-text">Loading quote...</p>
             </div>
+            
             <a href="#" id="btn-a" class="gb-button" data-key="A"></a>
             <a href="#" id="btn-b" class="gb-button" data-key="B"></a>
             <a href="#" id="btn-select" class="gb-button" data-key="Select"></a>
@@ -717,28 +871,45 @@
                 yesBtn.focus();
             }
 
-            const categories = document.querySelectorAll('.menu-category > a');
-            categories.forEach(category => {
-                category.addEventListener('click', function(event) {
+            // --- JRPG Menu Navigation Logic ---
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const menuPages = document.querySelectorAll('.menu-page');
+
+            navButtons.forEach(btn => {
+                btn.addEventListener('click', function(event) {
                     event.preventDefault(); 
                     audioOpen.currentTime = 0; 
                     audioOpen.play();
-                    const parentLi = this.parentElement; 
-                    const wasOpen = parentLi.classList.contains('open');
-                    document.querySelectorAll('.menu-category.open').forEach(c => {
-                        if (!c.contains(parentLi)) { 
-                            c.classList.remove('open');
-                        }
+                    
+                    const targetId = this.getAttribute('data-target'); 
+                    
+                    // 隱藏所有選單頁面
+                    menuPages.forEach(page => {
+                        page.style.display = 'none';
                     });
-                    if (!wasOpen) {
-                        parentLi.classList.add('open');
-                    } else {
-                        parentLi.classList.remove('open'); 
+
+                    // 顯示目標選單頁面
+                    const targetMenu = document.getElementById(targetId);
+                    if (targetMenu) {
+                        targetMenu.style.display = 'flex';
+                        // 新增：切換選單時，將卷軸重置回最上方
+                        const contentArea = targetMenu.querySelector('.jrpg-content');
+                        if (contentArea) contentArea.scrollTop = 0;
                     }
                 });
             });
-            const subMenuLinks = document.querySelectorAll('.sub-menu a');
-            subMenuLinks.forEach(item => { item.addEventListener('click', () => { audioSelect.currentTime = 0; audioSelect.play(); }); });
+
+            // 讓一般連結也能播放音效 (修正：排除帶有 -link 結尾的特定 ID，避免 OPTIONS 裡的音效雙重重疊)
+            const regularLinks = document.querySelectorAll('.jrpg-list a:not(.nav-btn):not([id$="-link"])');
+            regularLinks.forEach(link => { 
+                link.addEventListener('click', (e) => { 
+                    if(link.getAttribute('href') === '#' || link.getAttribute('href') === 'javascript:void(0)') {
+                        e.preventDefault();
+                    }
+                    audioSelect.currentTime = 0; 
+                    audioSelect.play(); 
+                }); 
+            });
             
             const testerMenuLinks = document.querySelectorAll('.tester-menu a');
             testerMenuLinks.forEach(link => {
@@ -1171,12 +1342,3 @@
     </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
