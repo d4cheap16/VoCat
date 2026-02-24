@@ -9,40 +9,86 @@
     "6. JSON Layout & Optimization: Use 'Compact Mode'. Every word object in 'wordDetails' and every story entry in 'stories' should be on a single line. This minimizes file height, improves scrolling speed, and supports massive future expansion.",
     "7. Answer Sequence Variation: The appearance order of the 5 target words MUST be completely shuffled and different across the four levels (A2-C1) within the same group to prevent pattern memorization."
   ],
-    "allBadges": {
-        "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
-        "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分以上。" },
-        "effortful_learner": { "name": "努力不懈", "icon": "💪", "description": "在任何測驗中獲得60分以上。" },
-        "a2_explorer": { "name": "探索者", "icon": "🧭", "description": "完成一個單元內所有組別的一顆星難度測驗（80分以上）。" },
-        "b1_voyager": { "name": "旅行家", "icon": "🗺️", "description": "完成一個單元內所有組別的兩顆星難度測驗（80分以上）。" },
-        "conqueror": { "name": "征服者", "icon": "👑", "description": "完成一個單元內所有組別的三顆星難度測驗(80分以上)。" },
-        "strong_one": { "name": "真強者", "icon": "💎", "description": "完成一個單元內所有組別的四顆星難度測驗(80分以上)。" },
-        "english_monster": { "name": "英文怪物", "icon": "👹", "description": "完成一個單元內所有組別的四顆星難度測驗(皆為滿分)。" },
-        "alien": { "name": "外星人", "icon": "👽", "description": "在一個單元的隱藏挑戰(❓)中獲得滿分。" },
-        "legend": { "name": "傳說", "icon": "🌌", "description": "完成一個單元內所有測驗且皆為滿分。" },
-        "unit_master": { "name": "單元大師", "icon": "🎖️", "description": "在單一單元內，同時獲得「傳說」與「外星人」徽章。" },
-        "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
+  "allBadges": {
+    "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
+    "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分以上。" },
+    "effortful_learner": { "name": "努力不懈", "icon": "💪", "description": "在任何測驗中獲得60分以上。" },
+    "a2_explorer": { "name": "探索者", "icon": "🧭", "description": "完成一個單元內所有組別的一顆星難度測驗（80分以上）。" },
+    "b1_voyager": { "name": "旅行家", "icon": "🗺️", "description": "完成一個單元內所有組別的兩顆星難度測驗（80分以上）。" },
+    "conqueror": { "name": "征服者", "icon": "👑", "description": "完成一個單元內所有組別的三顆難度測驗(80分以上)。" },
+    "strong_one": { "name": "真強者", "icon": "💎", "description": "完成一個單元內所有組別的四顆星難度測驗(80分以上)。" },
+    "english_monster": { "name": "英文怪物", "icon": "👹", "description": "完成一個單元內所有組別的四顆星難度測驗(皆為滿分)。" },
+    "alien": { "name": "外星人", "icon": "👽", "description": "在一個單元的隱藏挑戰(❓)中獲得滿分。" },
+    "legend": { "name": "傳說", "icon": "🌌", "description": "完成一個單元內所有測驗且皆為滿分。" },
+    "unit_master": { "name": "單元大師", "icon": "🎖️", "description": "在單一單元內，同時獲得「傳說」與「外星人」徽章。" },
+    "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
+  },
+  "vocabulary": {
+    "test19": {
+      "groupA": {
+        "words": ["attach", "departure", "view", "expand", "derived"],
+        "stories": [
+          { "level": "A2", "text": "The hotel room has a nice **view** of the sea. Before our **departure** tomorrow, we need to pack our bags. I will **attach** a red name tag to my suitcase. Traveling to new places helps to **expand** my mind. I have **derived** a lot of joy from this wonderful trip." },
+          { "level": "B1", "text": "To **expand** your small business, you need to advertise more online. Please **attach** your resume to the email before sending it. The train's early **departure** surprised all the waiting passengers. He **derived** great satisfaction from helping the poor. From his point of **view**, the charity plan is absolutely perfect." },
+          { "level": "B2", "text": "She **derived** deep inspiration from her travels across Europe last summer. In her **view**, experiencing different cultures is essential for personal growth. We plan to **expand** the tour route to include more historic cities next year. Please make sure to **attach** the detailed itinerary to your final report before your **departure**." },
+          { "level": "C1", "text": "The sudden and unannounced **departure** of the CEO left the entire company in shock. The new managing director **derived** her innovative strategy from years of industry experience. In her professional **view**, the only logical way forward is to aggressively **expand** into overseas markets. She instructed the team to **attach** the revised financial projections to the final proposal." }
+        ]
+      },
+      "groupB": {
+        "words": ["cancel", "undergo", "destination", "restricts", "beneficial"],
+        "stories": [
+          { "level": "A2", "text": "We finally arrived at our holiday **destination** near the beach. Eating fresh fruit is very **beneficial** for your body. I had to **cancel** my guitar lesson because I was sick today. The strict teacher **restricts** the use of cell phones in her class. Next week, I will **undergo** a small eye test at the hospital." },
+          { "level": "B1", "text": "Due to the terrible snowstorm, we had to **cancel** the evening flight. Our final **destination** was a beautiful small island in the south. The old wooden bridge must **undergo** major repairs soon for safety. Regular daily exercise is highly **beneficial** to the human body. The doctor carefully **restricts** his patients from eating too much sugar." },
+          { "level": "B2", "text": "The professional athlete had to **undergo** knee surgery after the severe injury. The demanding coach strictly **restricts** the entire team's diet before a crucial match. This specific kind of physical therapy is incredibly **beneficial** for a fast recovery. Unfortunately, they had to **cancel** their planned trip to the summer training camp. However, their ultimate **destination** remains winning the world championship." },
+          { "level": "C1", "text": "The newly implemented environmental law severely **restricts** industrial carbon emissions in the urban area. Consequently, the manufacturing company was forced to **cancel** its massive expansion plans and **undergo** a comprehensive ecological audit. Reaching a truly sustainable **destination** in modern corporate practices is now their primary goal. Experts agree that these drastic changes will ultimately prove **beneficial** to the entire global ecosystem." }
+        ]
+      },
+      "groupC": {
+        "words": ["introduced", "spectacular", "prohibited", "blackout", "scenes"],
+        "stories": [
+          { "level": "A2", "text": "I really love the beautiful **scenes** of the forest in this movie. During the heavy rainstorm, we had a long power **blackout**. The English teacher **introduced** a new student to our class today. The clear view from the top of the mountain was absolutely **spectacular**. Running fast in the school hallways is strictly **prohibited**." },
+          { "level": "B1", "text": "There was a sudden and scary power **blackout** in the city last night. However, without the city lights, the stars looked **spectacular** in the dark sky. Smoking is absolutely **prohibited** inside any public building. The popular nature documentary showed amazing **scenes** of wild animals hunting. The friendly tour guide **introduced** us to many kinds of local birds." },
+          { "level": "B2", "text": "The creative head chef **introduced** a unique spicy flavor to the traditional dish. Using any artificial food colors is strictly **prohibited** in this famous restaurant. The busy kitchen was chaotic, with frantic cooking **scenes** everywhere you looked. A sudden electrical **blackout** forced the staff to use emergency candles. Despite this major challenge, the meal they served was truly **spectacular**." },
+          { "level": "C1", "text": "The national museum's new historical exhibition is nothing short of **spectacular**. The passionate curator enthusiastically **introduced** several rare, ancient artifacts to the visiting public. During a brief but unexpected electrical **blackout**, the advanced security system fortunately remained active. Flash photography is strictly **prohibited** in order to preserve the delicate items from light damage. The vivid and detailed historical **scenes** depicted in the oil paintings completely captivated the sophisticated audience." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["attach", "beneficial", "cancel", "departure", "undergo", "view", "introduced", "destination", "restricts", "spectacular", "prohibited", "blackout", "expand", "scenes", "derived"],
+        "stories": [
+          { "level": "C2", "text": "The seasoned explorer's overarching **view** of the world changed entirely after his last grueling expedition. His initial **departure** was severely delayed because he had to **cancel** his original commercial flight and **undergo** a rigorous medical examination. The cautious expedition doctor strictly **restricts** him from climbing to high altitudes too fast. He had to meticulously **attach** a heavy oxygen tank to his specialized climbing gear. When he finally reached his remote **destination**, the isolated indigenous village **introduced** him to a completely different, harmonious way of life. The surrounding snow-capped mountain **scenes** were absolutely **spectacular** to behold. He **derived** a profound sense of inner peace that proved highly **beneficial** to his mental health after months of stress. He urgently wanted to **expand** his anthropological research here, even though local law stated that camping near the sacred ancient ruins was strictly **prohibited**. During a sudden, widespread power **blackout** that night, the brilliant starry sky was the only light source, guiding his thoughts." }
+        ]
+      }
     },
-    "vocabulary": {
-        "test19": {},
-        "test20": {},
-        "test21": {},
-        "test22": {},
-        "test23": {},
-        "test24": {},
-        "test25": {}
+    "test20": {},
+    "test21": {},
+    "test22": {},
+    "test23": {},
+    "test24": {},
+    "test25": {}
+  },
+  "wordDetails": {
+    "test19": {
+      "attach": { "pos": "v.", "translation": "附加；貼上", "definition": "To fasten or join one thing to another.", "example": "You're required to attach a recent photograph to your application form.", "example_tw": "你被要求在申請表上貼上一張最近的照片。" },
+      "beneficial": { "pos": "adj.", "translation": "有益的", "definition": "Having a helpful or useful effect.", "example": "Cycling is highly beneficial to health and the environment. We should encourage more people to do it.", "example_tw": "騎自行車對健康和環境非常有益。我們應該鼓勵更多人騎。" },
+      "cancel": { "pos": "v.", "translation": "取消", "definition": "To decide that an organized event will not happen.", "example": "I phoned the hotel to cancel my reservation. I've changed my plan.", "example_tw": "我打電話給旅館取消預訂。我改變了計畫。" },
+      "departure": { "pos": "n.", "translation": "出發；離開", "definition": "The act of leaving a place.", "example": "What is the departure time of the flight to Japan? We'd better make sure of it.", "example_tw": "飛往日本的航班出發時間是什麼時候？我們最好確認一下。" },
+      "undergo": { "pos": "v.", "translation": "經歷；承受", "definition": "To experience something, especially a change or something unpleasant.", "example": "You may have to undergo disappointment and failure before experiencing success.", "example_tw": "在體驗成功之前，你可能必須經歷失望和失敗。" },
+      "view": { "pos": "n.", "translation": "觀點；看法", "definition": "An opinion or belief about something.", "example": "His view of life is different from mine. We have different opinions about life.", "example_tw": "他的人生觀與我不同。我們對生活有不同的看法。" },
+      "introduced": { "pos": "v.", "translation": "引進；介紹", "definition": "To bring something into a place for the first time.", "example": "The gray squirrel was introduced into Britain from North America. It was not indigenous.", "example_tw": "灰松鼠是從北美引進英國的。牠不是本土物種。" },
+      "destination": { "pos": "n.", "translation": "目的地", "definition": "The place where someone or something is going.", "example": "On account of the traffic jam, they arrived at their destination two hours late.", "example_tw": "由於交通阻塞，他們晚了兩個小時到達目的地。" },
+      "restricts": { "pos": "v.", "translation": "限制", "definition": "To limit someone or something.", "example": "My grandfather restricts himself to three cigarettes a day.", "example_tw": "我祖父限制自己一天只能抽三支菸。" },
+      "spectacular": { "pos": "adj.", "translation": "壯觀的", "definition": "Very impressive or dramatic.", "example": "The spectacular mountain scenery attracts tourists all over the world.", "example_tw": "壯觀的山景吸引了世界各地的遊客。" },
+      "prohibited": { "pos": "v.", "translation": "禁止", "definition": "To officially forbid something.", "example": "We are prohibited from smoking during working hours. No one can smoke in the office.", "example_tw": "工作時間我們被禁止吸菸。辦公室裡沒有人可以抽菸。" },
+      "blackout": { "pos": "n.", "translation": "停電", "definition": "A period when there is no electricity supply.", "example": "We had a two-hour blackout last night. The electricity supply was cut off then.", "example_tw": "昨晚我們停電了兩個小時。當時電力供應被切斷了。" },
+      "expand": { "pos": "v.", "translation": "拓展；擴大", "definition": "To increase in size, number, or importance.", "example": "Traveling enables us to expand our horizons, and so does reading.", "example_tw": "旅行使我們能夠拓展視野，閱讀也是如此。" },
+      "scenes": { "pos": "n.", "translation": "景色；場景", "definition": "Views or pictures of a place.", "example": "A number of wonderful scenes were strongly imprinted on the poet's mind.", "example_tw": "許多美妙的景色深深印在詩人的腦海中。" },
+      "derived": { "pos": "v.", "translation": "獲得；取得", "definition": "To get something from something else.", "example": "He derived a lot of pleasure from meeting new people. He was really an outgoing person.", "example_tw": "他從結識新朋友中獲得了很多樂趣。他真是一個外向的人。" }
     },
-    "wordDetails": {
-        "test19": {},
-        "test20": {},
-        "test21": {},
-        "test22": {},
-        "test23": {},
-        "test24": {},
-        "test25": {}
-    }
+    "test20": {},
+    "test21": {},
+    "test22": {},
+    "test23": {},
+    "test24": {},
+    "test25": {}
+  }
 }
-
-
-
-
