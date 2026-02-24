@@ -197,19 +197,27 @@
             to { opacity: 1; }
         }
 
+        /* 重點修改區：順應法圓角設計 */
         .jrpg-window {
             background-color: var(--screen-text); 
             color: var(--screen-bg); 
             border: 3px solid var(--screen-bg); 
-            outline: 3px solid var(--screen-text); 
-            border-radius: 2px;
+            
+            /* 將原本的 outline 改為 box-shadow，以支援圓角顯示 */
+            box-shadow: 0 0 0 3px var(--screen-text), 4px 4px 0 3px rgba(0,0,0,0.2); 
+            
+            /* 設定不對稱圓角適配螢幕右下角：左上、右上、右下(大圓角)、左下 */
+            border-radius: 4px 4px 38px 4px; 
+            
             padding: 12px 10px;
-            width: 100%;
-            height: 100%;
-            box-sizing: border-box;
-            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
+            box-sizing: border-box;
+            
+            /* 縮小一點點的寬高，並加上 margin，避免陰影被 gameboy-screen 裁切掉 */
+            margin: 2px;
+            height: calc(100% - 4px);
+            width: calc(100% - 4px);
         }
 
         .jrpg-header {
@@ -594,19 +602,19 @@
 
                     <!-- 文法 Book 1 ~ 5 子選單 -->
                     <div id="page-grammar-b1" class="menu-page" style="display: none;">
-                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Book 1</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">Unit 1-3</a></li><li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">Unit 4-6</a></li><li><a href="https://forms.gle/Kq8qkP2xWz37YqZa6" target="_blank">Unit 7-9</a></li></ul></div></div>
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B1</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/CTdXFpa7mmCZS2pK7" target="_blank">Unit 1-3</a></li><li><a href="https://forms.gle/8oyr4yGRaesG1rLq7" target="_blank">Unit 4-6</a></li><li><a href="https://forms.gle/Kq8qkP2xWz37YqZa6" target="_blank">Unit 7-9</a></li></ul></div></div>
                     </div>
                     <div id="page-grammar-b2" class="menu-page" style="display: none;">
-                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Book 2</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/SQfRjw9CrE1Ub4Q56" target="_blank">Unit 1-3</a></li><li><a href="https://forms.gle/mDiTDfM8v5L8571H6" target="_blank">Unit 4-6</a></li><li><a href="https://forms.gle/AyJxMKw3zDrxoDwDA" target="_blank">Unit 7-9</a></li></ul></div></div>
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B2</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/SQfRjw9CrE1Ub4Q56" target="_blank">Unit 1-3</a></li><li><a href="https://forms.gle/mDiTDfM8v5L8571H6" target="_blank">Unit 4-6</a></li><li><a href="https://forms.gle/AyJxMKw3zDrxoDwDA" target="_blank">Unit 7-9</a></li></ul></div></div>
                     </div>
                     <div id="page-grammar-b3" class="menu-page" style="display: none;">
-                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Book 3</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">Unit 1-3</a></li><li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">Unit 4-6</a></li><li><a href="https://forms.gle/GYspv7ni5ckFiUjp8" target="_blank">Unit 7-9</a></li></ul></div></div>
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B3</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/zxU34XhghWkukZrz8" target="_blank">Unit 1-3</a></li><li><a href="https://forms.gle/oATJaYcsVUHRbP2d7" target="_blank">Unit 4-6</a></li><li><a href="https://forms.gle/GYspv7ni5ckFiUjp8" target="_blank">Unit 7-9</a></li></ul></div></div>
                     </div>
                     <div id="page-grammar-b4" class="menu-page" style="display: none;">
-                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Book 4</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/33YjHRVqNpoDwZcTA" target="_blank">Unit 1-3</a></li><li><a href="empty.html" target="_blank">Unit 4-6</a></li><li><a href="empty.html" target="_blank">Unit 7-9</a></li></ul></div></div>
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B4</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="https://forms.gle/33YjHRVqNpoDwZcTA" target="_blank">Unit 1-3</a></li><li><a href="empty.html" target="_blank">Unit 4-6</a></li><li><a href="empty.html" target="_blank">Unit 7-9</a></li></ul></div></div>
                     </div>
                     <div id="page-grammar-b5" class="menu-page" style="display: none;">
-                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Book 5</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="empty.html" target="_blank">Unit 1-3</a></li><li><a href="empty.html" target="_blank">Unit 4-6</a></li></ul></div></div>
+                        <div class="jrpg-window"><div class="jrpg-header"><a href="#" class="nav-btn btn-back" data-target="page-grammar">◀返回</a><p class="jrpg-title">Grammar B5</p></div><div class="jrpg-content"><ul class="jrpg-list"><li><a href="empty.html" target="_blank">Unit 1-3</a></li><li><a href="empty.html" target="_blank">Unit 4-6</a></li></ul></div></div>
                     </div>
 
                     <!-- ===================================== -->
@@ -855,11 +863,14 @@
                     const targetMenu = document.getElementById(targetId);
                     if (targetMenu) {
                         targetMenu.style.display = 'flex';
+                        // 切換選單時，將卷軸重置回最上方
+                        const contentArea = targetMenu.querySelector('.jrpg-content');
+                        if (contentArea) contentArea.scrollTop = 0;
                     }
                 });
             });
 
-            // 讓一般連結也能播放音效 (修正：排除帶有 -link 結尾的特定 ID，避免 OPTIONS 裡的音效雙重重疊)
+            // 讓一般連結也能播放音效 (排除帶有 -link 結尾的特定 ID)
             const regularLinks = document.querySelectorAll('.jrpg-list a:not(.nav-btn):not([id$="-link"])');
             regularLinks.forEach(link => { 
                 link.addEventListener('click', (e) => { 
@@ -925,7 +936,19 @@
             const gameManager = {
                 activeGame: null, isGameActive: false, animationFrameId: null,
                 showTesterMenu: function() { gameboyScreen.classList.add('tester-active'); const firstItem = document.querySelector('.tester-menu .menu-list a'); if (firstItem) firstItem.classList.add('selected'); },
-                hideTesterMenu: function() { gameboyScreen.classList.remove('tester-active'); const selectedItem = document.querySelector('.tester-menu .menu-list a.selected'); if (selectedItem) selectedItem.classList.remove('selected'); bootScreen.style.display = 'flex'; bootScreen.classList.add('reboot'); mainMenu.classList.remove('reboot'); },
+                hideTesterMenu: function() { 
+                    gameboyScreen.classList.remove('tester-active'); 
+                    const selectedItem = document.querySelector('.tester-menu .menu-list a.selected'); 
+                    if (selectedItem) selectedItem.classList.remove('selected'); 
+                    
+                    // 重置選單回首頁，避免重開機後卡在子選單
+                    const menuPages = document.querySelectorAll('.menu-page');
+                    menuPages.forEach(page => page.style.display = 'none');
+                    const mainPage = document.getElementById('page-main');
+                    if(mainPage) mainPage.style.display = 'flex';
+
+                    bootScreen.style.display = 'flex'; bootScreen.classList.add('reboot'); mainMenu.classList.remove('reboot'); 
+                },
                 startGame: function(gameType) {
                     if (this.isGameActive || !gameType) return; this.isGameActive = true;
                     gameboyScreen.classList.remove('tester-active'); gameboyScreen.classList.add('game-active');
@@ -939,6 +962,13 @@
                 endGame: function() {
                     if (!this.isGameActive) return; this.isGameActive = false;
                     if (this.activeGame) { this.activeGame.end(); } this.activeGame = null;
+                    
+                    // 重置選單回首頁，避免重開機後卡在子選單
+                    const menuPages = document.querySelectorAll('.menu-page');
+                    menuPages.forEach(page => page.style.display = 'none');
+                    const mainPage = document.getElementById('page-main');
+                    if(mainPage) mainPage.style.display = 'flex';
+
                     gameboyScreen.classList.remove('game-active'); bootScreen.classList.add('reboot'); mainMenu.classList.remove('reboot');
                 },
                 handleInput: function(key) { if (this.isGameActive && this.activeGame) this.activeGame.handleInput(key); },
