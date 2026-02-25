@@ -1,7 +1,7 @@
 {
   "_comments": {
     "vocabulary_principles": [
-      "- Grouping: Distribute words evenly across Groups A, B, C, and D with a balanced mix of parts of speech.",
+      "- Grouping: Distribute words evenly across Groups A, B, and C with a balanced mix of parts of speech.",
       "- Content: Each entry must include POS, English definitions, and Chinese translations.",
       "- Authenticity: Examples and translations must strictly match the original textbook sentences.",
       "- Word Families: Split derivatives into individual entries with full details and examples."
@@ -10,7 +10,8 @@
       "- Difficulty: Align stories with CEFR levels (A2, B1, B2, C1), with C2 for the Group Bonus.",
       "- Variety: Employ diverse genres (e.g., emails, news, blogs, scripts, or commentaries).",
       "- Clues: Provide sufficient context clues (collocations, synonyms) for logical deduction.",
-      "- Bonus Story: Must cover all words in the unit and maintain a professional/academic tone."
+      "- Bonus Story: Must cover all words in the unit and maintain a professional/academic tone.",
+      "- Scrambling: Ensure the answer sequence for every story in each group is randomized to enhance challenge."
     ],
     "format_standards": [
       "- Highlighting: Mark target vocabulary using **word** bold syntax.",
@@ -206,3 +207,4 @@
     "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
   }
 }
+
