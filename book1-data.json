@@ -1,24 +1,10 @@
 {
-  "_comments": {
-    "vocabulary_principles": [
-      "- Grouping: Distribute words evenly across Groups A, B, and C with a balanced mix of parts of speech.",
-      "- Content: Each entry must include POS, English definitions, and Chinese translations.",
-      "- Authenticity: Examples and translations must strictly match the original textbook sentences.",
-      "- Word Families: Split derivatives into individual entries with full details and examples."
-    ],
-    "story_principles": [
-      "- Difficulty: Align stories with CEFR levels (A2, B1, B2, C1), with C2 for the Group Bonus.",
-      "- Variety: Employ diverse genres (e.g., emails, news, blogs, scripts, or commentaries).",
-      "- Clues: Provide sufficient context clues (collocations, synonyms) for logical deduction.",
-      "- Bonus Story: Must cover all words in the unit and maintain a professional/academic tone.",
-      "- Scrambling: Ensure the answer sequence for every story in each group is randomized to enhance challenge."
-    ],
-    "format_standards": [
-      "- Highlighting: Mark target vocabulary using **word** bold syntax.",
-      "- Efficiency: Minify objects into single lines to reduce total file length for large datasets.",
-      "- Consistency: Maintain the hierarchy (vocabulary > Lesson > Group > words/stories)."
-    ]
-  },
+    "_comments": {
+        "vocabulary_principles": "1. Balanced grouping (A/B/C) with even distribution of parts of speech. 2. Include part of speech, English and Chinese definitions. 3. Example sentences and translations must strictly use original textbook sentences. 4. Derivative words are separated and provided with detailed explanations and examples.",
+        "story_principles": "1. Difficulty is graded according to CEFR (A2, B1, B2, C1), with Bonus at C2. 2. Diverse genres (emails, news, reviews, etc.). 3. Provide sufficient context clues (collocations, hints). 4. Bonus covers all vocabulary in the unit and maintains a professional tone.",
+        "format_standards": "1. Target words are marked with **word**. 2. Objects are minified to reduce line count. 3. Consistent structure (vocabulary > Lesson > Group > words/stories).",
+        "language_principles": "1. All Chinese translations for example sentences and word definitions must exclusively use Traditional Chinese (Taiwan)."
+    },
     "allBadges": {
         "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
         "high_achiever": { "name": "高分好手", "icon": "⭐", "description": "在任何測驗中獲得90分以上。" },
@@ -31,7 +17,7 @@
         "alien": { "name": "外星人", "icon": "👽", "description": "在一個單元的隱藏挑戰(❓)中獲得滿分。" },
         "legend": { "name": "傳說", "icon": "🌌", "description": "完成一個單元內所有測驗且皆為滿分。" },
         "unit_master": { "name": "單元大師", "icon": "🎖️", "description": "在單一單元內，同時獲得「傳說」與「外星人」徽章。" },
-        "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓猫。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
+        "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓貓。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
     },
     "vocabulary": {
         "L01": {
@@ -49,7 +35,7 @@
                 "stories": [
                     { "level": "A2", "text": "I sent my friend a message yesterday, but he didn't **reply**, which made me a little sad. I can still **recall** a time when we talked for hours. Now, he sometimes chooses to **skip** our weekly video calls. I started to feel **depressed**, thinking our friendship was over. I had to sit down and **reflect** on what might have changed. Maybe he's just busy. I hope we can find the **perfect** time to talk soon." },
                     { "level": "B1", "text": "After receiving the test results, Sarah felt **depressed** because her score was far from **perfect**. She started to **reflect** on her study habits, trying to **recall** which topics she found most difficult. She realized she tended to **skip** the chapters she didn't like, which was a big mistake. Her teacher sent her a kind email, and Sarah knew she had to **reply** and ask for help instead of just giving up." },
-                    { "level": "B2", "text": "The detective had to **reflect** on the details of the cold case. He tried to **recall** every piece of evidence from the files, no matter how small. He found an old witness statement where the witness claimed to have sent a letter to the police years ago, but the police department had no record of a **reply**. The detective felt that the original investigators might **skip** over this crucial lead. For a moment, he felt **depressed** by the of progress, but he knew the **perfect** clue was hidden somewhere in the mountain of paperwork." },
+                    { "level": "B2", "text": "The detective had to **reflect** on the details of the cold case. He tried to **recall** every piece of evidence from the files, no matter how small. He found an old witness statement where the witness claimed to have sent a letter to the police years ago, but the police department had no record of a **reply**. The detective felt that the original investigators might **skip** over this crucial lead. For a moment, he felt **depressed** by the lack of progress, but he knew the **perfect** clue was hidden somewhere in the mountain of paperwork." },
                     { "level": "C1", "text": "In his later years, the famous author would often **skip** public events, preferring a quiet life to **reflect** on his long career. 'I can't **recall** a single day where I didn't write,' he once said. When asked by a young journalist in a rare email interview why his first novel was so dark, he took a week to **reply**. He admitted that he was deeply **depressed** during that period of his life and that the book was a raw reflection of his inner turmoil. He concluded by saying, 'There is no such thing as a **perfect** life, and art must be honest about that.'" }
                 ]
             },
@@ -246,7 +232,7 @@
                 "words": ["instrument", "potential (adj.)", "determination", "receive", "invaluable", "barely"],
                 "stories": [
                     { "level": "A2", "text": "My science fair project is due next week! The main **instrument** I need is a special thermometer, but it hasn't arrived yet. I can **barely** start my experiment. My teacher gave me some **invaluable** advice on how to build a simpler version myself. It will take a lot of **determination**, but I think I can do it. I hope to **receive** a good grade for my effort. My parents told me to write down all the **potential (adj.)** problems I might face so I can be prepared." },
-                    { "level": "B1", "text": "Renovating this old chair I found has been a rewarding challenge. When I started, it was in terrible shape; I could **barely** even sit on it. It took serious **determination** just to strip off all the old paint. My grandfather's advice on woodworking has been **invaluable**. He warned me about several **potential (adj.)** issues with the weakened wood. The most important **instrument** in this whole process has been my new sander. I can't wait for my family to **receive** the finished product as a gift next month." },
+                    { "level": "B1", "text": "Renovating this old chair I found has been a rewarding challenge. When I started, it was in terrible shape; I could **barely** even sit on it. It took serious **determination** just to strip off all the old paint. My grandfather's advice on woodworking has been **invaluable**. He warned me about several **potential (adj.)** issues with the weakened wood. The most important **instrument** in this whole process has been my new sander. I can wait for my family to **receive** the finished product as a gift next month." },
                     { "level": "B2", "text": "This memo outlines the next phase of Project Titan. The prototype is, at present, **barely** functional, but its core technology is sound. We have identified several **potential (adj.)** security vulnerabilities that must be addressed before beta testing. The engineering team has shown incredible **determination** in overcoming the initial hardware challenges. Their feedback has been **invaluable** in refining the design. The device's primary function is as a diagnostic **instrument** for network analysis. We expect to **receive** the next round of funding once we present a stable build to the board." },
                     { "level": "C1", "text": "In historiography, a primary source document must be treated as a complex **instrument** of its time, not as an objective record. The historian's **determination** to uncover truth is often complicated by the document's inherent biases and **potential (adj.)** for propaganda. The recently discovered letters of General Alistair have been **invaluable** to my research, though they are so damaged I can **barely** decipher the script. What we **receive** from these texts is a fragmented perspective, one that requires careful contextualization. This paper argues that such fragments are the primary instrument through which we can interrogate, rather than merely accept, the narratives of the past." }
                 ]
@@ -400,7 +386,7 @@
             "deny": { "pos": "vt.", "translation": "否認", "definition": "to refuse to admit that something is true", "example": "Mr. Lin denied giving a box of candy to his daughter, but Mrs. Lin didn't believe him.", "example_tw": "林先生否認給他女兒一盒糖果，但林太太不相信他。" },
             "respond": { "pos": "vi. vt.", "translation": "回應", "definition": "to give a spoken or written reply to someone or something", "example": "Chris responded to his mom's Facebook message with a smiling cat sticker.", "example_tw": "克里斯用一張微笑的貓咪貼圖回應了他媽媽的臉書訊息。", "family": ["response"] },
             "response": { "pos": "n.", "translation": "回應" },
-            "disappointed": { "pos": "adj.", "translation": "感到失望的", "definition": "sad or upset because something you hoped for has not happened or has not occurred in the way that you expected", "example": "Fiona was really disappointed that her favorite character died at the end of the movie.", "example_tw": "費歐娜對於她最喜歡的角色在電影結尾死掉感到非常失望。", "family": ["disappoint", "disappointment"] },
+            "disappointed": { "pos": "adj.", "translation": "感到失望的", "definition": "sad or upset because something homed for has not happened or has not occurred in the way that you expected", "example": "Fiona was really disappointed that her favorite character died at the end of the movie.", "example_tw": "費歐娜對於她最喜歡的角色在電影結尾死掉感到非常失望。", "family": ["disappoint", "disappointment"] },
             "disappoint": { "pos": "vt.", "translation": "使失望" },
             "disappointment": { "pos": "n.", "translation": "失望" },
             "personally": { "pos": "adv.", "translation": "針對某人地", "definition": "in a way that is regarded as hurtful to one's self", "example": "Please don't take my comment personally. I'm complaining about all the drivers in our country, not just you.", "example_tw": "請不要把我的評論當成是針對你個人。我是在抱怨我們國家的所有駕駛，不只是你。", "family": ["personal"] },
@@ -635,6 +621,3 @@
         }
     }
 }
-
-
-
