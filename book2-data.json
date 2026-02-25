@@ -256,8 +256,9 @@
       "ensure": { "pos": "vt.", "translation": "確保", "definition": "to make certain that something happens", "example": "A new law will ensure that every child gets proper care.", "example_tw": "一項新法律將確保每個孩子都得到妥善的照顧。" },
       "establish": { "pos": "vt.", "translation": "建立;創立", "definition": "to start or found a school or business", "example": "Harvard University was established in 1636.", "example_tw": "哈佛大學成立於 1636 年。", "family": ["establishment"] },
       "honor": { "pos": "n./vt.", "translation": "榮譽;致敬", "definition": "special award or title; treat with respect", "example": "Ang Lee has received many honors and awards for his movies.", "example_tw": "李安因其電影獲得了許多榮譽和獎項。", "family": ["honorable"] },
-      "weapon": { "pos": "n. [C]", "translation": "武器;手段", "definition": "highly effective strategy or dangerous tool", "example": "Exercising is considered to be an effective weapon against stress.", "example_tw": "運動被認為是對抗压力的有效手段。" }
+      "weapon": { "pos": "n. [C]", "translation": "武器;手段", "definition": "highly effective strategy or dangerous tool", "example": "Exercising is considered to be an effective weapon against stress.", "example_tw": "運動被認為是對抗壓力的有效手段。" }
     },
     "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
   }
 }
+
