@@ -17,6 +17,9 @@
       "- Highlighting: Mark target vocabulary using **word** bold syntax.",
       "- Efficiency: Minify objects into single lines to reduce total file length for large datasets.",
       "- Consistency: Maintain the hierarchy (vocabulary > Lesson > Group > words/stories)."
+    ],
+    "language_principles": [
+      "- All Chinese translations for example sentences and word definitions must exclusively use Traditional Chinese (Taiwan)."
     ]
   },
   "allBadges": {
@@ -207,4 +210,5 @@
     "L05": {}, "L06": {}, "L07": {}, "L08": {}, "L09": {}
   }
 }
+
 
