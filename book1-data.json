@@ -10,7 +10,8 @@
       "- Difficulty: Align stories with CEFR levels (A2, B1, B2, C1), with C2 for the Group Bonus.",
       "- Variety: Employ diverse genres (e.g., emails, news, blogs, scripts, or commentaries).",
       "- Clues: Provide sufficient context clues (collocations, synonyms) for logical deduction.",
-      "- Bonus Story: Must cover all words in the unit and maintain a professional/academic tone."
+      "- Bonus Story: Must cover all words in the unit and maintain a professional/academic tone.",
+      "- Scrambling: Ensure the answer sequence for every story in each group is randomized to enhance challenge."
     ],
     "format_standards": [
       "- Highlighting: Mark target vocabulary using **word** bold syntax.",
@@ -634,5 +635,6 @@
         }
     }
 }
+
 
 
