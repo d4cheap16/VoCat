@@ -7,7 +7,9 @@
     "4. Text Markup: Highlight target words strictly using the **word** syntax. Do not use other markdown styles (like italics or underlining) within stories to ensure smooth parsing.",
     "5. Dictionary Entries: Each word must contain 'pos' (part of speech), 'translation' (Traditional Chinese), 'definition' (English), and 'example' + 'example_tw'. The 'example' sentence MUST be adopted directly from the original test questions.",
     "6. JSON Layout & Optimization: Use 'Compact Mode'. Every word object in 'wordDetails' and every story entry in 'stories' should be on a single line. This minimizes file height, improves scrolling speed, and supports massive future expansion.",
-    "7. Answer Sequence Variation: The appearance order of the 5 target words MUST be completely shuffled and different across the four levels (A2-C1) within the same group to prevent pattern memorization."
+    "7. Answer Sequence Variation: The appearance order of the 5 target words MUST be completely shuffled and different across the four levels (A2-C1) within the same group to prevent pattern memorization.",
+    "8. Language Localization: All Chinese content must be presented strictly in Traditional Chinese (Taiwan).",
+    "9. Case Sensitivity & Uniformity: To ensure flawless interaction with the web application, all target words in the 'words' arrays and all keys in the 'wordDetails' objects MUST be strictly lowercase. The HTML app uses case-insensitive matching (.toLowerCase()) internally, so **word** tags within stories may use sentence-case capitalization if needed, but base arrays and dictionary keys must remain lowercase to prevent hint giveaways and lookup errors."
   ],
     "allBadges": {
         "perfect_score": { "name": "滿分達人", "icon": "🏆", "description": "在任何測驗中獲得100分。" },
@@ -46,6 +48,7 @@
         "test34": {}
     }
 }
+
 
 
 
