@@ -96,8 +96,76 @@
         ]
       }
     },
-    "test21": {},
-    "test22": {},
+    "test21": {
+      "groupA": {
+        "words": ["chronic", "contagious", "dosage", "crush", "epidemic"],
+        "stories": [
+          { "level": "A2", "text": "I have a **chronic** cough. The doctor said it is not **contagious**. He gave me a pill and told me the right **dosage**. I must not **crush** the pill before taking it. I hope there is no flu **epidemic** this year." },
+          { "level": "B1", "text": "During the flu **epidemic**, many students stayed home. The virus was highly **contagious** among the kids. Please do not **crush** the medicine when you give it to him. Also, make sure the **dosage** is exactly right. This will help cure his **chronic** headache." },
+          { "level": "B2", "text": "The new disease proved to be extremely **contagious** in the crowded city. Doctors prescribed a specific **dosage** of antibiotics for the patients. People with **chronic** illnesses were asked to stay indoors. The sudden **epidemic** caused a lot of public panic. People would rush and sometimes **crush** each other at the pharmacy." },
+          { "level": "C1", "text": "The government attempted to **crush** the spread of misinformation regarding the health crisis. Patients suffering from **chronic** conditions were prioritized for treatment. The rapid onset of the **epidemic** overwhelmed the healthcare system. Because the strain was highly **contagious**, strict quarantine measures were implemented. Physicians carefully monitored the drug **dosage** to prevent adverse reactions." }
+        ]
+      },
+      "groupB": {
+        "words": ["deter", "immunity", "infected", "intuition", "mental"],
+        "stories": [
+          { "level": "A2", "text": "My **intuition** tells me it will rain today. It is good for your **mental** health to relax. If you are sick, you might have **infected** your friends. A loud dog can **deter** bad people from entering. Some people naturally have high **immunity** to colds." },
+          { "level": "B1", "text": "Good **mental** health is as important as physical health. Locks on doors can **deter** thieves from breaking in. The boy accidentally **infected** his sister with a bad cold. Eating healthy food helps build your body's **immunity**. She used her **intuition** to guess the right answer on the test." },
+          { "level": "B2", "text": "The doctor confirmed that the patient had **infected** several staff members. The vaccine provides long-term **immunity** against the dangerous virus. Sometimes, relying on your **intuition** is better than overthinking. Taking a break is essential for overcoming **mental** exhaustion. High fines are used to **deter** drivers from speeding." },
+          { "level": "C1", "text": "Strict legal penalties are often implemented to **deter** corporate fraud. The sophisticated malware had already **infected** thousands of computer networks worldwide. The high-stress environment took a severe toll on his **mental** well-being. The key witness was granted full **immunity** in exchange for his testimony. The detective relied on his seasoned **intuition** to solve the complex murder case." }
+        ]
+      },
+      "groupC": {
+        "words": ["academic", "heredity", "detergent", "instinct", "fainted"],
+        "stories": [
+          { "level": "A2", "text": "I need more **detergent** to wash these dirty clothes. The boy was so scared that he almost **fainted**. It is a natural **instinct** to run from danger. I have to read an **academic** book for my class. Eye color is decided by **heredity**." },
+          { "level": "B1", "text": "Birds fly south in the winter by natural **instinct**. We learned about **heredity** and genes in our science class. You should use a stronger **detergent** to remove that stain. He is busy writing a paper for the new **academic** year. She felt dizzy and suddenly **fainted** in the hot sun." },
+          { "level": "B2", "text": "The professor published his research in a prestigious **academic** journal. The marathon runner was exhausted and **fainted** at the finish line. Her first **instinct** was to protect her younger brother. The study focuses on how **heredity** affects certain physical traits. The company launched a new eco-friendly laundry **detergent**." },
+          { "level": "C1", "text": "The complex role of **heredity** in determining personality traits remains a popular topic. The chemical composition of the industrial **detergent** is strictly regulated. Her brilliant **academic** achievements earned her a full scholarship to the university. After hearing the shocking verdict, the defendant nearly **fainted** in the courtroom. It requires sharp business **instinct** to survive in such a competitive market." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["chronic", "contagious", "dosage", "crush", "epidemic", "deter", "immunity", "infected", "intuition", "mental", "academic", "heredity", "detergent", "instinct", "fainted"],
+        "stories": [
+          { "level": "C2", "text": "The brilliant researcher, known for her sharp **intuition** in **academic** circles, was investigating a highly **contagious** virus that had sparked a global **epidemic**. People with **chronic** respiratory issues were particularly vulnerable, and the disease took a severe toll on both physical and **mental** health. Her primary goal was to discover a chemical compound, perhaps even something derived from a common industrial **detergent**, that could **crush** the virus's outer shell. She hoped this breakthrough would **deter** the pathogen from spreading further. Early studies on **heredity** suggested that some populations possessed a natural **immunity**, preventing them from getting **infected**. Operating on pure **instinct**, she altered the drug's **dosage** during a critical trial. The pressure in the lab was so immense that her assistant nearly **fainted** from exhaustion. Ultimately, her unconventional approach succeeded, proving that bold innovation is sometimes necessary to save lives." }
+        ]
+      }
+    },
+    "test22": {
+      "groupA": {
+        "words": ["shield", "prescribed", "recover", "resistance", "restore"],
+        "stories": [
+          { "level": "A2", "text": "I use an umbrella as a **shield** from the rain. The doctor **prescribed** some medicine for my cold. I hope to **recover** soon so I can play outside. Drinking warm water will help **restore** my health. Eating fruits builds my body's **resistance**." },
+          { "level": "B1", "text": "It takes time to **recover** from a bad flu. A good sleep can **restore** your energy. Wearing a jacket acts as a **shield** against the cold wind. The doctor **prescribed** antibiotics to fight the infection. Vitamins help increase your **resistance** to diseases." },
+          { "level": "B2", "text": "The specialist **prescribed** a new physical therapy program. The strong armor served as an effective **shield** in battle. Her low **resistance** made her vulnerable to catching a cold. She worked hard to **recover** her lost strength. They aim to **restore** the old building to its original beauty." },
+          { "level": "C1", "text": "Building immunity is crucial to developing **resistance** against bacterial infections. The government implemented policies to **restore** economic stability after the crisis. The athlete struggled to fully **recover** from the devastating knee injury. The psychiatrist **prescribed** a mild sedative to calm the patient's anxiety. A robust legal framework acts as a **shield** against corporate exploitation." }
+        ]
+      },
+      "groupB": {
+        "words": ["speculate", "vigorous", "permanent", "tumble", "virus"],
+        "stories": [
+          { "level": "A2", "text": "He took a bad **tumble** down the stairs. Luckily, he had no **permanent** injuries. My grandfather is still very **vigorous** and active. Wash your hands to keep the flu **virus** away. People like to **speculate** about what will happen tomorrow." },
+          { "level": "B1", "text": "The dog enjoys a **vigorous** run in the park. Be careful not to take a **tumble** on the wet floor. Fans love to **speculate** about who will win the big game. A new computer **virus** is spreading across the internet. The ink from this pen will leave a **permanent** mark." },
+          { "level": "B2", "text": "Experts **speculate** that the stock market will drop next week. Scientists are studying how the **virus** mutated so quickly. He sought **permanent** employment rather than taking temporary jobs. The coach designed a **vigorous** training routine for the team. The gymnast took an unexpected **tumble** during her floor routine." },
+          { "level": "C1", "text": "The highly contagious **virus** caused a global public health emergency. The tragic accident left him with **permanent** neurological damage. Financial analysts continue to **speculate** on the impact of the impending merger. A sudden market crash caused investors' portfolios to take a steep **tumble**. Only a **vigorous** defense strategy can save the company from bankruptcy." }
+        ]
+      },
+      "groupC": {
+        "words": ["obesity", "essential", "sturdy", "fatigue", "twisted"],
+        "stories": [
+          { "level": "A2", "text": "Water is **essential** for all living things. He bought a **sturdy** wooden table for the kitchen. The old tree had deeply **twisted** branches. Eating too much fast food can cause **obesity**. After a long day of work, I felt terrible **fatigue**." },
+          { "level": "B1", "text": "The hiker wore **sturdy** boots for the rocky mountain trail. The story in the book had a very **twisted** ending. Daily exercise is **essential** for a healthy lifestyle. He drank coffee to fight off his morning **fatigue**. Education plays a big role in preventing childhood **obesity**." },
+          { "level": "B2", "text": "Muscle **fatigue** is common after completing a marathon. They constructed a **sturdy** shelter to protect against the storm. The doctor warned the patient about the severe risks of **obesity**. The politician deliberately **twisted** the facts to win the debate. It is **essential** that we submit the final report by Friday." },
+          { "level": "C1", "text": "The rising rates of adolescent **obesity** pose a major challenge to the healthcare system. Chronic **fatigue** syndrome can severely diminish a person's quality of life. An unbiased jury is absolutely **essential** to the justice system. The ancient fortress, with its **sturdy** stone walls, survived centuries of warfare. The journalist's words were maliciously **twisted** to ruin her professional reputation." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["shield", "prescribed", "recover", "resistance", "restore", "speculate", "vigorous", "permanent", "tumble", "virus", "obesity", "essential", "sturdy", "fatigue", "twisted"],
+        "stories": [
+          { "level": "C2", "text": "The medical team faced an unprecedented crisis when a lethal **virus** began sweeping through the population. Initial symptoms included severe muscle **fatigue** and an alarming drop in the body's natural **resistance**. Doctors quickly **prescribed** aggressive antiviral treatments to help patients **recover**, though many suffered a sudden **tumble** in their overall health. Experts began to **speculate** whether the pathogen would cause **permanent** damage to the nervous system. To combat the spread, a **vigorous** public health campaign became **essential**. It emphasized the need for a **sturdy** immune system, warning that pre-existing conditions like **obesity** could exacerbate the illness. Researchers worked tirelessly to develop a vaccine that would act as a biological **shield** against the infection. Unfortunately, media outlets occasionally **twisted** the scientific data, causing unnecessary panic. Despite these setbacks, the global community united in a monumental effort to **restore** order and eradicate the deadly disease." }
+        ]
+      }
+    },
     "test23": {},
     "test24": {},
     "test25": {}
@@ -137,8 +205,40 @@
       "regular": { "pos": "adj.", "translation": "定期的；規律的", "definition": "Happening repeatedly in a fixed pattern.", "example": "This is not a regular event; it is held only on special occasions.", "example_tw": "這不是一個定期的活動；它只在特殊場合舉行。" },
       "span": { "pos": "n.", "translation": "期間；跨度", "definition": "The length of time that something lasts.", "example": "Over a(n) span of three years, the shopping mall was expanded to include several parking lots.", "example_tw": "在三年的期間內，這家購物中心擴建了幾個停車場。" }
     },
-    "test21": {},
-    "test22": {},
+    "test21": {
+      "chronic": { "pos": "adj.", "translation": "慢性的", "definition": "(Of an illness) persisting for a long time or constantly recurring.", "example": "He was a(n) chronic alcoholic and unable to hold down a job.", "example_tw": "他是一名慢性酗酒者，無法保住一份工作。" },
+      "contagious": { "pos": "adj.", "translation": "具傳染性的", "definition": "Spread from one person or organism to another by direct or indirect contact.", "example": "Be careful! The patient is still highly contagious. Don't get too close to him.", "example_tw": "小心！這位病人仍然具有高度傳染性。不要太靠近他。" },
+      "dosage": { "pos": "n.", "translation": "劑量", "definition": "The size or frequency of a dose of a medicine or drug.", "example": "Remember to take the correct dosage or it will not work.", "example_tw": "記得服用正確的劑量，否則它將不會有效。" },
+      "crush": { "pos": "v.", "translation": "壓壞；壓碎", "definition": "To press or squeeze something so hard that it is damaged or injured.", "example": "Don't crush the box. There are eggs inside.", "example_tw": "不要壓壞這個盒子。裡面有雞蛋。" },
+      "epidemic": { "pos": "n.", "translation": "流行病；疫情", "definition": "A widespread occurrence of an infectious disease in a community at a particular time.", "example": "Hundreds of people died during last year's flu epidemic.", "example_tw": "去年流感疫情期間有數百人死亡。" },
+      "deter": { "pos": "v.", "translation": "嚇阻；阻止", "definition": "To discourage someone from doing something, typically by instilling doubt or fear of the consequences.", "example": "We need severe punishments to deter people from dealing drugs.", "example_tw": "我們需要嚴厲的懲罰來嚇阻人們販毒。" },
+      "immunity": { "pos": "n.", "translation": "豁免權；免疫力", "definition": "Protection or exemption from something, especially an obligation or penalty.", "example": "The young man was granted immunity from prosecution. He wouldn't be charged with any crime.", "example_tw": "這名年輕人獲得了免於起訴的豁免權。他將不會被控告任何罪名。" },
+      "infected": { "pos": "v.", "translation": "傳染；感染", "definition": "To pass a disease to a person, animal, or plant.", "example": "She had a bad cold last week and probably infected me.", "example_tw": "她上週得了重感冒，可能傳染給我了。" },
+      "intuition": { "pos": "n.", "translation": "直覺", "definition": "The ability to understand something immediately, without the need for conscious reasoning.", "example": "She knew, by intuition, about his illness although he never mentioned it.", "example_tw": "儘管他從未提及，她憑直覺就知道他的病情。" },
+      "mental": { "pos": "adj.", "translation": "心理的；精神的", "definition": "Relating to the mind.", "example": "Many people suffer from some form of mental illness during their lives.", "example_tw": "許多人在一生中都會患有某種形式的精神疾病。" },
+      "academic": { "pos": "adj.", "translation": "學術的；學校的", "definition": "Relating to education and scholarship.", "example": "In Britain, the academic year runs from October to July. Students go to school during that period.", "example_tw": "在英國，學年從十月到七月。學生在那段期間上學。" },
+      "heredity": { "pos": "n.", "translation": "遺傳；遺傳學", "definition": "The passing on of physical or mental characteristics genetically from one generation to another.", "example": "Heredity shows us that living things have the ability to pass on their own qualities from parent to child in the cells of the body.", "example_tw": "遺傳學向我們展示了生物有能力將自身的特徵透過身體細胞從父母傳給孩子。" },
+      "detergent": { "pos": "n.", "translation": "清潔劑", "definition": "A water-soluble cleansing agent.", "example": "Jenny always uses the detergent to clean the stains on the clothing. She thinks that it works well.", "example_tw": "珍妮總是使用清潔劑來清除衣服上的汙漬。她覺得效果很好。" },
+      "instinct": { "pos": "n.", "translation": "本能；直覺", "definition": "An innate, typically fixed pattern of behavior in animals in response to certain stimuli.", "example": "Don't ask me; follow your instinct and do what you think is right.", "example_tw": "不要問我；跟隨你的本能，做你認為對的事。" },
+      "fainted": { "pos": "v.", "translation": "昏倒", "definition": "Lost consciousness for a short time because of a temporarily insufficient supply of oxygen to the brain.", "example": "On hearing the tragic news, he fainted and didn't come to himself for ten minutes.", "example_tw": "聽到這個悲慘的消息，他昏倒了，十分鐘後才甦醒過來。" }
+    },
+    "test22": {
+      "shield": { "pos": "n.", "translation": "防護；盾牌", "definition": "A broad piece of defensive armor carried on the arm; a person or thing providing protection.", "example": "Dark glasses are an effective shield against the glare of the sun.", "example_tw": "墨鏡是抵擋刺眼陽光的有效防護。" },
+      "prescribed": { "pos": "v.", "translation": "開立（處方）；規定", "definition": "(Of a medical practitioner) advise and authorize the use of (a medicine or treatment) for someone.", "example": "The doctor prescribed some pills for my allergy. I felt better after taking them.", "example_tw": "醫生開了一些藥丸來治療我的過敏。我吃完後感覺好多了。" },
+      "recover": { "pos": "v.", "translation": "恢復；復原", "definition": "To return to a normal state of health, mind, or strength.", "example": "You need daily exercise if you're going to recover the use of your legs.", "example_tw": "如果你想恢復雙腿的功能，你需要每天運動。" },
+      "resistance": { "pos": "n.", "translation": "抵抗力；反抗", "definition": "The ability not to be affected by something, especially adversely.", "example": "My resistance to colds has been low. It's very easy for me to catch a cold.", "example_tw": "我對感冒的抵抗力一直很低。我很容易感冒。" },
+      "restore": { "pos": "v.", "translation": "恢復；修復", "definition": "To bring back or return (someone or something) to a former condition, place, or position.", "example": "This proposal would restore the tax advantages that small business used to enjoy.", "example_tw": "這項提議將恢復小型企業過去享有的稅收優勢。" },
+      "speculate": { "pos": "v.", "translation": "猜測；推斷", "definition": "To form a theory or conjecture about a subject without firm evidence.", "example": "We don't know all the circumstances, so it would be pointless to speculate on what happened.", "example_tw": "我們不知道所有的情況，所以猜測發生了什麼事是沒有意義的。" },
+      "vigorous": { "pos": "adj.", "translation": "精力充沛的；健壯的", "definition": "Strong, healthy, and full of energy.", "example": "For a man of seventy, he is still surprisingly vigorous. He is strong enough to run a marathon.", "example_tw": "對於一個七十歲的人來說，他依然出奇地精力充沛。他強壯到可以跑馬拉松。" },
+      "permanent": { "pos": "adj.", "translation": "永久的", "definition": "Lasting or intended to last or remain unchanged indefinitely.", "example": "The accident has caused permanent damage to Mr. Smith's legs. He can never walk again.", "example_tw": "這場意外對史密斯先生的雙腿造成了永久性的傷害。他再也無法走路了。" },
+      "tumble": { "pos": "n.", "translation": "跌倒；滾下", "definition": "A sudden or headlong fall.", "example": "I had a nasty tumble and hurt my knee.", "example_tw": "我重重地摔了一跤，傷了膝蓋。" },
+      "virus": { "pos": "n.", "translation": "病毒", "definition": "An infective agent that typically consists of a nucleic acid molecule in a protein coat and is able to multiply only within the living cells of a host.", "example": "The AIDS virus spread quickly among human beings.", "example_tw": "愛滋病毒在人類之間迅速傳播。" },
+      "obesity": { "pos": "n.", "translation": "肥胖", "definition": "The condition of being grossly fat or overweight.", "example": "Constant exercise and proper diet are of great help in preventing obesity.", "example_tw": "持續的運動和適當的飲食對預防肥胖有很大的幫助。" },
+      "essential": { "pos": "adj.", "translation": "必需的；不可或缺的", "definition": "Absolutely necessary; extremely important.", "example": "There's no denying that these nutrients are essential to our health. In other words, they are indispensable.", "example_tw": "無可否認，這些營養素對我們的健康是不可或缺的。換句話說，它們是必需的。" },
+      "sturdy": { "pos": "adj.", "translation": "結實的；堅固的", "definition": "(Of a person or their body) strongly and solidly built.", "example": "The sturdy young man removed the rock without effort.", "example_tw": "那個結實的年輕人不費吹灰之力就移開了岩石。" },
+      "fatigue": { "pos": "n.", "translation": "疲倦；疲勞", "definition": "Extreme tiredness, typically resulting from mental or physical exertion or illness.", "example": "If you want to recover from the fatigue of the journey, you will have to take a good rest.", "example_tw": "如果你想從旅途的疲倦中恢復過來，你必須好好休息。" },
+      "twisted": { "pos": "v.", "translation": "扭曲；曲解", "definition": "Deliberately changed the meaning of (words) in order to give a false impression.", "example": "The newspapers deliberately twisted her words to make her look guilty.", "example_tw": "報紙故意扭曲她的話，讓她看起來有罪。" }
+    },
     "test23": {},
     "test24": {},
     "test25": {}
