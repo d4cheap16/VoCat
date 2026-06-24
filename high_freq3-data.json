@@ -61,7 +61,41 @@
         ]
       }
     },
-    "test20": {},
+    "test20": {
+      "groupA": {
+        "words": ["approaching", "occasion", "reproach", "relief", "primary"],
+        "stories": [
+          { "level": "A2", "text": "The heavy rain is fast **approaching** the small town. We found a safe place to stay, which was a great **relief**. My **primary** goal is to keep everyone dry today. We used this **occasion** to play games inside. I will not **reproach** anyone for forgetting their umbrella." },
+          { "level": "B1", "text": "The **primary** reason for the meeting is to discuss the upcoming festival. As the date is rapidly **approaching**, we have a lot to prepare. You should not **reproach** yourself if things are not perfect yet. We hope the event will be a happy **occasion** for the whole town. Finishing the decorations early brought everyone a huge sense of **relief**." },
+          { "level": "B2", "text": "Finding the lost dog was a huge **relief** for the worried family. Their **primary** concern had been his safety in the cold night. They threw a small party, using the happy **occasion** to thank their neighbors. With winter **approaching**, they bought him a warm coat. They promised never to **reproach** each other for leaving the gate open again." },
+          { "level": "C1", "text": "The manager's harsh **reproach** left the team feeling demoralized before the major presentation. They used the formal corporate **occasion** to clarify their innovative strategy. It was a profound **relief** when the board approved their budget proposal. With the end of the fiscal quarter rapidly **approaching**, time management became crucial. Their **primary** objective now is to ensure seamless implementation across all departments." }
+        ]
+      },
+      "groupB": {
+        "words": ["swift", "premature", "previously", "prolong", "ultimately"],
+        "stories": [
+          { "level": "A2", "text": "She was **previously** a singer before becoming a teacher. To **prolong** the life of your shoes, keep them clean. The bird was very **swift** and flew away fast. It is **premature** to say who will win the game now. We will **ultimately** know the winner tomorrow." },
+          { "level": "B1", "text": "The police made a **swift** decision to close the road. It was **premature** to judge the new student on his first day. He will **ultimately** show us how smart he really is. He **previously** lived in a very small village. Good eating habits can help **prolong** your healthy life." },
+          { "level": "B2", "text": "The company will **ultimately** decide whether to launch the product next month. They want to **prolong** the testing phase to fix any bugs. A **swift** response to customer complaints is crucial for success. The team **previously** struggled with communication issues. Making changes now would be a **premature** move." },
+          { "level": "C1", "text": "Declaring victory at this stage of the negotiations would be highly **premature**. The diplomat, who **previously** served in Europe, understood the complexities. He advised against actions that might unnecessarily **prolong** the tense discussions. The government will **ultimately** have to compromise on several key issues. A **swift** and decisive resolution is necessary to stabilize the global market." }
+        ]
+      },
+      "groupC": {
+        "words": ["eternal", "accordingly", "leisurely", "regular", "span"],
+        "stories": [
+          { "level": "A2", "text": "I take a **regular** walk in the park every morning. I enjoy walking in a **leisurely** way without rushing. The bright sun feels like an **eternal** light in the sky. Over a short **span** of time, I finish my coffee. I plan my daily schedule **accordingly** after that." },
+          { "level": "B1", "text": "We took a **leisurely** bike ride by the river on Sunday. Over the **span** of two hours, we saw many beautiful birds. Reading books is a **regular** habit for my brother. When it rains, we change our plans **accordingly**. Some people believe that true love is completely **eternal**." },
+          { "level": "B2", "text": "The poet wrote about the **eternal** beauty of the majestic mountains. The guide warned us about the weather, and we packed our bags **accordingly**. Our **regular** meetings help the project stay strictly on track. In a brief **span** of five years, the city changed completely. Tourists can enjoy a **leisurely** boat tour around the famous lake." },
+          { "level": "C1", "text": "Over the **span** of a single decade, technological advancements reshaped society. The committee holds **regular** sessions to monitor these rapid developments. Policies must be updated **accordingly** to address potential ethical concerns. The debate over privacy vs. security seems to be an **eternal** conflict. Observers often take a **leisurely** approach to analyzing these complex historical trends." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["approaching", "occasion", "reproach", "relief", "primary", "swift", "premature", "previously", "prolong", "ultimately", "eternal", "accordingly", "leisurely", "regular", "span"],
+        "stories": [
+          { "level": "C2", "text": "The **primary** objective of the summit was to address the rapidly **approaching** climate crisis. The veteran diplomat, who had **previously** warned about this ecological disaster, used the high-profile **occasion** to demand immediate action. Over the **span** of her career, she had witnessed an **eternal** cycle of political inaction and empty promises. It was **premature** to celebrate the newly signed treaty, as true success would **ultimately** depend on strict enforcement. Some nations sought to **prolong** the negotiation phase, hoping to dilute the environmental regulations. However, the unexpected and **swift** implementation of trade sanctions by allied forces left no room for delay. The delegates realized they could no longer afford their **leisurely** pace of debate. They adjusted their national policies **accordingly** to meet the new, rigorous standards. Achieving a consensus brought a palpable sense of **relief** to the exhausted committee. As a **regular** reminder of their duty, no leader would ever **reproach** themselves for acting too late to save the planet." }
+        ]
+      }
+    },
     "test21": {},
     "test22": {},
     "test23": {},
@@ -86,7 +120,23 @@
       "scenes": { "pos": "n.", "translation": "景色；場景", "definition": "Views or pictures of a place.", "example": "A number of wonderful scenes were strongly imprinted on the poet's mind.", "example_tw": "許多美妙的景色深深印在詩人的腦海中。" },
       "derived": { "pos": "v.", "translation": "獲得；取得", "definition": "To get something from something else.", "example": "He derived a lot of pleasure from meeting new people. He was really an outgoing person.", "example_tw": "他從結識新朋友中獲得了很多樂趣。他真是一個外向的人。" }
     },
-    "test20": {},
+    "test20": {
+      "approaching": { "pos": "v.", "translation": "逼近；接近", "definition": "Coming nearer in distance or time.", "example": "The time is fast approaching when we will have to make a decision.", "example_tw": "我們必須做出決定的時間正快速逼近。" },
+      "occasion": { "pos": "n.", "translation": "機會；場合", "definition": "A particular time or opportunity for something to happen.", "example": "He seized the occasion to invite her family for dinner.", "example_tw": "他抓住這個機會邀請她的家人共進晚餐。" },
+      "reproach": { "pos": "v.", "translation": "責備；自責", "definition": "To criticize or find fault with someone.", "example": "It wasn't your fault. You have nothing to reproach yourself for.", "example_tw": "這不是你的錯。你沒有什麼好自責的。" },
+      "relief": { "pos": "n.", "translation": "舒緩；寬慰", "definition": "A feeling of comfort when something painful or stressful ends.", "example": "This medicine will bring you some relief. You'll feel much better after taking it.", "example_tw": "這藥會帶給你一些舒緩。服用後你會覺得好多了。" },
+      "primary": { "pos": "adj.", "translation": "主要的", "definition": "Most important or main.", "example": "The primary purpose of his visit is to improve trading relations.", "example_tw": "他來訪的主要目的是改善貿易關係。" },
+      "swift": { "pos": "adj.", "translation": "迅速的", "definition": "Happening or moving quickly.", "example": "They have been swift to deny the rumors. Their announcement was immediate.", "example_tw": "他們迅速否認了謠言。他們的聲明是立即的。" },
+      "premature": { "pos": "adj.", "translation": "過早的", "definition": "Happening or done too soon.", "example": "I think your criticism is a bit premature as we don't know all the details.", "example_tw": "我認為你的批評有點過早，因為我們還不知道所有的細節。" },
+      "previously": { "pos": "adv.", "translation": "以前", "definition": "At an earlier time or before something else.", "example": "She was previously employed as a tour guide. But now she's a secretary.", "example_tw": "她以前受雇為導遊。但她現在是秘書。" },
+      "prolong": { "pos": "v.", "translation": "延長", "definition": "To make something last longer.", "example": "Careful treatment will prolong the life of furniture. You can use the furniture much longer if you treat it well.", "example_tw": "仔細的保養會延長家具的壽命。如果你好好對待它，你可以使用更久。" },
+      "ultimately": { "pos": "adv.", "translation": "最終", "definition": "Finally, after a series of things have happened.", "example": "Everything will ultimately depend on what is said at the next meeting. Just wait and see.", "example_tw": "一切最終將取決於下次會議的內容。等著看吧。" },
+      "eternal": { "pos": "adj.", "translation": "永恆的", "definition": "Lasting forever or for a very long time.", "example": "That history repeats itself is a(n) eternal truth.", "example_tw": "歷史會重演是一個永恆的真理。" },
+      "accordingly": { "pos": "adv.", "translation": "因此；相應地", "definition": "In a way that is suitable or right for the situation.", "example": "He was told to sit tight; accordingly, he didn't dare to move an inch.", "example_tw": "他被告知要按兵不動；因此，他一動也不敢動。" },
+      "leisurely": { "pos": "adv.", "translation": "悠閒地", "definition": "In a relaxed and unhurried way.", "example": "When she strolls leisurely along the beach, she feels herself becoming part of nature.", "example_tw": "當她悠閒地在海灘上漫步時，她感覺自己成為大自然的一部分。" },
+      "regular": { "pos": "adj.", "translation": "定期的；規律的", "definition": "Happening repeatedly in a fixed pattern.", "example": "This is not a regular event; it is held only on special occasions.", "example_tw": "這不是一個定期的活動；它只在特殊場合舉行。" },
+      "span": { "pos": "n.", "translation": "期間；跨度", "definition": "The length of time that something lasts.", "example": "Over a(n) span of three years, the shopping mall was expanded to include several parking lots.", "example_tw": "在三年的期間內，這家購物中心擴建了幾個停車場。" }
+    },
     "test21": {},
     "test22": {},
     "test23": {},
