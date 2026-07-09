@@ -400,7 +400,7 @@
     async function initializeAppWrapper() { // Renamed to avoid conflict with imported initializeApp
         try {
             // 1. Fetch data from the external JSON file
-            const response = await fetch('SM book1-data.json');
+            const response = await fetch('SM_book1-data.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
