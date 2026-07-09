@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第一冊單字練習</title>
+    <title>三民版第一冊單字練習</title>
 	<!-- 網站圖示 (Favicon) -->
 	<link rel="icon" href="https://d4cheap16.github.io/VoCat/studyicon.png" type="image/png">
 	<link rel="apple-touch-icon" href="https://d4cheap16.github.io/VoCat/studyicon.png">
@@ -163,7 +163,7 @@
     </div>
     <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-10">
         <div id="quiz-container" class="space-y-6">
-            <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">第一冊單字練習</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">三民版第一冊單字練習</h1>
             
             <div class="space-y-4 border-b border-gray-200 pb-6">
                 <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-4 text-gray-700">
@@ -400,7 +400,7 @@
     async function initializeAppWrapper() { // Renamed to avoid conflict with imported initializeApp
         try {
             // 1. Fetch data from the external JSON file
-            const response = await fetch('book1-data.json');
+            const response = await fetch('SM book1-data.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -466,15 +466,15 @@
         const unitSelect = dom.unitSelect;
         unitSelect.innerHTML = '<option value="" selected disabled>--請選擇單元--</option>';
         const unitDisplayNames = {
-            'L01': '1: The Firsts in Life',
-            'L02': '2: A Break-Up Letter',
-            'L03': '3: Do Animals Sleep like You and Me?',
-	        'L04': '4: Sniffing Out More Than Just Bones',
-	        'L05': '5: The Life of a Plastic Bag',
-	        'L06': '6: Built for Freedom',
-            'L07': '7: From Trash to Triumph',
+            'L01': '1: Mission Possible',
+            'L02': '2: I See You, Taiwan',
+            'L03': '3: Clicks, Crumbs, and Consequences',
+	        'L04': '4: The Sugar Feast',
+	        'L05': '5: Creative Traffic Signals',
+	        'L06': '6: Reaching for Space',
+            'L07': '7: A Christmas Carol',
             'L08': '8: Convenience Stores',
-            'L09': '9: Fighting for or against Graffiti',
+            'L09': '9: I Owe You a Big Apology',
         };
 
         const allUnitKeys = Object.keys(unitDisplayNames);
