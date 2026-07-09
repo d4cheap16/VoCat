@@ -379,7 +379,6 @@
         adminTools: document.getElementById('admin-tools'),
         adminFillBtn: document.getElementById('adminFillBtn'),
         devToolsPanel: document.getElementById('dev-tools-panel'),
-        // [MODULAR] Review Btn Element
         reviewAllBtn: document.getElementById('review-all-btn'),
     };
 
@@ -397,7 +396,7 @@
     // =================================================================
     // INITIALIZATION
     // =================================================================
-    async function initializeAppWrapper() { // Renamed to avoid conflict with imported initializeApp
+    async function initializeAppWrapper() {
         try {
             // 1. Fetch data from the external JSON file
             const response = await fetch('SM_book1-data.json');
@@ -442,7 +441,7 @@
 
         } catch (error) {
             console.error("Initialization failed:", error);
-            dom.loadingIndicator.textContent = '資料載入失敗，請確認 book1-data.json 檔案是否在同一路徑，或重新整理頁面。';
+            dom.loadingIndicator.textContent = '資料載入失敗，請確認 SM_book1-data.json 檔案是否在同一路徑，或重新整理頁面。';
         }
     }
 
@@ -480,7 +479,6 @@
         const allUnitKeys = Object.keys(unitDisplayNames);
 
         allUnitKeys.forEach(unitKey => {
-            // [MODULAR] Check if data exists before adding the option
             if (vocabulary[unitKey]) {
                 const option = document.createElement('option');
                 option.value = unitKey;
@@ -494,7 +492,6 @@
         dom.unitSelect.addEventListener('change', (e) => {
             state.currentUnit = e.target.value;
             
-            // Logic to show/hide content based on whether the unit exists in the data
             if (!vocabulary[state.currentUnit] || Object.keys(vocabulary[state.currentUnit]).length === 0) {
                 dom.mainControls.classList.add('hidden');
                 dom.welcomeMessage.classList.add('hidden');
@@ -525,7 +522,6 @@
         dom.groupSelector.addEventListener('click', (e) => {
             const button = e.target.closest('button');
 
-            // [MODULAR] 如果點到 Review 按鈕，不要執行下方的 group 邏輯
             if (button && button.id === 'review-all-btn') return;
 
             if (button && state.currentUnit) {
@@ -534,15 +530,10 @@
                 
                 dom.groupSelector.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn.dataset.group === group));
                 
-                // ==========================================
-                // [MODULAR] REVIEW MODE RESET
-                // 當切換組別時，確保畫面回復到測驗準備狀態
-                // ==========================================
                 if(dom.storyPassage) dom.storyPassage.style.display = 'block';
                 if(dom.submitBtn) dom.submitBtn.classList.remove('hidden-in-review');
                 if(dom.clearBtn) dom.clearBtn.classList.remove('hidden-in-review');
                 if(dom.welcomeMessage) dom.welcomeMessage.classList.remove('hidden');
-                // ==========================================
 
                 if (group === 'groupBonus') {
                     state.currentDifficulty = 'C2';
@@ -565,15 +556,9 @@
         dom.difficultySelector.addEventListener('click', (e) => {
             const button = e.target.closest('.difficulty-btn-wrapper');
             if (button && !button.classList.contains('disabled')) {
-
-                // ==========================================
-                // [MODULAR] REVIEW MODE RESET
-                // 點擊星星時，確保還原文章顯示與按鈕
-                // ==========================================
                 if(dom.storyPassage) dom.storyPassage.style.display = 'block';
                 if(dom.submitBtn) dom.submitBtn.classList.remove('hidden-in-review');
                 if(dom.clearBtn) dom.clearBtn.classList.remove('hidden-in-review');
-                // ==========================================
 
                 const level = button.dataset.level;
                 state.currentDifficulty = level;
@@ -582,7 +567,6 @@
             }
         });
         
-        // [MODULAR] Review All Button Listener
         if(dom.reviewAllBtn) {
             dom.reviewAllBtn.addEventListener('click', startReviewMode);
         }
@@ -611,7 +595,6 @@
         dom.closeModalBtn.addEventListener('click', () => { dom.hintModal.style.display = 'none'; stopSpeak(); });
         window.addEventListener('click', (event) => { if (event.target == dom.hintModal) { dom.hintModal.style.display = 'none'; stopSpeak(); } });
 
-        // Dev Tools Event Listeners
         const unlockAllBtn = document.getElementById('unlockAllBtn');
         if(unlockAllBtn) {
             unlockAllBtn.addEventListener('click', async () => {
@@ -716,7 +699,7 @@
     };
     
     // =================================================================
-    // [MODULAR] REVIEW ALL LOGIC
+    // [MODULAR] REVIEW ALL LOGIC (升級以支援新版 JSON)
     // =================================================================
     function startReviewMode() {
         if (!state.currentUnit) {
@@ -726,61 +709,49 @@
 
         console.log("進入 Review All 模式...");
 
-        // 1. 抓取該 Unit 下所有 Group 的單字
         let allWords = [];
-        // 您的資料結構是 vocabulary[state.currentUnit]['groupA']...
-        Object.keys(vocabulary[state.currentUnit]).forEach(groupKey => {
-            if (vocabulary[state.currentUnit][groupKey].words) {
-                 allWords = allWords.concat(vocabulary[state.currentUnit][groupKey].words);
-            }
-        });
+        const unitData = vocabulary[state.currentUnit];
+        if (unitData && unitData.groups) {
+            Object.values(unitData.groups).forEach(wordList => {
+                 allWords = allWords.concat(wordList);
+            });
+        }
 
-        // 2. 依字母順序排序
         allWords.sort((a, b) => a.localeCompare(b));
-        allWords = [...new Set(allWords)]; // 去除重複
+        allWords = [...new Set(allWords)]; 
 
-        // 3. 介面切換：顯示測驗區，但隱藏文章與按鈕
         const quizArea = dom.quizArea;
         const storyPassage = dom.storyPassage;
         const checkBtn = dom.submitBtn;
         const clearBtn = dom.clearBtn;
         const wordBank = dom.wordOptions;
         
-        // 取消所有 Group 與難度的選取狀態
         dom.groupSelector.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
         dom.difficultySelector.querySelectorAll('.difficulty-btn-wrapper').forEach(btn => btn.classList.remove('active', 'disabled'));
 
         if(quizArea) quizArea.classList.remove('hidden');
-        if(storyPassage) storyPassage.style.display = 'none'; // 隱藏文章
-        if(checkBtn) checkBtn.classList.add('hidden-in-review'); // 隱藏按鈕
-        if(clearBtn) clearBtn.classList.add('hidden-in-review'); // 隱藏按鈕
+        if(storyPassage) storyPassage.style.display = 'none'; 
+        if(checkBtn) checkBtn.classList.add('hidden-in-review'); 
+        if(clearBtn) clearBtn.classList.add('hidden-in-review'); 
         
-        // 隱藏歡迎訊息與 construction 訊息
         dom.welcomeMessage.classList.add('hidden');
         dom.constructionMessage.classList.add('hidden');
-        dom.analysisContainer.style.display = 'none'; // 隱藏檢討區
-        dom.resultsDiv.innerHTML = ''; // 清空結果
+        dom.analysisContainer.style.display = 'none'; 
+        dom.resultsDiv.innerHTML = ''; 
 
-        // 4. 清空並重新渲染單字庫
         wordBank.innerHTML = '';
         
-        // 產生單字卡
         allWords.forEach(word => {
             const btn = document.createElement('button');
-            btn.className = 'word-pronounceable'; // 使用您現有的樣式
+            btn.className = 'word-pronounceable'; 
             btn.textContent = word;
-            
-            // 點擊事件：使用您現有的 showHint
-            btn.onclick = () => {
-                showHint(word); 
-            };
-            
+            btn.onclick = () => { showHint(word); };
             wordBank.appendChild(btn);
         });
     }
 
     // =================================================================
-    // QUIZ LOGIC
+    // QUIZ LOGIC (升級以支援新版 JSON 結構與欄位)
     // =================================================================
     const loadQuiz = () => {
         if (!state.currentUnit || !state.currentGroup || !state.currentDifficulty) return;
@@ -790,7 +761,10 @@
         dom.constructionMessage.classList.add('hidden');
         
         const isBonus = state.currentGroup === 'groupBonus';
-        const unitData = vocabulary[state.currentUnit][state.currentGroup];
+        // 轉換為大寫 Group (如 'GroupA')，以對應 JSON 的新結構
+        const jsonGroupKey = isBonus ? 'groupBonus' : state.currentGroup.replace('group', 'Group');
+        const unitRawData = vocabulary[state.currentUnit];
+        
         Object.assign(state, { correctAnswers: {}, earnedBadgesForSharing: [] });
         
         dom.storyPassage.innerHTML = '';
@@ -801,25 +775,36 @@
         dom.shareBtn.classList.add('hidden');
         dom.submitBtn.disabled = true;
 
-        // [MODULAR] 確保離開 Review 模式時按鈕有顯示
         dom.submitBtn.classList.remove('hidden-in-review');
         dom.clearBtn.classList.remove('hidden-in-review');
 
-        // Check for story data
-        const storyData = isBonus ? unitData.story : unitData.stories;
+        if (!unitRawData || !unitRawData.stories) return;
+
+        // 取得單字庫 (Bonus 模式抓取全部，否則抓取對應組別)
+        let currentWords = [];
+        if (isBonus) {
+            if (unitRawData.groups) {
+                Object.values(unitRawData.groups).forEach(list => currentWords = currentWords.concat(list));
+            }
+        } else {
+            currentWords = unitRawData.groups[jsonGroupKey] || [];
+        }
+        state.currentWords = [...new Set(currentWords)].sort((a, b) => a.localeCompare(b));
+
+        // 取得文章資料
+        const storyData = unitRawData.stories[jsonGroupKey];
         if (!storyData) {
-            console.error(`Story data is missing for Unit: ${state.currentUnit}, Group: ${state.currentGroup}`);
+            console.error(`Story data is missing for Unit: ${state.currentUnit}, Group: ${jsonGroupKey}`);
             dom.constructionMessage.classList.remove('hidden');
             dom.quizArea.classList.add('hidden');
             dom.welcomeMessage.classList.add('hidden');
             return;
         }
 
-        const selectedStory = isBonus
-            ? unitData.story
-            : unitData.stories.find(s => s.level === state.currentDifficulty);
+        const selectedStory = isBonus 
+            ? storyData[0] 
+            : storyData.find(s => s.level === state.currentDifficulty);
 
-        // Check if selectedStory was found
         if (!selectedStory) {
             console.error(`Could not find a story for level: ${state.currentDifficulty}`);
             dom.constructionMessage.classList.remove('hidden');
@@ -828,10 +813,10 @@
             return;
         }
 
-        state.currentWords = unitData.words.slice().sort((a, b) => a.localeCompare(b));
-
         let selectCounter = 0;
-        const processedStory = selectedStory.text.replace(/\*\*(.*?)\*\*/g, (match, word) => {
+        // 相容新舊欄位：新的 JSON 使用 story，舊的使用 text
+        const storyText = selectedStory.story || selectedStory.text;
+        const processedStory = storyText.replace(/\*\*(.*?)\*\*/g, (match, word) => {
             const selectId = `word-select-${selectCounter}`;
             const canonicalWord = state.currentWords.find(w => w.toLowerCase() === word.toLowerCase()) || word;
             state.correctAnswers[selectId] = canonicalWord;
@@ -876,7 +861,10 @@
                 
                 const wordData = wordDetails[state.currentUnit]?.[correctAnswer.toLowerCase()];
                 if (wordData) {
-                    dom.incorrectAnswersDiv.innerHTML += `<div class="p-4 bg-red-50 rounded-lg border border-red-200"><p>您選擇了 <strong class="text-red-500">${selectElement.value || "（未選擇）"}</strong>，正確答案是 <strong class="text-green-600">${correctAnswer.charAt(0).toUpperCase() + correctAnswer.slice(1)}</strong>。</p><p class="text-sm text-gray-600">(${wordData.pos}) ${wordData.translation} - ${wordData.definition}</p></div>`;
+                    // 相容新舊欄位
+                    const chiDef = wordData.chi_def || wordData.translation;
+                    const engDef = wordData.eng_def || wordData.definition;
+                    dom.incorrectAnswersDiv.innerHTML += `<div class="p-4 bg-red-50 rounded-lg border border-red-200"><p>您選擇了 <strong class="text-red-500">${selectElement.value || "（未選擇）"}</strong>，正確答案是 <strong class="text-green-600">${correctAnswer.charAt(0).toUpperCase() + correctAnswer.slice(1)}</strong>。</p><p class="text-sm text-gray-600">(${wordData.pos}) ${chiDef} - ${engDef}</p></div>`;
                 }
             }
             selectElement.disabled = true;
@@ -902,7 +890,6 @@
         renderBadgeHall();
     };
 
-    // --- HELPER & UTILITY FUNCTIONS ---
     const updateDropdownOptions = () => {
         const allSelects = Array.from(document.querySelectorAll('.word-select'));
         const answeredCount = allSelects.filter(s => s.value !== '').length;
@@ -977,6 +964,11 @@
         
         let usageNoteHtml = mainWordData.note ? `<div class="mt-4 text-left p-3 bg-blue-50 border-l-4 border-blue-400">${mainWordData.note}</div>` : '';
 
+        // 相容新舊欄位：對應新 JSON (chi_def, eng_def, translation) 與舊版 JSON
+        const engDef = wordData.eng_def || wordData.definition;
+        const chiDef = wordData.chi_def || wordData.translation;
+        const exampleTw = wordData.translation && wordData.translation !== chiDef ? wordData.translation : wordData.example_tw;
+
         dom.modalContent.innerHTML = `
             <div class="flex justify-between items-start">
                 <div class="text-left">
@@ -990,7 +982,7 @@
                 </div>
             </div>
             <button id="show-chinese-btn" class="mb-4 bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-semibold py-1 px-3 rounded-lg">顯示中文</button>
-            <p class="text-md text-left text-gray-600"><strong>Definition:</strong> (${wordData.pos}) ${wordData.definition}</p>
+            <p class="text-md text-left text-gray-600"><strong>Definition:</strong> (${wordData.pos}) ${engDef}</p>
             <div class="flex justify-between items-start mt-2">
                 <div class="text-md text-left text-gray-500 pr-4">
                     <strong>Example:</strong> <em id="modal-example-text"></em>
@@ -1008,9 +1000,9 @@
         `;
         
         document.getElementById('modal-word-title').textContent = word;
-        document.getElementById('chinese-translation').textContent = `(${wordData.pos}) ${wordData.translation}`;
+        document.getElementById('chinese-translation').textContent = `(${wordData.pos}) ${chiDef}`;
         document.getElementById('modal-example-text').textContent = wordData.example;
-        document.getElementById('modal-example-translation-text').textContent = wordData.example_tw;
+        document.getElementById('modal-example-translation-text').textContent = exampleTw;
 
         document.getElementById('modal-word-speak-normal').addEventListener('click', () => speak(word, 1.0));
         document.getElementById('modal-word-speak-slow').addEventListener('click', () => speak(word, 0.7));
@@ -1040,7 +1032,8 @@
     
     const createFamilyWordHtml = (wordKey, wordData, mainWordKey) => {
         const displayName = wordKey.replace(/_v|_n|_adj$/, '');
-        const definitionHtml = `<span class="text-sm text-gray-500"> - ${wordData.translation}</span>`;
+        const chiDef = wordData.chi_def || wordData.translation;
+        const definitionHtml = `<span class="text-sm text-gray-500"> - ${chiDef}</span>`;
 
         return `
             <div class="p-2 border-b border-gray-100 flex justify-between items-center">
@@ -1130,6 +1123,7 @@
             console.error("Error updating badges:", e);
         }
     };
+
     const checkAchievements = async (score) => {
         const newlyEarned = [];
         const addBadge = (key) => {
@@ -1155,9 +1149,10 @@
         const checkLevelMastery = (unitKey, targetLevel, scoreThreshold, badgeKey) => {
             if (earnedBadges[`${badgeKey}_${unitKey}`]) return;
             const scoresForLevel = localScores.filter(s => s.unitKey === unitKey && s.level === targetLevel);
-            const allGroupsInUnit = Object.keys(vocabulary[unitKey]).filter(g => g !== 'groupBonus');
+            // 動態取得組別數量 (支援新版結構)
+            const allGroupsInUnit = Object.keys(vocabulary[unitKey].groups || {});
             const passedGroups = new Set(scoresForLevel.filter(s => s.score >= scoreThreshold).map(s => s.group));
-            if (passedGroups.size === allGroupsInUnit.length) {
+            if (passedGroups.size >= allGroupsInUnit.length && allGroupsInUnit.length > 0) {
                 addBadge(badgeKey);
             }
         };
@@ -1172,12 +1167,13 @@
         if (!earnedBadges[legendBadgeKey]) {
             const allScoresForUnit = localScores.filter(s => s.unitKey === state.currentUnit);
             const allTests = [];
-            const groups = Object.keys(vocabulary[state.currentUnit]).filter(g => g !== 'groupBonus');
+            // 動態取得 Group 列表，並轉換格式
+            const groups = Object.keys(vocabulary[state.currentUnit].groups || {}).map(g => g.replace('Group', 'group'));
             
             groups.forEach(g => {
-                // Check if stories exists for this group
-                if (vocabulary[state.currentUnit][g].stories) {
-                    vocabulary[state.currentUnit][g].stories.forEach(story => {
+                const jsonGroupKey = g.replace('group', 'Group');
+                if (vocabulary[state.currentUnit].stories && vocabulary[state.currentUnit].stories[jsonGroupKey]) {
+                    vocabulary[state.currentUnit].stories[jsonGroupKey].forEach(story => {
                         allTests.push(`${g}-${story.level}`);
                     });
                 }
@@ -1188,7 +1184,7 @@
                 return allScoresForUnit.some(s => s.group === group && s.level === level && s.score === 100);
             });
 
-            if (passedAll100 && allTests.length > 0) { // Ensure there were tests to pass
+            if (passedAll100 && allTests.length > 0) { 
                 addBadge('legend');
                 updateBonusButtonVisibility();
             }
@@ -1508,4 +1504,3 @@
 </footer>
 </body>
 </html>
-
