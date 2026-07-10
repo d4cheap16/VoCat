@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>三民版第一冊單字練習</title>
-	<!-- 網站圖示 (Favicon) -->
 	<link rel="icon" href="https://d4cheap16.github.io/VoCat/studyicon.png" type="image/png">
 	<link rel="apple-touch-icon" href="https://d4cheap16.github.io/VoCat/studyicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- [MODULAR] Added Press Start 2P for retro style -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         /* --- Gameboy 風格色彩覆蓋 (精簡版) --- */
@@ -170,8 +168,7 @@
                     <div class="flex flex-col items-center text-center sm:flex-row sm:space-x-2">
                         <label for="unit-select" class="font-medium mb-1 sm:mb-0">單元:</label>
                         <select id="unit-select" class="rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-64 sm:w-auto">
-                            <!-- Unit options will be loaded dynamically -->
-                        </select>
+                            </select>
                     </div>
                     <div class="flex flex-col items-center text-center sm:flex-row sm:space-x-2">
                         <label for="class-select" class="font-medium mb-1 sm:mb-0">班級:</label>
@@ -207,10 +204,8 @@
                     </div>
                 </div>
         
-                <!-- Group & Difficulty Selection -->
                 <div id="main-controls">
                     <div class="flex flex-col items-center justify-center space-y-4 pt-2">
-                        <!-- Group Selection -->
                         <div class="flex flex-col items-center space-y-2">
                             <label class="font-medium text-gray-700">選擇組別:</label>
                             <div id="group-selector" class="flex flex-wrap justify-center gap-2 rounded-lg p-2 bg-gray-200">
@@ -218,16 +213,12 @@
                                 <button data-group="groupB" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group B</button>
                                 <button data-group="groupC" class="control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-gray-600 rounded-md">Group C</button>
                                 
-                                <!-- [MODULAR] REVIEW ALL BUTTON HTML START -->
                                 <button id="review-all-btn" class="retro-review-btn px-4 sm:px-5 py-2 text-sm sm:text-base">
                                     REVIEW ALL
                                 </button>
-                                <!-- [MODULAR] REVIEW ALL BUTTON HTML END -->
-
                                 <button data-group="groupBonus" id="bonus-group-btn" class="hidden control-btn group-btn px-4 sm:px-5 py-2 text-sm sm:text-base font-medium text-yellow-500 bg-gray-800 rounded-md" title="傳說級挑戰">❓</button>
                             </div>
                         </div>
-                        <!-- Difficulty Selection -->
                         <div class="flex flex-col items-center space-y-2">
                             <label class="font-medium text-gray-700">選擇難度:</label>
                             <div id="difficulty-selector" class="flex items-center space-x-2 text-3xl">
@@ -930,12 +921,16 @@
         let mainWordKey = word.toLowerCase();
         let wordData = allWordData[mainWordKey];
 
+        // 尋找衍生字的邏輯 (修正後)
         if (!wordData) {
             for (const key in allWordData) {
-                if (allWordData[key].family && allWordData[key].family.includes(word.toLowerCase())) {
-                    mainWordKey = key;
-                    wordData = allWordData[mainWordKey]; 
-                    break;
+                if (allWordData[key].derivatives) {
+                    const found = allWordData[key].derivatives.some(d => d.word.toLowerCase() === word.toLowerCase());
+                    if (found) {
+                        mainWordKey = key;
+                        wordData = allWordData[mainWordKey]; 
+                        break;
+                    }
                 }
             }
         }
@@ -948,15 +943,15 @@
 
         let familyHtml = '';
         const mainWordData = allWordData[mainWordKey];
-        if (mainWordData.family && mainWordData.family.length > 0) {
+        // 顯示衍生字的 UI 邏輯 (修正後)
+        if (mainWordData.derivatives && mainWordData.derivatives.length > 0) {
              familyHtml += `<details class="mt-4 pt-4 border-t border-gray-200 text-left"><summary class="text-xl font-semibold text-indigo-700 mb-2 cursor-pointer p-2 rounded-lg hover:bg-yellow-100 flex justify-between items-center"><span>單字家族 (Word Family)</span><span class="text-sm font-normal text-gray-500">點擊展開/收合</span></summary><div class="space-y-2 mt-2">`;
             
             familyHtml += createFamilyWordHtml(mainWordKey, mainWordData, mainWordKey);
             
-            mainWordData.family.forEach(familyWordKey => {
-                const familyWordData = allWordData[familyWordKey];
-                if (familyWordData) {
-                   familyHtml += createFamilyWordHtml(familyWordKey, familyWordData, mainWordKey);
+            mainWordData.derivatives.forEach(derivativeData => {
+                if (derivativeData) {
+                   familyHtml += createFamilyWordHtml(derivativeData.word, derivativeData, mainWordKey);
                 }
             });
             familyHtml += `</div></details>`;
