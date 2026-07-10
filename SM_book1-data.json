@@ -82,7 +82,7 @@
         ]
       }
     },
-    "U3": {
+    "L03": {
       "groups": {
         "GroupA": ["consequence", "information", "applicant", "click", "search", "satisfying", "affect"],
         "GroupB": ["content", "advertisement", "identity", "dislike", "comment", "harmless", "including"],
@@ -112,7 +112,7 @@
         ]
       }
     },
-    "U4": {
+    "L04": {
       "groups": {
         "GroupA": ["pain", "community", "tourism", "annual", "various", "remind", "serve"],
         "GroupB": ["dependence", "government", "duty", "traditional", "grateful", "celebrate", "besides"],
@@ -142,7 +142,7 @@
         ]
       }
     },
-    "U5": {
+    "L05": {
       "groups": {
         "GroupA": ["creative", "signal", "figure", "manage", "reflect", "design", "introduce"],
         "GroupB": ["pressured", "symbol", "amusement", "character", "add", "communicate"],
@@ -216,7 +216,7 @@
       "motion": {"pos": "n. [U]", "eng_def": "the act of moving", "chi_def": "移動，運動", "example": "Keep your seat belt on when the bus is in motion so you don't get badly injured in an accident.", "translation": "公車行進中請繫好安全帶，以免在意外中受到重傷。", "derivatives": []},
       "impression": {"pos": "n. [C]", "eng_def": "an opinion that people have about someone or something", "chi_def": "印象", "example": "The company's well-designed website leaves a good impression on its own customers.", "translation": "該公司設計精良的網站給客戶留下了良好的印象。", "derivatives": [{"word": "impress", "pos": "vt.; vi.", "eng_def": "to cause someone to admire or respect you", "chi_def": "使印象深刻", "example": "Daniel impressed everyone in his class with his excellent Spanish speaking skills.", "translation": "丹尼爾以其出色的西班牙語口說技巧讓班上每個人都印象深刻。"}, {"word": "impressive", "pos": "adj.", "eng_def": "evoking admiration through size, quality, or skill", "chi_def": "令人印象深刻的", "example": "The view from the top of the mountain was very impressive because we could see the river, the town, and the sea at the same time.", "translation": "山頂的景色非常令人印象深刻，因為我們可以同時看到河流、城鎮和大海。"}]}
     },
-    "U3": {
+    "L03": {
       "click": {"pos": "n. [C]; vi.; vt.", "eng_def": "the act of pressing a button on a computer mouse to choose something on a screen; a short and light sound", "chi_def": "點擊；卡嗒聲", "example": "Many popular songs are on the music app, and each one is just a click away. / I heard a click, and the door locked. / As soon as you click the \"Play\" button, the computer game will start. / Key in the correct password, and the safe will click open right away.", "translation": "許多受歡迎的歌曲都在這個音樂應用程式上，每一首只要點擊一下就能聽到。 / 我聽到卡嗒一聲，門就鎖上了。 / 你一點擊「開始遊戲」的按鈕，電腦遊戲就會開始。 / 輸入正確的密碼，保險箱馬上就會卡嗒一聲打開。", "derivatives": []},
       "consequence": {"pos": "n. [C]", "eng_def": "a result or an effect of something, often a bad one", "chi_def": "結果，後果", "example": "Accidents often happen as a consequence of not paying attention to small details.", "translation": "意外常常是因為不注意小細節所造成的結果。", "derivatives": [{"word": "consequent", "pos": "adj.", "eng_def": "happening as a result of a particular action or set of conditions", "chi_def": "隨之發生的，由……而起的", "example": "Factories dumped waste into the river, and the consequent pollution killed many fish.", "translation": "工廠將廢水排入河中，隨之而來的污染毒死了許多魚。"}]},
       "satisfying": {"pos": "adj.", "eng_def": "making someone feel happy by giving something they want", "chi_def": "令人滿足的", "example": "This vacation has been truly satisfying for all of us, and we couldn't ask for more.", "translation": "這次的假期對我們所有人來說真的很令人滿足，我們別無所求了。", "derivatives": [{"word": "satisfy", "pos": "vt.", "eng_def": "to fulfill a need, desire, or expectation", "chi_def": "使滿足，使滿意", "example": "The six-bedroom house is large enough to satisfy the needs of a big family.", "translation": "這棟有六間臥室的房子夠大，能滿足一個大家庭的需求。"}, {"word": "satisfactory", "pos": "adj.", "eng_def": "fulfilling expectations or needs; acceptable", "chi_def": "滿足要求的，合格的", "example": "The room is small, but it's satisfactory for one person.", "translation": "這個房間很小，但對一個人來說已經足夠(合格)了。"}]},
@@ -238,7 +238,7 @@
       "damage": {"pos": "vt.; n. [U]", "eng_def": "to harm something; physical harm caused to something in such a way as to impair its value, usefulness, or normal function", "chi_def": "破壞，損害", "example": "Luckily, the driver wasn't hurt in the accident, even though his car was badly damaged. / You should turn the volume down. Loud music can cause damage to your hearing.", "translation": "幸運的是，即使司機的車被嚴重損壞，他在事故中也沒有受傷。 / 你應該把音量調低。大聲的音樂會對你的聽力造成損害。", "derivatives": []},
       "identity": {"pos": "n. [C]", "eng_def": "who or what someone is", "chi_def": "身分", "example": "Many people choose to use fake names online instead of showing their true identities.", "translation": "許多人選擇在網路上使用假名，而不是顯示他們的真實身分。", "derivatives": []}
     },
-    "U4": {
+    "L04": {
       "annual": {"pos": "adj.", "eng_def": "happening once a year", "chi_def": "年度的", "example": "The annual report shows that this company earned over ten million dollars last year.", "translation": "這份年度報告顯示，該公司去年賺了超過一千萬美元。", "derivatives": []},
       "pain": {"pos": "n. [U][C]", "eng_def": "physical or mental suffering", "chi_def": "痛苦", "example": "Oliver experienced terrible back pain because of his poor sitting position.", "translation": "因為坐姿不良，Oliver 經歷了嚴重的背痛。", "derivatives": []},
       "remind": {"pos": "vt.", "eng_def": "to make someone think about something again", "chi_def": "使想起,提醒", "example": "This song means a lot to the couple because it always reminds them of the day they first met.", "translation": "這首歌對這對情侶意義重大，因為它總讓他們想起初次見面的那一天。", "derivatives": []},
@@ -261,7 +261,7 @@
       "express": {"pos": "vt.", "eng_def": "to show a feeling or idea by words or looks", "chi_def": "表達", "example": "In the debate class, each student has three minutes to express their views on stage.", "translation": "在辯論課上，每位學生有三分鐘的時間在台上表達他們的觀點。", "derivatives": [{"word": "expression", "pos": "n. [C]", "eng_def": "a look on someone's face that conveys a particular emotion", "chi_def": "表情", "example": "Steve did not say a word after he heard the news, but his surprised expression said it all.", "translation": "Steve 聽到這個消息後一句話也沒說，但他驚訝的表情說明了一切。"}]},
       "grateful": {"pos": "adj.", "eng_def": "feeling or showing thanks", "chi_def": "感激的", "example": "The singer is grateful for the support of her fans.", "translation": "這位歌手很感激粉絲們的支持。", "derivatives": []}
     },
-    "U5": {
+    "L05": {
       "creative": {"pos": "adj.", "eng_def": "showing original ideas, or being able to use unusual ideas to make new things or works of art", "chi_def": "有創意的,有創造力的", "example": "Peter is good at thinking of creative ways to reuse old items, such as turning a plastic bottle into a pencil case.", "translation": "Peter很擅長想出有創意的辦法來重複使用舊物，例如把塑膠瓶變成鉛筆盒。", "derivatives": [{"word": "create", "pos": "vt.", "eng_def": "to make something new, or invent something", "chi_def": "創造", "example": "A tech company is building a new factory in the area, which will create more local jobs and support the community.", "translation": "一家科技公司正在該地區建立新工廠，這將創造更多當地就業機會並支持社區。"}, {"word": "creation", "pos": "n. [U]", "eng_def": "the act of creating something, or the thing that is created", "chi_def": "創造,創立", "example": "The creation of chat apps made it easier for people to stay in touch when they couldn't meet face to face.", "translation": "聊天應用程式的創立讓人們在無法面對面見面時更容易保持聯繫。"}, {"word": "creativity", "pos": "n. [U]", "eng_def": "the ability to produce or use original and unusual ideas", "chi_def": "創造力", "example": "Creativity helps people find new ways to solve problems in daily life.", "translation": "創造力幫助人們找到解決日常生活中問題的新方法。"}]},
       "signal": {"pos": "n. [C]; vi.; vt.", "eng_def": "a piece of equipment with colored lights on a road or railway that tells road users to stop, go, or slow down; an action, movement, or sound that gives someone information or tells them what to do; to make a movement, sound, flash, etc. that gives information or tells people what to do", "chi_def": "號誌燈；信號；發信號,示意", "example": "Drivers must stop when the traffic signals on the road turn red. / When the volleyball coach gave the signal, the players changed their strategy and focused on the attack. / Becky had trouble figuring out the menu, so she signaled to the waiter for help.", "translation": "當路上的交通號誌變紅時，駕駛必須停車。 / 當排球教練發出信號時，球員們改變了策略並專注於進攻。 / Becky 看不懂菜單，所以她向服務生示意尋求幫助。", "derivatives": []},
       "pressured": {"pos": "adj.", "eng_def": "feeling worried or stressed because you have too many tasks or too much to deal with", "chi_def": "感到壓力的", "example": "Many students feel pressured before exams because they have to review several subjects at the same time.", "translation": "許多學生在考試前會感到壓力，因為他們必須同時複習好幾個科目。", "derivatives": [{"word": "pressure", "pos": "vt.", "eng_def": "to strongly persuade someone to do something they do not want to do", "chi_def": "強迫", "example": "We said no several times, but the salesperson still tried to pressure us into buying the more expensive model.", "translation": "我們拒絕了好幾次，但業務員仍然試圖強迫我們購買較昂貴的型號。"}, {"word": "pressure", "pos": "n. [U]", "eng_def": "a difficult situation that makes you feel worried or unhappy", "chi_def": "壓力,逼迫", "example": "The small country was under pressure to sign the deal, even though doing so would clearly harm its own interests.", "translation": "這個小國在壓力下簽署了協議，即使這樣做顯然會損害其自身利益。"}]},
