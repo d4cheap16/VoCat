@@ -26,7 +26,41 @@
         "cute_cat": { "name": "可愛貓貓", "icon": "😺", "description": "是的，你沒看錯，宇宙的盡頭是貓貓。恭喜你完成所有挑戰，這隻可愛的橘貓是你的了。" }
     },
     "vocabulary": {
-        "test26": {},
+        "test26": {
+      "groupA": {
+        "words": ["acknowledged", "negotiate", "commanded", "angles", "communication"],
+        "stories": [
+          { "level": "A2", "text": "Good **communication** is very important when working in a team. The captain **commanded** the players to listen carefully. We looked at the problem from different **angles** to find a solution. Everyone **acknowledged** that we made a mistake in the game. Then, the two team leaders met to **negotiate** a fair practice time." },
+          { "level": "B1", "text": "Before starting the project, the students discussed their ideas from various **angles**. They tried to **negotiate** how to divide the work equally among group members. The leader **acknowledged** that some tasks were much harder than others. She **commanded** everyone to focus on their assigned parts and finish on time. Regular **communication** helped the team avoid misunderstandings and complete the presentation successfully." },
+          { "level": "B2", "text": "During the maritime rescue operation, the coast guard captain **commanded** the crew to lower the lifeboats immediately. The regional director publicly **acknowledged** the exceptional bravery demonstrated by the officers on duty. Maintaining reliable satellite **communication** was vital as harsh weather threatened the mission. Officials later met with foreign authorities to **negotiate** joint maritime safety protocols for the future. Analyzing nautical emergency scenarios from different **angles** has significantly improved their emergency response strategies." },
+          { "level": "C1", "text": "Dispatched to resolve the escalating diplomatic crisis, the envoy attempted to **negotiate** a binding ceasefire between the adversarial factions. Military analysts examined the geopolitical standoff from various strategic **angles** to identify viable compromises. Although the supreme general **commanded** his forces to maintain defensive positions, cross-border skirmishes continued. Establishing an unimpeded channel of bilateral **communication** ultimately de-escalated the tensions. In his concluding address, the prime minister **acknowledged** that lasting peace requires mutual concession rather than coercion." }
+        ]
+      },
+      "groupB": {
+        "words": ["apologize", "claimed", "assented", "acclaim", "barrier"],
+        "stories": [
+          { "level": "A2", "text": "A fallen tree was a big **barrier** on our path to the park. Mike bumped into an old lady by accident and ran back to **apologize**. He **claimed** that he did not see the tree branch on the ground. His teacher listened kindly and **assented** to let him join the outdoor game. At the end of the day, their team won widespread **acclaim** from all the parents." },
+          { "level": "B1", "text": "The young baker **claimed** that he had created the city's most delicious chocolate cake. At first, a lack of money was a serious **barrier** to opening his dream shop. However, his special recipe soon won enthusiastic **acclaim** from local food lovers. When he accidentally delivered an order late, he was quick to **apologize** to the customer. Impressed by his sincerity, the customer smiled and **assented** to order again next week." },
+          { "level": "B2", "text": "The documentary director earned international **acclaim** for her film highlighting ocean conservation. When environmental groups requested to screen the movie in public schools, the education board readily **assented** to the plan. Language differences often act as a cultural **barrier**, but powerful visual storytelling easily bridges the gap. Although some skeptics **claimed** the statistics were exaggerated, the director stood by her research. Critics who had initially doubted her work ultimately had to **apologize** for their hasty dismissal." },
+          { "level": "C1", "text": "After contentious deliberations, the executive board unanimously **assented** to the proposed restructuring initiative. Corporate whistleblowers had previously **claimed** that senior partners concealed significant regulatory non-compliance. While the public relations department refused to explicitly **apologize** for past mismanagement, the company pledged complete institutional reform. The comprehensive transparency framework subsequently garnered critical **acclaim** from industry watchdogs. Economists noted that bureaucratic inertia remains the primary **barrier** hindering long-term structural innovation." }
+        ]
+      },
+      "groupC": {
+        "words": ["commended", "conferred", "contradictory", "defense", "attendances"],
+        "stories": [
+          { "level": "A2", "text": "Our school team played strong **defense** during the basketball match. Before the game started, we heard **contradictory** reports about the weather. After the victory, the principal **commended** all the students for their teamwork. Tom recorded zero missed **attendances** at practice this month. At the end of the ceremony, the school **conferred** special ribbons on each player." },
+          { "level": "B1", "text": "The university committee **conferred** an award for young scientists on Dr. Green. Throughout the school year, she closely checked students' class **attendances** to make sure everyone stayed involved. When critics questioned her new research model, she gave a clear **defense** of her ideas. Even though early test results seemed confusing and **contradictory**, she refused to give up. Her department head **commended** her for never losing faith during difficult moments." },
+          { "level": "B2", "text": "Because several members missed mandatory workshop **attendances**, the student council held a special review meeting. The club president was **commended** for handling the issue calmly and fairly. Last semester, the faculty board **conferred** a leadership certificate on her for organizing successful academic forums. During the discussion, she mounted a convincing **defense** of the club's budget and future activities. She easily clarified previous rumors that had spread **contradictory** statements about their spending." },
+          { "level": "C1", "text": "The senior prosecutor was widely **commended** for her relentless commitment to institutional integrity. During the high-profile trial, she systematically dismantled every substantive legal **defense** raised by the opposing counsel. The defendant had offered hopelessly **contradictory** testimony that failed to withstand intense judicial scrutiny. Following the conviction, the national legal foundation **conferred** its most distinguished honor upon her. Furthermore, official audits verified that her department maintained impeccable recordkeeping and perfect tribunal **attendances** throughout the arduous proceedings." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["acknowledged", "angles", "apologize", "negotiate", "claimed", "commanded", "acclaim", "commended", "contradictory", "defense", "attendances", "communication", "assented", "conferred", "barrier"],
+        "stories": [
+          { "level": "C2", "text": "The seasoned envoy was widely **commended** for mediating the protracted border crisis, where a treacherous mountain range had long served as a physical **barrier** obstructing open **communication** between the two nations. Tensions had surged after adversarial factions presented hopelessly **contradictory** historical records, while each government **claimed** undisputed maritime jurisdiction. In a vehement **defense** of disputed coastal waters, the supreme admiral had even **commanded** naval fleets into forward positions. Recognizing that military confrontation would end in catastrophe, both administrations ultimately **assented** to **negotiate** under international supervision. The mediation tribunal meticulously scrutinized the territorial dispute from diverse legal and cartographic **angles**. Mandating punctual session **attendances** and compelling belligerent diplomats to formally **apologize** for provocative rhetoric, the mediator restored mutual decorum. Both leaders eventually **acknowledged** historical compromises, culminating in a landmark accord that won worldwide **acclaim**. In celebration of this diplomatic triumph, the global summit **conferred** its highest humanitarian prize upon the mediation council." }
+        ]
+      }
+    },
         "test27": {},
         "test28": {},
         "test29": {},
@@ -37,7 +71,23 @@
         "test34": {}
     },
     "wordDetails": {
-        "test26": {},
+        "test26": {
+      "acknowledged": { "pos": "v.", "translation": "承認", "definition": "Accepted or admitted the truth of something, or accepted defeat.", "example": "When the results of the vote were announced, the Prime Minister acknowledged defeat.", "example_tw": "當投票結果公布時，首相承認了失敗。" },
+      "angles": { "pos": "n.", "translation": "角度；觀點", "definition": "Particular ways of considering, thinking about, or approaching something.", "example": "We are supposed to see things from different angles. Then we can get the whole picture.", "example_tw": "我們應該從不同的角度看事情。這樣我們才能掌握全貌。" },
+      "apologize": { "pos": "v.", "translation": "道歉", "definition": "To express regret for something that one has done wrong.", "example": "That was an awful thing to say. I think you should apologize.", "example_tw": "那樣說太過分了。我認為你應該道歉。" },
+      "negotiate": { "pos": "v.", "translation": "談判；協商", "definition": "To try to reach an agreement or compromise through formal discussion.", "example": "The mayor says he will not negotiate with the terrorists. He will not yield to them.", "example_tw": "市長表示他不會與恐怖分子談判。他絕不向他們屈服。" },
+      "claimed": { "pos": "v.", "translation": "聲稱；宣稱", "definition": "Stated that something is the case, typically without providing proof.", "example": "Doctors claimed to have discovered a cure for the disease. But it was not proved.", "example_tw": "醫生們聲稱發現了治療該疾病的方法。但這尚未得到證實。" },
+      "commanded": { "pos": "v.", "translation": "命令；指示", "definition": "Authoritatively ordered someone to do something.", "example": "The captain commanded the crew to report to the main deck. All the sailors obeyed.", "example_tw": "船長命令全體船員到主甲板報到。所有的水手都服從了。" },
+      "acclaim": { "pos": "n.", "translation": "讚譽；高度評價", "definition": "Enthusiastic and public praise or approval.", "example": "The book has received considerable critical acclaim. Most critics think highly of it.", "example_tw": "這本書獲得了相當多的評論讚譽。大多數評論家對它評價極高。" },
+      "commended": { "pos": "v.", "translation": "表揚；稱讚", "definition": "Formally or publicly praised someone for an achievement or service.", "example": "He was highly commended for his organizational skills. Everybody praised him for this ability.", "example_tw": "他的組織能力受到了高度讚揚。每個人都稱讚他這項才能。" },
+      "contradictory": { "pos": "adj.", "translation": "矛盾的；牴觸的", "definition": "Mutually opposed or inconsistent; containing elements that conflict.", "example": "The witnesses gave two completely contradictory accounts. It was hard to judge which was true.", "example_tw": "目擊者給出了兩個完全矛盾的說法。很難判斷哪一個是真的。" },
+      "defense": { "pos": "n.", "translation": "防禦；防衛", "definition": "The action of defending from or resisting an attack or criticism.", "example": "As the saying goes, \"The best defense is a good offense.\"", "example_tw": "俗話說：「最好的防禦就是進攻。」" },
+      "attendances": { "pos": "n.", "translation": "出席；出席次數", "definition": "The acts of being present at an event, class, or meeting.", "example": "You missed several attendances this term. You should have attended all classes.", "example_tw": "你這學期缺席了好幾次。你本應該全勤出席所有課程的。" },
+      "communication": { "pos": "n.", "translation": "溝通；交流", "definition": "The imparting or exchanging of information, ideas, or feelings.", "example": "All channels of communication in this company are kept open, so there shouldn't be any misunderstanding.", "example_tw": "這家公司所有的溝通管道都保持暢通，因此不應該有任何誤解。" },
+      "assented": { "pos": "v.", "translation": "同意；贊成", "definition": "Expressed approval or agreement to a proposal or request.", "example": "The chairman assented to the committee's proposals. He agreed to accept them.", "example_tw": "主席同意了委員會的提案。他同意接受它們。" },
+      "conferred": { "pos": "v.", "translation": "授予；頒發", "definition": "Bestowed or granted an honor, degree, or title.", "example": "The NYU has conferred an honorary degree on Ang Lee for what he has accomplished in cinema.", "example_tw": "紐約大學授予李安榮譽學位，以表彰他在電影領域的卓越成就。" },
+      "barrier": { "pos": "n.", "translation": "障礙；屏障", "definition": "A physical or non-physical obstacle that prevents movement or access.", "example": "The Himalayas is a natural barrier that prevented early interaction between the people of India and those of China.", "example_tw": "喜馬拉雅山是一道天然屏障，阻礙了印度人民與中國人民早期的交流。" }
+    },
         "test27": {},
         "test28": {},
         "test29": {},
