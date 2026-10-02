@@ -166,7 +166,41 @@
         ]
       }
     },
-    "test23": {},
+    "test23": {
+      "groupA": {
+        "words": ["rear", "elaborate", "desperate", "appreciation", "morale"],
+        "stories": [
+          { "level": "A2", "text": "I want to show my **appreciation** to the helpers at the animal shelter. Last winter, the shelter was **desperate** for warm blankets and food. With everyone's help, they can now safely **rear** the young puppies. Good music and kind words helped lift the **morale** of all the workers. In the evening, they made an **elaborate** meal to celebrate." },
+          { "level": "B1", "text": "Winning the first competition gave a huge boost to the team's **morale**. The coach designed an **elaborate** training program to prepare for the final tournament. Before this victory, the players were **desperate** to break their long losing streak. After the game, the captain expressed sincere **appreciation** to all the supportive parents. She believes that it takes patience and hard work to **rear** confident young athletes." },
+          { "level": "B2", "text": "The conservation team developed an **elaborate** program to protect the endangered mountain cranes. Local communities showed immense **appreciation** for the researchers who worked around the clock. The primary objective was to successfully **rear** the fragile chicks until they could fly independently. The scientists were **desperate** to find viable solutions before the species vanished completely. Despite freezing winter storms, strong team **morale** kept everyone focused on their mission." },
+          { "level": "C1", "text": "In the wake of the severe economic collapse, municipal leaders faced **desperate** financial constraints. Despite these hardships, working-class families struggled tirelessly to **rear** their children with dignified values and high aspirations. Preserving public **morale** emerged as the administration's foremost priority throughout the protracted recovery. Planners subsequently devised an **elaborate** revitalization framework that spurred sustainable urban development. Decades later, the thriving metropolis stands as a testament to civic resilience, earning global **appreciation**." }
+        ]
+      },
+      "groupB": {
+        "words": ["disclose", "frantic", "envious", "project", "disgust"],
+        "stories": [
+          { "level": "A2", "text": "Tom felt deep **disgust** when he saw all the dirty plastic bottles on the beach. He decided to start a school **project** to clean up the area with his friends. Yesterday afternoon, a **frantic** puppy ran into the water and needed help. Tom rescued it and contacted the owner, who refused to **disclose** how the dog had escaped. Many classmates were **envious** of Tom because the local newspaper praised his kindness." },
+          { "level": "B1", "text": "Many students were **envious** of Lisa after she won first place in the art competition. However, just hours before the deadline, she had made a **frantic** search for her lost painting brushes. She was very cautious and chose not to **disclose** her creative concept to anyone beforehand. During the exhibition, some rude visitors expressed unjustified **disgust** toward modern styles. Lisa ignored their negative remarks and proudly submitted her final graduation **project**." },
+          { "level": "B2", "text": "The engineering firm launched an ambitious **project** to restore the heavily polluted river basin. To prevent unfair market speculation, the executives were instructed not to **disclose** technical details prematurely. Competing companies were overtly **envious** of the team's pioneering green technology. When an unexpected pipe leak occurred, the engineers launched **frantic** efforts to contain the chemical spread. Meanwhile, local residents expressed overwhelming **disgust** toward the reckless behavior of former industrial polluters." },
+          { "level": "C1", "text": "When the catastrophic data breach occurred, cybersecurity teams launched **frantic** attempts to patch vulnerable server networks. The general public reacted with intense **disgust** upon realizing corporate negligence had compromised sensitive personal files. The flagship digital infrastructure **project**, previously hailed as a technological marvel, was instantly placed under federal investigation. International competitors, long **envious** of the firm's lucrative market dominance, observed the unfolding scandal closely. Under rigorous legal cross-examination, the chief executive was ultimately forced to **disclose** all suppressed internal audit reports." }
+        ]
+      },
+      "groupC": {
+        "words": ["dejected", "beloved", "despair", "grief", "fury"],
+        "stories": [
+          { "level": "A2", "text": "The old lady lost her **beloved** cat yesterday. She felt deep **grief** and cried quietly in her room. In a moment of **fury**, she kicked the garden door because she could not find him anywhere. She sat on the wooden bench looking very **dejected**. However, her kind neighbors told her not to fall into **despair**, and they helped her search every street." },
+          { "level": "B1", "text": "When the severe storm ruined the annual harvest, many local farmers fell into deep **despair**. Seeing the ruined fields, Mark felt completely **dejected** and did not want to speak to anyone. His **beloved** wooden barn had also been destroyed by the aggressive winds. Although his whole family shared the unbearable **grief**, his younger brother reacted with sudden **fury** at their terrible misfortune. Fortunately, the supportive community quickly arrived to help them rebuild." },
+          { "level": "B2", "text": "The sudden passing of the visionary architect filled the entire design studio with profound **grief**. In an outburst of uncontrollable **fury**, some colleagues blamed the negligent management for overworking him. The young apprentices wandered through the empty office feeling utterly **dejected** without their inspirational guide. Rather than succumbing to prolonged **despair**, they resolved to complete his unfinished urban park. They gathered their strength to honor their **beloved** mentor by executing his blueprint to perfection." },
+          { "level": "C1", "text": "Driven by righteous **fury**, thousands of determined citizens assembled before the parliament to protest systemic corruption. The authoritarian regime had recently dismantled several **beloved** civil liberties without legislative debate. Despite the pervasive atmosphere of socioeconomic **despair**, the reformists channeled their collective **grief** into a powerful impetus for political change. Even when aggressive police barricades forced a tactical retreat, the activists refused to return home **dejected**, remaining resolute in their historic struggle." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["rear", "elaborate", "desperate", "appreciation", "morale", "disclose", "frantic", "envious", "project", "disgust", "dejected", "beloved", "despair", "grief", "fury"],
+        "stories": [
+          { "level": "C2", "text": "When an arson fire destroyed the national archive, the chief conservator was initially paralyzed by overwhelming **grief** and profound **despair** over the loss of priceless, **beloved** historical manuscripts. The staff watched with collective **fury** and **disgust** as unscrupulous developers seized the tragedy to push an intrusive commercial **project**. While several young archivists sat **dejected** among the ruins, senior leadership worked tirelessly to restore staff **morale**. Teams launched a **frantic** salvage operation inside the scorched building, strictly refusing to **disclose** the vault's inventory to predatory speculators who were openly **envious** of the institution's treasures. In a **desperate** bid to protect the surviving heritage, the director devised an **elaborate** international campaign that garnered worldwide **appreciation**. The ordeal underscored that society must not only strive to **rear** enlightened citizens, but also tenaciously defend the cultural memory that defines them." }
+        ]
+      }
+    },
     "test24": {},
     "test25": {}
   },
@@ -239,7 +273,23 @@
       "fatigue": { "pos": "n.", "translation": "疲倦；疲勞", "definition": "Extreme tiredness, typically resulting from mental or physical exertion or illness.", "example": "If you want to recover from the fatigue of the journey, you will have to take a good rest.", "example_tw": "如果你想從旅途的疲倦中恢復過來，你必須好好休息。" },
       "twisted": { "pos": "v.", "translation": "扭曲；曲解", "definition": "Deliberately changed the meaning of (words) in order to give a false impression.", "example": "The newspapers deliberately twisted her words to make her look guilty.", "example_tw": "報紙故意扭曲她的話，讓她看起來有罪。" }
     },
-    "test23": {},
+    "test23": {
+      "rear": { "pos": "v.", "translation": "撫養；撫育", "definition": "To care for young children or animals until they are fully grown.", "example": "He has to rear a large family. Therefore, he tries to earn as much money as he can.", "example_tw": "他必須撫養一個大家庭。因此，他盡可能多賺錢。" },
+      "appreciation": { "pos": "n.", "translation": "感激；感謝", "definition": "The feeling of being grateful for something someone has done.", "example": "The chairman asked me to express our appreciation for all your hard work.", "example_tw": "董事長請我對您的辛勤工作表達我們的感激之情。" },
+      "project": { "pos": "n.", "translation": "計畫；專案", "definition": "A planned piece of work that is designed to produce or improve something.", "example": "The new dam is a major construction project funded by the government.", "example_tw": "這座新水壩是一項由政府資助的重大建設計畫。" },
+      "elaborate": { "pos": "adj.", "translation": "精心製作的；詳盡的", "definition": "Containing a lot of careful detail or many detailed parts.", "example": "She made elaborate preparations for the party. She carefully planned and organized it.", "example_tw": "她為派對做了精心周詳的準備。她仔細地計畫並籌備。" },
+      "desperate": { "pos": "adj.", "translation": "拚命的；絕望的", "definition": "Feeling that a situation is so bad that you are willing to take extreme risks.", "example": "They're desperate to escape from the dangerous situation. They'll do whatever they can.", "example_tw": "他們極度渴望逃離危險的境地。他們會不惜一切代價。" },
+      "despair": { "pos": "n.", "translation": "絕望", "definition": "The complete loss or absence of hope.", "example": "After losing his family, he fell into a period of deep despair.", "example_tw": "在失去家人後，他陷入了深深的絕望之中。" },
+      "disgust": { "pos": "n.", "translation": "厭惡；反感", "definition": "A strong feeling of disapproval, dislike, or repulsion.", "example": "Thomas threw his books down in disgust and stormed out of the room angrily.", "example_tw": "湯瑪斯厭惡地扔下書本，憤怒地衝出房間。" },
+      "disclose": { "pos": "v.", "translation": "透露；揭露", "definition": "To make secret or new information known.", "example": "The young man decided to tell the truth and disclose that he had been in prison.", "example_tw": "這位年輕人決定說出實話，透露自己曾經坐過牢。" },
+      "frantic": { "pos": "adj.", "translation": "焦急發狂的；慌亂的", "definition": "Almost out of control because of extreme anxiety or fear.", "example": "Your mother has been frantic with worry wondering where you were.", "example_tw": "你母親因為擔心你在哪裡而急得快發狂了。" },
+      "grief": { "pos": "n.", "translation": "悲痛；悲哀", "definition": "Very great sadness, especially caused by someone's death.", "example": "The grief she felt over Helen's death was almost unbearable. She was extremely sad.", "example_tw": "海倫去世帶給她的悲痛幾乎無法承受。她極度難過。" },
+      "dejected": { "pos": "adj.", "translation": "沮喪的；失意的", "definition": "Unhappy, disappointed, or lacking hope.", "example": "Jack had to face the challenge himself even though he felt so dejected and melancholy.", "example_tw": "即使感到如此沮喪和憂鬱，傑克也不得不獨自面對挑戰。" },
+      "fury": { "pos": "n.", "translation": "狂怒；暴怒", "definition": "Extreme anger or wild rage.", "example": "In his fury he tore the letter into pieces. He was too angry to control himself.", "example_tw": "在盛怒之下，他把信撕成了碎片。他氣到無法控制自己。" },
+      "envious": { "pos": "adj.", "translation": "羨慕的；嫉妒的", "definition": "Wishing you had what someone else has.", "example": "I'm very envious of your new job. I hope I can get one like that, too.", "example_tw": "我非常羨慕你的新工作。我也希望自己能找到一份那樣的工作。" },
+      "beloved": { "pos": "adj.", "translation": "受喜愛的；心愛的", "definition": "Loved very much by someone.", "example": "These deep purple flowers are beloved by the artist. He paints them often.", "example_tw": "這些深紫色的花朵深受這位藝術家喜愛。他經常畫它們。" },
+      "morale": { "pos": "n.", "translation": "士氣；鬥志", "definition": "The amount of confidence and enthusiasm that a group has.", "example": "Trapped in the flooded cave, the boys kept up their morale by praying together.", "example_tw": "被困在淹水的洞穴中，男孩們透過一起祈禱來保持士氣。" }
+    },
     "test24": {},
     "test25": {}
   }
