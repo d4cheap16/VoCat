@@ -62,7 +62,41 @@
         ]
       }
     },
-        "test27": {},
+        "test27": {
+      "groupA": {
+        "words": ["illustrate", "interrupted", "hospitable", "foundation", "firmly"],
+        "stories": [
+          { "level": "A2", "text": "Our host family was very **hospitable** and gave us warm tea. My father **firmly** believes that we should always be polite. He drew a simple picture to **illustrate** how to say thank you. Suddenly, a loud knock **interrupted** our nice talk. It was the neighbor helping us build a strong stone **foundation** for the doghouse." },
+          { "level": "B1", "text": "A loud phone call **interrupted** our study group in the library. Good study habits build a solid **foundation** for high school success. The librarian was always **hospitable** and helped us find reference books. She **firmly** reminded everyone to keep their voices down. Then, she drew a diagram on a poster to **illustrate** the organization of library materials." },
+          { "level": "B2", "text": "The senior architect **firmly** believed that safety must never be compromised for aesthetic style. During the meeting, he used digital blueprints to **illustrate** the building's structural load capacity. An unexpected power outage briefly **interrupted** his detailed presentation. He explained that reinforcing the concrete **foundation** would protect against regional seismic activity. Impressed by his thorough plan, the local council created a **hospitable** environment for his design team to begin construction." },
+          { "level": "C1", "text": "Constitutional transparency forms the indispensable **foundation** of modern governance. While democratic societies cultivate a **hospitable** climate for open political discourse, integrity must be safeguarded. The ethics committee **firmly** rejected compromises that lacked strict accountability. To **illustrate** the systemic risks of unmonitored lobbying, researchers presented decades of archival data. However, chaotic protests suddenly **interrupted** the legislative hearing before a final consensus could be achieved." }
+        ]
+      },
+      "groupB": {
+        "words": ["negotiating", "informed", "harsh", "allusions", "indirectly"],
+        "stories": [
+          { "level": "A2", "text": "During the cold winter, the **harsh** wind blew outside our house. Dad wants to **inform** the family that dinner is ready. My sister and I tried to **negotiate** who would wash the dishes tonight. In her bedtime story, Mom made funny **allusions** to our favorite cartoon animals. She told us **indirectly** that sharing chores makes everyone happy." },
+          { "level": "B1", "text": "When Kevin was dissatisfied with the club schedule, he mentioned his concerns **indirectly** during lunch. His friend warned him that speaking in a **harsh** tone might hurt people's feelings. In his speech, Kevin made clever **allusions** to famous movie scenes to make everyone smile. The club members then sat down to **negotiate** a balanced timetable. Afterward, the leader promised to **inform** the school advisor about their final decision." },
+          { "level": "B2", "text": "Labor union delegates meet annually to **negotiate** comprehensive employment contracts with company directors. Throughout the tense discussions, representatives made subtle **allusions** to historical strikes to underline their resolve. Management indicated **indirectly** that annual salary increases would depend on overall productivity. The committee promptly **informed** the workforce whenever progress was made during closed sessions. Both parties ultimately acknowledged that **harsh** economic conditions required balanced compromises from everyone." },
+          { "level": "C1", "text": "Economic advisory councils routinely **inform** policymakers about impending fiscal vulnerabilities before quarterly budgets are finalized. Senior diplomats must subsequently **negotiate** multilateral trade pacts with exceptional prudence to safeguard domestic industries. Financial analysts caution that imposing **harsh** retaliatory tariffs will inevitably destabilize foreign exchange markets. Rather than issuing blunt warnings, monetary authorities often signal policy shifts **indirectly** through subtle rhetorical adjustments. Throughout these delicate dialogues, experienced negotiators frequently deploy classical **allusions** to historic economic treaties to articulate shared strategic objectives." }
+        ]
+      },
+      "groupC": {
+        "words": ["convince", "hostile", "negative", "issues", "nevertheless"],
+        "stories": [
+          { "level": "A2", "text": "Sam had a **negative** attitude about joining the new art club. The big stray dog outside the school gate looked a bit **hostile**, so we stayed away. I tried to **convince** my friend that painting pictures is lots of fun. Our class talked about small friendship **issues** during the morning meeting. It was raining hard; **nevertheless**, all the students arrived at school with bright smiles." },
+          { "level": "B1", "text": "The student council discussed several environmental **issues** concerning campus recycling. Emma worked hard to **convince** the teachers to support a plastic-free lunch program. The initial proposal faced budget limits; **nevertheless**, the principal praised the students for their proactive initiative. The school environment had never been **hostile** to student suggestions. In fact, administrators encouraged everyone to replace **negative** complaints with creative solutions." },
+          { "level": "B2", "text": "The regional economy experienced an unexpected downturn; **nevertheless**, local tech enterprises continued investing in workforce development. Company directors were determined to overcome **negative** public speculation regarding upcoming layoffs. During the shareholder conference, the CEO addressed critical operational **issues** candidly. His detailed restructuring plan ultimately **convinced** institutional investors that the firm was secure. This transparent communication prevented employees from feeling **hostile** toward future management reforms." },
+          { "level": "C1", "text": "Diplomats faced a decidedly **hostile** atmosphere during the preliminary sessions of the multilateral security summit. Competing national delegations clashed over contentious maritime sovereignty **issues** that had destabilized the region for decades. Resolving these disputes was vital to preventing **negative** shocks to global maritime trade routes. Domestic political resistance threatened the negotiations; **nevertheless**, the chief envoy persevered with extraordinary tact. Her exhaustive legal framework eventually **convinced** adversarial leaders to sign a historic ceasefire accord." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["firmly", "hospitable", "allusions", "harsh", "hostile", "illustrate", "interrupted", "issues", "negotiating", "indirectly", "informed", "foundation", "negative", "nevertheless", "convince"],
+        "stories": [
+          { "level": "C2", "text": "When international envoys convened to address volatile border **issues**, they encountered a distinctly **hostile** political climate. The host nation had established a remarkably **hospitable** reception; **nevertheless**, acute ideological divisions threatened the very **foundation** of bilateral diplomacy. Delegates were tasked to **negotiate** a sustainable peace accord, yet early proceedings were repeatedly **interrupted** by heated exchanges. To **illustrate** the catastrophic ramifications of continued conflict, the chief mediator **informed** the assembly of rising humanitarian casualties, making subtle **allusions** to historical wars. She argued **firmly** against adopting **harsh** punitive sanctions, warning that such measures would **indirectly** inflict immense suffering upon innocent civilians. Despite encountering pervasive **negative** sentiment from entrenched factions, her relentless diplomacy ultimately **convinced** adversarial leaders to ratify the treaty." }
+        ]
+      }
+    },
         "test28": {},
         "test29": {},
         "test30": {},
@@ -89,7 +123,23 @@
       "conferred": { "pos": "v.", "translation": "授予；頒發", "definition": "Bestowed or granted an honor, degree, or title.", "example": "The NYU has conferred an honorary degree on Ang Lee for what he has accomplished in cinema.", "example_tw": "紐約大學授予李安榮譽學位，以表彰他在電影領域的卓越成就。" },
       "barrier": { "pos": "n.", "translation": "障礙；屏障", "definition": "A physical or non-physical obstacle that prevents movement or access.", "example": "The Himalayas is a natural barrier that prevented early interaction between the people of India and those of China.", "example_tw": "喜馬拉雅山是一道天然屏障，阻礙了印度人民與中國人民早期的交流。" }
     },
-        "test27": {},
+        "test27": {
+      "firmly": { "pos": "adv.", "translation": "堅定地；堅決地", "definition": "In a strong, definite, or unwavering manner.", "example": "The expert firmly believes that there are some serious problems with the system. It surely needs to be improved.", "example_tw": "專家堅定地認為該系統存在一些嚴重的問題。它確實需要改進。" },
+      "hospitable": { "pos": "adj.", "translation": "好客的；熱情殷勤的", "definition": "Friendly, welcoming, and generous to guests or visitors.", "example": "Americans have the reputation of being very hospitable people. They welcome most visitors.", "example_tw": "美國人素有好客的美譽。他們歡迎大多數的訪客。" },
+      "allusions": { "pos": "n.", "translation": "暗指；典故", "definition": "Indirect references or hints to something, especially in speech or writing.", "example": "She made several allusions to the previous government's failures. She didn't criticize them directly.", "example_tw": "她數次暗指前政府的失敗。她並沒有直接批評他們。" },
+      "harsh": { "pos": "adj.", "translation": "嚴酷的；惡劣的", "definition": "Unpleasantly rough, severe, or cruel.", "example": "The prisoners had to endure harsh living conditions and starvation.", "example_tw": "囚犯們必須忍受惡劣的居住環境和飢餓。" },
+      "hostile": { "pos": "adj.", "translation": "懷有敵意的；不友善的", "definition": "Unfriendly, antagonistic, or showing strong opposition.", "example": "The president was given a(n) hostile reception by a crowd of angry farmers.", "example_tw": "總統受到了一群憤怒農民充滿敵意的接待。" },
+      "illustrate": { "pos": "v.", "translation": "闡明；說明", "definition": "To make something clear or easy to understand by giving examples or stories.", "example": "To illustrate the point, Dr. Collins told a story to make us understand his ideas more easily.", "example_tw": "為了闡明這個觀點，柯林斯博士說了一個故事，讓我們更容易理解他的想法。" },
+      "interrupted": { "pos": "v.", "translation": "打斷；中斷", "definition": "Stopped someone from speaking or an action from continuing.", "example": "She began to explain, but I interrupted her. I didn't want to listen to her explanation.", "example_tw": "她開始解釋，但我打斷了她。我不想聽她的解釋。" },
+      "issues": { "pos": "n.", "translation": "議題；問題", "definition": "Important topics, subjects, or problems that people are discussing or arguing about.", "example": "This is one of the key issues in the election campaign.", "example_tw": "這是競選活動中的關鍵議題之一。" },
+      "negotiating": { "pos": "v.", "translation": "洽談；談判", "definition": "Discussing something formally in order to reach an agreement or compromise.", "example": "Don't bother him now. He is negotiating a contract with the company.", "example_tw": "現在別打擾他。他正在與那家公司洽談合約。" },
+      "indirectly": { "pos": "adv.", "translation": "間接地；委婉地", "definition": "In a way that is not direct, straightforward, or immediate.", "example": "Many species of animals and plants are indirectly endangered by global warming.", "example_tw": "許多動植物物種間接受到全球暖化的威脅。" },
+      "informed": { "pos": "v.", "translation": "通知；告知", "definition": "Officially gave information to someone or made someone aware of a fact.", "example": "He informed the police that some money was missing.", "example_tw": "他通知警方有部分款項失竊了。" },
+      "foundation": { "pos": "n.", "translation": "基礎；根基", "definition": "An underlying basis, principle, or groundwork on which something rests.", "example": "Trust and respect provide a firm foundation for true friendship. These factors are indispensable.", "example_tw": "信任與尊重為真正的友誼提供了穩固的基礎。這些因素是不可或缺的。" },
+      "negative": { "pos": "adj.", "translation": "否定的；消極負面的", "definition": "Expressing refusal, denial, or disagreement; lacking positive qualities.", "example": "He gave me a negative answer to my request. What I asked for wouldn't be granted.", "example_tw": "他對我的請求給予了否定的答覆。我的要求不會獲得准許。" },
+      "nevertheless": { "pos": "adv.", "translation": "儘管如此；然而", "definition": "In spite of that; nonetheless; however.", "example": "This year's fall in profits was not unexpected. Nevertheless, it is very disappointing.", "example_tw": "今年利潤的下滑並非意料之外。儘管如此，這依然非常令人失望。" },
+      "convince": { "pos": "v.", "translation": "說服；使信服", "definition": "To persuade someone or make someone feel certain about something.", "example": "You are supposed to convince the interviewer of your enthusiasm for the job. Thus, you are more likely to get it.", "example_tw": "你應該讓面試官相信你對這份工作的熱忱。這樣你更有可能得到它。" }
+    },
         "test28": {},
         "test29": {},
         "test30": {},
