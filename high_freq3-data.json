@@ -201,7 +201,41 @@
         ]
       }
     },
-    "test24": {},
+    "test24": {
+      "groupA": {
+        "words": ["declined", "regret", "sentimental", "tolerant", "suspense"],
+        "stories": [
+          { "level": "A2", "text": "We sat in **suspense** while watching the movie's final scene. My sister likes **sentimental** stories about lost pets, but I prefer funny ones. When our neighbor invited us to dinner, we **declined** because we were too tired. Luckily, our parents are very **tolerant** of our choices. I do not **regret** staying home to rest tonight." },
+          { "level": "B1", "text": "Our English teacher is always **tolerant** when students make small mistakes during speech presentations. Yesterday, Kevin **declined** an invitation to join the debate competition because he was nervous. However, he began to **regret** his sudden decision after seeing his classmates have so much fun. The thrilling match kept the entire audience in **suspense** until the final score was announced. Afterward, the winners shared a **sentimental** moment on stage while thanking their families." },
+          { "level": "B2", "text": "Many ambitious artists eventually **regret** sacrificing their personal lives in pursuit of rapid commercial success. Instead of painting **sentimental** landscapes that catered to mainstream buyers, Clara focused on dark mysteries that filled viewers with genuine **suspense**. Fortunately, her mentor was exceptionally **tolerant** of experimental techniques that defied conventional gallery norms. Even when prestigious auction houses offered substantial contracts, she politely **declined** their terms to protect her creative autonomy." },
+          { "level": "C1", "text": "The veteran diplomat decisively **declined** to endorse the controversial bilateral treaty, citing fundamental flaws in its economic framework. The prolonged geopolitical deadlock held international financial markets in agonizing **suspense** for several months. While the domestic administration remained remarkably **tolerant** of internal dissent, foreign allies warned that the delegation would ultimately **regret** stalling the negotiations. The chief negotiator dismissed accusations that his resistance stemmed from **sentimental** nostalgia, arguing that strategic pragmatism must always guide foreign policy." }
+        ]
+      },
+      "groupB": {
+        "words": ["reminded", "revealed", "upset", "vexed", "revenge"],
+        "stories": [
+          { "level": "A2", "text": "My little brother was very **upset** because he dropped his ice cream on the floor. Mom **reminded** him to hold his cone with both hands next time. He thought about taking **revenge** by hiding his sister's candy, but that was wrong. Soon, he felt **vexed** when everyone laughed at his funny face. In the end, he smiled and **revealed** a secret drawing he made for mom." },
+          { "level": "B1", "text": "David promised himself never to seek **revenge** against people who treat him unfairly. Still, he was deeply **vexed** when his bicycle was damaged outside the library. A nearby security camera **revealed** who had caused the problem. Instead of getting **upset** and yelling at the person, David stayed calm. His father **reminded** him that kindness often solves problems better than anger." },
+          { "level": "B2", "text": "A recent workplace audit **revealed** several discrepancies in the company's financial records. The regional director grew visibly **upset** when he realized key figures had been mismanaged. The human resources manager **reminded** the board to remain objective before taking punitive action. Rather than pursuing personal **revenge** against political rivals within the firm, the executives focused on internal solutions. Although the team felt thoroughly **vexed** by the tedious auditing procedure, they complied with all regulatory guidelines." },
+          { "level": "C1", "text": "The chief justice **reminded** the assembled magistrates that emotional bias must never compromise the administration of justice. The court had become increasingly **vexed** by aggressive smear campaigns circulated by partisan tabloids. Observers were visibly **upset** that corporate malfeasance had gone unpunished for decades under lenient regulations. However, the comprehensive verdict **revealed** systematic fraud perpetrated by top executives. The ruling made it unequivocal that the legal framework functions to uphold constitutional parity rather than serve as an instrument of private **revenge**." }
+        ]
+      },
+      "groupC": {
+        "words": ["threatened", "relieved", "vulnerable", "terror", "panic"],
+        "stories": [
+          { "level": "A2", "text": "The loud thunder in the night was a **terror** to the little puppy. In a sudden **panic**, it ran into the kitchen to hide under the table. The dark storm **threatened** to bring heavy rain until morning. We felt very **relieved** when the rain stopped and the sun came out. Baby animals are often **vulnerable** to bad weather, so we kept the puppy warm inside." },
+          { "level": "B1", "text": "Without strong sea walls, the small coastal village was **vulnerable** to massive ocean waves. A terrible summer storm **threatened** to flood all the houses along the shore. Hearing the loud emergency siren caused a brief **panic** among the villagers. To calm their **terror**, rescue workers guided everyone to a safe shelter on the hill. The mayor was deeply **relieved** to find that all the residents were safe and accounted for." },
+          { "level": "B2", "text": "When the building's fire alarm suddenly went off, brief **panic** swept through the crowded department store. Safety managers were greatly **relieved** to see shoppers evacuating through the emergency exits in an orderly manner. Dense smoke had **threatened** to trap several maintenance workers on the third floor. Young children and elderly patrons were particularly **vulnerable** to the toxic fumes. Fortunately, brave firefighters arrived within minutes to end the **terror** and contain the blaze." },
+          { "level": "C1", "text": "Public health authorities were immensely **relieved** when independent clinical trials confirmed the efficacy of the emergency vaccine. Prior to this critical breakthrough, socioeconomically disadvantaged communities remained severely **vulnerable** to the aggressive pathogen. The lethal contagion had struck absolute **terror** into urban populations worldwide. To prevent uncontrollable financial **panic**, global central banks coordinated substantial monetary interventions. Although persistent supply disruptions repeatedly **threatened** the logistical rollout, international collaboration successfully curtailed the crisis." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["declined", "sentimental", "suspense", "regret", "reminded", "revealed", "revenge", "terror", "tolerant", "upset", "vexed", "threatened", "relieved", "vulnerable", "panic"],
+        "stories": [
+          { "level": "C2", "text": "When an extremist syndicate unleashed an orchestrated campaign of **terror** across the capital, civil unrest **threatened** to destabilize the fragile democracy. Wild rumors sparked acute financial **panic**, leaving critical civic institutions dangerously **vulnerable** to collapse. The chief prosecutor was visibly **upset** and increasingly **vexed** by internal corruption within law enforcement agencies. Though factions urged him to execute swift **revenge** against his political adversaries, he firmly **declined** to exceed legal boundaries. He was constantly **reminded** of his solemn constitutional oath, aware that he would bitterly **regret** compromising democratic principles in the face of chaos. An investigative journalist soon **revealed** hidden financial ledgers, holding the entire populace in breathless **suspense** for days. Dismissing **sentimental** appeals for clemency while remaining remarkably **tolerant** of peaceful public dissent, the judicial system prosecuted the conspirators with impeccable integrity. When lawful order was finally secured without violence, the entire nation was profoundly **relieved**." }
+        ]
+      }
+    },
     "test25": {}
   },
   "wordDetails": {
@@ -290,7 +324,23 @@
       "beloved": { "pos": "adj.", "translation": "受喜愛的；心愛的", "definition": "Loved very much by someone.", "example": "These deep purple flowers are beloved by the artist. He paints them often.", "example_tw": "這些深紫色的花朵深受這位藝術家喜愛。他經常畫它們。" },
       "morale": { "pos": "n.", "translation": "士氣；鬥志", "definition": "The amount of confidence and enthusiasm that a group has.", "example": "Trapped in the flooded cave, the boys kept up their morale by praying together.", "example_tw": "被困在淹水的洞穴中，男孩們透過一起祈禱來保持士氣。" }
     },
-    "test24": {},
+    "test24": {
+      "declined": { "pos": "v.", "translation": "婉拒；謝絕", "definition": "To politely refuse to accept an offer or invitation.", "example": "It's a pity that he declined our invitation. His refusal made us feel disappointed.", "example_tw": "很可惜他謝絕了我們的邀請。他的拒絕讓我們感到失望。" },
+      "sentimental": { "pos": "adj.", "translation": "多愁善感的；感傷的", "definition": "Producing or showing feelings of sadness, tenderness, or nostalgia, sometimes in an exaggerated way.", "example": "She likes to read sentimental love stories. But I think they are a bit silly.", "example_tw": "她喜歡讀感傷的愛情故事。但我認為那些故事有點傻。" },
+      "suspense": { "pos": "n.", "translation": "懸念；焦慮懸疑", "definition": "A feeling of excitement or anxiety while waiting for something uncertain to happen.", "example": "The children waited in suspense to hear the end of the story. They felt excited and curious.", "example_tw": "孩子們懷著忐忑懸疑的心情等待聽故事的結局。他們感到興奮又好奇。" },
+      "regret": { "pos": "v.", "translation": "後悔；懊悔", "definition": "To feel sad, repentant, or disappointed over something that has been done.", "example": "It was a stupid thing to do and I bitterly regret it. I shouldn't have done it.", "example_tw": "那是件愚蠢的事，我深感懊悔。我當初真不該那麼做的。" },
+      "reminded": { "pos": "v.", "translation": "提醒", "definition": "To make someone remember something they must do or had forgotten.", "example": "The girls had to be constantly reminded about their chores. They often forgot to do them.", "example_tw": "女孩們必須常常被提醒要做家事。她們經常忘記去做。" },
+      "revealed": { "pos": "v.", "translation": "展現；顯露", "definition": "To show or make visible something that was previously hidden or unknown.", "example": "My music teacher revealed herself to be a talented interpreter of classical music.", "example_tw": "我的音樂老師展現出自己是一位才華洋溢的古典音樂詮釋者。" },
+      "revenge": { "pos": "n.", "translation": "報復；復仇", "definition": "Deliberate punishment or injury inflicted in return for what one has suffered.", "example": "Poseidon decided to take revenge on Odysseus by making his journey home challenging after the sea god found out his son had been blinded by Odysseus.", "example_tw": "在海神波賽頓得知兒子被奧德修斯弄瞎後，決定藉由讓奧德修斯的歸途充滿險阻來對他展開報復。" },
+      "terror": { "pos": "n.", "translation": "令人恐懼的人事物；恐怖", "definition": "Extreme fear, or a person or thing that causes extreme fear.", "example": "The criminal was the terror of the neighborhood. Everyone was afraid of him.", "example_tw": "那個罪犯是整個社區的噩夢。每個人都害怕他。" },
+      "tolerant": { "pos": "adj.", "translation": "包容的；寬容的", "definition": "Willing to accept behavior, beliefs, or choices that are different from one's own.", "example": "Luckily, her parents were tolerant of her choice of major. They allowed her to major in music.", "example_tw": "幸運的是，她的父母對她主修的選擇很包容。他們允許她主修音樂。" },
+      "upset": { "pos": "adj.", "translation": "心煩的；生氣難過的", "definition": "Unhappy, angry, or worried about something unpleasant that has happened.", "example": "She was really upset about the way her father treated her. We could tell that she was very angry.", "example_tw": "她對父親對待她的方式感到非常生氣難過。我們看得出她非常憤怒。" },
+      "vexed": { "pos": "adj.", "translation": "惱火的；氣惱的", "definition": "Annoyed, frustrated, or worried.", "example": "I'm vexed at the disturbance. It really annoys me.", "example_tw": "我對這場干擾感到很惱火。這真讓我煩躁。" },
+      "threatened": { "pos": "v.", "translation": "威脅；恐嚇", "definition": "To state an intention to cause damage, harm, or other unpleasant consequences to someone.", "example": "The terrorists threatened to blow up the building if they couldn't get what they demanded.", "example_tw": "恐怖分子威脅如果得不到他們所要求的，就要炸毀大樓。" },
+      "relieved": { "pos": "adj.", "translation": "寬慰的；放心的", "definition": "Feeling relaxed and happy because something difficult or unpleasant has not happened or has ended.", "example": "The president was relieved to hear that the hostages had come back safe and sound.", "example_tw": "聽到人質安然無恙地歸來，總統感到十分寬慰。" },
+      "vulnerable": { "pos": "adj.", "translation": "脆弱的；易受傷的", "definition": "Weak and easily hurt physically or emotionally.", "example": "That sad event left him feeling vulnerable and depressed.", "example_tw": "那件令人傷心的事件讓他感到脆弱且沮喪。" },
+      "panic": { "pos": "n.", "translation": "恐慌；驚慌", "definition": "A sudden overwhelming feeling of terror or anxiety that often leads to chaotic action.", "example": "Rumors of an imminent earthquake started a panic. People became fearful that their houses would collapse.", "example_tw": "即將發生地震的謠言引發了一場恐慌。人們開始害怕他們的房屋會倒塌。" }
+    },
     "test25": {}
   }
 }
