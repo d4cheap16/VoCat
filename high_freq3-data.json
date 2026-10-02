@@ -236,7 +236,41 @@
         ]
       }
     },
-    "test25": {}
+    "test25": {
+      "groupA": {
+        "words": ["expedite", "explicit", "enormous", "tremendously", "invariably"],
+        "stories": [
+          { "level": "A2", "text": "Our town has grown **tremendously** over the past few years. The teacher gave us **explicit** rules so everyone understood the class game. We saw an **enormous** tree in the center of the big park. My little brother **invariably** asks for cold ice cream after dinner. We had to **expedite** our departure to catch the last bus home on time." },
+          { "level": "B1", "text": "Whenever our class starts a new science project, someone **invariably** forgets the deadline. Completing the final model required an **enormous** amount of teamwork and patience. The team leader asked all members to help **expedite** the construction process. Working closely together improved our confidence **tremendously**. Finally, the teacher provided **explicit** steps on the board so our presentation would go smoothly." },
+          { "level": "B2", "text": "The laboratory supervisor issued **explicit** safety instructions before admitting research fellows to the facility. To secure government funding before the quarter ended, the institution took steps to **expedite** clinical trials. Utilizing automated analytical software benefited the research staff **tremendously**, cutting processing time in half. Despite handling an **enormous** volume of genetic data, the scientists maintained remarkable precision. Consistent adherence to rigorous scientific standards **invariably** prevents procedural errors and guarantees credible outcomes." },
+          { "level": "C1", "text": "Administrative reformers sought to **expedite** statutory review procedures for clean energy initiatives by dismantling redundant bureaucratic hurdles. This regulatory streamlining bolstered investor confidence **tremendously**, catalyzing sustainable municipal infrastructure nationwide. Nevertheless, intricate jurisdictional conflicts **invariably** arise during systemic legislative overhauls. The regulatory commission therefore drafted **explicit** mandates governing corporate transparency and environmental compliance. Through these stringent oversight measures, authorities successfully curtailed an **enormous** volume of industrial pollution." }
+        ]
+      },
+      "groupB": {
+        "words": ["excessive", "intensive", "medium", "incredibly", "virtually"],
+        "stories": [
+          { "level": "A2", "text": "Yesterday was an **incredibly** hot summer day. I bought a **medium** cup of cold juice at the shop. The soccer team had **intensive** practice for two hours in the morning. The coach told us that **excessive** sugar is bad for our bodies. By late afternoon, the playground was **virtually** empty because everyone went home." },
+          { "level": "B1", "text": "When buying a new winter jacket, choosing a **medium** size usually fits me best. Before the championship game, our coach organized an **intensive** training camp for all players. After days of heavy practice, the players were **virtually** exhausted and could barely walk. However, our team captain remained **incredibly** cheerful and motivated everyone. The coach reminded us that **excessive** stress will only hurt our performance on the field." },
+          { "level": "B2", "text": "Due to strict environmental regulations, coal power plants have **virtually** vanished from the metropolitan area. The regional government concluded that **excessive** carbon emissions posed an immediate hazard to public health. Developing renewable solar infrastructure was an **incredibly** complex engineering endeavor. After several months of **intensive** research, scientists designed solar panels of **medium** thickness that maximized energy absorption." },
+          { "level": "C1", "text": "Following months of **intensive** diplomatic negotiations, international trade representatives finalized a landmark multilateral agreement. The treaty resolved tariff disputes that had **virtually** paralyzed the cross-border logistics industry for over a decade. Economic analysts warned that **excessive** protectionist levies would inevitably stifle innovation across emerging global markets. To mitigate compliance disparities, regulators introduced a transitional compliance framework tailored specifically for commercial firms of **medium** size. The collaborative initiative proved **incredibly** resilient against fluctuating geopolitical tensions, ensuring long-term fiscal stability." }
+        ]
+      },
+      "groupC": {
+        "words": ["eternal", "violent", "incredulous", "mainly", "entirely"],
+        "stories": [
+          { "level": "A2", "text": "Last night, a **violent** storm hit our small town. The electric lights went out, so the house was **entirely** dark. We listened **mainly** to the radio to get the latest news. My grandmother is an **eternal** optimist and smiled, telling us that everything would be fine. When the radio announced the storm was over, my little brother had an **incredulous** look on his face." },
+          { "level": "B1", "text": "Peter had an **incredulous** expression when his teacher said there would be no homework today. The afternoon class focused **mainly** on science experiments and reading books. Later that day, a **violent** wind blew open the classroom windows. Fortunately, the students were **entirely** safe inside the sturdy school building. The teacher reminded them that nature's power is an **eternal** wonder that we should always respect." },
+          { "level": "B2", "text": "The expedition members were chosen **mainly** for their mountaineering experience and physical endurance. They were deeply fascinated by the **eternal** snow covering the towering peaks. When local guides warned them of a sudden blizzard, some novices cast **incredulous** glances at the clear sky. Hours later, **violent** gusts forced the entire team to take refuge in an emergency shelter. Thanks to their professional training, they remained **entirely** unhurt during the freezing night." },
+          { "level": "C1", "text": "The research committee was **entirely** convinced by the empirical findings presented at the symposium. Initially, several conservative scholars had expressed **incredulous** skepticism toward the proposed climate model. The presenter argued that humanity must transcend its **eternal** cycle of environmental apathy before ecological tipping points are reached. The impending crisis stems **mainly** from decades of unrestrained industrial expansion. Without immediate systemic reforms, coastal populations will face increasingly **violent** meteorological catastrophes in the coming decades." }
+        ]
+      },
+      "groupBonus": {
+        "words": ["expedite", "explicit", "enormous", "tremendously", "invariably", "excessive", "intensive", "medium", "incredibly", "virtually", "eternal", "violent", "incredulous", "mainly", "entirely"],
+        "stories": [
+          { "level": "C2", "text": "When a **violent** tectonic rupture triggered a catastrophic volcanic eruption, the island's fragile biosphere was placed in **enormous** peril. Civil protection agencies were tasked to **expedite** emergency evacuations, relying **mainly** on maritime corridors as air travel became **virtually** impossible through the dense ash plumes. The crisis management director issued **explicit** operational directives, knowing that **excessive** hesitation **invariably** results in preventable casualties. After weeks of **intensive** subterranean monitoring, seismologists who were once **incredulous** of such catastrophic projections had to concede that their previous risk assessments were **entirely** inadequate. Navigating vessels of **medium** tonnage through the turbulent waters proved **incredibly** perilous, yet the rescue flotilla persevered. Their decisive actions benefited the displaced populace **tremendously**, transforming what seemed like an **eternal** nightmare into a triumphant testament to human resolve." }
+        ]
+      }
+    }
   },
   "wordDetails": {
     "test19": {
@@ -341,6 +375,22 @@
       "vulnerable": { "pos": "adj.", "translation": "脆弱的；易受傷的", "definition": "Weak and easily hurt physically or emotionally.", "example": "That sad event left him feeling vulnerable and depressed.", "example_tw": "那件令人傷心的事件讓他感到脆弱且沮喪。" },
       "panic": { "pos": "n.", "translation": "恐慌；驚慌", "definition": "A sudden overwhelming feeling of terror or anxiety that often leads to chaotic action.", "example": "Rumors of an imminent earthquake started a panic. People became fearful that their houses would collapse.", "example_tw": "即將發生地震的謠言引發了一場恐慌。人們開始害怕他們的房屋會倒塌。" }
     },
-    "test25": {}
+    "test25": {
+      "explicit": { "pos": "adj.", "translation": "清楚明確的；詳述的", "definition": "Stated clearly and in detail, leaving no room for confusion or doubt.", "example": "The doctor gave me explicit instructions on when and how to take the medicine.", "example_tw": "醫生就何時及如何服藥給了我明確的指示。" },
+      "tremendously": { "pos": "adv.", "translation": "極大地；非常地", "definition": "To a very great extent or degree; extremely.", "example": "The town has changed tremendously during recent years. It has become prosperous.", "example_tw": "這座城鎮近年來改變極大。它已經變得繁榮。" },
+      "excessive": { "pos": "adj.", "translation": "過度的；過量的", "definition": "More than is necessary, normal, or desirable; immoderate.", "example": "John's wife left him because of his excessive drinking. He was drinking every day.", "example_tw": "約翰的妻子因為他過度飲酒而離開了他。他每天都在喝酒。" },
+      "eternal": { "pos": "adj.", "translation": "永遠的；永恆的", "definition": "Continuing forever or indefinitely; constant and unchanging.", "example": "Lisa is an eternal optimist and always looks on the bright side of life.", "example_tw": "麗莎是個永遠的樂觀主義者，總是看生活光明的一面。" },
+      "intensive": { "pos": "adj.", "translation": "密集的；強化的", "definition": "Involving concentrated effort, action, or attention in a short period of time.", "example": "We made intensive efforts to resolve the dispute. We have done whatever we could to come up with a solution.", "example_tw": "我們付出了密集的努力來解決紛爭。我們已經盡一切可能想出解決方案。" },
+      "incredibly": { "pos": "adv.", "translation": "難以置信地；極其", "definition": "Extremely; to a degree that is difficult or impossible to believe.", "example": "I'm sorry I didn't phone. I've been incredibly busy this week.", "example_tw": "很抱歉我沒有打電話。我這週真是難以置信地忙碌。" },
+      "invariably": { "pos": "adv.", "translation": "總是；始終如一地", "definition": "In every case or on every occasion; always and without change.", "example": "It invariably rains when I go there. I never go there without taking an umbrella with me.", "example_tw": "每當我去那裡時總是下雨。我絕不會不帶傘去那裡。" },
+      "medium": { "pos": "adj.", "translation": "中等的；適中的", "definition": "Intermediate between large and small in size, degree, or quantity.", "example": "What size do you want—large, medium or small?", "example_tw": "你想要什麼尺寸——大號、中號還是小號？" },
+      "violent": { "pos": "adj.", "translation": "狂暴的；劇烈的", "definition": "Marked by extreme or intense force, fury, or lack of emotional control.", "example": "She was in a(n) violent temper and began throwing things about.", "example_tw": "她勃然大怒，開始亂摔東西。" },
+      "virtually": { "pos": "adv.", "translation": "幾乎；實質上", "definition": "Nearly; almost entirely.", "example": "Many species of wild animals have virtually disappeared from the earth.", "example_tw": "許多野生動物物種幾乎已經從地球上消失了。" },
+      "incredulous": { "pos": "adj.", "translation": "懷疑的；難以置信的", "definition": "Unwilling or unable to believe something; showing disbelief.", "example": "There's a(n) incredulous look on his face. It seems that he's unable to believe what he sees.", "example_tw": "他臉上帶著難以置信的表情。他似乎無法相信自己所看到的。" },
+      "expedite": { "pos": "v.", "translation": "加速；加快", "definition": "To make an action or process happen sooner or be accomplished more quickly.", "example": "The government is trying to expedite the procedure for the release of the prisoners.", "example_tw": "政府正試圖加快釋放囚犯的程序。" },
+      "enormous": { "pos": "adj.", "translation": "極大的；巨大的", "definition": "Very large in size, quantity, or degree; immense.", "example": "Jack takes enormous interest in science and technology and hopes to become a scientist in the future.", "example_tw": "傑克對科學和技術抱有極大的興趣，並希望未來能成為一名科學家。" },
+      "mainly": { "pos": "adv.", "translation": "主要地；大部分地", "definition": "More than anything else; for the most part.", "example": "The employees of our company come mainly from New Taipei City.", "example_tw": "我們公司的員工主要來自新北市。" },
+      "entirely": { "pos": "adv.", "translation": "完全地；徹底地", "definition": "Completely; totally and without reservation.", "example": "With new equipment and team members, the rescue team was entirely prepared to save the trapped survivors in the flattened apartment building.", "example_tw": "有了新設備和隊員，搜救隊已完全準備好去營救倒塌公寓大樓中受困的生還者。" }
+    }
   }
 }
